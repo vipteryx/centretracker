@@ -1,5 +1,5 @@
 import axios from "axios";
-import cheerio from "cheerio";
+import { load } from "cheerio";
 import fs from "fs";
 
 const URL = "https://vancouver.ca/parks-recreation-culture/britannia-pool.aspx";
@@ -46,7 +46,7 @@ async function scrapeBritannia() {
       },
     });
 
-    const $ = cheerio.load(html);
+    const $ = load(html);
 
     const fitnessTable = $("h4:contains('Fitness centre hours')").next("table");
     const poolTable = $("h4:contains('Pool hours and schedule')").next("table");
