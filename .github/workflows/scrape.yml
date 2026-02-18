@@ -1,9 +1,12 @@
-name: Scrape Britannia Hours
+name: Scrape Britannia Hours (compat)
 
 on:
   schedule:
     - cron: "0 2,14 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   scrape:
@@ -23,10 +26,11 @@ jobs:
       - name: Install dependencies
         run: |
           npm init -y
-          npm install axios cheerio
+          npm install playwright cheerio
+          npx playwright install chromium
 
-      - name: Run scraper
-        run: node scrape-britannia.js
+      - name: Run Playwright scraper
+        run: node scrape-britannia-playwright.js
 
       - name: Commit updated JSON
         run: |
