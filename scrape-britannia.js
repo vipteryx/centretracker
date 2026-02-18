@@ -5,7 +5,13 @@ const fs = require("fs");
 const URL = "https://vancouver.ca/parks-recreation-culture/britannia-pool.aspx";
 
 async function scrape() {
-  const { data: html } = await axios.get(URL);
+  const { data: html } = await axios.get(URL, {
+  headers: {
+    "User-Agent":
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+  }
+});
+
   const $ = cheerio.load(html);
 
   const result = {
