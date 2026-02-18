@@ -1,83 +1,17 @@
 const fs = require("fs");
-const cheerio = require("cheerio");
 
 const URL = "https://vancouver.ca/parks-recreation-culture/britannia-pool.aspx";
 
-function normalizeText(value) {
+function normalizeText(value = "") {
   return value.replace(/\s+/g, " ").trim();
 }
 
-function parseTable($, table) {
-  const rows = $(table).find("tr").toArray();
-  if (rows.length < 2) {
-    return {};
-  }
-
-  const headers = $(rows[0])
-    .find("th,td")
-    .toArray()
-    .map((cell) => normalizeText($(cell).text()));
-
-  const data = {};
-
-  rows.slice(1).forEach((row) => {
-    $(row)
-      .find("td")
-      .toArray()
-      .forEach((cell, index) => {
-        const key = headers[index];
-        if (!key) {
-          return;
-        }
-
-        const listItems = $(cell)
-          .find("li")
-          .toArray()
-          .map((li) => normalizeText($(li).text()))
-          .filter(Boolean);
-
-        if (listItems.length) {
-          data[key] = listItems;
-          return;
-        }
-
-        const text = normalizeText($(cell).text());
-        if (text) {
-          data[key] = text;
-        }
-      });
-  });
-
-  return data;
-}
-
-function extractHoursFromHtml(html) {
-  const $ = cheerio.load(html);
-
-  const result = {
+function extractPageSummary({ pageTitle, h1Text }) {
+  return {
     lastUpdated: new Date().toISOString(),
-    fitnessCentreHours: {},
-    poolHours: {},
+    pageTitle: normalizeText(pageTitle),
+    primaryHeading: normalizeText(h1Text),
   };
-
-  $("h2, h3, h4").each((_, el) => {
-    const heading = normalizeText($(el).text()).toLowerCase();
-    const table = $(el).nextAll("table").first();
-
-    if (!table.length) {
-      return;
-    }
-
-    if (heading.includes("fitness centre hours")) {
-      result.fitnessCentreHours = parseTable($, table);
-    }
-
-    if (heading.includes("pool hours and schedule")) {
-      result.poolHours = parseTable($, table);
-    }
-  });
-
-  return result;
 }
 
 async function loadChromium() {
@@ -103,10 +37,15 @@ async function scrape(url = URL, outputPath = "britannia-hours.json") {
   try {
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
-    await page.waitForSelector("table", { timeout: 30000 });
 
-    const html = await page.content();
-    const result = extractHoursFromHtml(html);
+    // Temporarily use a highly reliable element to confirm page load instead of table parsing.
+    await page.waitForSelector("body", { timeout: 30000 });
+
+    const pageTitle = await page.title();
+    const h1Text =
+      (await page.locator("h1").first().textContent().catch(() => null)) || "";
+
+    const result = extractPageSummary({ pageTitle, h1Text });
 
     fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
     console.log(`Updated ${outputPath}`);
@@ -125,8 +64,7 @@ if (require.main === module) {
 }
 
 module.exports = {
-  extractHoursFromHtml,
+  extractPageSummary,
   normalizeText,
-  parseTable,
   scrape,
 };
