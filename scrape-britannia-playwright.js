@@ -1,6 +1,6 @@
-import { chromium } from "playwright";
-import fs from "fs";
-import cheerio from "cheerio";
+const { chromium } = require("playwright");
+const fs = require("fs");
+const cheerio = require("cheerio");
 
 const URL = "https://vancouver.ca/parks-recreation-culture/britannia-pool.aspx";
 
