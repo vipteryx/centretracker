@@ -15,6 +15,22 @@ function extractPageSummary({ pageTitle, h1Text }) {
   };
 }
 
+function assertScrapeLooksValid({ pageTitle, h1Text }) {
+  const title = normalizeText(pageTitle).toLowerCase();
+  const heading = normalizeText(h1Text).toLowerCase();
+
+  if (!heading) {
+    throw new Error("No <h1> heading found on the page.");
+  }
+
+  const blocked = BLOCKLIST.some((item) => title.includes(item) || heading.includes(item));
+  if (blocked) {
+    throw new Error(
+      `Scrape appears blocked (title: "${normalizeText(pageTitle)}", h1: "${normalizeText(h1Text)}").`,
+    );
+  }
+}
+
 async function loadChromium() {
   try {
     return require("playwright").chromium;
@@ -42,8 +58,9 @@ async function scrape(url = URL, outputPath = DEFAULT_OUTPUT_PATH) {
     await page.waitForSelector("body", { timeout: 30000 });
 
     const pageTitle = await page.title();
-    const h1Text =
-      (await page.locator("h1").first().textContent().catch(() => null)) || "";
+    const h1Text = (await page.locator("h1").first().textContent()) || "";
+
+    assertScrapeLooksValid({ pageTitle, h1Text });
 
     const result = extractPageSummary({ pageTitle, h1Text });
 
