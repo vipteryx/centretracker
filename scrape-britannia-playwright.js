@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 const URL = "https://www.renfrewcc.com/facilities/swimming-pool/";
-const DEFAULT_OUTPUT_PATH = "renfrew-pool.json";
+const DEFAULT_OUTPUT_PATH = "britannia-hours.json";
 const BLOCKLIST = ["attention required", "sorry, you have been blocked", "cloudflare"];
 
 function normalizeText(value = "") {
