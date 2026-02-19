@@ -62,11 +62,6 @@ async function scrape(url = URL, outputPath = DEFAULT_OUTPUT_PATH) {
     const hasHeading = (await headingLocator.count()) > 0;
     const h1Text = hasHeading ? (await headingLocator.textContent()) || "" : "";
 
-    await page.waitForSelector("body", { timeout: 30000 });
-
-    const pageTitle = await page.title();
-    const h1Text = (await page.locator("h1").first().textContent()) || "";
-
     assertScrapeLooksValid({ pageTitle, h1Text });
 
     const result = extractPageSummary({ pageTitle, h1Text });
@@ -92,8 +87,6 @@ module.exports = {
   DEFAULT_OUTPUT_PATH,
   URL,
   assertScrapeLooksValid,
-  DEFAULT_OUTPUT_PATH,
-  URL,
   extractPageSummary,
   normalizeText,
   scrape,
