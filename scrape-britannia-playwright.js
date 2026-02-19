@@ -1,6 +1,7 @@
 const fs = require("fs");
 
-const URL = "https://vancouver.ca/parks-recreation-culture/britannia-pool.aspx";
+const URL = "https://www.renfrewcc.com/facilities/swimming-pool/";
+const DEFAULT_OUTPUT_PATH = "renfrew-pool.json";
 
 function normalizeText(value = "") {
   return value.replace(/\s+/g, " ").trim();
@@ -30,7 +31,7 @@ async function loadChromium() {
   }
 }
 
-async function scrape(url = URL, outputPath = "britannia-hours.json") {
+async function scrape(url = URL, outputPath = DEFAULT_OUTPUT_PATH) {
   const chromium = await loadChromium();
   const browser = await chromium.launch({ headless: true });
 
@@ -38,7 +39,6 @@ async function scrape(url = URL, outputPath = "britannia-hours.json") {
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
 
-    // Temporarily use a highly reliable element to confirm page load instead of table parsing.
     await page.waitForSelector("body", { timeout: 30000 });
 
     const pageTitle = await page.title();
@@ -64,6 +64,8 @@ if (require.main === module) {
 }
 
 module.exports = {
+  DEFAULT_OUTPUT_PATH,
+  URL,
   extractPageSummary,
   normalizeText,
   scrape,
