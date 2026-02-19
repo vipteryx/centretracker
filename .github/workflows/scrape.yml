@@ -1,4 +1,4 @@
-name: Scrape Britannia Hours (compat)
+name: Scrape Renfrew Pool Heading
 
 on:
   schedule:
@@ -10,8 +10,6 @@ permissions:
 
 jobs:
   scrape:
-    permissions:
-      contents: write
     runs-on: ubuntu-latest
 
     steps:
@@ -23,19 +21,19 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install dependencies
+      - name: Install scraper dependency
         run: |
           npm init -y
-          npm install playwright cheerio
-          npx playwright install chromium
+          npm install playwright
+          npx playwright install --with-deps chromium
 
-      - name: Run Playwright scraper
+      - name: Run scraper
         run: node scrape-britannia-playwright.js
 
       - name: Commit updated JSON
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add britannia-hours.json
-          git commit -m "Update hours" || echo "No changes"
+          git add renfrew-pool.json
+          git commit -m "Update Renfrew pool heading" || echo "No changes"
           git push
