@@ -55,7 +55,11 @@ async function scrape(url = URL, outputPath = DEFAULT_OUTPUT_PATH) {
   try {
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
-    await page.waitForSelector("h1", { timeout: 30000 });
+    try {
+      await page.waitForSelector("h1", { timeout: 30000 });
+    } catch {
+      // h1 may be absent (e.g. Cloudflare JS challenge); assertScrapeLooksValid will handle it
+    }
 
     const pageTitle = await page.title();
     const headingLocator = page.locator("h1").first();
