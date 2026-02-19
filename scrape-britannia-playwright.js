@@ -2,6 +2,7 @@ const fs = require("fs");
 
 const URL = "https://www.renfrewcc.com/facilities/swimming-pool/";
 const DEFAULT_OUTPUT_PATH = "renfrew-pool.json";
+const BLOCKLIST = ["attention required", "sorry, you have been blocked", "cloudflare"];
 
 function normalizeText(value = "") {
   return value.replace(/\s+/g, " ").trim();
@@ -54,6 +55,12 @@ async function scrape(url = URL, outputPath = DEFAULT_OUTPUT_PATH) {
   try {
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
+    await page.waitForSelector("body", { timeout: 30000 });
+
+    const pageTitle = await page.title();
+    const headingLocator = page.locator("h1").first();
+    const hasHeading = (await headingLocator.count()) > 0;
+    const h1Text = hasHeading ? (await headingLocator.textContent()) || "" : "";
 
     await page.waitForSelector("body", { timeout: 30000 });
 
@@ -81,6 +88,10 @@ if (require.main === module) {
 }
 
 module.exports = {
+  BLOCKLIST,
+  DEFAULT_OUTPUT_PATH,
+  URL,
+  assertScrapeLooksValid,
   DEFAULT_OUTPUT_PATH,
   URL,
   extractPageSummary,
