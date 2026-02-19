@@ -55,7 +55,7 @@ async function scrape(url = URL, outputPath = DEFAULT_OUTPUT_PATH) {
   try {
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
-    await page.waitForSelector("body", { timeout: 30000 });
+    await page.waitForSelector("h1", { timeout: 30000 });
 
     const pageTitle = await page.title();
     const headingLocator = page.locator("h1").first();
