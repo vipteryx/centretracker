@@ -32,10 +32,13 @@ jobs:
       - name: Run Britannia Centre pool scraper
         run: node scrape-britanniacentre-pool.js
 
+      - name: Run Vancouver Aquatic Centre scraper
+        run: node scrape-vancouver-aquatic-centre.js
+
       - name: Commit updated JSON
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add britannia-hours.json britanniacentre-pool-hours.json
+          git add britannia-hours.json britanniacentre-pool-hours.json vancouver-aquatic-centre-hours.json
           git commit -m "Update pool headings" || echo "No changes"
           git push origin HEAD
