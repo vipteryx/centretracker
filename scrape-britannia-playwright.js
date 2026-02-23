@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const URL = "https://www.renfrewcc.com/facilities/swimming-pool/";
+const URL = "https://example.com/";
 const DEFAULT_OUTPUT_PATH = "britannia-hours.json";
 const BLOCKLIST = ["attention required", "sorry, you have been blocked", "cloudflare"];
 
