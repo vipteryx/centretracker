@@ -110,6 +110,16 @@ When adding tests:
 4. `node scrape-britannia-playwright.js`
 5. `git add britannia-hours.json && git commit ... && git push` (skipped if no changes)
 
+## README Maintenance
+
+**Every time a change is made to this repository, `README.md` must be updated:**
+
+1. Get the current UTC timestamp via `date -u '+%Y-%m-%d %H:%M:%S'`.
+2. Append a new row to the `## Changelog` table in `README.md` with that timestamp and a short description of the change.
+3. Include `README.md` in the same commit as the change.
+
+This applies to all sessions, including new ones. Do not skip this step.
+
 ## Conventions and Constraints
 
 - **Single file:** All logic stays in `scrape-britannia-playwright.js` unless there is a strong reason to split.
