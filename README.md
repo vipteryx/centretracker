@@ -49,3 +49,4 @@ npm start
 | 2026-02-27 09:22:45  | Initial README created                              |
 | 2026-02-27 09:22:45  | Switched target URL to Renfrew ActiveCommunities calendar; updated wait strategy to `networkidle` for SPA rendering |
 | 2026-02-27 09:23:55  | Added README maintenance rule to CLAUDE.md to persist across sessions |
+| 2026-02-27 09:42:54  | Removed scrapers for britanniacentre.org/pool/ and vancouver.ca/parks-recreation-culture/vancouver-aquatic-centre.aspx; kept only anc.ca.apm.activecommunities.com scraper; deleted scrape-britanniacentre-pool.js, scrape-vancouver-aquatic-centre.js, britanniacentre-pool-hours.json |
