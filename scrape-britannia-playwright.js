@@ -5,8 +5,6 @@ const URL =
 const DEFAULT_OUTPUT_PATH = "britannia-hours.json";
 const DEFAULT_POOL_TIMES_PATH = "pool-times.json";
 const BLOCKLIST = ["attention required", "sorry, you have been blocked", "cloudflare"];
-// URL fragments that suggest a calendar/activity data API response worth capturing
-const CALENDAR_API_URL_FRAGMENTS = ["/rest/", "calendar", "dropin", "activit"];
 
 function normalizeText(value = "") {
   return value.replace(/\s+/g, " ").trim();
@@ -73,32 +71,37 @@ function buildPoolTimesResult(days, weekRange) {
   };
 }
 
-// Attempts to find an array of session-like objects in a captured API response body.
-// Returns the array on success, or null if the shape doesn't match.
+// Recursively searches obj for an array of objects that look like calendar sessions.
+// Checks for any combination of name-like and time/date-like keys. Depth-limited.
+function findSessionArray(obj, depth) {
+  if (depth === undefined) depth = 0;
+  if (depth > 6 || obj === null || obj === undefined) return null;
+  if (typeof obj !== "object") return null;
+
+  if (Array.isArray(obj)) {
+    if (obj.length > 0 && typeof obj[0] === "object" && obj[0] !== null) {
+      const keys = Object.keys(obj[0]).map((k) => k.toLowerCase());
+      const hasTime = keys.some((k) => /time|date|start|end|when/.test(k));
+      const hasName = keys.some((k) => /name|title|desc|activ|event/.test(k));
+      if (hasTime && hasName) return obj;
+    }
+    for (const item of obj) {
+      const found = findSessionArray(item, depth + 1);
+      if (found) return found;
+    }
+    return null;
+  }
+
+  for (const val of Object.values(obj)) {
+    const found = findSessionArray(val, depth + 1);
+    if (found) return found;
+  }
+  return null;
+}
+
+// Attempts to find an array of session-like objects anywhere in a captured API response body.
 function parseApiResponseForSessions(jsonBody) {
-  if (!jsonBody || typeof jsonBody !== "object") return null;
-  const candidates = [
-    jsonBody.body && jsonBody.body.activities,
-    jsonBody.data,
-    jsonBody.activities,
-    jsonBody.calendar_items,
-    jsonBody.result_set && jsonBody.result_set.body && jsonBody.result_set.body.activities,
-    jsonBody.items,
-    Array.isArray(jsonBody) ? jsonBody : null,
-  ];
-  const arr = candidates.find((c) => Array.isArray(c) && c.length > 0);
-  if (!arr) return null;
-  const first = arr[0];
-  if (typeof first !== "object" || first === null) return null;
-  const keys = Object.keys(first).map((k) => k.toLowerCase());
-  const hasName = keys.some((k) =>
-    ["name", "activityname", "activity_name", "title", "description"].includes(k)
-  );
-  const hasTime = keys.some((k) =>
-    ["starttime", "start_time", "startdate", "start_date", "time", "date",
-     "session_date", "activity_date"].includes(k)
-  );
-  return hasName && hasTime ? arr : null;
+  return findSessionArray(jsonBody, 0);
 }
 
 // Formats an ISO datetime string or raw time string to "10:00am" style.
@@ -221,28 +224,32 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
     const page = await browser.newPage();
 
     // Register BEFORE page.goto() so no responses are missed.
+    // Capture ALL JSON responses (no URL filter) — content-type check is broad
+    // so we don't miss endpoints that return text/json or application/x-json.
     const capturedJsonPromises = [];
     page.on("response", (response) => {
-      const responseUrl = response.url();
       const contentType = (response.headers()["content-type"] || "").toLowerCase();
-      const isJson = contentType.includes("application/json");
-      const isRelevant = CALENDAR_API_URL_FRAGMENTS.some((f) =>
-        responseUrl.toLowerCase().includes(f)
+      if (!contentType.includes("json")) return;
+      const responseUrl = response.url();
+      capturedJsonPromises.push(
+        response
+          .json()
+          .then((body) => ({ url: responseUrl, body }))
+          .catch(() => null)
       );
-      if (isJson && isRelevant) {
-        capturedJsonPromises.push(
-          response
-            .json()
-            .then((body) => ({ url: responseUrl, body }))
-            .catch(() => null)
-        );
-      }
     });
 
     await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
 
     // Await all captured bodies (some may still be resolving post-networkidle)
     const capturedJsonResponses = (await Promise.all(capturedJsonPromises)).filter(Boolean);
+
+    if (capturedJsonResponses.length > 0) {
+      console.log(`Captured ${capturedJsonResponses.length} JSON response(s):`);
+      capturedJsonResponses.forEach(({ url: u }) => console.log(`  ${u}`));
+    } else {
+      console.log("No JSON responses captured during page load.");
+    }
 
     try {
       await page.waitForSelector("h1", { timeout: 15000 });
@@ -257,32 +264,6 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
 
     assertScrapeLooksValid({ pageTitle, h1Text });
 
-    // Best-effort wait for the calendar grid to appear
-    const CALENDAR_GRID_SELECTORS = [
-      ".an-calendar-view",
-      "[class*='calendar-view']",
-      "[class*='CalendarView']",
-      "[role='grid']",
-      "table.calendar",
-      ".calendar-container",
-      "[class*='weekly-calendar']",
-    ];
-    let calendarVisible = false;
-    for (const sel of CALENDAR_GRID_SELECTORS) {
-      try {
-        await page.waitForSelector(sel, { timeout: 8000 });
-        calendarVisible = true;
-        break;
-      } catch {
-        // Try next selector
-      }
-    }
-    if (!calendarVisible) {
-      console.warn(
-        "Warning: Could not locate a known calendar selector; proceeding with extraction anyway."
-      );
-    }
-
     const referenceYear = new Date().getFullYear();
     let days = [];
 
@@ -296,72 +277,95 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
       }
     }
 
-    // --- Fallback: DOM extraction ---
+    // --- Fallback: text-pattern DOM walk (no class-name dependency) ---
     if (days.length === 0) {
       console.log("No matching API data captured; falling back to DOM extraction.");
+
       const rawDays = await page.evaluate(() => {
-        const DAY_SELECTORS = [
-          ".an-calendar-view__day",
-          "[class*='calendar-day']",
-          "[class*='CalendarDay']",
-          "[class*='week-day']",
-          "[role='gridcell']",
-          "table.calendar tbody tr td",
-        ];
-        const SESSION_SELECTORS = [
-          "[class*='activity']",
-          "[class*='event']",
-          "[class*='session']",
-          ".an-activity",
-          ".drop-in-activity",
-          "[class*='dropin']",
-        ];
-        const FIELD_SELECTORS = {
-          name: "[class*='name'], [class*='title'], [class*='activity-name']",
-          time: "[class*='time'], [class*='hours'], time",
-          location: "[class*='location'], [class*='facility'], [class*='room']",
-          status: "[class*='status'], [class*='availability']",
-        };
+        // Matches "Sun, Feb 23" / "Monday Feb 23" / "Sun Feb 23" etc.
+        const DAY_RE = /^(Sun|Mon|Tue|Wed|Thu|Fri|Sat)[a-z]*[,\s]+[A-Za-z]+\s+\d{1,2}/i;
+        // Matches "10:00am - 12:00pm" / "10:00 AM – 12:00 PM" etc.
+        const TIME_RE = /(\d{1,2}:\d{2}\s*[ap]m)\s*[-\u2013]\s*(\d{1,2}:\d{2}\s*[ap]m)/i;
 
-        function getFieldText(el, selector) {
-          const found = el.querySelector(selector);
-          return found ? found.textContent.trim() : "";
+        function getText(el) {
+          return (el.textContent || "").replace(/\s+/g, " ").trim();
         }
 
-        let dayContainers = [];
-        for (const sel of DAY_SELECTORS) {
-          const found = Array.from(document.querySelectorAll(sel));
-          if (found.length >= 5) {
-            dayContainers = found;
-            break;
-          }
-        }
-        if (dayContainers.length === 0) return [];
+        const allEls = Array.from(document.querySelectorAll("*"));
 
-        return dayContainers.map((dayEl) => {
-          const headerEl = dayEl.querySelector(
-            "[class*='date'], [class*='header'], [class*='heading'], h2, h3, h4, strong"
-          );
-          const rawDate = headerEl ? headerEl.textContent.trim() : "";
+        // Find day-header elements by text alone — no class-name dependency.
+        // Limit to small elements (few children) to avoid matching the whole grid.
+        const dayHeaderEls = allEls.filter((el) => {
+          if (el.children.length > 4) return false;
+          const t = getText(el);
+          return DAY_RE.test(t) && t.length < 60;
+        });
 
-          let sessionEls = [];
-          for (const ssel of SESSION_SELECTORS) {
-            const found = Array.from(dayEl.querySelectorAll(ssel));
-            if (found.length > 0) {
-              sessionEls = found;
+        if (dayHeaderEls.length < 2) return [];
+
+        // Find time-range leaf elements.
+        const timeEls = allEls.filter((el) => {
+          if (el.children.length > 3) return false;
+          const t = getText(el);
+          return TIME_RE.test(t) && t.length < 200;
+        });
+
+        // Pair each time element with the one day-header that shares the same
+        // column container (nearest ancestor that contains exactly one day header).
+        const daySessionsMap = new Map();
+        for (const d of dayHeaderEls) daySessionsMap.set(d, []);
+
+        for (const timeEl of timeEls) {
+          let ancestor = timeEl.parentElement;
+          let assignedDayEl = null;
+          while (ancestor && ancestor !== document.body) {
+            const contained = dayHeaderEls.filter((d) => ancestor.contains(d));
+            if (contained.length === 1) {
+              assignedDayEl = contained[0];
               break;
+            }
+            if (contained.length > 1) break; // too wide — stop
+            ancestor = ancestor.parentElement;
+          }
+          if (!assignedDayEl) continue;
+
+          const timeText = getText(timeEl);
+          const timeMatch = timeText.match(TIME_RE);
+          if (!timeMatch) continue;
+
+          const session = {
+            time: `${timeMatch[1].trim()} - ${timeMatch[2].trim()}`,
+          };
+
+          // Derive activity name from the parent element's text minus the time.
+          const parent = timeEl.parentElement;
+          if (parent) {
+            const nameCandidate = getText(parent)
+              .replace(TIME_RE, "")
+              .replace(/\s+/g, " ")
+              .trim();
+            if (nameCandidate.length > 1 && nameCandidate.length < 120) {
+              session.name = nameCandidate;
+            }
+          }
+          // If parent didn't give us a name, try grandparent.
+          if (!session.name && parent && parent.parentElement) {
+            const nameCandidate = getText(parent.parentElement)
+              .replace(TIME_RE, "")
+              .replace(/\s+/g, " ")
+              .trim();
+            if (nameCandidate.length > 1 && nameCandidate.length < 120) {
+              session.name = nameCandidate;
             }
           }
 
-          const sessions = sessionEls.map((el) => ({
-            name: getFieldText(el, FIELD_SELECTORS.name) || el.textContent.trim(),
-            time: getFieldText(el, FIELD_SELECTORS.time),
-            location: getFieldText(el, FIELD_SELECTORS.location),
-            status: getFieldText(el, FIELD_SELECTORS.status),
-          }));
+          daySessionsMap.get(assignedDayEl).push(session);
+        }
 
-          return { rawDate, sessions };
-        });
+        return Array.from(daySessionsMap.entries()).map(([dayEl, sessions]) => ({
+          rawDate: getText(dayEl),
+          sessions,
+        }));
       });
 
       days = rawDays
@@ -378,14 +382,20 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
             date: isoDate || d.rawDate,
             dayOfWeek,
             sessions: d.sessions.map((s) => {
-              const out = { name: normalizeText(s.name) };
+              const out = {};
+              if (s.name) out.name = normalizeText(s.name);
               if (s.time) out.time = normalizeText(s.time);
-              if (s.location) out.location = normalizeText(s.location);
-              if (s.status) out.status = normalizeText(s.status);
               return out;
             }),
           };
         });
+    }
+
+    // Save rendered HTML for inspection if both paths came up empty.
+    if (days.length === 0) {
+      const debugHtml = await page.content();
+      fs.writeFileSync("debug-page.html", debugHtml);
+      console.warn("Extraction yielded no sessions. Saved rendered HTML to debug-page.html for inspection.");
     }
 
     const sortedDates = days
@@ -416,7 +426,6 @@ if (require.main === module) {
 
 module.exports = {
   BLOCKLIST,
-  CALENDAR_API_URL_FRAGMENTS,
   DEFAULT_OUTPUT_PATH,
   DEFAULT_POOL_TIMES_PATH,
   URL,
@@ -424,6 +433,7 @@ module.exports = {
   buildPoolTimesResult,
   extractPageSummary,
   extractPoolTimes,
+  findSessionArray,
   formatTimeValue,
   groupApiSessionsByDay,
   loadChromium,
