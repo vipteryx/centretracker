@@ -277,116 +277,58 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
       }
     }
 
-    // --- Fallback: text-pattern DOM walk (no class-name dependency) ---
+    // --- Fallback: Shadow DOM extraction via FullCalendar Web Component ---
     if (days.length === 0) {
-      console.log("No matching API data captured; falling back to DOM extraction.");
+      console.log("No matching API data captured; falling back to Shadow DOM extraction.");
 
       const rawDays = await page.evaluate(() => {
-        // Matches "Sun, Feb 23" / "Monday Feb 23" / "Sun Feb 23" etc.
-        const DAY_RE = /^(Sun|Mon|Tue|Wed|Thu|Fri|Sat)[a-z]*[,\s]+[A-Za-z]+\s+\d{1,2}/i;
-        // Matches "10:00am - 12:00pm" / "10:00 AM – 12:00 PM" etc.
-        const TIME_RE = /(\d{1,2}:\d{2}\s*[ap]m)\s*[-\u2013]\s*(\d{1,2}:\d{2}\s*[ap]m)/i;
-
-        function getText(el) {
-          return (el.textContent || "").replace(/\s+/g, " ").trim();
-        }
-
-        const allEls = Array.from(document.querySelectorAll("*"));
-
-        // Find day-header elements by text alone — no class-name dependency.
-        // Limit to small elements (few children) to avoid matching the whole grid.
-        const dayHeaderEls = allEls.filter((el) => {
-          if (el.children.length > 4) return false;
-          const t = getText(el);
-          return DAY_RE.test(t) && t.length < 60;
+        // The calendar is rendered inside a Shadow DOM Web Component
+        const calEl = document.getElementById('calendar');
+        if (!calEl || !calEl.shadowRoot) return [];
+        const shadow = calEl.shadowRoot;
+        // Get each day column — they carry a data-date attribute
+        const dayCols = Array.from(shadow.querySelectorAll('td.fc-timegrid-col[data-date]'));
+        if (dayCols.length === 0) return [];
+        return dayCols.map(col => {
+          const date = col.getAttribute('data-date');
+          // Only top-level event starts (fc-event-start avoids double-counting multi-day spans)
+          const eventEls = Array.from(col.querySelectorAll('.fc-timegrid-event.fc-event-start'));
+          const sessions = eventEls.map(ev => {
+            // aria-label format: "Center *Centre Name MMM D, YYYY H:MM AM - H:MM AM Activity |Name| Location"
+            const ariaLabel = ev.getAttribute('aria-label') || '';
+            const timeMatch = ariaLabel.match(
+              /(\w{3}\s+\d+,\s+\d{4})\s+(\d{1,2}:\d{2}\s*[AP]M)\s*-\s*(\d{1,2}:\d{2}\s*[AP]M)/i
+            );
+            const activityMatch = ariaLabel.match(/Activity\s+\|([^|]+)\|\s*(.*)$/i);
+            // Fallback: parse pipe-delimited textContent "|Name|Location"
+            const text = (ev.textContent || '').replace(/\s+/g, ' ').trim();
+            const parts = text.split('|').map(s => s.trim()).filter(Boolean);
+            return {
+              name: activityMatch ? activityMatch[1].trim() : (parts[0] || ''),
+              location: activityMatch ? activityMatch[2].trim() : (parts[1] || ''),
+              startTime: timeMatch ? timeMatch[2] : '',
+              endTime: timeMatch ? timeMatch[3] : '',
+            };
+          });
+          return { date, sessions };
         });
-
-        if (dayHeaderEls.length < 2) return [];
-
-        // Find time-range leaf elements.
-        const timeEls = allEls.filter((el) => {
-          if (el.children.length > 3) return false;
-          const t = getText(el);
-          return TIME_RE.test(t) && t.length < 200;
-        });
-
-        // Pair each time element with the one day-header that shares the same
-        // column container (nearest ancestor that contains exactly one day header).
-        const daySessionsMap = new Map();
-        for (const d of dayHeaderEls) daySessionsMap.set(d, []);
-
-        for (const timeEl of timeEls) {
-          let ancestor = timeEl.parentElement;
-          let assignedDayEl = null;
-          while (ancestor && ancestor !== document.body) {
-            const contained = dayHeaderEls.filter((d) => ancestor.contains(d));
-            if (contained.length === 1) {
-              assignedDayEl = contained[0];
-              break;
-            }
-            if (contained.length > 1) break; // too wide — stop
-            ancestor = ancestor.parentElement;
-          }
-          if (!assignedDayEl) continue;
-
-          const timeText = getText(timeEl);
-          const timeMatch = timeText.match(TIME_RE);
-          if (!timeMatch) continue;
-
-          const session = {
-            time: `${timeMatch[1].trim()} - ${timeMatch[2].trim()}`,
-          };
-
-          // Derive activity name from the parent element's text minus the time.
-          const parent = timeEl.parentElement;
-          if (parent) {
-            const nameCandidate = getText(parent)
-              .replace(TIME_RE, "")
-              .replace(/\s+/g, " ")
-              .trim();
-            if (nameCandidate.length > 1 && nameCandidate.length < 120) {
-              session.name = nameCandidate;
-            }
-          }
-          // If parent didn't give us a name, try grandparent.
-          if (!session.name && parent && parent.parentElement) {
-            const nameCandidate = getText(parent.parentElement)
-              .replace(TIME_RE, "")
-              .replace(/\s+/g, " ")
-              .trim();
-            if (nameCandidate.length > 1 && nameCandidate.length < 120) {
-              session.name = nameCandidate;
-            }
-          }
-
-          daySessionsMap.get(assignedDayEl).push(session);
-        }
-
-        return Array.from(daySessionsMap.entries()).map(([dayEl, sessions]) => ({
-          rawDate: getText(dayEl),
-          sessions,
-        }));
       });
 
       days = rawDays
-        .filter((d) => d.sessions.length > 0)
-        .map((d) => {
-          const isoDate = parseMonthDay(d.rawDate, referenceYear);
+        .filter(d => d.sessions.length > 0)
+        .map(d => {
+          const isoDate = d.date; // already ISO (data-date attribute)
           const dayOfWeek = isoDate
-            ? new Date(isoDate).toLocaleDateString("en-US", {
-                weekday: "long",
-                timeZone: "UTC",
-              })
-            : "";
+            ? new Date(isoDate).toLocaleDateString('en-US', { weekday: 'long', timeZone: 'UTC' })
+            : '';
           return {
-            date: isoDate || d.rawDate,
+            date: isoDate,
             dayOfWeek,
-            sessions: d.sessions.map((s) => {
-              const out = {};
-              if (s.name) out.name = normalizeText(s.name);
-              if (s.time) out.time = normalizeText(s.time);
-              return out;
-            }),
+            sessions: d.sessions.map(s => ({
+              name: normalizeText(s.name),
+              location: normalizeText(s.location),
+              time: s.startTime && s.endTime ? `${s.startTime} - ${s.endTime}` : normalizeText(s.startTime),
+            })),
           };
         });
     }
