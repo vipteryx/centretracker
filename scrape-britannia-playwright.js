@@ -1,6 +1,7 @@
 const fs = require("fs");
 
-const URL = "https://example.com/";
+const URL =
+  "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=59&displayType=0&view=2";
 const DEFAULT_OUTPUT_PATH = "britannia-hours.json";
 const BLOCKLIST = ["attention required", "sorry, you have been blocked", "cloudflare"];
 
@@ -54,7 +55,7 @@ async function scrape(url = URL, outputPath = DEFAULT_OUTPUT_PATH) {
 
   try {
     const page = await browser.newPage();
-    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
+    await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
     try {
       await page.waitForSelector("h1", { timeout: 30000 });
     } catch {
