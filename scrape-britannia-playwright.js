@@ -57,7 +57,14 @@ function parseMonthDay(str, referenceYear) {
   }
   const slashMatch = str.match(/(\d{1,2})\/(\d{1,2})/);
   if (slashMatch) {
-    return `${referenceYear}-${slashMatch[1].padStart(2, "0")}-${slashMatch[2].padStart(2, "0")}`;
+    const month = slashMatch[1].padStart(2, "0");
+    const day = slashMatch[2].padStart(2, "0");
+    let year = referenceYear;
+    const parsedMonthIndex = parseInt(slashMatch[1], 10) - 1;
+    const currentMonthIndex = new Date().getMonth();
+    if (parsedMonthIndex === 0 && currentMonthIndex >= 10) year++;
+    if (parsedMonthIndex >= 10 && currentMonthIndex <= 1) year--;
+    return `${year}-${month}-${day}`;
   }
   return null;
 }
@@ -126,8 +133,8 @@ function normalizeSessions(rawSessions) {
         s.activity_name || s.activityName || s.name || s.title || s.description || ""
       ),
     };
-    const startRaw = s.start_time || s.startTime || s.start_date || s.startDate || s.time || "";
-    const endRaw = s.end_time || s.endTime || s.end_date || s.endDate || "";
+    const startRaw = s.start_time || s.startTime || s.time || "";
+    const endRaw = s.end_time || s.endTime || "";
     if (startRaw && endRaw) {
       session.time = `${formatTimeValue(startRaw)} - ${formatTimeValue(endRaw)}`;
     } else if (startRaw) {
@@ -166,7 +173,7 @@ function groupApiSessionsByDay(rawSessions, referenceYear) {
     }
     dayMap.get(key).sessions.push(...normalizeSessions([s]));
   }
-  return Array.from(dayMap.values()).sort((a, b) => (a.date < b.date ? -1 : 1));
+  return Array.from(dayMap.values()).sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
 }
 
 async function loadChromium() {
