@@ -1,4 +1,4 @@
-name: Scrape Renfrew Pool Heading
+name: Scrape Renfrew Pool Schedule
 
 on:
   schedule:
@@ -33,6 +33,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add britannia-hours.json
-          git commit -m "Update pool headings" || echo "No changes"
+          git add britannia-hours.json pool-times.json
+          git commit -m "Update scraped pool data" || echo "No changes"
           git push origin HEAD
