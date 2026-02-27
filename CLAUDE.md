@@ -13,8 +13,8 @@ centretracker/
 ├── .github/
 │   └── workflows/
 │       └── scrape.yml                # Scheduled GitHub Actions workflow
-├── scrape-britannia-playwright.js    # Main scraper script (sole source file)
-├── britannia-hours.json              # Scraper output (auto-committed by CI)
+├── scraper.js                        # Main scraper script (sole source file)
+├── page-summary.json                 # Scraper output (auto-committed by CI)
 ├── package.json                      # npm project config
 ├── package-lock.json                 # Locked dependency versions
 └── .gitignore                        # Excludes node_modules/
@@ -27,7 +27,7 @@ centretracker/
 - **CI:** GitHub Actions (`ubuntu-latest`)
 - **No transpilation, no bundler, no TypeScript** — plain `.js` files only
 
-## Key File: `scrape-britannia-playwright.js`
+## Key File: `scraper.js`
 
 The entire application lives in this single file. It exports the following:
 
@@ -40,13 +40,13 @@ The entire application lives in this single file. It exports the following:
 | `loadChromium()` | `async function` | Requires `playwright` or falls back to `playwright-core` |
 | `BLOCKLIST` | `string[]` | Lowercase phrases that indicate a blocked scrape |
 | `URL` | `string` | Target URL (hardcoded) |
-| `DEFAULT_OUTPUT_PATH` | `string` | Output file path (`britannia-hours.json`) |
+| `DEFAULT_OUTPUT_PATH` | `string` | Output file path (`page-summary.json`) |
 
 The file uses `require.main === module` to run `scrape()` when executed directly, so it is safe to `require()` in tests without triggering side effects.
 
 ## Output Format
 
-`britannia-hours.json` is written on every successful run:
+`page-summary.json` is written on every successful run:
 
 ```json
 {
@@ -74,10 +74,10 @@ npx playwright install --with-deps chromium
 ```bash
 npm start
 # or
-node scrape-britannia-playwright.js
+node scraper.js
 ```
 
-Output is written to `britannia-hours.json` in the working directory.
+Output is written to `page-summary.json` in the working directory.
 
 ### No build step
 
@@ -107,8 +107,8 @@ When adding tests:
 1. Checkout repository
 2. Set up Node 20
 3. `npm ci` + `npx playwright install --with-deps chromium`
-4. `node scrape-britannia-playwright.js`
-5. `git add britannia-hours.json && git commit ... && git push` (skipped if no changes)
+4. `node scraper.js`
+5. `git add page-summary.json && git commit ... && git push` (skipped if no changes)
 
 ## README Maintenance
 
@@ -122,7 +122,7 @@ This applies to all sessions, including new ones. Do not skip this step.
 
 ## Conventions and Constraints
 
-- **Single file:** All logic stays in `scrape-britannia-playwright.js` unless there is a strong reason to split.
+- **Single file:** All logic stays in `scraper.js` unless there is a strong reason to split.
 - **CommonJS only:** Use `require()`/`module.exports`, not ES module `import`/`export`.
 - **Hardcoded config:** `URL` and `DEFAULT_OUTPUT_PATH` are constants at the top of the file. If configurability is needed, prefer environment variables checked at the top of the file (e.g. `process.env.SCRAPE_URL || URL`).
 - **No secrets required:** The workflow needs no API keys or tokens beyond the default `GITHUB_TOKEN` (used implicitly by `git push`).

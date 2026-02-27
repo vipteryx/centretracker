@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const URL =
   "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=59&displayType=0&view=2";
-const DEFAULT_OUTPUT_PATH = "britannia-hours.json";
+const DEFAULT_OUTPUT_PATH = "page-summary.json";
 const DEFAULT_POOL_TIMES_PATH = "pool-times.json";
 const BLOCKLIST = ["attention required", "sorry, you have been blocked", "cloudflare"];
 

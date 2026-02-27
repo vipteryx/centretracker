@@ -2,9 +2,9 @@
   "name": "centretracker",
   "version": "1.0.0",
   "description": "Scraper for tracking swimming pool hours",
-  "main": "scrape-britannia-playwright.js",
+  "main": "scraper.js",
   "scripts": {
-    "start": "node scrape-britannia-playwright.js"
+    "start": "node scraper.js"
   },
   "dependencies": {
     "playwright": "^1.50.0"

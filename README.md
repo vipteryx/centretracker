@@ -11,11 +11,11 @@ Runs on a scheduled GitHub Actions workflow twice daily (02:00 and 14:00 UTC) an
 3. Waits for the page (a JavaScript SPA) to fully load
 4. Reads the page `<title>` and first `<h1>` heading
 5. Validates the result isn't a Cloudflare block page
-6. Writes the result to `britannia-hours.json`
+6. Writes the result to `page-summary.json`
 
 ## Output
 
-`britannia-hours.json` is updated on every successful run:
+`page-summary.json` is updated on every successful run:
 
 ```json
 {
@@ -55,3 +55,4 @@ npm start
 | 2026-02-27 10:37:18  | Fix DOM fallback to pierce Shadow DOM: replace `document.querySelectorAll("*")` text-pattern walk with Shadow DOM extraction via `document.getElementById('calendar').shadowRoot`; parse session date/time/name/location from `data-date` attributes and `aria-label` strings on FullCalendar Web Component events |
 | 2026-02-27 10:57:35  | Remove dead npm scripts referencing non-existent scrape-britanniacentre-pool.js and scrape-vancouver-aquatic-centre.js |
 | 2026-02-27 10:59:43  | Fix 4 bugs: parseMonthDay slash format year-rollover, normalizeSessions date fields used as times, sort comparator for equal values, add debug-page.html to .gitignore |
+| 2026-02-27 20:51:06  | Rename scrape-britannia-playwright.js → scraper.js and britannia-hours.json → page-summary.json for clarity; update all references in package.json, workflow, CLAUDE.md, README.md |
