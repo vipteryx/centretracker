@@ -56,3 +56,4 @@ npm start
 | 2026-02-27 10:57:35  | Remove dead npm scripts referencing non-existent scrape-britanniacentre-pool.js and scrape-vancouver-aquatic-centre.js |
 | 2026-02-27 10:59:43  | Fix 4 bugs: parseMonthDay slash format year-rollover, normalizeSessions date fields used as times, sort comparator for equal values, add debug-page.html to .gitignore |
 | 2026-02-27 20:51:06  | Rename scrape-britannia-playwright.js → scraper.js and britannia-hours.json → page-summary.json for clarity; update all references in package.json, workflow, CLAUDE.md, README.md |
+| 2026-02-28 06:23:34  | Add issues.md documenting five root causes for empty pool-times.json output |
