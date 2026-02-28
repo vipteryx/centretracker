@@ -340,11 +340,13 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
         });
     }
 
-    // Save rendered HTML for inspection if both paths came up empty.
+    // Always save rendered HTML so every run leaves an inspectable artefact.
+    const debugHtml = await page.content();
+    fs.writeFileSync("debug-page.html", debugHtml);
     if (days.length === 0) {
-      const debugHtml = await page.content();
-      fs.writeFileSync("debug-page.html", debugHtml);
-      console.warn("Extraction yielded no sessions. Saved rendered HTML to debug-page.html for inspection.");
+      console.warn("Extraction yielded no sessions. Inspect debug-page.html for details.");
+    } else {
+      console.log("Saved rendered HTML to debug-page.html.");
     }
 
     const sortedDates = days
