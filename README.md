@@ -58,3 +58,4 @@ npm start
 | 2026-02-27 20:51:06  | Rename scrape-britannia-playwright.js → scraper.js and britannia-hours.json → page-summary.json for clarity; update all references in package.json, workflow, CLAUDE.md, README.md |
 | 2026-02-28 06:23:34  | Add issues.md documenting five root causes for empty pool-times.json output |
 | 2026-02-28 07:12:48  | Add debug-page.html to CI git add so failed extractions leave an inspectable artefact |
+| 2026-02-28 07:20:00  | Always save debug-page.html on every scrape run, not only on empty-session failures |
