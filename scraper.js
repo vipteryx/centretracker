@@ -248,12 +248,24 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
 
     await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
 
+    // SPAs often fire XHR after the initial networkidle; wait for any FullCalendar
+    // event element to appear so we don't miss late-loading calendar data.
+    try {
+      await page.waitForSelector('.fc-event, .fc-timegrid-event, .fc-daygrid-event', { timeout: 10000 });
+    } catch {
+      // Calendar may be empty or use different selectors; continue anyway
+    }
+
     // Await all captured bodies (some may still be resolving post-networkidle)
     const capturedJsonResponses = (await Promise.all(capturedJsonPromises)).filter(Boolean);
 
     if (capturedJsonResponses.length > 0) {
       console.log(`Captured ${capturedJsonResponses.length} JSON response(s):`);
-      capturedJsonResponses.forEach(({ url: u }) => console.log(`  ${u}`));
+      capturedJsonResponses.forEach(({ url: u, body }) => {
+        console.log(`  ${u}`);
+        const preview = JSON.stringify(body).slice(0, 300);
+        console.log(`    Preview: ${preview}`);
+      });
     } else {
       console.log("No JSON responses captured during page load.");
     }
@@ -289,17 +301,23 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
       console.log("No matching API data captured; falling back to Shadow DOM extraction.");
 
       const rawDays = await page.evaluate(() => {
-        // The calendar is rendered inside a Shadow DOM Web Component
+        // Use Shadow DOM if available (Web Component calendar), otherwise fall back to document
         const calEl = document.getElementById('calendar');
-        if (!calEl || !calEl.shadowRoot) return [];
-        const shadow = calEl.shadowRoot;
-        // Get each day column — they carry a data-date attribute
-        const dayCols = Array.from(shadow.querySelectorAll('td.fc-timegrid-col[data-date]'));
+        const queryRoot = (calEl && calEl.shadowRoot) ? calEl.shadowRoot : document;
+
+        // Try timegrid (week/day) view first, then daygrid (month) view
+        let dayCols = Array.from(queryRoot.querySelectorAll('td.fc-timegrid-col[data-date]'));
+        if (dayCols.length === 0) {
+          dayCols = Array.from(queryRoot.querySelectorAll('td.fc-daygrid-day[data-date]'));
+        }
         if (dayCols.length === 0) return [];
+
         return dayCols.map(col => {
           const date = col.getAttribute('data-date');
-          // Only top-level event starts (fc-event-start avoids double-counting multi-day spans)
-          const eventEls = Array.from(col.querySelectorAll('.fc-timegrid-event.fc-event-start'));
+          // Top-level event starts only (fc-event-start avoids double-counting multi-day spans)
+          const eventEls = Array.from(
+            col.querySelectorAll('.fc-timegrid-event.fc-event-start, .fc-daygrid-event.fc-event-start')
+          );
           const sessions = eventEls.map(ev => {
             // aria-label format: "Center *Centre Name MMM D, YYYY H:MM AM - H:MM AM Activity |Name| Location"
             const ariaLabel = ev.getAttribute('aria-label') || '';
