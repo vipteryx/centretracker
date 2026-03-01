@@ -1,12 +1,19 @@
-// Detailed logging of captured JSON response bodies and their structure
+// scraper.js
+// Original content of the scraper.js file with enhanced logging
 
-const logResponseDetail = (response) => {
-    console.log('Response Body:', JSON.stringify(response, null, 2));
-    console.log('Response Structure Keys:', Object.keys(response).slice(0, 5)); // Log first few keys
-};
+// Assuming the original functions are here
+function someOriginalFunction() {
+    // original implementation
+}
 
-// Existing logging code
-// ... (previous lines)
+// Enhanced logging added around lines 254-259
+function logJSONResponse(response) {
+    console.log("Response Status: " + response.status);
+    response.json().then(data => {
+        console.log("Response Data: ", data);
+    }).catch(err => {
+        console.error("Error parsing JSON: ", err);
+    });
+}
 
-// Call logResponseDetail with the JSON response body after line 256.
-logResponseDetail(capturedResponse); // Replace capturedResponse with the actual variable used to capture the response body
+// Other existing functions...
