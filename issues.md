@@ -20,11 +20,13 @@ The fallback (scraper.js:291–341) looks for `document.getElementById('calendar
 
 ---
 
-## Issue 3: `debug-page.html` is not committed by CI
+## ~~Issue 3: `debug-page.html` is not committed by CI~~ — **FIXED (2026-02-28)**
 
-When both extraction paths fail, `debug-page.html` is saved (scraper.js:346) to help diagnose the issue. However, the GitHub Actions workflow only commits `page-summary.json` (and `pool-times.json`), so the debug file is silently discarded after each run.
+~~When both extraction paths fail, `debug-page.html` is saved (scraper.js:346) to help diagnose the issue. However, the GitHub Actions workflow only commits `page-summary.json` (and `pool-times.json`), so the debug file is silently discarded after each run.~~
 
-**Fix:** Add `debug-page.html` to the workflow's `git add` command (conditionally, or always) so failures leave an inspectable artefact in the repository.
+**Resolution:** Two changes were made on 2026-02-28:
+1. `scraper.js` (line 344) now unconditionally saves `debug-page.html` on every run, not only when sessions are empty.
+2. `.github/workflows/scrape.yml` (line 36) now includes `debug-page.html` in the `git add` command, so every CI run commits the rendered page HTML to the repository as an inspectable artefact.
 
 ---
 
