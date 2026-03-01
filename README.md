@@ -60,3 +60,4 @@ npm start
 | 2026-02-28 07:12:48  | Add debug-page.html to CI git add so failed extractions leave an inspectable artefact |
 | 2026-02-28 07:20:00  | Always save debug-page.html on every scrape run, not only on empty-session failures |
 | 2026-03-01 06:24:17  | Update issues.md: mark Issue 3 (debug-page.html not committed) as fixed |
+| 2026-03-01 06:24:17  | Remove API interception path from extractPoolTimes(); replace with inline script-tag JSON scan (primary) and broad attribute-based DOM scan (fallback); remove debug-page.html from .gitignore so CI can commit it |

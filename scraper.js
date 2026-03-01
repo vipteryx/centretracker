@@ -230,33 +230,7 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
   try {
     const page = await browser.newPage();
 
-    // Register BEFORE page.goto() so no responses are missed.
-    // Capture ALL JSON responses (no URL filter) — content-type check is broad
-    // so we don't miss endpoints that return text/json or application/x-json.
-    const capturedJsonPromises = [];
-    page.on("response", (response) => {
-      const contentType = (response.headers()["content-type"] || "").toLowerCase();
-      if (!contentType.includes("json")) return;
-      const responseUrl = response.url();
-      capturedJsonPromises.push(
-        response
-          .json()
-          .then((body) => ({ url: responseUrl, body }))
-          .catch(() => null)
-      );
-    });
-
     await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
-
-    // Await all captured bodies (some may still be resolving post-networkidle)
-    const capturedJsonResponses = (await Promise.all(capturedJsonPromises)).filter(Boolean);
-
-    if (capturedJsonResponses.length > 0) {
-      console.log(`Captured ${capturedJsonResponses.length} JSON response(s):`);
-      capturedJsonResponses.forEach(({ url: u }) => console.log(`  ${u}`));
-    } else {
-      console.log("No JSON responses captured during page load.");
-    }
 
     try {
       await page.waitForSelector("h1", { timeout: 15000 });
@@ -274,70 +248,117 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
     const referenceYear = new Date().getFullYear();
     let days = [];
 
-    // --- Primary: try captured API responses ---
-    for (const { url: respUrl, body } of capturedJsonResponses) {
-      const rawSessions = parseApiResponseForSessions(body);
+    // --- Primary: scan <script> tags for embedded JSON containing session data ---
+    // SPAs commonly embed initial state in inline scripts (window.__STATE__, window.DATA, etc.)
+    // rather than making separate JSON API requests.
+    const scriptJsonCandidates = await page.evaluate(() => {
+      const results = [];
+      for (const script of Array.from(document.querySelectorAll("script:not([src])"))) {
+        const text = script.textContent || "";
+        // Find all JSON-like blobs: anything starting with { or [ that is large enough
+        // to plausibly contain calendar data (>100 chars).
+        const matches = text.match(/(?:=\s*|:\s*)(\[[\s\S]{100,})/g);
+        if (!matches) continue;
+        for (const m of matches) {
+          // Strip the leading assignment/colon, try to parse the JSON blob.
+          const raw = m.replace(/^[=:]\s*/, "");
+          // Take only the outermost array (stop at balanced bracket).
+          let depth = 0;
+          let end = 0;
+          for (let i = 0; i < raw.length; i++) {
+            if (raw[i] === "[" || raw[i] === "{") depth++;
+            else if (raw[i] === "]" || raw[i] === "}") { depth--; if (depth === 0) { end = i + 1; break; } }
+          }
+          const slice = raw.slice(0, end);
+          try {
+            const parsed = JSON.parse(slice);
+            results.push(parsed);
+          } catch {
+            // not valid JSON; skip
+          }
+        }
+      }
+      return results;
+    });
+
+    for (const candidate of scriptJsonCandidates) {
+      const rawSessions = parseApiResponseForSessions(candidate);
       if (rawSessions) {
-        console.log(`Using API data from: ${respUrl}`);
+        console.log("Using session data from embedded <script> JSON blob.");
         days = groupApiSessionsByDay(rawSessions, referenceYear);
         break;
       }
     }
 
-    // --- Fallback: Shadow DOM extraction via FullCalendar Web Component ---
+    // --- Fallback: broad DOM scan for activity/session elements ---
+    // Tries multiple selector patterns without assuming Shadow DOM or specific library classes.
     if (days.length === 0) {
-      console.log("No matching API data captured; falling back to Shadow DOM extraction.");
+      console.log("No session data found in <script> tags; falling back to DOM scan.");
 
       const rawDays = await page.evaluate(() => {
-        // The calendar is rendered inside a Shadow DOM Web Component
-        const calEl = document.getElementById('calendar');
-        if (!calEl || !calEl.shadowRoot) return [];
-        const shadow = calEl.shadowRoot;
-        // Get each day column — they carry a data-date attribute
-        const dayCols = Array.from(shadow.querySelectorAll('td.fc-timegrid-col[data-date]'));
-        if (dayCols.length === 0) return [];
-        return dayCols.map(col => {
-          const date = col.getAttribute('data-date');
-          // Only top-level event starts (fc-event-start avoids double-counting multi-day spans)
-          const eventEls = Array.from(col.querySelectorAll('.fc-timegrid-event.fc-event-start'));
-          const sessions = eventEls.map(ev => {
-            // aria-label format: "Center *Centre Name MMM D, YYYY H:MM AM - H:MM AM Activity |Name| Location"
-            const ariaLabel = ev.getAttribute('aria-label') || '';
-            const timeMatch = ariaLabel.match(
-              /(\w{3}\s+\d+,\s+\d{4})\s+(\d{1,2}:\d{2}\s*[AP]M)\s*-\s*(\d{1,2}:\d{2}\s*[AP]M)/i
-            );
-            const activityMatch = ariaLabel.match(/Activity\s+\|([^|]+)\|\s*(.*)$/i);
-            // Fallback: parse pipe-delimited textContent "|Name|Location"
-            const text = (ev.textContent || '').replace(/\s+/g, ' ').trim();
-            const parts = text.split('|').map(s => s.trim()).filter(Boolean);
-            return {
-              name: activityMatch ? activityMatch[1].trim() : (parts[0] || ''),
-              location: activityMatch ? activityMatch[2].trim() : (parts[1] || ''),
-              startTime: timeMatch ? timeMatch[2] : '',
-              endTime: timeMatch ? timeMatch[3] : '',
-            };
-          });
-          return { date, sessions };
-        });
+        const TIME_RE = /\d{1,2}:\d{2}\s*(?:AM|PM)/i;
+        const DATE_RE = /\d{4}-\d{2}-\d{2}|\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2}/i;
+
+        // Collect elements that carry a date attribute or whose aria-label / text
+        // contains a date-like string, and also contain time-like text.
+        const dayMap = {};
+
+        // Strategy 1: elements with data-date attribute (FullCalendar, custom widgets)
+        for (const el of Array.from(document.querySelectorAll("[data-date]"))) {
+          const date = el.getAttribute("data-date");
+          if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) continue;
+          const eventEls = el.querySelectorAll("[class*='event'], [class*='session'], [class*='activity'], [role='button'], li, .item");
+          for (const ev of Array.from(eventEls)) {
+            const text = (ev.textContent || "").replace(/\s+/g, " ").trim();
+            if (!TIME_RE.test(text)) continue;
+            if (!dayMap[date]) dayMap[date] = [];
+            dayMap[date].push(text);
+          }
+        }
+
+        // Strategy 2: aria-labelled event elements anywhere in the page
+        const ariaEls = document.querySelectorAll("[aria-label]");
+        for (const el of Array.from(ariaEls)) {
+          const label = el.getAttribute("aria-label") || "";
+          const dateMatch = label.match(/(\d{4}-\d{2}-\d{2})|(?:(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+(\d{1,2}),?\s+(\d{4}))/i);
+          if (!dateMatch || !TIME_RE.test(label)) continue;
+          // Use ISO date directly or reconstruct from month/day/year groups
+          const date = dateMatch[1] || (() => {
+            const MONTHS = {Jan:"01",Feb:"02",Mar:"03",Apr:"04",May:"05",Jun:"06",Jul:"07",Aug:"08",Sep:"09",Oct:"10",Nov:"11",Dec:"12"};
+            const mon = MONTHS[dateMatch[2].slice(0,3)] || "00";
+            const day = (dateMatch[3] || "1").padStart(2, "0");
+            return `${dateMatch[4]}-${mon}-${day}`;
+          })();
+          if (!dayMap[date]) dayMap[date] = [];
+          dayMap[date].push(label.trim());
+        }
+
+        // Strategy 3: table rows that contain both a date-like and time-like string
+        for (const row of Array.from(document.querySelectorAll("tr"))) {
+          const text = (row.textContent || "").replace(/\s+/g, " ").trim();
+          const dateM = text.match(DATE_RE);
+          if (!dateM || !TIME_RE.test(text)) continue;
+          // Use the matched date string as the key (will be normalised later)
+          const key = dateM[0];
+          if (!dayMap[key]) dayMap[key] = [];
+          dayMap[key].push(text);
+        }
+
+        return dayMap;
       });
 
-      days = rawDays
-        .filter(d => d.sessions.length > 0)
-        .map(d => {
-          const isoDate = d.date; // already ISO (data-date attribute)
-          const dayOfWeek = isoDate
-            ? new Date(isoDate).toLocaleDateString('en-US', { weekday: 'long', timeZone: 'UTC' })
-            : '';
-          return {
-            date: isoDate,
-            dayOfWeek,
-            sessions: d.sessions.map(s => ({
-              name: normalizeText(s.name),
-              location: normalizeText(s.location),
-              time: s.startTime && s.endTime ? `${s.startTime} - ${s.endTime}` : normalizeText(s.startTime),
-            })),
-          };
-        });
+      // Convert the raw dayMap into the canonical days structure.
+      for (const [rawDate, texts] of Object.entries(rawDays)) {
+        if (!texts.length) continue;
+        const isoDate = /^\d{4}-\d{2}-\d{2}$/.test(rawDate)
+          ? rawDate
+          : null; // non-ISO keys (from table rows) — skip for now; debug HTML will clarify
+        if (!isoDate) continue;
+        const dayOfWeek = new Date(isoDate).toLocaleDateString("en-US", { weekday: "long", timeZone: "UTC" });
+        const sessions = texts.map((t) => ({ name: normalizeText(t), time: "" }));
+        days.push({ date: isoDate, dayOfWeek, sessions });
+      }
+      days.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
     }
 
     // Always save rendered HTML so every run leaves an inspectable artefact.
@@ -346,7 +367,7 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
     if (days.length === 0) {
       console.warn("Extraction yielded no sessions. Inspect debug-page.html for details.");
     } else {
-      console.log("Saved rendered HTML to debug-page.html.");
+      console.log(`Extracted ${days.length} day(s). Saved rendered HTML to debug-page.html.`);
     }
 
     const sortedDates = days
