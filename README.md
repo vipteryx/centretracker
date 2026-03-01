@@ -60,3 +60,4 @@ npm start
 | 2026-02-28 07:12:48  | Add debug-page.html to CI git add so failed extractions leave an inspectable artefact |
 | 2026-02-28 07:20:00  | Always save debug-page.html on every scrape run, not only on empty-session failures |
 | 2026-03-01 06:24:17  | Update issues.md: mark Issue 3 (debug-page.html not committed) as fixed |
+| 2026-03-01 06:38:58  | Fix pool-data extraction: remove debug-page.html from .gitignore (was silently blocking CI commits); fix Shadow DOM fallback to also query document directly when no shadow root exists; add daygrid event selectors; wait for FullCalendar events after networkidle to catch late-loading API calls; log JSON response body previews to diagnose Issue 1 |
