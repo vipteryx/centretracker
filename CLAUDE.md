@@ -4,7 +4,7 @@ This file provides guidance for AI assistants working in this repository.
 
 ## Project Overview
 
-**centretracker** is a Node.js web scraper that monitors the Renfrew Community Centre swimming pool hours page and stores metadata about what was found. It runs on a scheduled GitHub Actions workflow twice daily and commits the output JSON back to the repository.
+**centretracker** is a Node.js web scraper that monitors the Hillcrest Community Centre swimming pool hours page and stores metadata about what was found. It runs on a scheduled GitHub Actions workflow twice daily and commits the output JSON back to the repository.
 
 ## Repository Structure
 
