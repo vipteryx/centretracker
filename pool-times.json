@@ -1,8 +1,87 @@
 {
-  "lastUpdated": "2026-03-01T14:29:21.463Z",
+  "lastUpdated": "2026-03-02T03:36:10.478Z",
   "weekRange": {
     "start": null,
     "end": null
   },
-  "days": []
+  "days": [
+    {
+      "date": "",
+      "dayOfWeek": "",
+      "sessions": [
+        {
+          "name": "**Choose a Calendar"
+        },
+        {
+          "name": "**Public Skating & Ice Hockey"
+        },
+        {
+          "name": "**Public Swimming"
+        },
+        {
+          "name": "*Kerrisdale Play Palace"
+        },
+        {
+          "name": "*Open Gym Times"
+        },
+        {
+          "name": "*Parent and Tot Activities"
+        },
+        {
+          "name": "*Seniors Activities"
+        },
+        {
+          "name": "*Youth Activities"
+        },
+        {
+          "name": "Art & Culture: Dance, Music, Singing"
+        },
+        {
+          "name": "Art & Culture: Drawing, Painting, Crafts"
+        },
+        {
+          "name": "Art & Culture: Pottery & Woodworking"
+        },
+        {
+          "name": "Fitness: Aerobics/Group Fitness"
+        },
+        {
+          "name": "Fitness: Indoor Cycling"
+        },
+        {
+          "name": "Fitness: Martial Arts"
+        },
+        {
+          "name": "Fitness: Other"
+        },
+        {
+          "name": "Fitness: Yoga & Pilates"
+        },
+        {
+          "name": "Queer Inclusion"
+        },
+        {
+          "name": "Sports: Ball & Floor Hockey"
+        },
+        {
+          "name": "Sports: Basketball"
+        },
+        {
+          "name": "Sports: Other"
+        },
+        {
+          "name": "Sports: Racquet Sports"
+        },
+        {
+          "name": "Sports: Soccer"
+        },
+        {
+          "name": "Sports: Volleyball"
+        },
+        {
+          "name": "Various/Other Drop-in Activities"
+        }
+      ]
+    }
+  ]
 }
