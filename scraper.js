@@ -4,6 +4,12 @@ const URL =
   "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=59&displayType=0&view=2";
 const DEFAULT_OUTPUT_PATH = "page-summary.json";
 const DEFAULT_POOL_TIMES_PATH = "pool-times.json";
+
+const URL_BRITANNIA =
+  "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=37&displayType=0&view=2";
+const OUTPUT_PATH_BRITANNIA = "britannia-page-summary.json";
+const POOL_TIMES_PATH_BRITANNIA = "britannia-pool-times.json";
+
 const BLOCKLIST = ["attention required", "sorry, you have been blocked", "cloudflare"];
 
 function normalizeText(value = "") {
@@ -437,7 +443,12 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
 }
 
 if (require.main === module) {
-  Promise.all([scrape(), extractPoolTimes()]).catch((err) => {
+  Promise.all([
+    scrape(),
+    extractPoolTimes(),
+    scrape(URL_BRITANNIA, OUTPUT_PATH_BRITANNIA),
+    extractPoolTimes(URL_BRITANNIA, POOL_TIMES_PATH_BRITANNIA),
+  ]).catch((err) => {
     console.error(err);
     process.exit(1);
   });
@@ -447,7 +458,10 @@ module.exports = {
   BLOCKLIST,
   DEFAULT_OUTPUT_PATH,
   DEFAULT_POOL_TIMES_PATH,
+  OUTPUT_PATH_BRITANNIA,
+  POOL_TIMES_PATH_BRITANNIA,
   URL,
+  URL_BRITANNIA,
   assertScrapeLooksValid,
   buildPoolTimesResult,
   extractPageSummary,

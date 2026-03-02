@@ -69,3 +69,4 @@ npm start
 | 2026-03-02 07:35:58  | Fix pool-times.json capturing navigation menu items: add post-grouping validation in extractPoolTimes() to reject API responses where no session has a real ISO date and time; fix CI workflow to commit debug-api-responses.json |
 | 2026-03-02 07:47:23  | Add index.html: single-line status page showing Hillcrest Pool open/closed based on pool-times.json |
 | 2026-03-02 07:51:48  | index.html: when closed, show next opening time and session name below the status line |
+| 2026-03-02 08:54:39  | Add Britannia Community Centre scraper: URL_BRITANNIA (locationId=37), britannia-page-summary.json, britannia-pool-times.json; run both venues in parallel from main entry point; update CI workflow to commit Britannia output files |
