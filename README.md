@@ -1,13 +1,13 @@
 # centretracker
 
-A Node.js web scraper that monitors the Renfrew Community Centre swimming pool hours page and stores metadata about what was found.
+A Node.js web scraper that monitors the Hillcrest Community Centre swimming pool hours page and stores metadata about what was found.
 
 Runs on a scheduled GitHub Actions workflow twice daily (02:00 and 14:00 UTC) and commits the output JSON back to the repository.
 
 ## How it works
 
 1. Playwright launches a headless Chromium browser
-2. Navigates to the Renfrew Community Centre calendar on the ActiveCommunities portal
+2. Navigates to the Hillcrest Community Centre calendar on the ActiveCommunities portal
 3. Waits for the page (a JavaScript SPA) to fully load
 4. Reads the page `<title>` and first `<h1>` heading
 5. Validates the result isn't a Cloudflare block page
@@ -40,7 +40,7 @@ npm start
 
 ## Target URL
 
-[Renfrew Community Centre — ActiveCommunities Calendar](https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=59&displayType=0&view=2)
+[Hillcrest Community Centre — ActiveCommunities Calendar](https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=59&displayType=0&view=2)
 
 ## Changelog
 
@@ -64,3 +64,4 @@ npm start
 | 2026-03-01 20:46:44  | Fix SyntaxError: restore scraper.js from last known good state after prior commits replaced its content with broken placeholder code containing await outside async function |
 | 2026-03-02 05:24:11  | Fix Shadow DOM wait: replace waitForSelector (which does not pierce Shadow DOM) with waitForFunction that polls calEl.shadowRoot directly, so the scraper waits until the active-calendar-scheduler Web Component has rendered its events before extracting |
 | 2026-03-02 06:34:55  | Update issues.md: mark Issue 5 fully fixed with corrected resolution description; note prior waitForSelector fix was incomplete because it did not pierce Shadow DOM |
+| 2026-03-02 06:43:38  | Rename target from Renfrew to Hillcrest Community Centre throughout README.md and CLAUDE.md; locationId=59 was always Hillcrest |
