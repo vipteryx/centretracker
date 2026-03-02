@@ -13,10 +13,15 @@
     .row {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
     }
     .open { color: green; }
     .closed { color: red; }
+    #next {
+      font-size: 0.85em;
+      color: #555;
+      text-align: right;
+    }
   </style>
 </head>
 <body>
@@ -24,6 +29,7 @@
     <span>Hillcrest Pool</span>
     <span id="status">…</span>
   </div>
+  <div id="next"></div>
   <script>
     function parseTime(str) {
       const m = str.trim().match(/(\d+):(\d+)\s*(AM|PM)/i);
@@ -36,8 +42,30 @@
       return h * 60 + min;
     }
 
+    function isPublic(session) {
+      return session.time && !/bulkhead/i.test(session.name);
+    }
+
+    function nextSession(days, today, nowMin) {
+      // Check remaining sessions today, then future days
+      const todayIndex = days.findIndex(d => d.date === today);
+      const searchDays = todayIndex === -1 ? days : days.slice(todayIndex);
+      for (const day of searchDays) {
+        const isToday = day.date === today;
+        for (const s of day.sessions) {
+          if (!isPublic(s)) continue;
+          const start = parseTime(s.time.split(" - ")[0]);
+          if (start === null) continue;
+          if (isToday && start <= nowMin) continue; // already started or passed
+          return { session: s, day };
+        }
+      }
+      return null;
+    }
+
     async function updateStatus() {
-      const el = document.getElementById("status");
+      const statusEl = document.getElementById("status");
+      const nextEl = document.getElementById("next");
       try {
         const data = await fetch("pool-times.json").then(r => r.json());
         const now = new Date();
@@ -48,15 +76,27 @@
         ].join("-");
         const nowMin = now.getHours() * 60 + now.getMinutes();
         const todayData = data.days.find(d => d.date === today);
+
         const open = todayData && todayData.sessions.some(s => {
-          if (!s.time || /bulkhead/i.test(s.name)) return false;
+          if (!isPublic(s)) return false;
           const [start, end] = s.time.split(" - ").map(parseTime);
           return start !== null && end !== null && nowMin >= start && nowMin <= end;
         });
-        el.textContent = open ? "Open" : "Closed";
-        el.className = open ? "open" : "closed";
+
+        statusEl.textContent = open ? "Open" : "Closed";
+        statusEl.className = open ? "open" : "closed";
+
+        if (!open) {
+          const next = nextSession(data.days, today, nowMin);
+          if (next) {
+            const startTime = next.session.time.split(" - ")[0].trim();
+            const isToday = next.day.date === today;
+            const when = isToday ? startTime : `${next.day.dayOfWeek} ${startTime}`;
+            nextEl.textContent = `Opens ${when} · ${next.session.name}`;
+          }
+        }
       } catch {
-        el.textContent = "Unknown";
+        statusEl.textContent = "Unknown";
       }
     }
 

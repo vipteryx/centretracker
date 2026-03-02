@@ -68,3 +68,4 @@ npm start
 | 2026-03-02 07:09:20  | Fix findSessionArray false-positive on navigation menu API responses: add real-value guard so arrays where every time-like key is null/empty are skipped; add 3s post-networkidle delay for active-calendar-scheduler deferred XHR; broaden shadow DOM selectors; write debug-api-responses.json each run |
 | 2026-03-02 07:35:58  | Fix pool-times.json capturing navigation menu items: add post-grouping validation in extractPoolTimes() to reject API responses where no session has a real ISO date and time; fix CI workflow to commit debug-api-responses.json |
 | 2026-03-02 07:47:23  | Add index.html: single-line status page showing Hillcrest Pool open/closed based on pool-times.json |
+| 2026-03-02 07:51:48  | index.html: when closed, show next opening time and session name below the status line |
