@@ -99,3 +99,4 @@ npm start
 | 2026-03-02 08:54:39  | Add Britannia Community Centre scraper: URL_BRITANNIA (locationId=37), britannia-page-summary.json, britannia-pool-times.json; run both venues in parallel from main entry point; update CI workflow to commit Britannia output files |
 | 2026-03-02 08:58:03  | Fix race condition: derive debug file paths from outputPath (pool-times-debug-api.json, pool-times-debug.html, britannia-pool-times-debug-api.json, britannia-pool-times-debug.html) so parallel extractPoolTimes calls no longer overwrite each other's debug output |
 | 2026-03-02 08:59:34  | Fix stale log message ("debug-page.html") left over from race condition fix; update README for two-venue setup; update issues.md |
+| 2026-03-02 09:04:26  | index.html: add Britannia Pool row; redesign with modern card UI (badges, subtle shadows, CSS custom properties) |
