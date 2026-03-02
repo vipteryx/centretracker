@@ -162,6 +162,30 @@
       </div>
       <div class="next" id="next-renfrew"></div>
     </div>
+
+    <div class="card" id="card-kensington">
+      <div class="card-top">
+        <span class="venue-name">Kensington Pool</span>
+        <span class="badge unknown" id="status-kensington">…</span>
+      </div>
+      <div class="next" id="next-kensington"></div>
+    </div>
+
+    <div class="card" id="card-killarney">
+      <div class="card-top">
+        <span class="venue-name">Killarney Pool</span>
+        <span class="badge unknown" id="status-killarney">…</span>
+      </div>
+      <div class="next" id="next-killarney"></div>
+    </div>
+
+    <div class="card" id="card-lord-byng">
+      <div class="card-top">
+        <span class="venue-name">Lord Byng Pool</span>
+        <span class="badge unknown" id="status-lord-byng">…</span>
+      </div>
+      <div class="next" id="next-lord-byng"></div>
+    </div>
   </div>
 
   <footer>Updated twice daily · <span id="now"></span></footer>
@@ -251,7 +275,10 @@
     loadVenue("britannia-pool-times.json", "status-britannia",  "next-britannia");
     loadVenue("aquatic-pool-times.json",   "status-aquatic",    "next-aquatic");
     loadVenue("templeton-pool-times.json", "status-templeton",  "next-templeton");
-    loadVenue("renfrew-pool-times.json",   "status-renfrew",    "next-renfrew");
+    loadVenue("renfrew-pool-times.json",     "status-renfrew",      "next-renfrew");
+    loadVenue("kensington-pool-times.json", "status-kensington",   "next-kensington");
+    loadVenue("killarney-pool-times.json",  "status-killarney",    "next-killarney");
+    loadVenue("lord-byng-pool-times.json",  "status-lord-byng",    "next-lord-byng");
     renderClock();
     setInterval(renderClock, 30000);
   </script>

@@ -25,6 +25,21 @@ const URL_RENFREW =
 const OUTPUT_PATH_RENFREW = "renfrew-page-summary.json";
 const POOL_TIMES_PATH_RENFREW = "renfrew-pool-times.json";
 
+const URL_KENSINGTON =
+  "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=56&displayType=0&view=2";
+const OUTPUT_PATH_KENSINGTON = "kensington-page-summary.json";
+const POOL_TIMES_PATH_KENSINGTON = "kensington-pool-times.json";
+
+const URL_KILLARNEY =
+  "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=36&displayType=0&view=2";
+const OUTPUT_PATH_KILLARNEY = "killarney-page-summary.json";
+const POOL_TIMES_PATH_KILLARNEY = "killarney-pool-times.json";
+
+const URL_LORD_BYNG =
+  "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=10&displayType=0&view=2";
+const OUTPUT_PATH_LORD_BYNG = "lord-byng-page-summary.json";
+const POOL_TIMES_PATH_LORD_BYNG = "lord-byng-pool-times.json";
+
 const BLOCKLIST = ["attention required", "sorry, you have been blocked", "cloudflare"];
 
 function normalizeText(value = "") {
@@ -472,6 +487,12 @@ if (require.main === module) {
     extractPoolTimes(URL_TEMPLETON, POOL_TIMES_PATH_TEMPLETON),
     scrape(URL_RENFREW, OUTPUT_PATH_RENFREW),
     extractPoolTimes(URL_RENFREW, POOL_TIMES_PATH_RENFREW),
+    scrape(URL_KENSINGTON, OUTPUT_PATH_KENSINGTON),
+    extractPoolTimes(URL_KENSINGTON, POOL_TIMES_PATH_KENSINGTON),
+    scrape(URL_KILLARNEY, OUTPUT_PATH_KILLARNEY),
+    extractPoolTimes(URL_KILLARNEY, POOL_TIMES_PATH_KILLARNEY),
+    scrape(URL_LORD_BYNG, OUTPUT_PATH_LORD_BYNG),
+    extractPoolTimes(URL_LORD_BYNG, POOL_TIMES_PATH_LORD_BYNG),
   ]).catch((err) => {
     console.error(err);
     process.exit(1);
@@ -495,6 +516,15 @@ module.exports = {
   URL_AQUATIC,
   URL_TEMPLETON,
   URL_RENFREW,
+  OUTPUT_PATH_KENSINGTON,
+  OUTPUT_PATH_KILLARNEY,
+  OUTPUT_PATH_LORD_BYNG,
+  POOL_TIMES_PATH_KENSINGTON,
+  POOL_TIMES_PATH_KILLARNEY,
+  POOL_TIMES_PATH_LORD_BYNG,
+  URL_KENSINGTON,
+  URL_KILLARNEY,
+  URL_LORD_BYNG,
   assertScrapeLooksValid,
   buildPoolTimesResult,
   extractPageSummary,
