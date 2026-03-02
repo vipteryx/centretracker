@@ -1,6 +1,6 @@
 # centretracker
 
-A Node.js web scraper that monitors Vancouver Community Centre swimming pool schedules and stores the data as JSON. Currently tracks **Hillcrest** and **Britannia** community centres.
+A Node.js web scraper that monitors Vancouver Community Centre swimming pool schedules and stores the data as JSON. Currently tracks **Hillcrest**, **Britannia**, **Vancouver Aquatic Centre**, **Templeton**, **Renfrew**, **Kensington**, **Killarney**, and **Lord Byng** community centres.
 
 Runs on a scheduled GitHub Actions workflow twice daily (02:00 and 14:00 UTC) and commits the output JSON back to the repository.
 
@@ -100,3 +100,5 @@ npm start
 | 2026-03-02 08:58:03  | Fix race condition: derive debug file paths from outputPath (pool-times-debug-api.json, pool-times-debug.html, britannia-pool-times-debug-api.json, britannia-pool-times-debug.html) so parallel extractPoolTimes calls no longer overwrite each other's debug output |
 | 2026-03-02 08:59:34  | Fix stale log message ("debug-page.html") left over from race condition fix; update README for two-venue setup; update issues.md |
 | 2026-03-02 09:04:26  | index.html: add Britannia Pool row; redesign with modern card UI (badges, subtle shadows, CSS custom properties) |
+| 2026-03-02 10:02:48  | Add Aquatic Centre, Templeton, and Renfrew venues to scraper.js, index.html, and CI workflow |
+| 2026-03-02 10:05:01  | Add Kensington, Killarney, and Lord Byng venues to scraper.js, index.html, and CI workflow |

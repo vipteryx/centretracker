@@ -10,6 +10,36 @@ const URL_BRITANNIA =
 const OUTPUT_PATH_BRITANNIA = "britannia-page-summary.json";
 const POOL_TIMES_PATH_BRITANNIA = "britannia-pool-times.json";
 
+const URL_AQUATIC =
+  "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=2&displayType=0&view=2";
+const OUTPUT_PATH_AQUATIC = "aquatic-page-summary.json";
+const POOL_TIMES_PATH_AQUATIC = "aquatic-pool-times.json";
+
+const URL_TEMPLETON =
+  "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=45&displayType=0&view=2";
+const OUTPUT_PATH_TEMPLETON = "templeton-page-summary.json";
+const POOL_TIMES_PATH_TEMPLETON = "templeton-pool-times.json";
+
+const URL_RENFREW =
+  "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=47&displayType=0&view=2";
+const OUTPUT_PATH_RENFREW = "renfrew-page-summary.json";
+const POOL_TIMES_PATH_RENFREW = "renfrew-pool-times.json";
+
+const URL_KENSINGTON =
+  "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=56&displayType=0&view=2";
+const OUTPUT_PATH_KENSINGTON = "kensington-page-summary.json";
+const POOL_TIMES_PATH_KENSINGTON = "kensington-pool-times.json";
+
+const URL_KILLARNEY =
+  "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=36&displayType=0&view=2";
+const OUTPUT_PATH_KILLARNEY = "killarney-page-summary.json";
+const POOL_TIMES_PATH_KILLARNEY = "killarney-pool-times.json";
+
+const URL_LORD_BYNG =
+  "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=10&displayType=0&view=2";
+const OUTPUT_PATH_LORD_BYNG = "lord-byng-page-summary.json";
+const POOL_TIMES_PATH_LORD_BYNG = "lord-byng-pool-times.json";
+
 const BLOCKLIST = ["attention required", "sorry, you have been blocked", "cloudflare"];
 
 function normalizeText(value = "") {
@@ -451,6 +481,18 @@ if (require.main === module) {
     extractPoolTimes(),
     scrape(URL_BRITANNIA, OUTPUT_PATH_BRITANNIA),
     extractPoolTimes(URL_BRITANNIA, POOL_TIMES_PATH_BRITANNIA),
+    scrape(URL_AQUATIC, OUTPUT_PATH_AQUATIC),
+    extractPoolTimes(URL_AQUATIC, POOL_TIMES_PATH_AQUATIC),
+    scrape(URL_TEMPLETON, OUTPUT_PATH_TEMPLETON),
+    extractPoolTimes(URL_TEMPLETON, POOL_TIMES_PATH_TEMPLETON),
+    scrape(URL_RENFREW, OUTPUT_PATH_RENFREW),
+    extractPoolTimes(URL_RENFREW, POOL_TIMES_PATH_RENFREW),
+    scrape(URL_KENSINGTON, OUTPUT_PATH_KENSINGTON),
+    extractPoolTimes(URL_KENSINGTON, POOL_TIMES_PATH_KENSINGTON),
+    scrape(URL_KILLARNEY, OUTPUT_PATH_KILLARNEY),
+    extractPoolTimes(URL_KILLARNEY, POOL_TIMES_PATH_KILLARNEY),
+    scrape(URL_LORD_BYNG, OUTPUT_PATH_LORD_BYNG),
+    extractPoolTimes(URL_LORD_BYNG, POOL_TIMES_PATH_LORD_BYNG),
   ]).catch((err) => {
     console.error(err);
     process.exit(1);
@@ -462,9 +504,27 @@ module.exports = {
   DEFAULT_OUTPUT_PATH,
   DEFAULT_POOL_TIMES_PATH,
   OUTPUT_PATH_BRITANNIA,
+  OUTPUT_PATH_AQUATIC,
+  OUTPUT_PATH_TEMPLETON,
+  OUTPUT_PATH_RENFREW,
   POOL_TIMES_PATH_BRITANNIA,
+  POOL_TIMES_PATH_AQUATIC,
+  POOL_TIMES_PATH_TEMPLETON,
+  POOL_TIMES_PATH_RENFREW,
   URL,
   URL_BRITANNIA,
+  URL_AQUATIC,
+  URL_TEMPLETON,
+  URL_RENFREW,
+  OUTPUT_PATH_KENSINGTON,
+  OUTPUT_PATH_KILLARNEY,
+  OUTPUT_PATH_LORD_BYNG,
+  POOL_TIMES_PATH_KENSINGTON,
+  POOL_TIMES_PATH_KILLARNEY,
+  POOL_TIMES_PATH_LORD_BYNG,
+  URL_KENSINGTON,
+  URL_KILLARNEY,
+  URL_LORD_BYNG,
   assertScrapeLooksValid,
   buildPoolTimesResult,
   extractPageSummary,
