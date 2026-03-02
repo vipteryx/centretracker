@@ -300,14 +300,17 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
 
     // Write every captured JSON response (URL + 500-char body preview) to a
     // persistent debug file so CI runs can be diagnosed without re-scraping.
+    // Path is derived from outputPath so parallel venue runs don't overwrite each other.
+    const debugApiPath = outputPath.replace(/\.json$/, "-debug-api.json");
+    const debugHtmlPath = outputPath.replace(/\.json$/, "-debug.html");
     const debugApiEntries = capturedJsonResponses.map(({ url: u, body }) => ({
       url: u,
       preview: JSON.stringify(body).slice(0, 500),
     }));
-    fs.writeFileSync("debug-api-responses.json", JSON.stringify(debugApiEntries, null, 2));
+    fs.writeFileSync(debugApiPath, JSON.stringify(debugApiEntries, null, 2));
 
     if (capturedJsonResponses.length > 0) {
-      console.log(`Captured ${capturedJsonResponses.length} JSON response(s) (see debug-api-responses.json):`);
+      console.log(`Captured ${capturedJsonResponses.length} JSON response(s) (see ${debugApiPath}):`);
       capturedJsonResponses.forEach(({ url: u, body }) => {
         console.log(`  ${u}`);
         const preview = JSON.stringify(body).slice(0, 300);
@@ -416,9 +419,9 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
 
     // Always save rendered HTML so every run leaves an inspectable artefact.
     const debugHtml = await page.content();
-    fs.writeFileSync("debug-page.html", debugHtml);
+    fs.writeFileSync(debugHtmlPath, debugHtml);
     if (days.length === 0) {
-      console.warn("Extraction yielded no sessions. Inspect debug-page.html for details.");
+      console.warn(`Extraction yielded no sessions. Inspect ${debugHtmlPath} for details.`);
     } else {
       console.log("Saved rendered HTML to debug-page.html.");
     }

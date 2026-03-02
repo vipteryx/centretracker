@@ -70,3 +70,4 @@ npm start
 | 2026-03-02 07:47:23  | Add index.html: single-line status page showing Hillcrest Pool open/closed based on pool-times.json |
 | 2026-03-02 07:51:48  | index.html: when closed, show next opening time and session name below the status line |
 | 2026-03-02 08:54:39  | Add Britannia Community Centre scraper: URL_BRITANNIA (locationId=37), britannia-page-summary.json, britannia-pool-times.json; run both venues in parallel from main entry point; update CI workflow to commit Britannia output files |
+| 2026-03-02 08:58:03  | Fix race condition: derive debug file paths from outputPath (pool-times-debug-api.json, pool-times-debug.html, britannia-pool-times-debug-api.json, britannia-pool-times-debug.html) so parallel extractPoolTimes calls no longer overwrite each other's debug output |
