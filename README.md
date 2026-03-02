@@ -103,3 +103,4 @@ npm start
 | 2026-03-02 10:02:48  | Add Aquatic Centre, Templeton, and Renfrew venues to scraper.js, index.html, and CI workflow |
 | 2026-03-02 10:05:01  | Add Kensington, Killarney, and Lord Byng venues to scraper.js, index.html, and CI workflow |
 | 2026-03-02 10:17:33  | index.html: redesign card UI — replace badge pill with bold Open/Closed text under venue name; show closing time (if open) or next open–close range (if closed) on right; show program name and time range below status |
+| 2026-03-02 10:19:33  | index.html: sort venue cards alphabetically |

@@ -130,17 +130,6 @@
   </header>
 
   <div class="cards">
-    <div class="card" id="card-hillcrest">
-      <div class="card-top">
-        <div class="venue-left">
-          <span class="venue-name">Hillcrest Pool</span>
-          <span class="venue-status unknown" id="status-hillcrest">…</span>
-        </div>
-        <div class="venue-time" id="time-hillcrest"></div>
-      </div>
-      <div class="next" id="next-hillcrest"></div>
-    </div>
-
     <div class="card" id="card-britannia">
       <div class="card-top">
         <div class="venue-left">
@@ -152,37 +141,15 @@
       <div class="next" id="next-britannia"></div>
     </div>
 
-    <div class="card" id="card-aquatic">
+    <div class="card" id="card-hillcrest">
       <div class="card-top">
         <div class="venue-left">
-          <span class="venue-name">Vancouver Aquatic Centre</span>
-          <span class="venue-status unknown" id="status-aquatic">…</span>
+          <span class="venue-name">Hillcrest Pool</span>
+          <span class="venue-status unknown" id="status-hillcrest">…</span>
         </div>
-        <div class="venue-time" id="time-aquatic"></div>
+        <div class="venue-time" id="time-hillcrest"></div>
       </div>
-      <div class="next" id="next-aquatic"></div>
-    </div>
-
-    <div class="card" id="card-templeton">
-      <div class="card-top">
-        <div class="venue-left">
-          <span class="venue-name">Templeton Pool</span>
-          <span class="venue-status unknown" id="status-templeton">…</span>
-        </div>
-        <div class="venue-time" id="time-templeton"></div>
-      </div>
-      <div class="next" id="next-templeton"></div>
-    </div>
-
-    <div class="card" id="card-renfrew">
-      <div class="card-top">
-        <div class="venue-left">
-          <span class="venue-name">Renfrew Pool</span>
-          <span class="venue-status unknown" id="status-renfrew">…</span>
-        </div>
-        <div class="venue-time" id="time-renfrew"></div>
-      </div>
-      <div class="next" id="next-renfrew"></div>
+      <div class="next" id="next-hillcrest"></div>
     </div>
 
     <div class="card" id="card-kensington">
@@ -216,6 +183,39 @@
         <div class="venue-time" id="time-lord-byng"></div>
       </div>
       <div class="next" id="next-lord-byng"></div>
+    </div>
+
+    <div class="card" id="card-renfrew">
+      <div class="card-top">
+        <div class="venue-left">
+          <span class="venue-name">Renfrew Pool</span>
+          <span class="venue-status unknown" id="status-renfrew">…</span>
+        </div>
+        <div class="venue-time" id="time-renfrew"></div>
+      </div>
+      <div class="next" id="next-renfrew"></div>
+    </div>
+
+    <div class="card" id="card-templeton">
+      <div class="card-top">
+        <div class="venue-left">
+          <span class="venue-name">Templeton Pool</span>
+          <span class="venue-status unknown" id="status-templeton">…</span>
+        </div>
+        <div class="venue-time" id="time-templeton"></div>
+      </div>
+      <div class="next" id="next-templeton"></div>
+    </div>
+
+    <div class="card" id="card-aquatic">
+      <div class="card-top">
+        <div class="venue-left">
+          <span class="venue-name">Vancouver Aquatic Centre</span>
+          <span class="venue-status unknown" id="status-aquatic">…</span>
+        </div>
+        <div class="venue-time" id="time-aquatic"></div>
+      </div>
+      <div class="next" id="next-aquatic"></div>
     </div>
   </div>
 
@@ -315,14 +315,14 @@
         now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     }
 
-    loadVenue("pool-times.json",            "hillcrest");
     loadVenue("britannia-pool-times.json",  "britannia");
-    loadVenue("aquatic-pool-times.json",    "aquatic");
-    loadVenue("templeton-pool-times.json",  "templeton");
-    loadVenue("renfrew-pool-times.json",    "renfrew");
+    loadVenue("pool-times.json",            "hillcrest");
     loadVenue("kensington-pool-times.json", "kensington");
     loadVenue("killarney-pool-times.json",  "killarney");
     loadVenue("lord-byng-pool-times.json",  "lord-byng");
+    loadVenue("renfrew-pool-times.json",    "renfrew");
+    loadVenue("templeton-pool-times.json",  "templeton");
+    loadVenue("aquatic-pool-times.json",    "aquatic");
     renderClock();
     setInterval(renderClock, 30000);
   </script>
