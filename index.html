@@ -138,6 +138,30 @@
       </div>
       <div class="next" id="next-britannia"></div>
     </div>
+
+    <div class="card" id="card-aquatic">
+      <div class="card-top">
+        <span class="venue-name">Vancouver Aquatic Centre</span>
+        <span class="badge unknown" id="status-aquatic">…</span>
+      </div>
+      <div class="next" id="next-aquatic"></div>
+    </div>
+
+    <div class="card" id="card-templeton">
+      <div class="card-top">
+        <span class="venue-name">Templeton Pool</span>
+        <span class="badge unknown" id="status-templeton">…</span>
+      </div>
+      <div class="next" id="next-templeton"></div>
+    </div>
+
+    <div class="card" id="card-renfrew">
+      <div class="card-top">
+        <span class="venue-name">Renfrew Pool</span>
+        <span class="badge unknown" id="status-renfrew">…</span>
+      </div>
+      <div class="next" id="next-renfrew"></div>
+    </div>
   </div>
 
   <footer>Updated twice daily · <span id="now"></span></footer>
@@ -223,8 +247,11 @@
         now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     }
 
-    loadVenue("pool-times.json",          "status-hillcrest", "next-hillcrest");
-    loadVenue("britannia-pool-times.json","status-britannia",  "next-britannia");
+    loadVenue("pool-times.json",           "status-hillcrest",  "next-hillcrest");
+    loadVenue("britannia-pool-times.json", "status-britannia",  "next-britannia");
+    loadVenue("aquatic-pool-times.json",   "status-aquatic",    "next-aquatic");
+    loadVenue("templeton-pool-times.json", "status-templeton",  "next-templeton");
+    loadVenue("renfrew-pool-times.json",   "status-renfrew",    "next-renfrew");
     renderClock();
     setInterval(renderClock, 30000);
   </script>
