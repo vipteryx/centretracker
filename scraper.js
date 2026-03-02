@@ -248,12 +248,22 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
 
     await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
 
-    // SPAs often fire XHR after the initial networkidle; wait for any FullCalendar
-    // event element to appear so we don't miss late-loading calendar data.
+    // SPAs often fire XHR after the initial networkidle; wait for the web
+    // component's Shadow DOM to render events. Standard waitForSelector does
+    // not pierce Shadow DOM, so we use waitForFunction instead.
     try {
-      await page.waitForSelector('.fc-event, .fc-timegrid-event, .fc-daygrid-event', { timeout: 10000 });
+      await page.waitForFunction(
+        () => {
+          const calEl = document.getElementById("calendar");
+          if (!calEl || !calEl.shadowRoot) return false;
+          return calEl.shadowRoot.querySelector(
+            'td.fc-timegrid-col[data-date], td.fc-daygrid-day[data-date], .fc-event'
+          ) !== null;
+        },
+        { timeout: 15000 }
+      );
     } catch {
-      // Calendar may be empty or use different selectors; continue anyway
+      // Shadow DOM not accessible or no events rendered; continue anyway
     }
 
     // Await all captured bodies (some may still be resolving post-networkidle)
