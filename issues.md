@@ -4,11 +4,13 @@ The `pool-times.json` output contains `days: []` and `weekRange: { start: null, 
 
 ---
 
-## Issue 1: API interception heuristic may not match the site's response shape
+## ~~Issue 1: API interception heuristic may not match the site's response shape~~ — **FIXED (2026-03-02)**
 
-`findSessionArray()` (scraper.js:83) requires the first element of a candidate array to have **both** a time-like key (`/time|date|start|end|when/`) and a name-like key (`/name|title|desc|activ|event/`). If the `activecommunities.com` API uses different key names, the heuristic silently returns `null` and the primary path produces no data.
+~~`findSessionArray()` (scraper.js:83) requires the first element of a candidate array to have **both** a time-like key (`/time|date|start|end|when/`) and a name-like key (`/name|title|desc|activ|event/`). If the `activecommunities.com` API uses different key names, the heuristic silently returns `null` and the primary path produces no data.~~
 
-**Partial fix (2026-03-01):** The scraper now logs a 300-character preview of each captured JSON response body (in addition to the URL), so future CI runs will reveal the actual response shape if JSON is captured. Inspect the Actions log to see the `Preview:` lines and adjust `findSessionArray()` key regexes accordingly.
+**Root cause confirmed:** The site's navigation/category API response (a list of calendar filter options like "**Choose a Calendar", "**Public Swimming") was passing `findSessionArray()`'s heuristic. It had both name-like and time-like keys with at least one non-null time value, causing it to be mistakenly returned as session data. The grouped output had no real ISO dates and no session times — `pool-times.json` was being written with category labels instead of pool schedule data.
+
+**Resolution:** Added a post-grouping validation step in `extractPoolTimes()` (scraper.js). After calling `groupApiSessionsByDay()` on a candidate API response, the result is now checked: at least one day must have a real ISO date (`/^\d{4}/`) **and** at least one session with a `time` value. Responses that fail this check are logged and skipped; the loop continues to the next captured response. Navigation/category arrays will always fail this check (no dates, no times on sessions).
 
 ---
 

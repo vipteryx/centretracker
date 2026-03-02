@@ -330,11 +330,20 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
     // --- Primary: try captured API responses ---
     for (const { url: respUrl, body } of capturedJsonResponses) {
       const rawSessions = parseApiResponseForSessions(body);
-      if (rawSessions) {
-        console.log(`Using API data from: ${respUrl}`);
-        days = groupApiSessionsByDay(rawSessions, referenceYear);
-        break;
+      if (!rawSessions) continue;
+      const candidate = groupApiSessionsByDay(rawSessions, referenceYear);
+      // Reject navigation/category arrays: require at least one day with a
+      // real ISO date AND at least one session carrying a time value.
+      const hasRealSessions = candidate.some(
+        (d) => /^\d{4}/.test(d.date) && d.sessions.some((s) => s.time)
+      );
+      if (!hasRealSessions) {
+        console.log(`Skipping API response (no dated sessions with times): ${respUrl}`);
+        continue;
       }
+      console.log(`Using API data from: ${respUrl}`);
+      days = candidate;
+      break;
     }
 
     // --- Fallback: Shadow DOM extraction via FullCalendar Web Component ---
