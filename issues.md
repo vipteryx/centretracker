@@ -39,8 +39,10 @@ The Shadow DOM query uses `.fc-timegrid-col[data-date]`, `.fc-timegrid-event`, a
 
 ---
 
-## ~~Issue 5: `networkidle` may fire before calendar data is fully loaded~~ — **FIXED (2026-03-01)**
+## ~~Issue 5: `networkidle` may fire before calendar data is fully loaded~~ — **FIXED (2026-03-02)**
 
 ~~The scraper waits for `networkidle` (scraper.js:249) before processing responses. In SPAs, the calendar component may trigger additional async requests after the initial idle threshold, causing those responses to be missed by the interception listener.~~
 
-**Resolution:** After `page.goto()` resolves, the scraper now calls `page.waitForSelector('.fc-event, .fc-timegrid-event, .fc-daygrid-event', { timeout: 10000 })`. This gives the SPA additional time to fire its calendar API calls and render events before the response list is processed. If no calendar events appear within 10 seconds the scraper continues normally rather than failing hard.
+**Original partial fix (2026-03-01):** Added `page.waitForSelector('.fc-event, .fc-timegrid-event, .fc-daygrid-event', { timeout: 10000 })` after `page.goto()`. This was intended to let the SPA fire its calendar API calls before responses were processed, but the fix was incomplete: Playwright's `waitForSelector` does not pierce Shadow DOM, so it always timed out after 10 seconds regardless of whether events had loaded inside the `<active-calendar-scheduler>` Web Component.
+
+**Full resolution (2026-03-02):** Replaced `waitForSelector` with `page.waitForFunction()` (scraper.js:255–264). The function runs in the browser context and polls `document.getElementById('calendar').shadowRoot` directly, returning `true` as soon as a `td[data-date]` or `.fc-event` element is found inside the Shadow Root. This correctly waits up to 15 seconds for the Web Component to render its events, then falls through gracefully if the Shadow Root is inaccessible or empty.
