@@ -13,11 +13,8 @@
       --border: #e0e0e5;
       --text-primary: #1a1a2e;
       --text-secondary: #6b6b80;
-      --open-bg: #e8f5e9;
       --open-text: #2e7d32;
-      --closed-bg: #fce4ec;
       --closed-text: #c62828;
-      --unknown-bg: #f3f3f3;
       --unknown-text: #666;
       --accent: #1565c0;
       --radius: 14px;
@@ -70,14 +67,20 @@
       padding: 1.1rem 1.25rem;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
 
     .card-top {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 0.75rem;
+    }
+
+    .venue-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
     }
 
     .venue-name {
@@ -86,20 +89,24 @@
       color: var(--text-primary);
     }
 
-    .badge {
-      font-size: 0.75rem;
+    .venue-status {
+      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-      white-space: nowrap;
-      flex-shrink: 0;
     }
 
-    .badge.open    { background: var(--open-bg);    color: var(--open-text); }
-    .badge.closed  { background: var(--closed-bg);  color: var(--closed-text); }
-    .badge.unknown { background: var(--unknown-bg); color: var(--unknown-text); }
+    .venue-status.open    { color: var(--open-text); }
+    .venue-status.closed  { color: var(--closed-text); }
+    .venue-status.unknown { color: var(--unknown-text); }
+
+    .venue-time {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-align: right;
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-top: 0.05rem;
+    }
 
     .next {
       font-size: 0.8rem;
@@ -125,64 +132,88 @@
   <div class="cards">
     <div class="card" id="card-hillcrest">
       <div class="card-top">
-        <span class="venue-name">Hillcrest Pool</span>
-        <span class="badge unknown" id="status-hillcrest">…</span>
+        <div class="venue-left">
+          <span class="venue-name">Hillcrest Pool</span>
+          <span class="venue-status unknown" id="status-hillcrest">…</span>
+        </div>
+        <div class="venue-time" id="time-hillcrest"></div>
       </div>
       <div class="next" id="next-hillcrest"></div>
     </div>
 
     <div class="card" id="card-britannia">
       <div class="card-top">
-        <span class="venue-name">Britannia Pool</span>
-        <span class="badge unknown" id="status-britannia">…</span>
+        <div class="venue-left">
+          <span class="venue-name">Britannia Pool</span>
+          <span class="venue-status unknown" id="status-britannia">…</span>
+        </div>
+        <div class="venue-time" id="time-britannia"></div>
       </div>
       <div class="next" id="next-britannia"></div>
     </div>
 
     <div class="card" id="card-aquatic">
       <div class="card-top">
-        <span class="venue-name">Vancouver Aquatic Centre</span>
-        <span class="badge unknown" id="status-aquatic">…</span>
+        <div class="venue-left">
+          <span class="venue-name">Vancouver Aquatic Centre</span>
+          <span class="venue-status unknown" id="status-aquatic">…</span>
+        </div>
+        <div class="venue-time" id="time-aquatic"></div>
       </div>
       <div class="next" id="next-aquatic"></div>
     </div>
 
     <div class="card" id="card-templeton">
       <div class="card-top">
-        <span class="venue-name">Templeton Pool</span>
-        <span class="badge unknown" id="status-templeton">…</span>
+        <div class="venue-left">
+          <span class="venue-name">Templeton Pool</span>
+          <span class="venue-status unknown" id="status-templeton">…</span>
+        </div>
+        <div class="venue-time" id="time-templeton"></div>
       </div>
       <div class="next" id="next-templeton"></div>
     </div>
 
     <div class="card" id="card-renfrew">
       <div class="card-top">
-        <span class="venue-name">Renfrew Pool</span>
-        <span class="badge unknown" id="status-renfrew">…</span>
+        <div class="venue-left">
+          <span class="venue-name">Renfrew Pool</span>
+          <span class="venue-status unknown" id="status-renfrew">…</span>
+        </div>
+        <div class="venue-time" id="time-renfrew"></div>
       </div>
       <div class="next" id="next-renfrew"></div>
     </div>
 
     <div class="card" id="card-kensington">
       <div class="card-top">
-        <span class="venue-name">Kensington Pool</span>
-        <span class="badge unknown" id="status-kensington">…</span>
+        <div class="venue-left">
+          <span class="venue-name">Kensington Pool</span>
+          <span class="venue-status unknown" id="status-kensington">…</span>
+        </div>
+        <div class="venue-time" id="time-kensington"></div>
       </div>
       <div class="next" id="next-kensington"></div>
     </div>
 
     <div class="card" id="card-killarney">
       <div class="card-top">
-        <span class="venue-name">Killarney Pool</span>
-        <span class="badge unknown" id="status-killarney">…</span>
+        <div class="venue-left">
+          <span class="venue-name">Killarney Pool</span>
+          <span class="venue-status unknown" id="status-killarney">…</span>
+        </div>
+        <div class="venue-time" id="time-killarney"></div>
       </div>
       <div class="next" id="next-killarney"></div>
     </div>
 
     <div class="card" id="card-lord-byng">
       <div class="card-top">
-        <span class="venue-name">Lord Byng Pool</span>
-        <span class="badge unknown" id="status-lord-byng">…</span>
+        <div class="venue-left">
+          <span class="venue-name">Lord Byng Pool</span>
+          <span class="venue-status unknown" id="status-lord-byng">…</span>
+        </div>
+        <div class="venue-time" id="time-lord-byng"></div>
       </div>
       <div class="next" id="next-lord-byng"></div>
     </div>
@@ -231,9 +262,10 @@
       ].join("-");
     }
 
-    async function loadVenue(dataUrl, statusId, nextId) {
-      const statusEl = document.getElementById(statusId);
-      const nextEl   = document.getElementById(nextId);
+    async function loadVenue(dataUrl, key) {
+      const statusEl = document.getElementById("status-" + key);
+      const timeEl   = document.getElementById("time-"   + key);
+      const nextEl   = document.getElementById("next-"   + key);
       try {
         const data = await fetch(dataUrl).then(r => r.json());
         const now = new Date();
@@ -241,27 +273,39 @@
         const nowMin = now.getHours() * 60 + now.getMinutes();
         const todayData = data.days.find(d => d.date === todayStr);
 
-        const open = todayData && todayData.sessions.some(s => {
-          if (!isPublic(s)) return false;
-          const [start, end] = s.time.split(" - ").map(parseTime);
-          return start !== null && end !== null && nowMin >= start && nowMin <= end;
-        });
+        const currentSession = todayData
+          ? todayData.sessions.find(s => {
+              if (!isPublic(s)) return false;
+              const [start, end] = s.time.split(" - ").map(parseTime);
+              return start !== null && end !== null && nowMin >= start && nowMin <= end;
+            }) || null
+          : null;
+
+        const open = !!currentSession;
 
         statusEl.textContent = open ? "Open" : "Closed";
-        statusEl.className   = "badge " + (open ? "open" : "closed");
+        statusEl.className   = "venue-status " + (open ? "open" : "closed");
 
-        if (!open) {
+        if (open) {
+          const endTime = currentSession.time.split(" - ")[1].trim();
+          timeEl.textContent = endTime;
+          nextEl.textContent = `${currentSession.name} · ${currentSession.time}`;
+        } else {
           const next = nextSession(data.days, todayStr, nowMin);
           if (next) {
-            const startTime = next.session.time.split(" - ")[0].trim();
-            const isToday   = next.day.date === todayStr;
-            const when      = isToday ? startTime : `${next.day.dayOfWeek} ${startTime}`;
-            nextEl.textContent = `Opens ${when} · ${next.session.name}`;
+            const isToday = next.day.date === todayStr;
+            timeEl.textContent = isToday
+              ? next.session.time
+              : `${next.day.dayOfWeek} ${next.session.time}`;
+            nextEl.textContent = `${next.session.name} · ${next.session.time}`;
+          } else {
+            timeEl.textContent = "";
+            nextEl.textContent = "No upcoming sessions";
           }
         }
       } catch {
         statusEl.textContent = "Unknown";
-        statusEl.className   = "badge unknown";
+        statusEl.className   = "venue-status unknown";
       }
     }
 
@@ -271,14 +315,14 @@
         now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     }
 
-    loadVenue("pool-times.json",           "status-hillcrest",  "next-hillcrest");
-    loadVenue("britannia-pool-times.json", "status-britannia",  "next-britannia");
-    loadVenue("aquatic-pool-times.json",   "status-aquatic",    "next-aquatic");
-    loadVenue("templeton-pool-times.json", "status-templeton",  "next-templeton");
-    loadVenue("renfrew-pool-times.json",     "status-renfrew",      "next-renfrew");
-    loadVenue("kensington-pool-times.json", "status-kensington",   "next-kensington");
-    loadVenue("killarney-pool-times.json",  "status-killarney",    "next-killarney");
-    loadVenue("lord-byng-pool-times.json",  "status-lord-byng",    "next-lord-byng");
+    loadVenue("pool-times.json",            "hillcrest");
+    loadVenue("britannia-pool-times.json",  "britannia");
+    loadVenue("aquatic-pool-times.json",    "aquatic");
+    loadVenue("templeton-pool-times.json",  "templeton");
+    loadVenue("renfrew-pool-times.json",    "renfrew");
+    loadVenue("kensington-pool-times.json", "kensington");
+    loadVenue("killarney-pool-times.json",  "killarney");
+    loadVenue("lord-byng-pool-times.json",  "lord-byng");
     renderClock();
     setInterval(renderClock, 30000);
   </script>
