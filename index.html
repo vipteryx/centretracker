@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hillcrest Pool Status</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 1rem;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .open { color: green; }
+    .closed { color: red; }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <span>Hillcrest Pool</span>
+    <span id="status">…</span>
+  </div>
+  <script>
+    function parseTime(str) {
+      const m = str.trim().match(/(\d+):(\d+)\s*(AM|PM)/i);
+      if (!m) return null;
+      let h = parseInt(m[1], 10);
+      const min = parseInt(m[2], 10);
+      const ampm = m[3].toUpperCase();
+      if (ampm === "PM" && h !== 12) h += 12;
+      if (ampm === "AM" && h === 12) h = 0;
+      return h * 60 + min;
+    }
+
+    async function updateStatus() {
+      const el = document.getElementById("status");
+      try {
+        const data = await fetch("pool-times.json").then(r => r.json());
+        const now = new Date();
+        const today = [
+          now.getFullYear(),
+          String(now.getMonth() + 1).padStart(2, "0"),
+          String(now.getDate()).padStart(2, "0"),
+        ].join("-");
+        const nowMin = now.getHours() * 60 + now.getMinutes();
+        const todayData = data.days.find(d => d.date === today);
+        const open = todayData && todayData.sessions.some(s => {
+          if (!s.time || /bulkhead/i.test(s.name)) return false;
+          const [start, end] = s.time.split(" - ").map(parseTime);
+          return start !== null && end !== null && nowMin >= start && nowMin <= end;
+        });
+        el.textContent = open ? "Open" : "Closed";
+        el.className = open ? "open" : "closed";
+      } catch {
+        el.textContent = "Unknown";
+      }
+    }
+
+    updateStatus();
+  </script>
+</body>
+</html>
