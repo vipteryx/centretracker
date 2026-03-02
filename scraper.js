@@ -4,6 +4,12 @@ const URL =
   "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=59&displayType=0&view=2";
 const DEFAULT_OUTPUT_PATH = "page-summary.json";
 const DEFAULT_POOL_TIMES_PATH = "pool-times.json";
+
+const URL_BRITANNIA =
+  "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=37&displayType=0&view=2";
+const OUTPUT_PATH_BRITANNIA = "britannia-page-summary.json";
+const POOL_TIMES_PATH_BRITANNIA = "britannia-pool-times.json";
+
 const BLOCKLIST = ["attention required", "sorry, you have been blocked", "cloudflare"];
 
 function normalizeText(value = "") {
@@ -294,14 +300,17 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
 
     // Write every captured JSON response (URL + 500-char body preview) to a
     // persistent debug file so CI runs can be diagnosed without re-scraping.
+    // Path is derived from outputPath so parallel venue runs don't overwrite each other.
+    const debugApiPath = outputPath.replace(/\.json$/, "-debug-api.json");
+    const debugHtmlPath = outputPath.replace(/\.json$/, "-debug.html");
     const debugApiEntries = capturedJsonResponses.map(({ url: u, body }) => ({
       url: u,
       preview: JSON.stringify(body).slice(0, 500),
     }));
-    fs.writeFileSync("debug-api-responses.json", JSON.stringify(debugApiEntries, null, 2));
+    fs.writeFileSync(debugApiPath, JSON.stringify(debugApiEntries, null, 2));
 
     if (capturedJsonResponses.length > 0) {
-      console.log(`Captured ${capturedJsonResponses.length} JSON response(s) (see debug-api-responses.json):`);
+      console.log(`Captured ${capturedJsonResponses.length} JSON response(s) (see ${debugApiPath}):`);
       capturedJsonResponses.forEach(({ url: u, body }) => {
         console.log(`  ${u}`);
         const preview = JSON.stringify(body).slice(0, 300);
@@ -410,11 +419,11 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
 
     // Always save rendered HTML so every run leaves an inspectable artefact.
     const debugHtml = await page.content();
-    fs.writeFileSync("debug-page.html", debugHtml);
+    fs.writeFileSync(debugHtmlPath, debugHtml);
     if (days.length === 0) {
-      console.warn("Extraction yielded no sessions. Inspect debug-page.html for details.");
+      console.warn(`Extraction yielded no sessions. Inspect ${debugHtmlPath} for details.`);
     } else {
-      console.log("Saved rendered HTML to debug-page.html.");
+      console.log(`Saved rendered HTML to ${debugHtmlPath}.`);
     }
 
     const sortedDates = days
@@ -437,7 +446,12 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
 }
 
 if (require.main === module) {
-  Promise.all([scrape(), extractPoolTimes()]).catch((err) => {
+  Promise.all([
+    scrape(),
+    extractPoolTimes(),
+    scrape(URL_BRITANNIA, OUTPUT_PATH_BRITANNIA),
+    extractPoolTimes(URL_BRITANNIA, POOL_TIMES_PATH_BRITANNIA),
+  ]).catch((err) => {
     console.error(err);
     process.exit(1);
   });
@@ -447,7 +461,10 @@ module.exports = {
   BLOCKLIST,
   DEFAULT_OUTPUT_PATH,
   DEFAULT_POOL_TIMES_PATH,
+  OUTPUT_PATH_BRITANNIA,
+  POOL_TIMES_PATH_BRITANNIA,
   URL,
+  URL_BRITANNIA,
   assertScrapeLooksValid,
   buildPoolTimesResult,
   extractPageSummary,

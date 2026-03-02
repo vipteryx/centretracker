@@ -33,6 +33,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add page-summary.json pool-times.json debug-page.html debug-api-responses.json || true
+          git add page-summary.json pool-times.json pool-times-debug-api.json pool-times-debug.html britannia-page-summary.json britannia-pool-times.json britannia-pool-times-debug-api.json britannia-pool-times-debug.html || true
           git commit -m "Update scraped pool data" || echo "No changes"
           git push origin HEAD
