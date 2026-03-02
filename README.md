@@ -65,3 +65,4 @@ npm start
 | 2026-03-02 05:24:11  | Fix Shadow DOM wait: replace waitForSelector (which does not pierce Shadow DOM) with waitForFunction that polls calEl.shadowRoot directly, so the scraper waits until the active-calendar-scheduler Web Component has rendered its events before extracting |
 | 2026-03-02 06:34:55  | Update issues.md: mark Issue 5 fully fixed with corrected resolution description; note prior waitForSelector fix was incomplete because it did not pierce Shadow DOM |
 | 2026-03-02 06:43:38  | Rename target from Renfrew to Hillcrest Community Centre throughout README.md and CLAUDE.md; locationId=59 was always Hillcrest |
+| 2026-03-02 07:09:20  | Fix findSessionArray false-positive on navigation menu API responses: add real-value guard so arrays where every time-like key is null/empty are skipped; add 3s post-networkidle delay for active-calendar-scheduler deferred XHR; broaden shadow DOM selectors; write debug-api-responses.json each run |
