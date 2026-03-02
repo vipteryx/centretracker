@@ -79,7 +79,9 @@ function buildPoolTimesResult(days, weekRange) {
 }
 
 // Recursively searches obj for an array of objects that look like calendar sessions.
-// Checks for any combination of name-like and time/date-like keys. Depth-limited.
+// Requires both name-like and time/date-like keys, AND that at least one time-like
+// key carries a real non-empty value (so navigation menu arrays with null date
+// fields are not mistakenly returned). Depth-limited.
 function findSessionArray(obj, depth) {
   if (depth === undefined) depth = 0;
   if (depth > 6 || obj === null || obj === undefined) return null;
@@ -87,10 +89,23 @@ function findSessionArray(obj, depth) {
 
   if (Array.isArray(obj)) {
     if (obj.length > 0 && typeof obj[0] === "object" && obj[0] !== null) {
-      const keys = Object.keys(obj[0]).map((k) => k.toLowerCase());
-      const hasTime = keys.some((k) => /time|date|start|end|when/.test(k));
-      const hasName = keys.some((k) => /name|title|desc|activ|event/.test(k));
-      if (hasTime && hasName) return obj;
+      const firstKeys = Object.keys(obj[0]);
+      const lowerKeys = firstKeys.map((k) => k.toLowerCase());
+      const hasTime = lowerKeys.some((k) => /time|date|start|end|when/.test(k));
+      const hasName = lowerKeys.some((k) => /name|title|desc|activ|event/.test(k));
+      if (hasTime && hasName) {
+        // Guard against navigation/category arrays where every time-like field is
+        // null or empty — real session arrays always have at least one actual value.
+        const timeKeys = firstKeys.filter((k) => /time|date|start|end|when/i.test(k));
+        const sample = obj.slice(0, Math.min(obj.length, 5));
+        const hasRealTimeValue = sample.some((item) =>
+          timeKeys.some((k) => {
+            const v = item[k];
+            return v !== null && v !== undefined && v !== "";
+          })
+        );
+        if (hasRealTimeValue) return obj;
+      }
     }
     for (const item of obj) {
       const found = findSessionArray(item, depth + 1);
@@ -248,19 +263,27 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
 
     await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
 
-    // SPAs often fire XHR after the initial networkidle; wait for the web
-    // component's Shadow DOM to render events. Standard waitForSelector does
-    // not pierce Shadow DOM, so we use waitForFunction instead.
+    // SPAs (and especially web components like <active-calendar-scheduler>)
+    // often dispatch their own data-fetch *after* the host page reaches
+    // networkidle.  Give those deferred XHRs a moment to fire and settle
+    // before we collect capturedJsonPromises.
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    // Wait for the web component's Shadow DOM to render at least one event.
+    // active-calendar-scheduler v3.5.0 (from static-cdn.active.com) uses
+    // FullCalendar internally, but we also probe generic data-date attributes
+    // and common scheduler event class names in case the internal library
+    // differs between versions.
     try {
       await page.waitForFunction(
         () => {
           const calEl = document.getElementById("calendar");
           if (!calEl || !calEl.shadowRoot) return false;
           return calEl.shadowRoot.querySelector(
-            'td.fc-timegrid-col[data-date], td.fc-daygrid-day[data-date], .fc-event'
+            'td.fc-timegrid-col[data-date], td.fc-daygrid-day[data-date], .fc-event, [data-date], .scheduler-event, .event-block, .cal-event'
           ) !== null;
         },
-        { timeout: 15000 }
+        { timeout: 20000 }
       );
     } catch {
       // Shadow DOM not accessible or no events rendered; continue anyway
@@ -269,8 +292,16 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
     // Await all captured bodies (some may still be resolving post-networkidle)
     const capturedJsonResponses = (await Promise.all(capturedJsonPromises)).filter(Boolean);
 
+    // Write every captured JSON response (URL + 500-char body preview) to a
+    // persistent debug file so CI runs can be diagnosed without re-scraping.
+    const debugApiEntries = capturedJsonResponses.map(({ url: u, body }) => ({
+      url: u,
+      preview: JSON.stringify(body).slice(0, 500),
+    }));
+    fs.writeFileSync("debug-api-responses.json", JSON.stringify(debugApiEntries, null, 2));
+
     if (capturedJsonResponses.length > 0) {
-      console.log(`Captured ${capturedJsonResponses.length} JSON response(s):`);
+      console.log(`Captured ${capturedJsonResponses.length} JSON response(s) (see debug-api-responses.json):`);
       capturedJsonResponses.forEach(({ url: u, body }) => {
         console.log(`  ${u}`);
         const preview = JSON.stringify(body).slice(0, 300);
