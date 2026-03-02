@@ -62,3 +62,4 @@ npm start
 | 2026-03-01 06:24:17  | Update issues.md: mark Issue 3 (debug-page.html not committed) as fixed |
 | 2026-03-01 06:38:58  | Fix pool-data extraction: remove debug-page.html from .gitignore (was silently blocking CI commits); fix Shadow DOM fallback to also query document directly when no shadow root exists; add daygrid event selectors; wait for FullCalendar events after networkidle to catch late-loading API calls; log JSON response body previews to diagnose Issue 1 |
 | 2026-03-01 20:46:44  | Fix SyntaxError: restore scraper.js from last known good state after prior commits replaced its content with broken placeholder code containing await outside async function |
+| 2026-03-02 05:24:11  | Fix Shadow DOM wait: replace waitForSelector (which does not pierce Shadow DOM) with waitForFunction that polls calEl.shadowRoot directly, so the scraper waits until the active-calendar-scheduler Web Component has rendered its events before extracting |
