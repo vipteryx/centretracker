@@ -423,7 +423,7 @@ async function extractPoolTimes(url = URL, outputPath = DEFAULT_POOL_TIMES_PATH)
     if (days.length === 0) {
       console.warn(`Extraction yielded no sessions. Inspect ${debugHtmlPath} for details.`);
     } else {
-      console.log("Saved rendered HTML to debug-page.html.");
+      console.log(`Saved rendered HTML to ${debugHtmlPath}.`);
     }
 
     const sortedDates = days

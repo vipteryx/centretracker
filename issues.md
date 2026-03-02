@@ -1,6 +1,6 @@
-# Issues: Empty Schedule JSON (`pool-times.json`)
+# Issues: Pool Schedule Extraction
 
-The `pool-times.json` output contains `days: []` and `weekRange: { start: null, end: null }` because both extraction paths in `extractPoolTimes()` failed to find session data.
+Tracks known issues with `extractPoolTimes()` for all scraped venues (currently **Hillcrest** — `pool-times.json` and **Britannia** — `britannia-pool-times.json`). An empty schedule manifests as `days: []` and `weekRange: { start: null, end: null }` in the output JSON.
 
 ---
 
@@ -37,6 +37,8 @@ The `pool-times.json` output contains `days: []` and `weekRange: { start: null, 
 
 The Shadow DOM query uses `.fc-timegrid-col[data-date]`, `.fc-timegrid-event`, and `.fc-event-start` (scraper.js:297–302). These are FullCalendar v5/v6 class names. If the platform upgraded or customised FullCalendar, these selectors will match nothing.
 
+Applies to **both Hillcrest and Britannia** — both venues use the same ActiveCommunities / `active-calendar-scheduler` Web Component.
+
 **To investigate:** Check the live page source for actual class names used on calendar event elements.
 
 ---
@@ -48,3 +50,11 @@ The Shadow DOM query uses `.fc-timegrid-col[data-date]`, `.fc-timegrid-event`, a
 **Original partial fix (2026-03-01):** Added `page.waitForSelector('.fc-event, .fc-timegrid-event, .fc-daygrid-event', { timeout: 10000 })` after `page.goto()`. This was intended to let the SPA fire its calendar API calls before responses were processed, but the fix was incomplete: Playwright's `waitForSelector` does not pierce Shadow DOM, so it always timed out after 10 seconds regardless of whether events had loaded inside the `<active-calendar-scheduler>` Web Component.
 
 **Full resolution (2026-03-02):** Replaced `waitForSelector` with `page.waitForFunction()` (scraper.js:255–264). The function runs in the browser context and polls `document.getElementById('calendar').shadowRoot` directly, returning `true` as soon as a `td[data-date]` or `.fc-event` element is found inside the Shadow Root. This correctly waits up to 15 seconds for the Web Component to render its events, then falls through gracefully if the Shadow Root is inaccessible or empty.
+
+---
+
+## ~~Issue 6: Parallel venue runs overwrote each other's debug output~~ — **FIXED (2026-03-02)**
+
+~~When Hillcrest and Britannia `extractPoolTimes()` calls ran in parallel via `Promise.all`, both wrote to the same hardcoded `debug-api-responses.json` and `debug-page.html` paths. Whichever venue finished last silently discarded the other's debug data.~~
+
+**Resolution:** Debug file paths are now derived from the `outputPath` argument inside `extractPoolTimes()`. `pool-times.json` → `pool-times-debug-api.json` + `pool-times-debug.html`; `britannia-pool-times.json` → `britannia-pool-times-debug-api.json` + `britannia-pool-times-debug.html`. The CI workflow's `git add` command was updated to match. A stale log message that still referenced the old hardcoded `debug-page.html` name was also corrected.

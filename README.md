@@ -1,27 +1,51 @@
 # centretracker
 
-A Node.js web scraper that monitors the Hillcrest Community Centre swimming pool hours page and stores metadata about what was found.
+A Node.js web scraper that monitors Vancouver Community Centre swimming pool schedules and stores the data as JSON. Currently tracks **Hillcrest** and **Britannia** community centres.
 
 Runs on a scheduled GitHub Actions workflow twice daily (02:00 and 14:00 UTC) and commits the output JSON back to the repository.
 
 ## How it works
 
-1. Playwright launches a headless Chromium browser
-2. Navigates to the Hillcrest Community Centre calendar on the ActiveCommunities portal
-3. Waits for the page (a JavaScript SPA) to fully load
-4. Reads the page `<title>` and first `<h1>` heading
-5. Validates the result isn't a Cloudflare block page
-6. Writes the result to `page-summary.json`
+For each venue, the scraper:
 
-## Output
+1. Launches a headless Chromium browser via Playwright
+2. Navigates to the venue's ActiveCommunities calendar (a JavaScript SPA)
+3. Intercepts JSON API responses while the page loads; waits an extra 3 s for deferred XHRs
+4. Waits for the FullCalendar Web Component's Shadow DOM to render events
+5. Extracts the weekly pool session schedule (API interception primary, Shadow DOM fallback)
+6. Validates the page isn't a Cloudflare block page
+7. Writes a page-summary JSON and a pool-times JSON for that venue
 
-`page-summary.json` is updated on every successful run:
+Both venues are scraped in parallel.
+
+## Output files
+
+| File | Venue | Contents |
+|---|---|---|
+| `page-summary.json` | Hillcrest | Page title + primary heading |
+| `pool-times.json` | Hillcrest | Weekly pool session schedule |
+| `britannia-page-summary.json` | Britannia | Page title + primary heading |
+| `britannia-pool-times.json` | Britannia | Weekly pool session schedule |
+| `pool-times-debug-api.json` | Hillcrest | API response previews (CI diagnostic) |
+| `pool-times-debug.html` | Hillcrest | Full rendered page HTML (CI diagnostic) |
+| `britannia-pool-times-debug-api.json` | Britannia | API response previews (CI diagnostic) |
+| `britannia-pool-times-debug.html` | Britannia | Full rendered page HTML (CI diagnostic) |
+
+`pool-times.json` / `britannia-pool-times.json` structure:
 
 ```json
 {
-  "lastUpdated": "2026-02-27T00:00:00.000Z",
-  "pageTitle": "<page title>",
-  "primaryHeading": "<first h1 heading>"
+  "lastUpdated": "2026-03-02T00:00:00.000Z",
+  "weekRange": { "start": "2026-03-02", "end": "2026-03-08" },
+  "days": [
+    {
+      "date": "2026-03-02",
+      "dayOfWeek": "Monday",
+      "sessions": [
+        { "name": "Public Swim", "time": "6:00am - 8:00am", "location": "Pool" }
+      ]
+    }
+  ]
 }
 ```
 
@@ -38,9 +62,12 @@ npx playwright install --with-deps chromium
 npm start
 ```
 
-## Target URL
+## Target URLs
 
-[Hillcrest Community Centre — ActiveCommunities Calendar](https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=59&displayType=0&view=2)
+| Venue | URL |
+|---|---|
+| [Hillcrest Community Centre](https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=59&displayType=0&view=2) | locationId=59 |
+| [Britannia Community Centre](https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=37&displayType=0&view=2) | locationId=37 |
 
 ## Changelog
 
@@ -71,3 +98,4 @@ npm start
 | 2026-03-02 07:51:48  | index.html: when closed, show next opening time and session name below the status line |
 | 2026-03-02 08:54:39  | Add Britannia Community Centre scraper: URL_BRITANNIA (locationId=37), britannia-page-summary.json, britannia-pool-times.json; run both venues in parallel from main entry point; update CI workflow to commit Britannia output files |
 | 2026-03-02 08:58:03  | Fix race condition: derive debug file paths from outputPath (pool-times-debug-api.json, pool-times-debug.html, britannia-pool-times-debug-api.json, britannia-pool-times-debug.html) so parallel extractPoolTimes calls no longer overwrite each other's debug output |
+| 2026-03-02 08:59:34  | Fix stale log message ("debug-page.html") left over from race condition fix; update README for two-venue setup; update issues.md |
