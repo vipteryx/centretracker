@@ -1,85 +1,214 @@
 {
-  "lastUpdated": "2026-03-02T06:46:34.934Z",
+  "lastUpdated": "2026-03-02T07:37:54.346Z",
   "weekRange": {
-    "start": null,
-    "end": null
+    "start": "2026-03-01",
+    "end": "2026-03-07"
   },
   "days": [
     {
-      "date": "",
-      "dayOfWeek": "",
+      "date": "2026-03-01",
+      "dayOfWeek": "Sunday",
       "sessions": [
         {
-          "name": "**Choose a Calendar"
+          "name": "Length Swim (3 lanes x 25m)",
+          "location": "Hillcrest Pool",
+          "time": "6:00 AM - 8:29 AM"
         },
         {
-          "name": "**Public Skating & Ice Hockey"
+          "name": "Lessons",
+          "location": "Hillcrest Pool",
+          "time": "8:30 AM - 10:29 AM"
         },
         {
-          "name": "**Public Swimming"
+          "name": "Bulkhead Move - No lanes available",
+          "location": "Hillcrest Pool",
+          "time": "8:30 AM - 8:59 AM"
         },
         {
-          "name": "*Kerrisdale Play Palace"
+          "name": "Public Swim, 3 lanes x 25m",
+          "location": "Hillcrest Pool",
+          "time": "9:00 AM - 8:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-02",
+      "dayOfWeek": "Monday",
+      "sessions": [
+        {
+          "name": "Length Swim (3 lanes x 50m)",
+          "location": "Hillcrest Pool",
+          "time": "6:00 AM - 8:59 AM"
         },
         {
-          "name": "*Open Gym Times"
+          "name": "Bulkhead Move - No lanes available",
+          "location": "Hillcrest Pool",
+          "time": "9:00 AM - 9:29 AM"
         },
         {
-          "name": "*Parent and Tot Activities"
+          "name": "Public Swim, 3 lanes x 25m",
+          "location": "Hillcrest Pool",
+          "time": "9:30 AM - 8:59 PM"
         },
         {
-          "name": "*Seniors Activities"
+          "name": "Lessons",
+          "location": "Hillcrest Pool",
+          "time": "9:30 AM - 11:59 AM"
         },
         {
-          "name": "*Youth Activities"
+          "name": "Lessons",
+          "location": "Hillcrest Pool",
+          "time": "4:00 PM - 7:14 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-03",
+      "dayOfWeek": "Tuesday",
+      "sessions": [
+        {
+          "name": "Length Swim (3 lanes x 25m)",
+          "location": "Hillcrest Pool",
+          "time": "6:00 AM - 8:59 AM"
         },
         {
-          "name": "Art & Culture: Dance, Music, Singing"
+          "name": "Lessons",
+          "location": "Hillcrest Pool",
+          "time": "9:00 AM - 11:44 AM"
         },
         {
-          "name": "Art & Culture: Drawing, Painting, Crafts"
+          "name": "Bulkhead Move - No lanes available",
+          "location": "Hillcrest Pool",
+          "time": "9:00 AM - 9:29 AM"
         },
         {
-          "name": "Art & Culture: Pottery & Woodworking"
+          "name": "Public Swim, 3 lanes x 25m",
+          "location": "Hillcrest Pool",
+          "time": "9:30 AM - 8:59 PM"
         },
         {
-          "name": "Fitness: Aerobics/Group Fitness"
+          "name": "Lessons",
+          "location": "Hillcrest Pool",
+          "time": "4:00 PM - 7:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-04",
+      "dayOfWeek": "Wednesday",
+      "sessions": [
+        {
+          "name": "Length Swim (3 lanes x 50m)",
+          "location": "Hillcrest Pool",
+          "time": "6:00 AM - 8:59 AM"
         },
         {
-          "name": "Fitness: Indoor Cycling"
+          "name": "Bulkhead Move - No lanes available",
+          "location": "Hillcrest Pool",
+          "time": "9:00 AM - 9:29 AM"
         },
         {
-          "name": "Fitness: Martial Arts"
+          "name": "Public Swim, 3 lanes x 25m",
+          "location": "Hillcrest Pool",
+          "time": "9:30 AM - 8:59 PM"
         },
         {
-          "name": "Fitness: Other"
+          "name": "Lessons",
+          "location": "Hillcrest Pool",
+          "time": "9:30 AM - 12:29 PM"
         },
         {
-          "name": "Fitness: Yoga & Pilates"
+          "name": "Lessons",
+          "location": "Hillcrest Pool",
+          "time": "4:30 PM - 7:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "dayOfWeek": "Thursday",
+      "sessions": [
+        {
+          "name": "Length Swim (3 lanes x 25m)",
+          "location": "Hillcrest Pool",
+          "time": "6:00 AM - 8:59 AM"
         },
         {
-          "name": "Queer Inclusion"
+          "name": "Lessons",
+          "location": "Hillcrest Pool",
+          "time": "9:00 AM - 11:59 AM"
         },
         {
-          "name": "Sports: Ball & Floor Hockey"
+          "name": "Bulkhead Move - No lanes available",
+          "location": "Hillcrest Pool",
+          "time": "9:00 AM - 9:29 AM"
         },
         {
-          "name": "Sports: Basketball"
+          "name": "Public Swim, 3 lanes x 25m",
+          "location": "Hillcrest Pool",
+          "time": "9:30 AM - 8:59 PM"
         },
         {
-          "name": "Sports: Other"
+          "name": "Lessons",
+          "location": "Hillcrest Pool",
+          "time": "4:00 PM - 8:14 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-06",
+      "dayOfWeek": "Friday",
+      "sessions": [
+        {
+          "name": "Length Swim (3 lanes x 50m)",
+          "location": "Hillcrest Pool",
+          "time": "6:00 AM - 8:59 AM"
         },
         {
-          "name": "Sports: Racquet Sports"
+          "name": "Bulkhead Move - No lanes available",
+          "location": "Hillcrest Pool",
+          "time": "9:00 AM - 9:29 AM"
         },
         {
-          "name": "Sports: Soccer"
+          "name": "Public Swim, 3 lanes x 25m",
+          "location": "Hillcrest Pool",
+          "time": "9:30 AM - 8:59 PM"
         },
         {
-          "name": "Sports: Volleyball"
+          "name": "Lessons",
+          "location": "Hillcrest Pool",
+          "time": "9:30 AM - 12:59 PM"
         },
         {
-          "name": "Various/Other Drop-in Activities"
+          "name": "Lessons",
+          "location": "Hillcrest Pool",
+          "time": "4:30 PM - 7:29 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-07",
+      "dayOfWeek": "Saturday",
+      "sessions": [
+        {
+          "name": "Length Swim (3 lanes x 50m)",
+          "location": "Hillcrest Pool",
+          "time": "6:00 AM - 8:29 AM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Hillcrest Pool",
+          "time": "8:30 AM - 10:29 AM"
+        },
+        {
+          "name": "Bulkhead Move - No lanes available",
+          "location": "Hillcrest Pool",
+          "time": "8:30 AM - 8:59 AM"
+        },
+        {
+          "name": "Public Swim, 3 lanes x 25m",
+          "location": "Hillcrest Pool",
+          "time": "9:00 AM - 8:59 PM"
         }
       ]
     }
