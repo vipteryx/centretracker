@@ -379,6 +379,7 @@
         const todayStr = today();
         const nowMin = now.getHours() * 60 + now.getMinutes();
         const todayData = data.days.find(d => d.date === todayStr);
+        const todaySessions = todayData ? todayData.sessions.filter(isPublic) : [];
 
         const currentSession = todayData
           ? todayData.sessions.find(s => {
@@ -394,16 +395,26 @@
         statusEl.className   = "venue-status " + (open ? "open" : "closed");
 
         if (open) {
-          const endTime = currentSession.time.split(" - ")[1].trim();
-          timeEl.textContent = endTime;
+          // Show the pool's closing time: end of the last public session today
+          const lastSession = todaySessions[todaySessions.length - 1];
+          const closeTime = lastSession ? lastSession.time.split(" - ")[1]?.trim() : null;
+          timeEl.textContent = closeTime || currentSession.time.split(" - ")[1].trim();
           nextEl.textContent = `${currentSession.name} · ${currentSession.time}`;
         } else {
+          // Show the full pool hours (first session start – last session end)
           const next = nextSession(data.days, todayStr, nowMin);
           if (next) {
+            const dayData = data.days.find(d => d.date === next.day.date);
+            const daySessions = dayData ? dayData.sessions.filter(isPublic) : [];
+            const firstStart = daySessions[0]?.time.split(" - ")[0]?.trim();
+            const lastEnd = daySessions[daySessions.length - 1]?.time.split(" - ")[1]?.trim();
             const isToday = next.day.date === todayStr;
-            timeEl.textContent = isToday
-              ? next.session.time
-              : `${next.day.dayOfWeek} ${next.session.time}`;
+            if (firstStart && lastEnd) {
+              const rangeText = `${firstStart} – ${lastEnd}`;
+              timeEl.textContent = isToday ? rangeText : `${next.day.dayOfWeek} ${rangeText}`;
+            } else {
+              timeEl.textContent = isToday ? next.session.time : `${next.day.dayOfWeek} ${next.session.time}`;
+            }
             nextEl.textContent = `${next.session.name} · ${next.session.time}`;
           } else {
             timeEl.textContent = "";
