@@ -2,43 +2,43 @@ const fs = require("fs");
 
 const URL =
   "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=59&displayType=0&view=2";
-const DEFAULT_OUTPUT_PATH = "data/hillcrest-page-summary.json";
-const DEFAULT_POOL_TIMES_PATH = "data/hillcrest-pool-times.json";
+const DEFAULT_OUTPUT_PATH = "data/pool/hillcrest-summary.json";
+const DEFAULT_POOL_TIMES_PATH = "data/pool/hillcrest.json";
 
 const URL_BRITANNIA =
   "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=37&displayType=0&view=2";
-const OUTPUT_PATH_BRITANNIA = "data/britannia-page-summary.json";
-const POOL_TIMES_PATH_BRITANNIA = "data/britannia-pool-times.json";
+const OUTPUT_PATH_BRITANNIA = "data/pool/britannia-summary.json";
+const POOL_TIMES_PATH_BRITANNIA = "data/pool/britannia.json";
 
 const URL_AQUATIC =
   "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=2&displayType=0&view=2";
-const OUTPUT_PATH_AQUATIC = "data/aquatic-page-summary.json";
-const POOL_TIMES_PATH_AQUATIC = "data/aquatic-pool-times.json";
+const OUTPUT_PATH_AQUATIC = "data/pool/aquatic-summary.json";
+const POOL_TIMES_PATH_AQUATIC = "data/pool/aquatic.json";
 
 const URL_TEMPLETON =
   "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=45&displayType=0&view=2";
-const OUTPUT_PATH_TEMPLETON = "data/templeton-page-summary.json";
-const POOL_TIMES_PATH_TEMPLETON = "data/templeton-pool-times.json";
+const OUTPUT_PATH_TEMPLETON = "data/pool/templeton-summary.json";
+const POOL_TIMES_PATH_TEMPLETON = "data/pool/templeton.json";
 
 const URL_RENFREW =
   "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=47&displayType=0&view=2";
-const OUTPUT_PATH_RENFREW = "data/renfrew-page-summary.json";
-const POOL_TIMES_PATH_RENFREW = "data/renfrew-pool-times.json";
+const OUTPUT_PATH_RENFREW = "data/pool/renfrew-summary.json";
+const POOL_TIMES_PATH_RENFREW = "data/pool/renfrew.json";
 
 const URL_KENSINGTON =
   "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=56&displayType=0&view=2";
-const OUTPUT_PATH_KENSINGTON = "data/kensington-page-summary.json";
-const POOL_TIMES_PATH_KENSINGTON = "data/kensington-pool-times.json";
+const OUTPUT_PATH_KENSINGTON = "data/pool/kensington-summary.json";
+const POOL_TIMES_PATH_KENSINGTON = "data/pool/kensington.json";
 
 const URL_KILLARNEY =
   "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=36&displayType=0&view=2";
-const OUTPUT_PATH_KILLARNEY = "data/killarney-page-summary.json";
-const POOL_TIMES_PATH_KILLARNEY = "data/killarney-pool-times.json";
+const OUTPUT_PATH_KILLARNEY = "data/pool/killarney-summary.json";
+const POOL_TIMES_PATH_KILLARNEY = "data/pool/killarney.json";
 
 const URL_LORD_BYNG =
   "https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=10&displayType=0&view=2";
-const OUTPUT_PATH_LORD_BYNG = "data/lord-byng-page-summary.json";
-const POOL_TIMES_PATH_LORD_BYNG = "data/lord-byng-pool-times.json";
+const OUTPUT_PATH_LORD_BYNG = "data/pool/lord-byng-summary.json";
+const POOL_TIMES_PATH_LORD_BYNG = "data/pool/lord-byng.json";
 
 const BLOCKLIST = ["attention required", "sorry, you have been blocked", "cloudflare"];
 

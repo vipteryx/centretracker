@@ -14,23 +14,20 @@ centretracker/
 │   └── workflows/
 │       └── scrape.yml                # Scheduled GitHub Actions workflow
 ├── data/                             # Shared JSON output (web + iOS)
-│   ├── hillcrest-pool-times.json     # Pool schedule per venue (auto-committed by CI)
-│   ├── hillcrest-page-summary.json
-│   ├── britannia-pool-times.json
-│   ├── britannia-page-summary.json
-│   ├── aquatic-pool-times.json
-│   ├── aquatic-page-summary.json
-│   ├── templeton-pool-times.json
-│   ├── templeton-page-summary.json
-│   ├── renfrew-pool-times.json
-│   ├── renfrew-page-summary.json
-│   ├── kensington-pool-times.json
-│   ├── kensington-page-summary.json
-│   ├── killarney-pool-times.json
-│   ├── killarney-page-summary.json
-│   ├── lord-byng-pool-times.json
-│   ├── lord-byng-page-summary.json
-│   └── *-debug-api.json / *-debug.html  # CI diagnostic artefacts
+│   ├── pool/                         # Pool activity (one file per venue)
+│   │   ├── hillcrest.json            # Schedule data (auto-committed by CI)
+│   │   ├── hillcrest-summary.json    # Page validation metadata
+│   │   ├── hillcrest-debug-api.json  # CI diagnostic artefact
+│   │   ├── hillcrest-debug.html      # CI diagnostic artefact
+│   │   ├── britannia.json
+│   │   ├── aquatic.json
+│   │   ├── templeton.json
+│   │   ├── renfrew.json
+│   │   ├── kensington.json
+│   │   ├── killarney.json
+│   │   └── lord-byng.json
+│   ├── gym/                          # Future activity folder (same layout as pool/)
+│   └── basketball/                   # Future activity folder
 ├── scraper/                          # Node.js scraper
 │   ├── scraper.js                    # Main scraper script
 │   ├── package.json                  # npm project config
@@ -62,13 +59,13 @@ The entire scraper logic lives in this single file. It exports the following:
 | `loadChromium()` | `async function` | Requires `playwright` or falls back to `playwright-core` |
 | `BLOCKLIST` | `string[]` | Lowercase phrases that indicate a blocked scrape |
 | `URL` | `string` | Target URL (hardcoded) |
-| `DEFAULT_OUTPUT_PATH` | `string` | Output file path (`data/hillcrest-page-summary.json`) |
+| `DEFAULT_OUTPUT_PATH` | `string` | Output file path (`data/pool/hillcrest-summary.json`) |
 
 The file uses `require.main === module` to run `scrape()` when executed directly, so it is safe to `require()` in tests without triggering side effects.
 
 ## Output Format
 
-`data/hillcrest-page-summary.json` (and equivalent per-venue files) is written on every successful run:
+`data/pool/hillcrest-summary.json` (and equivalent per-venue files) is written on every successful run:
 
 ```json
 {
@@ -151,16 +148,33 @@ This applies to all sessions, including new ones. Do not skip this step.
 - **Blocklist validation:** Always call `assertScrapeLooksValid` before writing output to prevent committing Cloudflare challenge pages.
 - **Graceful h1 handling:** A missing `<h1>` should not crash with a Playwright timeout; catch the `waitForSelector` error and let `assertScrapeLooksValid` reject the scrape cleanly.
 
-## Adding Support for More Venues
+## Data Layout
 
-To scrape additional community centres:
+Data is organized by **activity type** under `data/`, with one file per venue inside each activity folder:
 
-1. Add a new constants block (`URL_*`, `OUTPUT_PATH_*`, `BLOCKLIST_*` if different) in `scraper/scraper.js`. Output paths must use the `data/` prefix (e.g. `"data/newvenue-pool-times.json"`).
-2. Duplicate or generalise `scrape()` with parameters for URL and output path.
-3. Add the new calls to the `Promise.all([...])` block.
-4. Add the venue card to `web/index.html` and update the `loadVenue` call with `"../data/newvenue-pool-times.json"`.
-5. Add a new `Venue` case to `ios/CentreTracker/Models/Venue.swift`; the `poolTimesURL` is built automatically from `data/<jsonFileName>`.
-6. The CI workflow commits all of `data/` automatically — no workflow change needed for new venues.
+```
+data/
+  pool/           → data/pool/<venue-slug>.json
+  gym/            → data/gym/<venue-slug>.json
+  basketball/     → data/basketball/<venue-slug>.json
+```
+
+Each `<venue>.json` contains the schedule. Alongside it the scraper auto-writes `<venue>-summary.json`, `<venue>-debug-api.json`, and `<venue>-debug.html` as diagnostic artefacts.
+
+## Adding a New Venue
+
+1. Add a new constants block (`URL_*`, `OUTPUT_PATH_*`) in `scraper/scraper.js`. Use `"data/pool/<slug>.json"` for pool output.
+2. Add the new calls to the `Promise.all([...])` block.
+3. Add a venue card to `web/index.html` with `loadVenue("../data/pool/<slug>.json", "<key>")`.
+4. Add a new `Venue` case to `ios/CentreTracker/Models/Venue.swift` with a `slug` returning `"<slug>"`.
+5. The CI workflow commits all of `data/` automatically — no workflow change needed.
+
+## Adding a New Activity
+
+1. Add scraper logic for the new activity (URL + output path `"data/<activity>/<slug>.json"`) in `scraper/scraper.js`.
+2. Add the new calls to `Promise.all([...])`.
+3. Add UI in `web/index.html` using `loadVenue("../data/<activity>/<slug>.json", ...)`.
+4. In `ios/CentreTracker/Models/Venue.swift`, call `venue.activityURL(activity: "<activity>")` to get the URL.
 
 ## Common Issues
 

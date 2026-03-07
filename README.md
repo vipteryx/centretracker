@@ -107,3 +107,4 @@ npm start
 | 2026-03-02 10:19:33  | index.html: sort venue cards alphabetically |
 | 2026-03-04 10:45:50  | index.html: tap a card to expand and see today's full session schedule (times left, names right); active session highlighted in green |
 | 2026-03-07 20:19:22  | Reorganize project structure: move scraper to scraper/, all JSON/debug output to data/, web app to web/; rename hillcrest files from pool-times.json to hillcrest-pool-times.json; update all references in scraper.js, scrape.yml, index.html, Venue.swift, CLAUDE.md |
+| 2026-03-07 20:33:16  | Reorganize data/ by activity type: all pool files moved to data/pool/<venue>.json; add activityURL(activity:) to Venue.swift for future gym/basketball/etc. activities; update all path references |
