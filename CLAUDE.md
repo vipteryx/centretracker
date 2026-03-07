@@ -13,10 +13,29 @@ centretracker/
 ├── .github/
 │   └── workflows/
 │       └── scrape.yml                # Scheduled GitHub Actions workflow
-├── scraper.js                        # Main scraper script (sole source file)
-├── page-summary.json                 # Scraper output (auto-committed by CI)
-├── package.json                      # npm project config
-├── package-lock.json                 # Locked dependency versions
+├── data/                             # Shared JSON output (web + iOS)
+│   ├── pool/                         # Pool activity (one file per venue)
+│   │   ├── hillcrest.json            # Schedule data (auto-committed by CI)
+│   │   ├── hillcrest-summary.json    # Page validation metadata
+│   │   ├── hillcrest-debug-api.json  # CI diagnostic artefact
+│   │   ├── hillcrest-debug.html      # CI diagnostic artefact
+│   │   ├── britannia.json
+│   │   ├── aquatic.json
+│   │   ├── templeton.json
+│   │   ├── renfrew.json
+│   │   ├── kensington.json
+│   │   ├── killarney.json
+│   │   └── lord-byng.json
+│   ├── gym/                          # Future activity folder (same layout as pool/)
+│   └── basketball/                   # Future activity folder
+├── scraper/                          # Node.js scraper
+│   ├── scraper.js                    # Main scraper script
+│   ├── package.json                  # npm project config
+│   └── package-lock.json             # Locked dependency versions
+├── web/
+│   └── index.html                    # Web app (fetches from ../data/)
+├── ios/
+│   └── CentreTracker/                # SwiftUI iOS app
 └── .gitignore                        # Excludes node_modules/
 ```
 
@@ -27,9 +46,9 @@ centretracker/
 - **CI:** GitHub Actions (`ubuntu-latest`)
 - **No transpilation, no bundler, no TypeScript** — plain `.js` files only
 
-## Key File: `scraper.js`
+## Key File: `scraper/scraper.js`
 
-The entire application lives in this single file. It exports the following:
+The entire scraper logic lives in this single file. It exports the following:
 
 | Export | Type | Purpose |
 |---|---|---|
@@ -40,13 +59,13 @@ The entire application lives in this single file. It exports the following:
 | `loadChromium()` | `async function` | Requires `playwright` or falls back to `playwright-core` |
 | `BLOCKLIST` | `string[]` | Lowercase phrases that indicate a blocked scrape |
 | `URL` | `string` | Target URL (hardcoded) |
-| `DEFAULT_OUTPUT_PATH` | `string` | Output file path (`page-summary.json`) |
+| `DEFAULT_OUTPUT_PATH` | `string` | Output file path (`data/pool/hillcrest-summary.json`) |
 
 The file uses `require.main === module` to run `scrape()` when executed directly, so it is safe to `require()` in tests without triggering side effects.
 
 ## Output Format
 
-`page-summary.json` is written on every successful run:
+`data/pool/hillcrest-summary.json` (and equivalent per-venue files) is written on every successful run:
 
 ```json
 {
@@ -63,7 +82,7 @@ This file is committed back to the repository by the CI workflow. Do not treat i
 ### Install dependencies
 
 ```bash
-npm ci
+cd scraper && npm ci
 npx playwright install --with-deps chromium
 ```
 
@@ -71,13 +90,13 @@ npx playwright install --with-deps chromium
 
 ### Run the scraper locally
 
+Run from the **repository root** so relative output paths (`data/...`) resolve correctly:
+
 ```bash
-npm start
-# or
-node scraper.js
+node scraper/scraper.js
 ```
 
-Output is written to `page-summary.json` in the working directory.
+Output is written to `data/` in the repository root.
 
 ### No build step
 
@@ -106,9 +125,9 @@ When adding tests:
 **Steps:**
 1. Checkout repository
 2. Set up Node 20
-3. `npm ci` + `npx playwright install --with-deps chromium`
-4. `node scraper.js`
-5. `git add page-summary.json && git commit ... && git push` (skipped if no changes)
+3. `cd scraper && npm ci` + `npx playwright install --with-deps chromium`
+4. `node scraper/scraper.js` (run from repo root)
+5. `git add data/ && git commit ... && git push` (skipped if no changes)
 
 ## README Maintenance
 
@@ -122,21 +141,40 @@ This applies to all sessions, including new ones. Do not skip this step.
 
 ## Conventions and Constraints
 
-- **Single file:** All logic stays in `scraper.js` unless there is a strong reason to split.
+- **Single file:** All scraper logic stays in `scraper/scraper.js` unless there is a strong reason to split.
 - **CommonJS only:** Use `require()`/`module.exports`, not ES module `import`/`export`.
 - **Hardcoded config:** `URL` and `DEFAULT_OUTPUT_PATH` are constants at the top of the file. If configurability is needed, prefer environment variables checked at the top of the file (e.g. `process.env.SCRAPE_URL || URL`).
 - **No secrets required:** The workflow needs no API keys or tokens beyond the default `GITHUB_TOKEN` (used implicitly by `git push`).
 - **Blocklist validation:** Always call `assertScrapeLooksValid` before writing output to prevent committing Cloudflare challenge pages.
 - **Graceful h1 handling:** A missing `<h1>` should not crash with a Playwright timeout; catch the `waitForSelector` error and let `assertScrapeLooksValid` reject the scrape cleanly.
 
-## Adding Support for More Venues
+## Data Layout
 
-To scrape additional community centres:
+Data is organized by **activity type** under `data/`, with one file per venue inside each activity folder:
 
-1. Add a new constants block (`URL_*`, `OUTPUT_PATH_*`, `BLOCKLIST_*` if different).
-2. Duplicate or generalise `scrape()` with parameters for URL and output path.
-3. Add a corresponding step in the GitHub Actions workflow.
-4. Add a new output JSON file (e.g. `another-centre-hours.json`) to the workflow's `git add` command.
+```
+data/
+  pool/           → data/pool/<venue-slug>.json
+  gym/            → data/gym/<venue-slug>.json
+  basketball/     → data/basketball/<venue-slug>.json
+```
+
+Each `<venue>.json` contains the schedule. Alongside it the scraper auto-writes `<venue>-summary.json`, `<venue>-debug-api.json`, and `<venue>-debug.html` as diagnostic artefacts.
+
+## Adding a New Venue
+
+1. Add a new constants block (`URL_*`, `OUTPUT_PATH_*`) in `scraper/scraper.js`. Use `"data/pool/<slug>.json"` for pool output.
+2. Add the new calls to the `Promise.all([...])` block.
+3. Add a venue card to `web/index.html` with `loadVenue("../data/pool/<slug>.json", "<key>")`.
+4. Add a new `Venue` case to `ios/CentreTracker/Models/Venue.swift` with a `slug` returning `"<slug>"`.
+5. The CI workflow commits all of `data/` automatically — no workflow change needed.
+
+## Adding a New Activity
+
+1. Add scraper logic for the new activity (URL + output path `"data/<activity>/<slug>.json"`) in `scraper/scraper.js`.
+2. Add the new calls to `Promise.all([...])`.
+3. Add UI in `web/index.html` using `loadVenue("../data/<activity>/<slug>.json", ...)`.
+4. In `ios/CentreTracker/Models/Venue.swift`, call `venue.activityURL(activity: "<activity>")` to get the URL.
 
 ## Common Issues
 

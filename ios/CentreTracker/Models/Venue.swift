@@ -25,20 +25,22 @@ enum Venue: String, CaseIterable, Identifiable {
         }
     }
 
-    private var jsonFileName: String {
+    private var slug: String {
         switch self {
-        case .hillcrest:   return "pool-times.json"
-        case .britannia:   return "britannia-pool-times.json"
-        case .aquatic:     return "aquatic-pool-times.json"
-        case .templeton:   return "templeton-pool-times.json"
-        case .renfrew:     return "renfrew-pool-times.json"
-        case .kensington:  return "kensington-pool-times.json"
-        case .killarney:   return "killarney-pool-times.json"
-        case .lordByng:    return "lord-byng-pool-times.json"
+        case .hillcrest:   return "hillcrest"
+        case .britannia:   return "britannia"
+        case .aquatic:     return "aquatic"
+        case .templeton:   return "templeton"
+        case .renfrew:     return "renfrew"
+        case .kensington:  return "kensington"
+        case .killarney:   return "killarney"
+        case .lordByng:    return "lord-byng"
         }
     }
 
-    var poolTimesURL: URL {
-        URL(string: "https://raw.githubusercontent.com/vipteryx/centretracker/main/\(jsonFileName)")!
+    func activityURL(activity: String) -> URL {
+        URL(string: "https://raw.githubusercontent.com/vipteryx/centretracker/main/data/\(activity)/\(slug).json")!
     }
+
+    var poolTimesURL: URL { activityURL(activity: "pool") }
 }
