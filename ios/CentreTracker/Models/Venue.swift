@@ -27,7 +27,7 @@ enum Venue: String, CaseIterable, Identifiable {
 
     private var jsonFileName: String {
         switch self {
-        case .hillcrest:   return "pool-times.json"
+        case .hillcrest:   return "hillcrest-pool-times.json"
         case .britannia:   return "britannia-pool-times.json"
         case .aquatic:     return "aquatic-pool-times.json"
         case .templeton:   return "templeton-pool-times.json"
@@ -39,6 +39,6 @@ enum Venue: String, CaseIterable, Identifiable {
     }
 
     var poolTimesURL: URL {
-        URL(string: "https://raw.githubusercontent.com/vipteryx/centretracker/main/\(jsonFileName)")!
+        URL(string: "https://raw.githubusercontent.com/vipteryx/centretracker/main/data/\(jsonFileName)")!
     }
 }
