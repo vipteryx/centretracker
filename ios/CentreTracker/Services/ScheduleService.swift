@@ -1,6 +1,7 @@
 import Foundation
 
 @Observable
+@MainActor
 final class ScheduleService {
     private(set) var poolTimes: PoolTimes?
     private(set) var isLoading = false
@@ -31,7 +32,21 @@ final class ScheduleService {
     private func fetch() async throws -> PoolTimes {
         let (data, _) = try await URLSession.shared.data(from: venue.poolTimesURL)
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
+        decoder.dateDecodingStrategy = .custom { decoder in
+            let container = try decoder.singleValueContainer()
+            let str = try container.decode(String.self)
+            let formatter = ISO8601DateFormatter()
+            formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+            guard let date = formatter.date(from: str) else {
+                throw DecodingError.dataCorrupted(
+                    DecodingError.Context(
+                        codingPath: decoder.codingPath,
+                        debugDescription: "Invalid ISO 8601 date: \(str)"
+                    )
+                )
+            }
+            return date
+        }
         return try decoder.decode(PoolTimes.self, from: data)
     }
 }

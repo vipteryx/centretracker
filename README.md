@@ -110,3 +110,4 @@ npm start
 | 2026-03-07 20:33:16  | Reorganize data/ by activity type: all pool files moved to data/pool/<venue>.json; add activityURL(activity:) to Venue.swift for future gym/basketball/etc. activities; update all path references |
 | 2026-03-08 01:47:21  | Move index.html from web/ to repo root for GitHub Pages compatibility; update fetch paths from ../data/pool/ to data/pool/ |
 | 2026-03-08 02:00:21  | Add docs/scraper.md, docs/web-app.md, docs/ios-app.md: detailed feature reference for each component |
+| 2026-03-08 18:11:03  | Fix iOS app: add CentreTracker.xcodeproj (iOS 17 target, all 7 Swift sources), add Assets.xcassets, fix ISO 8601 fractional-seconds date decoding in ScheduleService, add @MainActor for thread-safe UI updates |
