@@ -32,8 +32,7 @@ centretracker/
 │   ├── scraper.js                    # Main scraper script
 │   ├── package.json                  # npm project config
 │   └── package-lock.json             # Locked dependency versions
-├── web/
-│   └── index.html                    # Web app (fetches from ../data/)
+├── index.html                        # Web app (served by GitHub Pages from root)
 ├── ios/
 │   └── CentreTracker/                # SwiftUI iOS app
 └── .gitignore                        # Excludes node_modules/
@@ -165,7 +164,7 @@ Each `<venue>.json` contains the schedule. Alongside it the scraper auto-writes 
 
 1. Add a new constants block (`URL_*`, `OUTPUT_PATH_*`) in `scraper/scraper.js`. Use `"data/pool/<slug>.json"` for pool output.
 2. Add the new calls to the `Promise.all([...])` block.
-3. Add a venue card to `web/index.html` with `loadVenue("../data/pool/<slug>.json", "<key>")`.
+3. Add a venue card to `index.html` with `loadVenue("data/pool/<slug>.json", "<key>")`.
 4. Add a new `Venue` case to `ios/CentreTracker/Models/Venue.swift` with a `slug` returning `"<slug>"`.
 5. The CI workflow commits all of `data/` automatically — no workflow change needed.
 
@@ -173,7 +172,7 @@ Each `<venue>.json` contains the schedule. Alongside it the scraper auto-writes 
 
 1. Add scraper logic for the new activity (URL + output path `"data/<activity>/<slug>.json"`) in `scraper/scraper.js`.
 2. Add the new calls to `Promise.all([...])`.
-3. Add UI in `web/index.html` using `loadVenue("../data/<activity>/<slug>.json", ...)`.
+3. Add UI in `index.html` using `loadVenue("data/<activity>/<slug>.json", ...)`.
 4. In `ios/CentreTracker/Models/Venue.swift`, call `venue.activityURL(activity: "<activity>")` to get the URL.
 
 ## Common Issues
