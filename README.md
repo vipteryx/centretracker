@@ -109,3 +109,4 @@ npm start
 | 2026-03-07 20:19:22  | Reorganize project structure: move scraper to scraper/, all JSON/debug output to data/, web app to web/; rename hillcrest files from pool-times.json to hillcrest-pool-times.json; update all references in scraper.js, scrape.yml, index.html, Venue.swift, CLAUDE.md |
 | 2026-03-07 20:33:16  | Reorganize data/ by activity type: all pool files moved to data/pool/<venue>.json; add activityURL(activity:) to Venue.swift for future gym/basketball/etc. activities; update all path references |
 | 2026-03-08 01:47:21  | Move index.html from web/ to repo root for GitHub Pages compatibility; update fetch paths from ../data/pool/ to data/pool/ |
+| 2026-03-08 02:00:21  | Add docs/scraper.md, docs/web-app.md, docs/ios-app.md: detailed feature reference for each component |
