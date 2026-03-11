@@ -8,7 +8,6 @@ final class ScheduleService {
     private(set) var error: Error?
 
     private let venue: Venue
-    private static var cache: [String: PoolTimes] = [:]
 
     init(venue: Venue) {
         self.venue = venue
@@ -18,11 +17,7 @@ final class ScheduleService {
         isLoading = true
         error = nil
         do {
-            let fetched = try await fetch()
-            // Cache keyed by venue + lastUpdated to avoid redundant decodes
-            let cacheKey = venue.id + fetched.lastUpdated.description
-            Self.cache[cacheKey] = fetched
-            poolTimes = fetched
+            poolTimes = try await fetch()
         } catch {
             self.error = error
         }

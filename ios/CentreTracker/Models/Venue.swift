@@ -39,7 +39,10 @@ enum Venue: String, CaseIterable, Identifiable {
     }
 
     func activityURL(activity: String) -> URL {
-        URL(string: "https://raw.githubusercontent.com/vipteryx/centretracker/main/data/\(activity)/\(slug).json")!
+        guard let url = URL(string: "https://raw.githubusercontent.com/vipteryx/centretracker/main/data/\(activity)/\(slug).json") else {
+            preconditionFailure("Invalid URL for activity \(activity) venue \(slug)")
+        }
+        return url
     }
 
     var poolTimesURL: URL { activityURL(activity: "pool") }

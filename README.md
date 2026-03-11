@@ -112,3 +112,4 @@ npm start
 | 2026-03-08 01:47:21  | Move index.html from web/ to repo root for GitHub Pages compatibility; update fetch paths from ../data/pool/ to data/pool/ |
 | 2026-03-08 02:00:21  | Add docs/scraper.md, docs/web-app.md, docs/ios-app.md: detailed feature reference for each component |
 | 2026-03-08 18:11:03  | Fix iOS app: add CentreTracker.xcodeproj (iOS 17 target, all 7 Swift sources), add Assets.xcassets, fix ISO 8601 fractional-seconds date decoding in ScheduleService, add @MainActor for thread-safe UI updates |
+| 2026-03-11 03:57:10  | iOS app: add feature parity with webapp using iOS 26 Liquid Glass UI — Open/Closed status badges with closing/next-session times, bulkhead session filtering, active session green highlight, today-first schedule layout, 60s live refresh, parallel venue loading, gradient background |
