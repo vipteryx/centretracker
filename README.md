@@ -16,22 +16,22 @@ For each venue, the scraper:
 6. Validates the page isn't a Cloudflare block page
 7. Writes a page-summary JSON and a pool-times JSON for that venue
 
-Both venues are scraped in parallel.
+All 8 venues are scraped in parallel.
 
 ## Output files
 
-| File | Venue | Contents |
-|---|---|---|
-| `page-summary.json` | Hillcrest | Page title + primary heading |
-| `pool-times.json` | Hillcrest | Weekly pool session schedule |
-| `britannia-page-summary.json` | Britannia | Page title + primary heading |
-| `britannia-pool-times.json` | Britannia | Weekly pool session schedule |
-| `pool-times-debug-api.json` | Hillcrest | API response previews (CI diagnostic) |
-| `pool-times-debug.html` | Hillcrest | Full rendered page HTML (CI diagnostic) |
-| `britannia-pool-times-debug-api.json` | Britannia | API response previews (CI diagnostic) |
-| `britannia-pool-times-debug.html` | Britannia | Full rendered page HTML (CI diagnostic) |
+All output lives under `data/pool/`. For each venue `<slug>` the scraper writes:
 
-`pool-times.json` / `britannia-pool-times.json` structure:
+| File | Contents |
+|---|---|
+| `data/pool/<slug>.json` | Weekly pool session schedule |
+| `data/pool/<slug>-summary.json` | Page title + primary heading |
+| `data/pool/<slug>-debug-api.json` | API response previews (CI diagnostic) |
+| `data/pool/<slug>-debug.html` | Full rendered page HTML (CI diagnostic) |
+
+Venue slugs: `hillcrest`, `britannia`, `aquatic`, `templeton`, `renfrew`, `kensington`, `killarney`, `lord-byng`.
+
+`data/pool/<slug>.json` structure:
 
 ```json
 {
@@ -64,10 +64,18 @@ npm start
 
 ## Target URLs
 
-| Venue | URL |
+| Venue | locationId |
 |---|---|
-| [Hillcrest Community Centre](https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=59&displayType=0&view=2) | locationId=59 |
-| [Britannia Community Centre](https://anc.ca.apm.activecommunities.com/vancouver/calendars?onlineSiteId=0&no_scroll_top=true&defaultCalendarId=55&locationId=37&displayType=0&view=2) | locationId=37 |
+| Hillcrest Community Centre | 59 |
+| Britannia Community Centre | 37 |
+| Vancouver Aquatic Centre | 2 |
+| Templeton Community Centre | 45 |
+| Renfrew Community Centre | 47 |
+| Kensington Community Centre | 56 |
+| Killarney Community Centre | 36 |
+| Lord Byng Pool | 10 |
+
+All URLs use the base `https://anc.ca.apm.activecommunities.com/vancouver/calendars` with `onlineSiteId=0&defaultCalendarId=55&displayType=0&view=2` and the `locationId` above.
 
 ## Changelog
 
@@ -113,3 +121,4 @@ npm start
 | 2026-03-08 02:00:21  | Add docs/scraper.md, docs/web-app.md, docs/ios-app.md: detailed feature reference for each component |
 | 2026-03-08 18:11:03  | Fix iOS app: add CentreTracker.xcodeproj (iOS 17 target, all 7 Swift sources), add Assets.xcassets, fix ISO 8601 fractional-seconds date decoding in ScheduleService, add @MainActor for thread-safe UI updates |
 | 2026-03-11 03:57:10  | iOS app: add feature parity with webapp using iOS 26 Liquid Glass UI — Open/Closed status badges with closing/next-session times, bulkhead session filtering, active session green highlight, today-first schedule layout, 60s live refresh, parallel venue loading, gradient background |
+| 2026-03-12 21:34:09  | Update README: fix stale "Both venues" wording, replace outdated output-files table with per-slug layout, expand Target URLs table to all 8 venues |
