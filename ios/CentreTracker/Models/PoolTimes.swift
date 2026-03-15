@@ -29,7 +29,7 @@ struct Session: Codable, Identifiable {
 
 enum PoolStatus {
     /// Pool is open; closingTime is end of last public session today
-    case open(closingTime: String, sessionName: String)
+    case open(closingTime: String, sessionName: String, sessionTime: String)
     /// Pool is closed; nextLabel is "6:00 AM" (later today) or "Mon 6:00 AM" (future day)
     case closed(nextLabel: String?)
     /// Today is not in the scraped week or data not loaded
@@ -39,9 +39,10 @@ enum PoolStatus {
 // MARK: - Session extensions
 
 extension Session {
-    /// Matches webapp: excludes sessions with empty time or "bulkhead" in name
+    /// Excludes sessions with empty time, "bulkhead" in name, or "closed" in name
     var isPublic: Bool {
-        !time.isEmpty && !name.lowercased().contains("bulkhead")
+        let lower = name.lowercased()
+        return !time.isEmpty && !lower.contains("bulkhead") && !lower.contains("closed")
     }
 
     /// Parses "6:00 AM - 8:00 AM" → (start, end) minutes since midnight.
@@ -60,9 +61,28 @@ extension Session {
         return nowMinutes >= r.start && nowMinutes <= r.end
     }
 
-    /// The start-time portion only, e.g. "6:00 AM"
+    /// The start-time portion only, rounded for display, e.g. "6:00 AM"
     var startTimeLabel: String {
-        time.components(separatedBy: " - ").first?.trimmingCharacters(in: .whitespaces) ?? time
+        let raw = time.components(separatedBy: " - ").first?.trimmingCharacters(in: .whitespaces) ?? time
+        guard let minutes = parseSessionTime(raw) else { return raw }
+        return formatSessionMinutes(minutes)
+    }
+
+    /// The end-time portion only, rounded for display, e.g. "8:00 AM"
+    var endTimeLabel: String {
+        let raw = time.components(separatedBy: " - ").last?.trimmingCharacters(in: .whitespaces) ?? time
+        guard let minutes = parseSessionTime(raw) else { return raw }
+        return formatSessionMinutes(minutes)
+    }
+
+    /// Full time range with both ends rounded for display, e.g. "6:00 AM - 8:00 AM"
+    var roundedTime: String {
+        let parts = time.components(separatedBy: " - ")
+        guard parts.count == 2,
+              let start = parseSessionTime(parts[0].trimmingCharacters(in: .whitespaces)),
+              let end = parseSessionTime(parts[1].trimmingCharacters(in: .whitespaces))
+        else { return time }
+        return "\(formatSessionMinutes(start)) - \(formatSessionMinutes(end))"
     }
 }
 
@@ -107,15 +127,22 @@ extension PoolTimes {
         let todayKey = fmt.string(from: now)
 
         guard let todayIndex = days.firstIndex(where: { $0.date == todayKey }) else {
-            return .unknown
+            // Today is not in the scraped week — look for the nearest future day with sessions
+            for day in days where day.date > todayKey {
+                if let first = day.publicSessions.first {
+                    let abbrev = String(day.dayOfWeek.prefix(3))
+                    return .closed(nextLabel: "\(abbrev) \(first.startTimeLabel)")
+                }
+            }
+            return .closed(nextLabel: nil)
         }
 
         let today = days[todayIndex]
 
         if today.isOpen(at: nowMinutes) {
             let closing = today.closingTimeLabel() ?? ""
-            let sessionName = today.publicSessions.first { $0.isActive(at: nowMinutes) }?.name ?? ""
-            return .open(closingTime: closing, sessionName: sessionName)
+            let currentSession = today.publicSessions.first { $0.isActive(at: nowMinutes) }
+            return .open(closingTime: closing, sessionName: currentSession?.name ?? "", sessionTime: currentSession?.roundedTime ?? "")
         }
 
         // Check if there's a session later today
@@ -137,6 +164,11 @@ extension PoolTimes {
 
 // MARK: - Private parsing helpers
 
+/// Rounds up times ending in :X9 (e.g. 8:59 → 9:00, 9:29 → 9:30)
+private func roundMinutes(_ m: Int) -> Int {
+    m % 10 == 9 ? m + 1 : m
+}
+
 private func parseSessionTime(_ s: String) -> Int? {
     let pattern = /(\d{1,2}):(\d{2})\s*(AM|PM)/
     guard let match = s.firstMatch(of: pattern) else { return nil }
@@ -149,8 +181,9 @@ private func parseSessionTime(_ s: String) -> Int? {
 }
 
 private func formatSessionMinutes(_ totalMinutes: Int) -> String {
-    let h = totalMinutes / 60
-    let m = totalMinutes % 60
+    let total = roundMinutes(totalMinutes)
+    let h = total / 60
+    let m = total % 60
     let period = h >= 12 ? "PM" : "AM"
     let h12 = h == 0 ? 12 : (h > 12 ? h - 12 : h)
     if m == 0 {

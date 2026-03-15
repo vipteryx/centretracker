@@ -113,3 +113,10 @@ npm start
 | 2026-03-08 02:00:21  | Add docs/scraper.md, docs/web-app.md, docs/ios-app.md: detailed feature reference for each component |
 | 2026-03-08 18:11:03  | Fix iOS app: add CentreTracker.xcodeproj (iOS 17 target, all 7 Swift sources), add Assets.xcassets, fix ISO 8601 fractional-seconds date decoding in ScheduleService, add @MainActor for thread-safe UI updates |
 | 2026-03-11 03:57:10  | iOS app: add feature parity with webapp using iOS 26 Liquid Glass UI — Open/Closed status badges with closing/next-session times, bulkhead session filtering, active session green highlight, today-first schedule layout, 60s live refresh, parallel venue loading, gradient background |
+| 2026-03-14 23:40:49  | iOS app: show current session name and time range below the status row on venue list cards when pool is open |
+| 2026-03-14 23:44:31  | iOS app: round displayed session times ending in :X9 up by one minute (e.g. 8:59 → 9:00, 9:29 → 9:30) across list cards, schedule rows, and closing time labels |
+| 2026-03-15 00:08:33  | iOS app: replace hardcoded blue gradient background with system-adaptive light/dark mode colors; use systemGroupedBackground and secondarySystemGroupedBackground for proper appearance switching |
+| 2026-03-15 00:15:38  | iOS app: fix venue cards showing "No upcoming" when today is outside the scraped week; now searches future days in the data and shows next opening time (e.g. "Sun 10 AM") |
+| 2026-03-15 00:25:18  | iOS app: treat sessions with "closed" in the name (e.g. "Renfrew Pool Closed") as non-public so they don't count as open; pool shows as closed with the next real session's opening time instead |
+| 2026-03-15 00:55:26  | iOS app: show end time below start time on session rows in venue schedule view; add endTimeLabel computed property to Session model |
+| 2026-03-15 01:20:20  | iOS app: add venue address and coordinates to Venue model; show address with Directions dropdown (Apple Maps / Google Maps) on venue schedule page |

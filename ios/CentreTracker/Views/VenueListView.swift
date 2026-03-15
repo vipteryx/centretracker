@@ -8,26 +8,24 @@ struct VenueListView: View {
 
     var body: some View {
         NavigationStack {
-            ZStack {
-                poolBackground
-                ScrollView {
-                    LazyVStack(spacing: 12) {
-                        ForEach(Venue.allCases) { venue in
-                            NavigationLink(value: venue) {
-                                VenueCardRow(
-                                    venue: venue,
-                                    service: services[venue]!,
-                                    now: now
-                                )
-                            }
-                            .buttonStyle(.plain)
+            ScrollView {
+                LazyVStack(spacing: 12) {
+                    ForEach(Venue.allCases) { venue in
+                        NavigationLink(value: venue) {
+                            VenueCardRow(
+                                venue: venue,
+                                service: services[venue]!,
+                                now: now
+                            )
                         }
+                        .buttonStyle(.plain)
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.top, 8)
-                    .padding(.bottom, 24)
                 }
+                .padding(.horizontal, 16)
+                .padding(.top, 8)
+                .padding(.bottom, 24)
             }
+            .background(Color(.systemGroupedBackground))
             .navigationTitle("Vancouver Pools")
             .navigationBarTitleDisplayMode(.large)
             .navigationDestination(for: Venue.self) { venue in
@@ -64,19 +62,26 @@ private struct VenueCardRow: View {
     }
 
     var body: some View {
-        HStack(alignment: .center, spacing: 12) {
-            VStack(alignment: .leading, spacing: 6) {
-                Text(venue.displayName)
-                    .font(.headline)
-                    .foregroundStyle(.primary)
-                statusBadge
+        VStack(alignment: .leading, spacing: 6) {
+            HStack(alignment: .center, spacing: 12) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(venue.displayName)
+                        .font(.headline)
+                        .foregroundStyle(.primary)
+                    statusBadge
+                }
+                Spacer()
+                timeInfo
             }
-            Spacer()
-            timeInfo
+            if case .open(_, let sessionName, let sessionTime) = status, !sessionName.isEmpty {
+                Text("\(sessionName) · \(sessionTime)")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 
     @ViewBuilder
@@ -100,7 +105,7 @@ private struct VenueCardRow: View {
     @ViewBuilder
     private var timeInfo: some View {
         switch status {
-        case .open(let closingTime, _):
+        case .open(let closingTime, _, _):
             VStack(alignment: .trailing, spacing: 2) {
                 Text(closingTime)
                     .font(.callout.monospacedDigit().weight(.semibold))
@@ -144,21 +149,6 @@ private struct StatusPill: View {
             .padding(.vertical, 3)
             .background(Capsule().fill(color.opacity(0.15)))
     }
-}
-
-// MARK: - Shared background (used by VenueScheduleView too)
-
-var poolBackground: some View {
-    LinearGradient(
-        colors: [
-            Color(red: 0.05, green: 0.25, blue: 0.65),
-            Color(red: 0.0, green: 0.4, blue: 0.55),
-            Color(red: 0.1, green: 0.3, blue: 0.7),
-        ],
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing
-    )
-    .ignoresSafeArea()
 }
 
 #Preview {

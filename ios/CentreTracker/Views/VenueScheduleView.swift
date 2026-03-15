@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct VenueScheduleView: View {
     let venue: Venue
@@ -22,21 +23,18 @@ struct VenueScheduleView: View {
     }
 
     var body: some View {
-        ZStack {
-            poolBackground
-            Group {
-                if service.isLoading && service.poolTimes == nil {
-                    ProgressView("Loading schedule…")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else if let error = service.error, service.poolTimes == nil {
-                    ContentUnavailableView(
-                        "Unable to Load",
-                        systemImage: "wifi.slash",
-                        description: Text(error.localizedDescription)
-                    )
-                } else if let poolTimes = service.poolTimes {
-                    scheduleList(poolTimes)
-                }
+        Group {
+            if service.isLoading && service.poolTimes == nil {
+                ProgressView("Loading schedule…")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else if let error = service.error, service.poolTimes == nil {
+                ContentUnavailableView(
+                    "Unable to Load",
+                    systemImage: "wifi.slash",
+                    description: Text(error.localizedDescription)
+                )
+            } else if let poolTimes = service.poolTimes {
+                scheduleList(poolTimes)
             }
         }
         .navigationTitle(venue.displayName)
@@ -61,6 +59,31 @@ struct VenueScheduleView: View {
         }()
 
         List {
+            // Address + directions
+            Section {
+                HStack {
+                    Text(venue.address)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                    Menu {
+                        Button {
+                            openAppleMaps()
+                        } label: {
+                            Label("Apple Maps", systemImage: "map")
+                        }
+                        Button {
+                            openGoogleMaps()
+                        } label: {
+                            Label("Google Maps", systemImage: "globe")
+                        }
+                    } label: {
+                        Label("Directions", systemImage: "arrow.triangle.turn.up.right.circle")
+                            .font(.subheadline.weight(.medium))
+                    }
+                }
+            }
+
             // Today section
             Section {
                 if let today = todayDay {
@@ -116,13 +139,27 @@ struct VenueScheduleView: View {
             }
         }
         .listStyle(.insetGrouped)
-        .scrollContentBackground(.hidden)
         .refreshable { await service.load() }
         .safeAreaInset(edge: .bottom) {
             Text("Updated \(poolTimes.lastUpdated.formatted(.relative(presentation: .named)))")
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .padding(.vertical, 8)
+        }
+    }
+
+    private func openAppleMaps() {
+        let coord = venue.coordinate
+        let query = venue.address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        if let url = URL(string: "http://maps.apple.com/?daddr=\(coord.latitude),\(coord.longitude)&q=\(query)") {
+            UIApplication.shared.open(url)
+        }
+    }
+
+    private func openGoogleMaps() {
+        let coord = venue.coordinate
+        if let url = URL(string: "https://www.google.com/maps/dir/?api=1&destination=\(coord.latitude),\(coord.longitude)") {
+            UIApplication.shared.open(url)
         }
     }
 
