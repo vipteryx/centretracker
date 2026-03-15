@@ -68,6 +68,8 @@
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
+      cursor: pointer;
+      user-select: none;
     }
 
     .card-top {
@@ -80,7 +82,7 @@
     .venue-left {
       display: flex;
       flex-direction: column;
-      gap: 0.15rem;
+      gap: 0.3rem;
     }
 
     .venue-name {
@@ -89,40 +91,64 @@
       color: var(--text-primary);
     }
 
+    /* Status pill — matches iOS capsule shape */
     .venue-status {
-      font-size: 0.8rem;
-      font-weight: 700;
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.18em 0.6em;
+      border-radius: 999px;
+      line-height: 1.4;
     }
 
-    .venue-status.open    { color: var(--open-text); }
-    .venue-status.closed  { color: var(--closed-text); }
-    .venue-status.unknown { color: var(--unknown-text); }
+    .venue-status.open {
+      color: var(--open-text);
+      background: rgba(46, 125, 50, 0.12);
+    }
+    .venue-status.closed {
+      color: var(--closed-text);
+      background: rgba(198, 40, 40, 0.10);
+    }
+    .venue-status.unknown {
+      color: var(--unknown-text);
+      background: rgba(102, 102, 102, 0.10);
+    }
 
+    /* Time + Closes/Opens label stacked on right — matches iOS VStack */
     .venue-time {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      text-align: right;
-      white-space: nowrap;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
       flex-shrink: 0;
       padding-top: 0.05rem;
     }
 
-    .next {
-      font-size: 0.8rem;
+    .venue-time-main {
+      font-size: 0.95rem;
+      font-weight: 600;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-primary);
+    }
+    .venue-time-main.open-color { color: var(--open-text); }
+
+    .venue-time-label {
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+    }
+
+    .venue-time-no-upcoming {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    /* Session name + time shown below card when open — matches iOS caption row */
+    .session-info {
+      font-size: 0.78rem;
       color: var(--text-secondary);
       padding-left: 0.1rem;
       min-height: 1em;
     }
-
-    footer {
-      font-size: 0.72rem;
-      color: var(--text-secondary);
-      margin-top: 0.5rem;
-      text-align: center;
-    }
-
-    .card { cursor: pointer; }
 
     .chevron {
       font-size: 1.1rem;
@@ -138,43 +164,138 @@
     .schedule {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease;
+      transition: max-height 0.35s ease;
     }
-    .card.expanded .schedule { max-height: 600px; }
+    .card.expanded .schedule { max-height: 3000px; }
 
     .schedule-inner {
       border-top: 1px solid var(--border);
       margin-top: 0.5rem;
-      padding-top: 0.5rem;
+      padding-top: 0.75rem;
       display: flex;
       flex-direction: column;
-      gap: 0.3rem;
+      gap: 0;
     }
 
-    .schedule-row {
+    /* Per-day section */
+    .schedule-day {
       display: flex;
-      gap: 0.75rem;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 0.85rem;
+    }
+    .schedule-day:last-of-type { margin-bottom: 0; }
+
+    .schedule-day-header {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      padding-bottom: 0.3rem;
+    }
+    /* Today header in green — matches iOS .foregroundStyle(.tint) */
+    .schedule-day-header.today-header { color: var(--open-text); }
+
+    /* Session row: 3-column grid — time col | name | location */
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 5.5rem 1fr auto;
+      gap: 0.5rem;
       font-size: 0.78rem;
       line-height: 1.3;
+      padding: 0.1rem 0;
     }
-    .schedule-time {
+
+    /* Left col: start time on top, end time below */
+    .schedule-time-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+    .schedule-time-start {
       color: var(--text-secondary);
       white-space: nowrap;
-      flex-shrink: 0;
-      min-width: 5rem;
+      font-variant-numeric: tabular-nums;
     }
-    .schedule-name { color: var(--text-primary); }
+    .schedule-time-end {
+      font-size: 0.68rem;
+      color: var(--text-secondary);
+      opacity: 0.65;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
 
-    .schedule-row.active .schedule-time,
+    .schedule-name {
+      color: var(--text-primary);
+      align-self: start;
+    }
+
+    /* Location — small gray text on right, matches iOS .tertiary */
+    .schedule-location {
+      font-size: 0.68rem;
+      color: var(--text-secondary);
+      opacity: 0.6;
+      text-align: right;
+      white-space: nowrap;
+      align-self: start;
+    }
+
+    /* Active session highlight in green */
+    .schedule-row.active .schedule-time-start,
     .schedule-row.active .schedule-name {
       color: var(--open-text);
       font-weight: 600;
+    }
+    .schedule-row.active .schedule-time-end {
+      color: var(--open-text);
+      opacity: 0.7;
     }
 
     .schedule-empty {
       font-size: 0.78rem;
       color: var(--text-secondary);
-      padding: 0.25rem 0;
+      font-style: italic;
+      padding: 0.1rem 0;
+    }
+
+    /* Address + map links — matches iOS venue schedule header */
+    .schedule-address {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-top: 0.75rem;
+      margin-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .schedule-address-text {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      line-height: 1.35;
+    }
+    .schedule-map-links {
+      display: flex;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+    .schedule-map-link {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 0.2em 0.55em;
+      border-radius: 5px;
+      background: rgba(21, 101, 192, 0.08);
+    }
+    .schedule-map-link:hover { background: rgba(21, 101, 192, 0.16); }
+
+    footer {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+      text-align: center;
     }
   </style>
 </head>
@@ -194,7 +315,7 @@
         <div class="venue-time" id="time-britannia"></div>
         <span class="chevron">›</span>
       </div>
-      <div class="next" id="next-britannia"></div>
+      <div class="session-info" id="session-britannia"></div>
       <div class="schedule" id="schedule-britannia"></div>
     </div>
 
@@ -207,7 +328,7 @@
         <div class="venue-time" id="time-hillcrest"></div>
         <span class="chevron">›</span>
       </div>
-      <div class="next" id="next-hillcrest"></div>
+      <div class="session-info" id="session-hillcrest"></div>
       <div class="schedule" id="schedule-hillcrest"></div>
     </div>
 
@@ -220,7 +341,7 @@
         <div class="venue-time" id="time-kensington"></div>
         <span class="chevron">›</span>
       </div>
-      <div class="next" id="next-kensington"></div>
+      <div class="session-info" id="session-kensington"></div>
       <div class="schedule" id="schedule-kensington"></div>
     </div>
 
@@ -233,7 +354,7 @@
         <div class="venue-time" id="time-killarney"></div>
         <span class="chevron">›</span>
       </div>
-      <div class="next" id="next-killarney"></div>
+      <div class="session-info" id="session-killarney"></div>
       <div class="schedule" id="schedule-killarney"></div>
     </div>
 
@@ -246,7 +367,7 @@
         <div class="venue-time" id="time-lord-byng"></div>
         <span class="chevron">›</span>
       </div>
-      <div class="next" id="next-lord-byng"></div>
+      <div class="session-info" id="session-lord-byng"></div>
       <div class="schedule" id="schedule-lord-byng"></div>
     </div>
 
@@ -259,7 +380,7 @@
         <div class="venue-time" id="time-renfrew"></div>
         <span class="chevron">›</span>
       </div>
-      <div class="next" id="next-renfrew"></div>
+      <div class="session-info" id="session-renfrew"></div>
       <div class="schedule" id="schedule-renfrew"></div>
     </div>
 
@@ -272,7 +393,7 @@
         <div class="venue-time" id="time-templeton"></div>
         <span class="chevron">›</span>
       </div>
-      <div class="next" id="next-templeton"></div>
+      <div class="session-info" id="session-templeton"></div>
       <div class="schedule" id="schedule-templeton"></div>
     </div>
 
@@ -285,7 +406,7 @@
         <div class="venue-time" id="time-aquatic"></div>
         <span class="chevron">›</span>
       </div>
-      <div class="next" id="next-aquatic"></div>
+      <div class="session-info" id="session-aquatic"></div>
       <div class="schedule" id="schedule-aquatic"></div>
     </div>
   </div>
@@ -293,6 +414,24 @@
   <footer>Updated twice daily · <span id="now"></span></footer>
 
   <script>
+    // Venue metadata — matches Venue.swift (address + coordinates)
+    const VENUES = {
+      britannia:   { address: "1661 Napier St, Vancouver",          lat: 49.2756, lng: -123.0710 },
+      hillcrest:   { address: "4575 Clancy Loranger Way, Vancouver", lat: 49.2434, lng: -123.1088 },
+      kensington:  { address: "5175 Dumfries St, Vancouver",         lat: 49.2484, lng: -123.0753 },
+      killarney:   { address: "6260 Killarney St, Vancouver",        lat: 49.2270, lng: -123.0457 },
+      "lord-byng": { address: "3990 W 14th Ave, Vancouver",          lat: 49.2618, lng: -123.1887 },
+      renfrew:     { address: "2929 E 22nd Ave, Vancouver",          lat: 49.2520, lng: -123.0430 },
+      templeton:   { address: "700 Templeton Dr, Vancouver",         lat: 49.2804, lng: -123.0490 },
+      aquatic:     { address: "1050 Beach Ave, Vancouver",           lat: 49.2773, lng: -123.1345 },
+    };
+
+    // Rounds up times ending in :X9 — matches roundMinutes() in PoolTimes.swift
+    function roundMinutes(m) {
+      return m % 10 === 9 ? m + 1 : m;
+    }
+
+    // Returns raw minutes since midnight (no rounding) — for active session comparison
     function parseTime(str) {
       const m = str.trim().match(/(\d+):(\d+)\s*(AM|PM)/i);
       if (!m) return null;
@@ -304,15 +443,48 @@
       return h * 60 + min;
     }
 
-    function isPublic(session) {
-      return session.time && !/bulkhead/i.test(session.name);
+    // Formats rounded minutes as display string — matches formatSessionMinutes() in PoolTimes.swift
+    function formatMinutes(totalMinutes) {
+      const total = roundMinutes(totalMinutes);
+      const h = Math.floor(total / 60);
+      const m = total % 60;
+      const period = h >= 12 ? "PM" : "AM";
+      const h12 = h === 0 ? 12 : (h > 12 ? h - 12 : h);
+      if (m === 0) return `${h12} ${period}`;
+      return `${h12}:${String(m).padStart(2, "0")} ${period}`;
     }
 
-    function nextSession(days, today, nowMin) {
-      const todayIndex = days.findIndex(d => d.date === today);
-      const searchDays = todayIndex === -1 ? days : days.slice(todayIndex);
-      for (const day of searchDays) {
-        const isToday = day.date === today;
+    // Parses a time string and returns it formatted with rounding — matches startTimeLabel / endTimeLabel
+    function formatTimeStr(str) {
+      const raw = parseTime(str.trim());
+      if (raw === null) return str.trim();
+      return formatMinutes(raw);
+    }
+
+    // Excludes sessions with empty time, "bulkhead" or "closed" in name — matches Session.isPublic in PoolTimes.swift
+    function isPublic(session) {
+      const lower = session.name.toLowerCase();
+      return session.time && !lower.includes("bulkhead") && !lower.includes("closed");
+    }
+
+    // Finds next upcoming public session — matches status(now:) logic in PoolTimes.swift
+    function nextSession(days, todayStr, nowMin) {
+      const todayIndex = days.findIndex(d => d.date === todayStr);
+
+      if (todayIndex === -1) {
+        // Today not in data — search only future days, matching iOS behavior
+        for (const day of days) {
+          if (day.date <= todayStr) continue;
+          for (const s of day.sessions) {
+            if (!isPublic(s)) continue;
+            return { session: s, day };
+          }
+        }
+        return null;
+      }
+
+      for (const day of days.slice(todayIndex)) {
+        const isToday = day.date === todayStr;
         for (const s of day.sessions) {
           if (!isPublic(s)) continue;
           const start = parseTime(s.time.split(" - ")[0]);
@@ -324,7 +496,7 @@
       return null;
     }
 
-    function today() {
+    function todayStr() {
       const now = new Date();
       return [
         now.getFullYear(),
@@ -333,98 +505,212 @@
       ].join("-");
     }
 
-    function renderSchedule(key, data, nowMin, todayStr) {
+    // "2026-03-15" → "Mar 15" — matches formatDate() in VenueScheduleView.swift
+    function formatDate(dateStr) {
+      const [y, mo, d] = dateStr.split("-").map(Number);
+      return new Date(y, mo - 1, d).toLocaleDateString("en-CA", { month: "short", day: "numeric" });
+    }
+
+    // Renders the expanded schedule: today + remaining days — matches scheduleList() in VenueScheduleView.swift
+    function renderSchedule(key, data, nowMin, today) {
       const el = document.getElementById("schedule-" + key);
-      const todayData = data.days.find(d => d.date === todayStr);
-      const sessions = todayData ? todayData.sessions.filter(isPublic) : [];
       const inner = document.createElement("div");
       inner.className = "schedule-inner";
-      if (sessions.length === 0) {
-        const empty = document.createElement("div");
-        empty.className = "schedule-empty";
-        empty.textContent = "No sessions today";
-        inner.appendChild(empty);
-      } else {
-        for (const s of sessions) {
-          const parts = s.time.split(" - ");
-          const startStr = parts[0].trim();
-          const start = parseTime(startStr);
-          const end = parts[1] ? parseTime(parts[1].trim()) : null;
-          const row = document.createElement("div");
-          row.className = "schedule-row";
-          if (start !== null && end !== null && nowMin >= start && nowMin <= end) {
-            row.classList.add("active");
+
+      const todayIndex = data.days.findIndex(d => d.date === today);
+      const daysToShow = todayIndex === -1 ? data.days : data.days.slice(todayIndex);
+
+      for (const day of daysToShow) {
+        const isToday = day.date === today;
+        const sessions = day.sessions.filter(isPublic);
+
+        const dayDiv = document.createElement("div");
+        dayDiv.className = "schedule-day";
+
+        const header = document.createElement("div");
+        header.className = "schedule-day-header" + (isToday ? " today-header" : "");
+        header.textContent = isToday
+          ? `Today · ${day.dayOfWeek}, ${formatDate(day.date)}`
+          : `${day.dayOfWeek}, ${formatDate(day.date)}`;
+        dayDiv.appendChild(header);
+
+        if (sessions.length === 0) {
+          const empty = document.createElement("div");
+          empty.className = "schedule-empty";
+          empty.textContent = isToday ? "No sessions today" : "Closed";
+          dayDiv.appendChild(empty);
+        } else {
+          for (const s of sessions) {
+            const parts = s.time.split(" - ");
+            const startStr = parts[0].trim();
+            const endStr   = parts[1] ? parts[1].trim() : null;
+            const start    = parseTime(startStr);
+            const end      = endStr ? parseTime(endStr) : null;
+            const active   = isToday && start !== null && end !== null && nowMin >= start && nowMin <= end;
+
+            const row = document.createElement("div");
+            row.className = "schedule-row" + (active ? " active" : "");
+
+            // Time column: start time on top, end time below — matches SessionRowView.swift
+            const timeCol = document.createElement("div");
+            timeCol.className = "schedule-time-col";
+
+            const startEl = document.createElement("div");
+            startEl.className = "schedule-time-start";
+            startEl.textContent = formatTimeStr(startStr);
+            timeCol.appendChild(startEl);
+
+            if (endStr) {
+              const endEl = document.createElement("div");
+              endEl.className = "schedule-time-end";
+              endEl.textContent = formatTimeStr(endStr);
+              timeCol.appendChild(endEl);
+            }
+
+            const nameEl = document.createElement("div");
+            nameEl.className = "schedule-name";
+            nameEl.textContent = s.name;
+
+            // Location — shown in gray on right when non-empty, matches SessionRowView.swift
+            const locEl = document.createElement("div");
+            locEl.className = "schedule-location";
+            if (s.location) locEl.textContent = s.location;
+
+            row.appendChild(timeCol);
+            row.appendChild(nameEl);
+            row.appendChild(locEl);
+            dayDiv.appendChild(row);
           }
-          const timeSpan = document.createElement("span");
-          timeSpan.className = "schedule-time";
-          timeSpan.textContent = startStr;
-          const nameSpan = document.createElement("span");
-          nameSpan.className = "schedule-name";
-          nameSpan.textContent = s.name;
-          row.appendChild(timeSpan);
-          row.appendChild(nameSpan);
-          inner.appendChild(row);
         }
+
+        inner.appendChild(dayDiv);
       }
+
+      // Address + map links — matches VenueScheduleView Section with address + Directions menu
+      const venue = VENUES[key];
+      if (venue) {
+        const addrDiv = document.createElement("div");
+        addrDiv.className = "schedule-address";
+
+        const addrText = document.createElement("div");
+        addrText.className = "schedule-address-text";
+        addrText.textContent = venue.address;
+        addrDiv.appendChild(addrText);
+
+        const linksDiv = document.createElement("div");
+        linksDiv.className = "schedule-map-links";
+
+        const googleLink = document.createElement("a");
+        googleLink.className = "schedule-map-link";
+        googleLink.href = `https://www.google.com/maps/dir/?api=1&destination=${venue.lat},${venue.lng}`;
+        googleLink.target = "_blank";
+        googleLink.rel = "noopener";
+        googleLink.textContent = "Google Maps";
+        linksDiv.appendChild(googleLink);
+
+        const appleLink = document.createElement("a");
+        appleLink.className = "schedule-map-link";
+        appleLink.href = `http://maps.apple.com/?daddr=${venue.lat},${venue.lng}&q=${encodeURIComponent(venue.address)}`;
+        appleLink.target = "_blank";
+        appleLink.rel = "noopener";
+        appleLink.textContent = "Apple Maps";
+        linksDiv.appendChild(appleLink);
+
+        addrDiv.appendChild(linksDiv);
+        inner.appendChild(addrDiv);
+      }
+
       el.appendChild(inner);
     }
 
     async function loadVenue(dataUrl, key) {
-      const statusEl = document.getElementById("status-" + key);
-      const timeEl   = document.getElementById("time-"   + key);
-      const nextEl   = document.getElementById("next-"   + key);
+      const statusEl  = document.getElementById("status-"  + key);
+      const timeEl    = document.getElementById("time-"    + key);
+      const sessionEl = document.getElementById("session-" + key);
       try {
         const data = await fetch(dataUrl).then(r => r.json());
         const now = new Date();
-        const todayStr = today();
+        const today = todayStr();
         const nowMin = now.getHours() * 60 + now.getMinutes();
-        const todayData = data.days.find(d => d.date === todayStr);
+        const todayData = data.days.find(d => d.date === today);
         const todaySessions = todayData ? todayData.sessions.filter(isPublic) : [];
 
         const currentSession = todayData
           ? todayData.sessions.find(s => {
               if (!isPublic(s)) return false;
-              const [start, end] = s.time.split(" - ").map(parseTime);
+              const parts = s.time.split(" - ");
+              const start = parseTime(parts[0]);
+              const end   = parts[1] ? parseTime(parts[1]) : null;
               return start !== null && end !== null && nowMin >= start && nowMin <= end;
             }) || null
           : null;
 
         const open = !!currentSession;
 
+        // Status pill
         statusEl.textContent = open ? "Open" : "Closed";
         statusEl.className   = "venue-status " + (open ? "open" : "closed");
 
+        // Right-side time + label — matches iOS VStack(timeInfo) in VenueCardRow
+        timeEl.innerHTML = "";
         if (open) {
-          // Show the pool's closing time: end of the last public session today
+          // Closing time = end of last public session today — matches .open(closingTime:…)
           const lastSession = todaySessions[todaySessions.length - 1];
-          const closeTime = lastSession ? lastSession.time.split(" - ")[1]?.trim() : null;
-          timeEl.textContent = closeTime || currentSession.time.split(" - ")[1].trim();
-          nextEl.textContent = `${currentSession.name} · ${currentSession.time}`;
+          const closeRaw = lastSession?.time.split(" - ")[1]?.trim();
+          const closeStr = closeRaw ? formatTimeStr(closeRaw) : "";
+
+          const mainDiv = document.createElement("div");
+          mainDiv.className = "venue-time-main open-color";
+          mainDiv.textContent = closeStr;
+          timeEl.appendChild(mainDiv);
+
+          const labelDiv = document.createElement("div");
+          labelDiv.className = "venue-time-label";
+          labelDiv.textContent = "Closes";
+          timeEl.appendChild(labelDiv);
+
+          // Below card: current session name + rounded time — matches iOS caption row
+          const parts = currentSession.time.split(" - ");
+          const roundedTime = parts.length === 2
+            ? `${formatTimeStr(parts[0])} – ${formatTimeStr(parts[1])}`
+            : currentSession.time;
+          sessionEl.textContent = `${currentSession.name} · ${roundedTime}`;
         } else {
-          // Show the full pool hours (first session start – last session end)
-          const next = nextSession(data.days, todayStr, nowMin);
+          const next = nextSession(data.days, today, nowMin);
           if (next) {
+            // Next opening time — matches .closed(nextLabel:) with "Opens" label
             const dayData = data.days.find(d => d.date === next.day.date);
             const daySessions = dayData ? dayData.sessions.filter(isPublic) : [];
             const firstStart = daySessions[0]?.time.split(" - ")[0]?.trim();
-            const lastEnd = daySessions[daySessions.length - 1]?.time.split(" - ")[1]?.trim();
-            const isToday = next.day.date === todayStr;
-            if (firstStart && lastEnd) {
-              const rangeText = `${firstStart} – ${lastEnd}`;
-              timeEl.textContent = isToday ? rangeText : `${next.day.dayOfWeek} ${rangeText}`;
-            } else {
-              timeEl.textContent = isToday ? next.session.time : `${next.day.dayOfWeek} ${next.session.time}`;
-            }
-            nextEl.textContent = `${next.session.name} · ${next.session.time}`;
+            const isToday = next.day.date === today;
+            const nextTimeStr = firstStart ? formatTimeStr(firstStart) : null;
+            const dayAbbrev = next.day.dayOfWeek.slice(0, 3);
+
+            const mainDiv = document.createElement("div");
+            mainDiv.className = "venue-time-main";
+            mainDiv.textContent = nextTimeStr
+              ? (isToday ? nextTimeStr : `${dayAbbrev} ${nextTimeStr}`)
+              : (isToday ? next.session.time : `${dayAbbrev} ${next.session.time}`);
+            timeEl.appendChild(mainDiv);
+
+            const labelDiv = document.createElement("div");
+            labelDiv.className = "venue-time-label";
+            labelDiv.textContent = "Opens";
+            timeEl.appendChild(labelDiv);
           } else {
-            timeEl.textContent = "";
-            nextEl.textContent = "No upcoming sessions";
+            const noUp = document.createElement("div");
+            noUp.className = "venue-time-no-upcoming";
+            noUp.textContent = "No upcoming";
+            timeEl.appendChild(noUp);
           }
+          // When closed, no session-info row shown — matches iOS (caption row only shows when open)
+          sessionEl.textContent = "";
         }
 
-        renderSchedule(key, data, nowMin, todayStr);
+        renderSchedule(key, data, nowMin, today);
       } catch {
-        statusEl.textContent = "Unknown";
+        // "Unavailable" on error — matches iOS StatusPill "Unavailable" state
+        statusEl.textContent = "Unavailable";
         statusEl.className   = "venue-status unknown";
       }
     }
@@ -436,8 +722,11 @@
     }
 
     const venueKeys = ["britannia", "hillcrest", "kensington", "killarney", "lord-byng", "renfrew", "templeton", "aquatic"];
+
     for (const key of venueKeys) {
-      document.getElementById("card-" + key).addEventListener("click", () => {
+      document.getElementById("card-" + key).addEventListener("click", e => {
+        // Don't toggle expansion when clicking map links
+        if (e.target.closest("a")) return;
         document.getElementById("card-" + key).classList.toggle("expanded");
       });
     }
