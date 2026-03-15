@@ -120,3 +120,4 @@ npm start
 | 2026-03-15 00:25:18  | iOS app: treat sessions with "closed" in the name (e.g. "Renfrew Pool Closed") as non-public so they don't count as open; pool shows as closed with the next real session's opening time instead |
 | 2026-03-15 00:55:26  | iOS app: show end time below start time on session rows in venue schedule view; add endTimeLabel computed property to Session model |
 | 2026-03-15 01:20:20  | iOS app: add venue address and coordinates to Venue model; show address with Directions dropdown (Apple Maps / Google Maps) on venue schedule page |
+| 2026-03-15 17:42:26  | Web app: bring to parity with iOS app — status pill capsule style; Closes/Opens label below time; filter "closed"-named sessions; time rounding (:X9→next); session rows show end time + location; expanded schedule shows today + future days with day headers; venue address + Google Maps / Apple Maps links in expanded card |
