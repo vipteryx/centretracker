@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-03-15T04:36:30.636Z",
+  "lastUpdated": "2026-03-15T14:36:30.858Z",
   "weekRange": {
-    "start": "2026-03-08",
-    "end": "2026-03-14"
+    "start": "2026-03-15",
+    "end": "2026-03-21"
   },
   "days": [
     {
-      "date": "2026-03-08",
+      "date": "2026-03-15",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "date": "2026-03-09",
+      "date": "2026-03-16",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -31,9 +31,9 @@
           "time": "6:00 AM - 9:00 AM"
         },
         {
-          "name": "School Board",
-          "location": "1L Lord Byng Pool",
-          "time": "9:00 AM - 11:00 AM"
+          "name": "Public Swim",
+          "location": "1L Lengths | Lord Byng Pool",
+          "time": "9:00 AM - 11:14 AM"
         },
         {
           "name": "Lengths",
@@ -41,8 +41,8 @@
           "time": "11:15 AM - 1:00 PM"
         },
         {
-          "name": "School Use",
-          "location": "Lord Byng Pool",
+          "name": "Public Swim",
+          "location": "1L Lengths | Lord Byng Pool",
           "time": "1:00 PM - 3:00 PM"
         },
         {
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "date": "2026-03-10",
+      "date": "2026-03-17",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -82,8 +82,8 @@
           "time": "11:35 AM - 1:00 PM"
         },
         {
-          "name": "School Use",
-          "location": "Lord Byng Pool",
+          "name": "Public Swim",
+          "location": "1L Lengths | Lord Byng Pool",
           "time": "1:00 PM - 3:00 PM"
         },
         {
@@ -104,7 +104,7 @@
       ]
     },
     {
-      "date": "2026-03-11",
+      "date": "2026-03-18",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -113,9 +113,9 @@
           "time": "6:00 AM - 9:00 AM"
         },
         {
-          "name": "School Board",
-          "location": "1L Lord Byng Pool",
-          "time": "9:00 AM - 11:00 AM"
+          "name": "Public Swim",
+          "location": "1L Lengths | Lord Byng Pool",
+          "time": "9:00 AM - 11:14 AM"
         },
         {
           "name": "Lengths",
@@ -123,8 +123,8 @@
           "time": "11:15 AM - 1:00 PM"
         },
         {
-          "name": "School Use",
-          "location": "Lord Byng Pool",
+          "name": "Public Swim",
+          "location": "1L Lengths | Lord Byng Pool",
           "time": "1:00 PM - 3:00 PM"
         },
         {
@@ -145,7 +145,7 @@
       ]
     },
     {
-      "date": "2026-03-12",
+      "date": "2026-03-19",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -169,8 +169,8 @@
           "time": "11:35 AM - 1:00 PM"
         },
         {
-          "name": "School Use",
-          "location": "Lord Byng Pool",
+          "name": "Public Swim",
+          "location": "1L Lengths | Lord Byng Pool",
           "time": "1:00 PM - 3:00 PM"
         },
         {
@@ -191,7 +191,7 @@
       ]
     },
     {
-      "date": "2026-03-13",
+      "date": "2026-03-20",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -200,9 +200,9 @@
           "time": "6:00 AM - 9:00 AM"
         },
         {
-          "name": "School Board",
-          "location": "1L Lord Byng Pool",
-          "time": "9:00 AM - 11:00 AM"
+          "name": "Public Swim",
+          "location": "1L Lengths | Lord Byng Pool",
+          "time": "9:00 AM - 11:14 AM"
         },
         {
           "name": "Lengths",
@@ -232,7 +232,7 @@
       ]
     },
     {
-      "date": "2026-03-14",
+      "date": "2026-03-21",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

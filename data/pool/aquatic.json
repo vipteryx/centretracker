@@ -1,18 +1,33 @@
 {
-  "lastUpdated": "2026-03-15T04:36:31.063Z",
+  "lastUpdated": "2026-03-15T14:36:30.978Z",
   "weekRange": {
-    "start": "2026-03-08",
-    "end": "2026-03-14"
+    "start": "2026-03-15",
+    "end": "2026-03-21"
   },
   "days": [
     {
-      "date": "2026-03-08",
+      "date": "2026-03-15",
       "dayOfWeek": "Sunday",
       "sessions": [
+        {
+          "name": "Leisure Lane",
+          "location": "VAC Pool",
+          "time": "8:00 AM - 7:29 PM"
+        },
         {
           "name": "Widths (20.7m/25m)VAC Pool",
           "location": "",
           "time": "8:00 AM - 12:29 PM"
+        },
+        {
+          "name": "Length Swim (50m)",
+          "location": "VAC Pool",
+          "time": "1:00 PM - 7:29 PM"
+        },
+        {
+          "name": "Dive Tank",
+          "location": "VAC Dive Tank",
+          "time": "1:00 PM - 7:29 PM"
         },
         {
           "name": "Tot Pool",
@@ -22,7 +37,7 @@
       ]
     },
     {
-      "date": "2026-03-09",
+      "date": "2026-03-16",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -36,11 +51,6 @@
           "time": "6:30 AM - 3:59 PM"
         },
         {
-          "name": "Leisure Lane",
-          "location": "VAC Pool",
-          "time": "7:30 AM - 3:59 PM"
-        },
-        {
           "name": "Aquafit - Shallow Water ModerateVAC Pool",
           "location": "",
           "time": "9:20 AM - 10:15 AM"
@@ -51,19 +61,14 @@
           "time": "2:00 PM - 3:59 PM"
         },
         {
-          "name": "Leisure Lane",
-          "location": "VAC Pool",
-          "time": "7:30 PM - 8:59 PM"
-        },
-        {
           "name": "Dive Tank",
           "location": "VAC Dive Tank",
-          "time": "8:30 PM - 8:59 PM"
+          "time": "7:30 PM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-03-10",
+      "date": "2026-03-17",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -77,11 +82,6 @@
           "time": "6:30 AM - 11:14 AM"
         },
         {
-          "name": "Leisure Lane",
-          "location": "VAC Pool",
-          "time": "7:00 AM - 3:29 PM"
-        },
-        {
           "name": "Aquafit - Deep WaterVAC Dive Tank",
           "location": "",
           "time": "11:20 AM - 12:15 PM"
@@ -89,27 +89,22 @@
         {
           "name": "Dive Tank",
           "location": "VAC Dive Tank",
-          "time": "12:15 PM - 3:29 PM"
+          "time": "12:15 PM - 3:59 PM"
         },
         {
           "name": "Tot Pool",
           "location": "VAC Pool",
-          "time": "1:00 PM - 2:59 PM"
+          "time": "4:30 PM - 6:59 PM"
         },
         {
-          "name": "Leisure Lane",
-          "location": "VAC Pool",
-          "time": "4:00 PM - 8:59 PM"
-        },
-        {
-          "name": "Widths (20.7m/25m)VAC Pool",
-          "location": "",
-          "time": "4:00 PM - 8:59 PM"
+          "name": "Dive Tank",
+          "location": "VAC Dive Tank",
+          "time": "7:30 PM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-03-11",
+      "date": "2026-03-18",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -123,11 +118,6 @@
           "time": "6:30 AM - 3:59 PM"
         },
         {
-          "name": "Leisure Lane",
-          "location": "VAC Pool",
-          "time": "7:30 AM - 3:59 PM"
-        },
-        {
           "name": "Aquafit - Shallow Water ModerateVAC Pool",
           "location": "",
           "time": "9:20 AM - 10:15 AM"
@@ -135,22 +125,17 @@
         {
           "name": "Tot Pool",
           "location": "VAC Pool",
-          "time": "2:00 PM - 3:29 PM"
-        },
-        {
-          "name": "Leisure Lane",
-          "location": "VAC Pool",
-          "time": "7:30 PM - 8:59 PM"
+          "time": "3:30 PM - 5:29 PM"
         },
         {
           "name": "Dive Tank",
           "location": "VAC Dive Tank",
-          "time": "8:30 PM - 8:59 PM"
+          "time": "7:30 PM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-03-12",
+      "date": "2026-03-19",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -164,11 +149,6 @@
           "time": "6:30 AM - 11:14 AM"
         },
         {
-          "name": "Leisure Lane",
-          "location": "VAC Pool",
-          "time": "7:00 AM - 3:29 PM"
-        },
-        {
           "name": "Aquafit - Deep WaterVAC Dive Tank",
           "location": "",
           "time": "11:20 AM - 12:15 PM"
@@ -176,27 +156,22 @@
         {
           "name": "Dive Tank",
           "location": "VAC Dive Tank",
-          "time": "12:15 PM - 3:29 PM"
+          "time": "12:15 PM - 3:59 PM"
         },
         {
           "name": "Tot Pool",
           "location": "VAC Pool",
-          "time": "1:30 PM - 2:59 PM"
+          "time": "6:00 PM - 7:29 PM"
         },
         {
-          "name": "Leisure Lane",
-          "location": "VAC Pool",
-          "time": "4:00 PM - 8:59 PM"
-        },
-        {
-          "name": "Widths (20.7m/25m)VAC Pool",
-          "location": "",
-          "time": "4:00 PM - 8:59 PM"
+          "name": "Dive Tank",
+          "location": "VAC Dive Tank",
+          "time": "7:30 PM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-03-13",
+      "date": "2026-03-20",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -208,11 +183,6 @@
           "name": "Dive Tank",
           "location": "VAC Dive Tank",
           "time": "6:30 AM - 3:59 PM"
-        },
-        {
-          "name": "Leisure Lane",
-          "location": "VAC Pool",
-          "time": "7:30 AM - 3:59 PM"
         },
         {
           "name": "Aquafit - Shallow Water ModerateVAC Pool",
@@ -227,27 +197,17 @@
         {
           "name": "Tot Pool",
           "location": "VAC Pool",
-          "time": "2:00 PM - 3:29 PM"
-        },
-        {
-          "name": "Tot Pool",
-          "location": "VAC Pool",
-          "time": "5:30 PM - 6:59 PM"
+          "time": "5:30 PM - 7:29 PM"
         },
         {
           "name": "Dive Tank",
           "location": "VAC Dive Tank",
           "time": "7:30 PM - 8:59 PM"
-        },
-        {
-          "name": "Leisure Lane",
-          "location": "VAC Pool",
-          "time": "7:30 PM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-03-14",
+      "date": "2026-03-21",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
@@ -256,23 +216,13 @@
           "time": "8:00 AM - 9:59 AM"
         },
         {
-          "name": "Leisure Lane",
-          "location": "VAC Pool",
+          "name": "Dive Tank",
+          "location": "VAC Dive Tank",
           "time": "10:30 AM - 7:29 PM"
-        },
-        {
-          "name": "Widths (20.7m/25m)VAC Pool",
-          "location": "",
-          "time": "10:30 AM - 12:29 PM"
         },
         {
           "name": "Length Swim (50m)",
           "location": "VAC Pool",
-          "time": "1:00 PM - 7:29 PM"
-        },
-        {
-          "name": "Dive Tank",
-          "location": "VAC Dive Tank",
           "time": "1:00 PM - 7:29 PM"
         },
         {

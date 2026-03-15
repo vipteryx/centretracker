@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-03-15T04:36:30.489Z",
+  "lastUpdated": "2026-03-15T14:36:30.624Z",
   "weekRange": {
-    "start": "2026-03-08",
-    "end": "2026-03-14"
+    "start": "2026-03-15",
+    "end": "2026-03-21"
   },
   "days": [
     {
-      "date": "2026-03-08",
+      "date": "2026-03-15",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -17,68 +17,98 @@
       ]
     },
     {
-      "date": "2026-03-09",
+      "date": "2026-03-16",
       "dayOfWeek": "Monday",
       "sessions": [
         {
-          "name": "Renfrew Pool Closed",
+          "name": "Lengths Swim",
           "location": "Renfrew Pool",
-          "time": "6:30 AM - 9:29 PM"
+          "time": "6:30 AM - 9:44 AM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "10:00 AM - 9:29 PM"
         }
       ]
     },
     {
-      "date": "2026-03-10",
+      "date": "2026-03-17",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
-          "name": "Renfrew Pool Closed",
+          "name": "Lengths Swim",
           "location": "Renfrew Pool",
-          "time": "6:30 AM - 9:29 PM"
+          "time": "6:30 AM - 9:44 AM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "10:00 AM - 9:29 PM"
         }
       ]
     },
     {
-      "date": "2026-03-11",
+      "date": "2026-03-18",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
-          "name": "Renfrew Pool Closed",
+          "name": "Lengths Swim",
           "location": "Renfrew Pool",
-          "time": "6:30 AM - 9:29 PM"
+          "time": "6:30 AM - 9:44 AM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "10:00 AM - 9:29 PM"
         }
       ]
     },
     {
-      "date": "2026-03-12",
+      "date": "2026-03-19",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
-          "name": "Renfrew Pool Closed",
+          "name": "Lengths Swim",
           "location": "Renfrew Pool",
-          "time": "6:30 AM - 9:29 PM"
+          "time": "6:30 AM - 9:44 AM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "10:00 AM - 9:29 PM"
         }
       ]
     },
     {
-      "date": "2026-03-13",
+      "date": "2026-03-20",
       "dayOfWeek": "Friday",
       "sessions": [
         {
-          "name": "Renfrew Pool Closed",
+          "name": "Lengths Swim",
           "location": "Renfrew Pool",
-          "time": "6:30 AM - 9:29 PM"
+          "time": "6:30 AM - 9:44 AM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "10:00 AM - 9:29 PM"
         }
       ]
     },
     {
-      "date": "2026-03-14",
+      "date": "2026-03-21",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
-          "name": "Renfrew Pool Closed",
+          "name": "Lengths Swim",
           "location": "Renfrew Pool",
-          "time": "6:30 AM - 9:29 PM"
+          "time": "9:00 AM - 10:14 AM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "10:30 AM - 4:59 PM"
         }
       ]
     }

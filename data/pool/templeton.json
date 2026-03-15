@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-03-15T04:36:30.784Z",
+  "lastUpdated": "2026-03-15T14:36:30.655Z",
   "weekRange": {
-    "start": "2026-03-08",
-    "end": "2026-03-14"
+    "start": "2026-03-15",
+    "end": "2026-03-21"
   },
   "days": [
     {
-      "date": "2026-03-08",
+      "date": "2026-03-15",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "date": "2026-03-09",
+      "date": "2026-03-16",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -46,11 +46,6 @@
           "time": "9:00 AM - 11:59 AM"
         },
         {
-          "name": "Teach PoolTempleton Pool",
-          "location": "",
-          "time": "11:30 AM - 3:30 PM"
-        },
-        {
           "name": "LengthsTempleton Pool",
           "location": "",
           "time": "12:00 PM - 12:59 PM"
@@ -68,7 +63,7 @@
       ]
     },
     {
-      "date": "2026-03-10",
+      "date": "2026-03-17",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -77,19 +72,9 @@
           "time": "6:30 AM - 8:59 AM"
         },
         {
-          "name": "Aquafit - Shallow ModerateTempleton Pool",
-          "location": "",
-          "time": "9:30 AM - 10:29 AM"
-        },
-        {
           "name": "Public SwimTempleton Pool",
           "location": "",
           "time": "10:30 AM - 11:59 AM"
-        },
-        {
-          "name": "Teach PoolTempleton Pool",
-          "location": "",
-          "time": "11:30 AM - 3:30 PM"
         },
         {
           "name": "LengthsTempleton Pool",
@@ -109,7 +94,7 @@
       ]
     },
     {
-      "date": "2026-03-11",
+      "date": "2026-03-18",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -123,11 +108,6 @@
           "time": "9:00 AM - 11:59 AM"
         },
         {
-          "name": "Teach PoolTempleton Pool",
-          "location": "",
-          "time": "11:30 AM - 3:30 PM"
-        },
-        {
           "name": "LengthsTempleton Pool",
           "location": "",
           "time": "12:00 PM - 12:59 PM"
@@ -145,7 +125,7 @@
       ]
     },
     {
-      "date": "2026-03-12",
+      "date": "2026-03-19",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -154,19 +134,9 @@
           "time": "6:30 AM - 8:59 AM"
         },
         {
-          "name": "Aquafit - Shallow ModerateTempleton Pool",
-          "location": "",
-          "time": "9:30 AM - 10:29 AM"
-        },
-        {
           "name": "Public SwimTempleton Pool",
           "location": "",
           "time": "10:30 AM - 11:59 AM"
-        },
-        {
-          "name": "Teach PoolTempleton Pool",
-          "location": "",
-          "time": "11:30 AM - 3:30 PM"
         },
         {
           "name": "LengthsTempleton Pool",
@@ -186,7 +156,7 @@
       ]
     },
     {
-      "date": "2026-03-13",
+      "date": "2026-03-20",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -200,11 +170,6 @@
           "time": "9:00 AM - 11:59 AM"
         },
         {
-          "name": "Teach PoolTempleton Pool",
-          "location": "",
-          "time": "11:30 AM - 4:30 PM"
-        },
-        {
           "name": "LengthsTempleton Pool",
           "location": "",
           "time": "12:00 PM - 12:59 PM"
@@ -213,32 +178,17 @@
           "name": "Lengths (1 Lane only)Templeton Pool",
           "location": "",
           "time": "4:30 PM - 6:30 PM"
-        },
-        {
-          "name": "Teach PoolTempleton Pool",
-          "location": "",
-          "time": "5:30 PM - 8:00 PM"
-        },
-        {
-          "name": "Public SwimTempleton Pool",
-          "location": "",
-          "time": "6:30 PM - 7:59 PM"
         }
       ]
     },
     {
-      "date": "2026-03-14",
+      "date": "2026-03-21",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
           "name": "Lengths (1 Lane only)Templeton Pool",
           "location": "",
           "time": "9:00 AM - 12:59 PM"
-        },
-        {
-          "name": "Teach PoolTempleton Pool",
-          "location": "",
-          "time": "1:00 PM - 7:30 PM"
         },
         {
           "name": "Public SwimTempleton Pool",

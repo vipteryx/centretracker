@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-03-15T04:36:30.818Z",
+  "lastUpdated": "2026-03-15T14:36:30.296Z",
   "weekRange": {
-    "start": "2026-03-08",
-    "end": "2026-03-14"
+    "start": "2026-03-15",
+    "end": "2026-03-21"
   },
   "days": [
     {
-      "date": "2026-03-08",
+      "date": "2026-03-15",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "date": "2026-03-09",
+      "date": "2026-03-16",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -38,23 +38,23 @@
       ]
     },
     {
-      "date": "2026-03-10",
+      "date": "2026-03-17",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
           "name": "Public Swim Main Pool 6:15am-8:59pm",
           "location": "Killarney Pool",
-          "time": "6:15 AM - 8:59 PM"
+          "time": "8:00 AM - 8:59 PM"
         },
         {
           "name": "Public Swim-Leisure Pool 6:15am-8:59pm",
           "location": "Killarney Pool",
-          "time": "6:15 AM - 8:59 PM"
+          "time": "8:00 AM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-03-11",
+      "date": "2026-03-18",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -70,7 +70,7 @@
       ]
     },
     {
-      "date": "2026-03-12",
+      "date": "2026-03-19",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -86,7 +86,7 @@
       ]
     },
     {
-      "date": "2026-03-13",
+      "date": "2026-03-20",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -102,18 +102,13 @@
       ]
     },
     {
-      "date": "2026-03-14",
+      "date": "2026-03-21",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
-          "name": "Public Swim Leisure Pool 8:00am-8:59am",
+          "name": "Public Swim Leisure Pool 8:00am-8:59pm",
           "location": "Killarney Pool",
-          "time": "8:00 AM - 8:59 AM"
-        },
-        {
-          "name": "Public Swim Leisure Pool 12:00-8:59pm",
-          "location": "Killarney Pool",
-          "time": "12:00 PM - 8:59 PM"
+          "time": "8:00 AM - 8:59 PM"
         }
       ]
     }
