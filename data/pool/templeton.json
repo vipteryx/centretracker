@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-15T14:36:30.655Z",
+  "lastUpdated": "2026-03-16T04:44:10.905Z",
   "weekRange": {
     "start": "2026-03-15",
     "end": "2026-03-21"
@@ -72,6 +72,11 @@
           "time": "6:30 AM - 8:59 AM"
         },
         {
+          "name": "Aquafit - Shallow ModerateTempleton Pool",
+          "location": "",
+          "time": "9:30 AM - 10:29 AM"
+        },
+        {
           "name": "Public SwimTempleton Pool",
           "location": "",
           "time": "10:30 AM - 11:59 AM"
@@ -132,6 +137,11 @@
           "name": "LengthsTempleton Pool",
           "location": "",
           "time": "6:30 AM - 8:59 AM"
+        },
+        {
+          "name": "Aquafit - Shallow ModerateTempleton Pool",
+          "location": "",
+          "time": "9:30 AM - 10:29 AM"
         },
         {
           "name": "Public SwimTempleton Pool",

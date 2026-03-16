@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-15T14:36:30.978Z",
+  "lastUpdated": "2026-03-16T04:44:11.020Z",
   "weekRange": {
     "start": "2026-03-15",
     "end": "2026-03-21"
@@ -13,11 +13,6 @@
           "name": "Leisure Lane",
           "location": "VAC Pool",
           "time": "8:00 AM - 7:29 PM"
-        },
-        {
-          "name": "Widths (20.7m/25m)VAC Pool",
-          "location": "",
-          "time": "8:00 AM - 12:29 PM"
         },
         {
           "name": "Length Swim (50m)",
@@ -74,7 +69,7 @@
         {
           "name": "Length Swim (50m)",
           "location": "VAC Pool",
-          "time": "6:30 AM - 3:29 PM"
+          "time": "6:30 AM - 8:59 PM"
         },
         {
           "name": "Dive Tank",
@@ -141,7 +136,7 @@
         {
           "name": "Length Swim (50m)",
           "location": "VAC Pool",
-          "time": "6:30 AM - 3:29 PM"
+          "time": "6:30 AM - 8:59 PM"
         },
         {
           "name": "Dive Tank",
@@ -213,7 +208,7 @@
         {
           "name": "Length Swim (50m)",
           "location": "VAC Pool",
-          "time": "8:00 AM - 9:59 AM"
+          "time": "8:00 AM - 12:59 PM"
         },
         {
           "name": "Dive Tank",
