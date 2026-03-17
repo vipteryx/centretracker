@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-16T15:05:55.986Z",
+  "lastUpdated": "2026-03-17T04:23:06.680Z",
   "weekRange": {
     "start": "2026-03-15",
     "end": "2026-03-21"
@@ -10,18 +10,8 @@
       "dayOfWeek": "Sunday",
       "sessions": [
         {
-          "name": "Leisure Lane",
-          "location": "VAC Pool",
-          "time": "8:00 AM - 7:29 PM"
-        },
-        {
           "name": "Length Swim (50m)",
           "location": "VAC Pool",
-          "time": "1:00 PM - 7:29 PM"
-        },
-        {
-          "name": "Dive Tank",
-          "location": "VAC Dive Tank",
           "time": "1:00 PM - 7:29 PM"
         },
         {
