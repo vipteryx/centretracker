@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-17T15:02:42.537Z",
+  "lastUpdated": "2026-03-18T04:28:34.469Z",
   "weekRange": {
     "start": "2026-03-15",
     "end": "2026-03-21"
@@ -46,9 +46,19 @@
           "time": "9:00 AM - 11:59 AM"
         },
         {
+          "name": "Teach PoolTempleton Pool",
+          "location": "",
+          "time": "11:30 AM - 7:30 PM"
+        },
+        {
           "name": "LengthsTempleton Pool",
           "location": "",
           "time": "12:00 PM - 12:59 PM"
+        },
+        {
+          "name": "Public SwimTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 4:00 PM"
         },
         {
           "name": "Lengths (1 Lane only)Templeton Pool",
@@ -82,9 +92,19 @@
           "time": "10:30 AM - 11:59 AM"
         },
         {
+          "name": "Teach PoolTempleton Pool",
+          "location": "",
+          "time": "11:30 AM - 7:30 PM"
+        },
+        {
           "name": "LengthsTempleton Pool",
           "location": "",
           "time": "12:00 PM - 12:59 PM"
+        },
+        {
+          "name": "Public SwimTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 4:00 PM"
         },
         {
           "name": "Lengths (1 Lane only)Templeton Pool",
@@ -113,9 +133,19 @@
           "time": "9:00 AM - 11:59 AM"
         },
         {
+          "name": "Teach PoolTempleton Pool",
+          "location": "",
+          "time": "11:30 AM - 7:30 PM"
+        },
+        {
           "name": "LengthsTempleton Pool",
           "location": "",
           "time": "12:00 PM - 12:59 PM"
+        },
+        {
+          "name": "Public SwimTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 4:00 PM"
         },
         {
           "name": "Lengths (1 Lane only)Templeton Pool",
@@ -149,9 +179,19 @@
           "time": "10:30 AM - 11:59 AM"
         },
         {
+          "name": "Teach PoolTempleton Pool",
+          "location": "",
+          "time": "11:30 AM - 7:30 PM"
+        },
+        {
           "name": "LengthsTempleton Pool",
           "location": "",
           "time": "12:00 PM - 12:59 PM"
+        },
+        {
+          "name": "Public SwimTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 4:00 PM"
         },
         {
           "name": "Lengths (1 Lane only)Templeton Pool",
@@ -180,9 +220,19 @@
           "time": "9:00 AM - 11:59 AM"
         },
         {
+          "name": "Teach PoolTempleton Pool",
+          "location": "",
+          "time": "11:30 AM - 7:30 PM"
+        },
+        {
           "name": "LengthsTempleton Pool",
           "location": "",
           "time": "12:00 PM - 12:59 PM"
+        },
+        {
+          "name": "Public SwimTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 4:00 PM"
         },
         {
           "name": "Lengths (1 Lane only)Templeton Pool",
@@ -199,6 +249,11 @@
           "name": "Lengths (1 Lane only)Templeton Pool",
           "location": "",
           "time": "9:00 AM - 12:59 PM"
+        },
+        {
+          "name": "Teach PoolTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 7:30 PM"
         },
         {
           "name": "Public SwimTempleton Pool",

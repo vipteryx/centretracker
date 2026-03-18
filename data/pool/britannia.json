@@ -1,21 +1,10 @@
 {
-  "lastUpdated": "2026-03-17T15:02:42.778Z",
+  "lastUpdated": "2026-03-18T04:28:34.677Z",
   "weekRange": {
-    "start": "2026-03-15",
+    "start": "2026-03-16",
     "end": "2026-03-21"
   },
   "days": [
-    {
-      "date": "2026-03-15",
-      "dayOfWeek": "Sunday",
-      "sessions": [
-        {
-          "name": "Public Swim with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "1:30 PM - 5:29 PM"
-        }
-      ]
-    },
     {
       "date": "2026-03-16",
       "dayOfWeek": "Monday",
