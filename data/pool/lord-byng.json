@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-03-22T04:24:41.693Z",
+  "lastUpdated": "2026-03-22T14:33:59.137Z",
   "weekRange": {
-    "start": "2026-03-15",
-    "end": "2026-03-21"
+    "start": "2026-03-22",
+    "end": "2026-03-28"
   },
   "days": [
     {
-      "date": "2026-03-15",
+      "date": "2026-03-22",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "date": "2026-03-16",
+      "date": "2026-03-23",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "date": "2026-03-17",
+      "date": "2026-03-24",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -104,7 +104,7 @@
       ]
     },
     {
-      "date": "2026-03-18",
+      "date": "2026-03-25",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -138,14 +138,14 @@
           "time": "7:35 PM - 8:25 PM"
         },
         {
-          "name": "Lengths",
-          "location": "Lord Byng Pool",
+          "name": "Public Swim",
+          "location": "1L Lengths | Lord Byng Pool",
           "time": "8:35 PM - 9:30 PM"
         }
       ]
     },
     {
-      "date": "2026-03-19",
+      "date": "2026-03-26",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -191,7 +191,7 @@
       ]
     },
     {
-      "date": "2026-03-20",
+      "date": "2026-03-27",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -232,7 +232,7 @@
       ]
     },
     {
-      "date": "2026-03-21",
+      "date": "2026-03-28",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
