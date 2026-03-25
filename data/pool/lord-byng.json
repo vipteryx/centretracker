@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-24T15:04:02.318Z",
+  "lastUpdated": "2026-03-25T04:25:29.396Z",
   "weekRange": {
     "start": "2026-03-22",
     "end": "2026-03-28"
@@ -89,17 +89,12 @@
         {
           "name": "Lessons/Swim Club",
           "location": "1L Lengths | Lord Byng Pool",
-          "time": "3:00 PM - 7:30 PM"
-        },
-        {
-          "name": "Public Swim",
-          "location": "1L Lengths | Lord Byng Pool",
-          "time": "7:35 PM - 8:30 PM"
+          "time": "3:00 PM - 8:00 PM"
         },
         {
           "name": "Lengths",
           "location": "Lord Byng Pool",
-          "time": "8:35 PM - 9:30 PM"
+          "time": "8:05 PM - 9:30 PM"
         }
       ]
     },
@@ -176,17 +171,12 @@
         {
           "name": "Lessons/Swim Club",
           "location": "1L Lengths | Lord Byng Pool",
-          "time": "3:00 PM - 7:30 PM"
-        },
-        {
-          "name": "Public Swim",
-          "location": "1L Lengths | Lord Byng Pool",
-          "time": "7:35 PM - 8:30 PM"
+          "time": "3:00 PM - 8:00 PM"
         },
         {
           "name": "Lengths",
           "location": "Lord Byng Pool",
-          "time": "8:35 PM - 9:30 PM"
+          "time": "8:05 PM - 9:30 PM"
         }
       ]
     },

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-24T15:04:02.023Z",
+  "lastUpdated": "2026-03-25T04:25:28.493Z",
   "weekRange": {
     "start": "2026-03-22",
     "end": "2026-03-28"
@@ -238,6 +238,11 @@
           "name": "Lengths (1 Lane only)Templeton Pool",
           "location": "",
           "time": "4:30 PM - 6:30 PM"
+        },
+        {
+          "name": "Public Swim - Main Pool OnlyTempleton Pool",
+          "location": "",
+          "time": "6:30 PM - 7:59 PM"
         }
       ]
     },
