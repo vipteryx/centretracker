@@ -1,30 +1,26 @@
 [
   {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/customerheaderfooter/6?locale=en-US&ui_random=1774708622554",
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/customerheaderfooter/6?locale=en-US&ui_random=1774759273347",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"total_page\":1,\"order_option\":\"ASC\",\"total_records_per_page\":30,\"total_records\":0,\"page_number\":1}},\"body\":{\"online_header_footer\":{\"site_id\":0,\"page_id\":6,\"header\":\"To get the best results for your search, choose the Calendar you want to view and then select the<b> Centre</b>. To view the activity details, hover over, or click on, an activity name in t"
   },
   {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/calendars?locale=en-US&ui_random=1774708622568",
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/calendars?locale=en-US&ui_random=1774759273362",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"total_page\":1,\"order_option\":\"ASC\",\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"calendars\":[{\"calendar_id\":23,\"min_time\":6,\"max_time\":22,\"first_day\":0,\"include_weekends\":true,\"name\":\"**Choose a Calendar\",\"site_id\":60,\"hide_on_internet\":false,\"retired\":false,\"notes\":\"\",\"extra_notes\":\"\"},{\"calendar_id\":3,\"min_time\":9,\"max_time"
   },
   {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/common/logincheck?locale=en-US&options=%5Bobject%20Object%5D&ui_random=1774708622666",
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/common/logincheck?locale=en-US&options=%5Bobject%20Object%5D&ui_random=1774759273621",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0021\",\"response_message\":\"User not login\",\"page_info\":{\"order_by\":\"\",\"total_page\":1,\"order_option\":\"ASC\",\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{}}"
-  },
-  {
-    "url": "https://data.pendo.io/data/guide.json/24ba34fe-85c9-4896-4c67-285da2afba9d?id=23&jzb=eJx9kEFv1EAMhf9KNFJzapM0VUu10gqhLYflAIiWXkdmxiwWk_FoxhNUYP97ndIGceESeZzPfs_vl5mpkHDee7Mx9uPb9zcf7J39uXv3ZfZ5P_C1OTXgHNcoCxJrCKem5qD0N5FUNn0P0XUOOkhTB05oRsfTVCMJYem07mcluM6YewcBo4dcXnMMFPGWBPd-O7SRbXGZQ7DCaSu5YuvxK9Qgu-cRxS4v28AOhDjq63xoPZUU4OHuIaHumAl_bMfWJuXZenZ1wihWSAJubzKnM4on4_CysGh98mqn3_sXf1p_QpfxSUIP5-Dv_8bz5_YJBTwImM2a3VLSf_ILEA8VDqgERvv51hzXTJdRzxNQtIVrdgvzbLVZjTa_m9Vi849BnJ8uzOC-Uzzo7Bqw_lwsLZ5VLUFW8M2qqS29YREbr_vhoh-H8UondH9ZFmu7uzi_6gabMvszYnM8PgKTQMAm&v=2.316.0_prod-io&ct=1774708627453",
-    "preview": "{\"guides\":[],\"normalizedUrl\":\"http://anc.ca.apm.activecommunities.com/vancouver/calendars?_pendo_document_title=Drop-in+Calendars+%7C+Vancouver+Recreation&defaultCalendarId=55&displayType=0&locationId=10&no_scroll_top=true&onlineSiteId=0&view=2\",\"lastGuideStepSeen\":{\"isMultiStep\":false,\"state\":\"\"},\"guideWidget\":{\"enabled\":false,\"hidePoweredBy\":false},\"guideCssUrl\":\"https://pendo-static-6232254134419456.storage.googleapis.com/guide.-323232.1762336268299.css\",\"throttling\":{},\"autoOrdering\":[],\"glo"
   },
   {
     "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/filters?locale=en-US",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"total_page\":1,\"order_option\":\"ASC\",\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"center\":[{\"id\":37,\"name\":\"*Britannia Pool\"},{\"id\":59,\"name\":\"*Hillcrest Aquatic Centre\"},{\"id\":56,\"name\":\"*Kensington Pool\"},{\"id\":36,\"name\":\"*Killarney Pool\"},{\"id\":10,\"name\":\"*Lord Byng Pool\"},{\"id\":47,\"name\":\"*Renfrew Park Pool\"},{\"id\":45,\"nam"
   },
   {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/centerdetails?center_ids=37,59,56,36,10,47,45,2&locale=en-US&ui_random=1774708630467",
-    "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"total_page\":1,\"order_option\":\"ASC\",\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"center_details\":[{\"id\":37,\"name\":\"*Britannia Pool\",\"address1\":\"1661 Napier Street\",\"address2\":\"\",\"city\":\"Vancouver\",\"state\":\"BC\",\"country\":\"CA\",\"phone\":\"(604) 718-5831\",\"zip_code\":\"V5L 4X4\",\"time_format_pattern\":\"h:mm a\",\"mon_start_time\":\"1899-12"
-  },
-  {
     "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/multicenter/events?locale=en-US",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"total_page\":1,\"order_option\":\"ASC\",\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"center_events\":[{\"center_id\":10,\"center_name\":\"*Lord Byng Pool\",\"events\":[{\"title\":\"| Lengths |\",\"start_time\":\"2026-03-23 06:00:00\",\"end_time\":\"2026-03-23 09:00:00\",\"event_type\":0,\"description\":\"<p style=\\\"margin: 0in 0in 0pt;\\\"><span><table widt"
+  },
+  {
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/centerdetails?center_ids=37,59,56,36,10,47,45,2&locale=en-US&ui_random=1774759278149",
+    "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"total_page\":1,\"order_option\":\"ASC\",\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"center_details\":[{\"id\":37,\"name\":\"*Britannia Pool\",\"address1\":\"1661 Napier Street\",\"address2\":\"\",\"city\":\"Vancouver\",\"state\":\"BC\",\"country\":\"CA\",\"phone\":\"(604) 718-5831\",\"zip_code\":\"V5L 4X4\",\"time_format_pattern\":\"h:mm a\",\"mon_start_time\":\"1899-12"
   }
 ]
