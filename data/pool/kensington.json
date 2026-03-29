@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-03-29T04:41:26.672Z",
+  "lastUpdated": "2026-03-29T14:38:41.990Z",
   "weekRange": {
-    "start": "2026-03-22",
-    "end": "2026-03-28"
+    "start": "2026-03-29",
+    "end": "2026-04-04"
   },
   "days": [
     {
-      "date": "2026-03-22",
+      "date": "2026-03-29",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -17,88 +17,122 @@
       ]
     },
     {
-      "date": "2026-03-23",
+      "date": "2026-03-30",
       "dayOfWeek": "Monday",
       "sessions": [
         {
+          "name": "Sauna and Whirlpool Only",
+          "location": "Kensington Pool",
+          "time": "10:00 AM - 12:14 PM"
+        },
+        {
           "name": "Public Swim",
           "location": "Kensington Pool",
-          "time": "10:00 AM - 5:59 PM"
+          "time": "12:15 PM - 3:29 PM"
+        },
+        {
+          "name": "Public Swim/ Lessons]Kensington Pool",
+          "location": "",
+          "time": "3:30 PM - 5:59 PM"
         }
       ]
     },
     {
-      "date": "2026-03-24",
+      "date": "2026-03-31",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
           "name": "Public Swim",
           "location": "Kensington Pool",
-          "time": "9:00 AM - 12:29 PM"
+          "time": "9:00 AM - 2:29 PM"
         },
         {
           "name": "Aquafit - Shallow ModerateKensington Pool",
           "location": "",
-          "time": "12:30 PM - 1:30 PM"
+          "time": "2:30 PM - 3:30 PM"
         },
         {
           "name": "Public Swim",
           "location": "Kensington Pool",
-          "time": "1:30 PM - 7:59 PM"
-        }
-      ]
-    },
-    {
-      "date": "2026-03-25",
-      "dayOfWeek": "Wednesday",
-      "sessions": [
+          "time": "3:30 PM - 4:29 PM"
+        },
+        {
+          "name": "Public Swim/ Lessons]Kensington Pool",
+          "location": "",
+          "time": "4:30 PM - 6:59 PM"
+        },
         {
           "name": "Public Swim",
           "location": "Kensington Pool",
-          "time": "10:00 AM - 5:59 PM"
+          "time": "7:00 PM - 7:59 PM"
         }
       ]
     },
     {
-      "date": "2026-03-26",
+      "date": "2026-04-01",
+      "dayOfWeek": "Wednesday",
+      "sessions": [
+        {
+          "name": "Sauna and Whirlpool Only",
+          "location": "Kensington Pool",
+          "time": "10:00 AM - 12:14 PM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Kensington Pool",
+          "time": "12:15 PM - 3:29 PM"
+        },
+        {
+          "name": "Public Swim/ Lessons]Kensington Pool",
+          "location": "",
+          "time": "3:30 PM - 5:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
           "name": "Public Swim",
           "location": "Kensington Pool",
-          "time": "9:00 AM - 12:29 PM"
+          "time": "9:00 AM - 2:29 PM"
         },
         {
-          "name": "Aquafit - Shallow ModerateKensington Pool",
+          "name": "Aquafit - Range of MotionKensington Pool",
           "location": "",
-          "time": "12:30 PM - 1:30 PM"
+          "time": "2:30 PM - 3:30 PM"
         },
         {
           "name": "Public Swim",
           "location": "Kensington Pool",
-          "time": "1:30 PM - 7:59 PM"
-        }
-      ]
-    },
-    {
-      "date": "2026-03-27",
-      "dayOfWeek": "Friday",
-      "sessions": [
+          "time": "3:30 PM - 4:29 PM"
+        },
+        {
+          "name": "Public Swim/ Lessons]Kensington Pool",
+          "location": "",
+          "time": "4:30 PM - 6:59 PM"
+        },
         {
           "name": "Public Swim",
           "location": "Kensington Pool",
-          "time": "10:00 AM - 5:59 PM"
+          "time": "7:00 PM - 7:59 PM"
         }
       ]
     },
     {
-      "date": "2026-03-28",
+      "date": "2026-04-04",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
+          "name": "Public Swim/ Lessons]Kensington Pool",
+          "location": "",
+          "time": "10:15 AM - 1:59 PM"
+        },
+        {
           "name": "Public Swim",
           "location": "Kensington Pool",
-          "time": "9:00 AM - 3:59 PM"
+          "time": "2:00 PM - 3:59 PM"
         }
       ]
     }

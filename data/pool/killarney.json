@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-03-29T04:41:26.501Z",
+  "lastUpdated": "2026-03-29T14:38:42.208Z",
   "weekRange": {
-    "start": "2026-03-22",
-    "end": "2026-03-28"
+    "start": "2026-03-29",
+    "end": "2026-04-03"
   },
   "days": [
     {
-      "date": "2026-03-22",
+      "date": "2026-03-29",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "date": "2026-03-23",
+      "date": "2026-03-30",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "date": "2026-03-24",
+      "date": "2026-03-31",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "date": "2026-03-25",
+      "date": "2026-04-01",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "date": "2026-03-26",
+      "date": "2026-04-02",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -81,29 +81,18 @@
       ]
     },
     {
-      "date": "2026-03-27",
+      "date": "2026-04-03",
       "dayOfWeek": "Friday",
       "sessions": [
         {
           "name": "Public Swim Main Pool 6:15am-8:59pm",
           "location": "Killarney Pool",
-          "time": "6:15 AM - 8:59 PM"
+          "time": "8:00 AM - 3:59 PM"
         },
         {
           "name": "Public Swim-Leisure Pool 6:15am-8:59pm",
           "location": "Killarney Pool",
-          "time": "6:15 AM - 8:59 PM"
-        }
-      ]
-    },
-    {
-      "date": "2026-03-28",
-      "dayOfWeek": "Saturday",
-      "sessions": [
-        {
-          "name": "Public Swim Leisure Pool 8:00am-8:59pm",
-          "location": "Killarney Pool",
-          "time": "8:00 AM - 8:59 PM"
+          "time": "8:00 AM - 3:59 PM"
         }
       ]
     }
