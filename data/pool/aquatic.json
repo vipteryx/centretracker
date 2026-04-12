@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-04-12T04:50:37.306Z",
+  "lastUpdated": "2026-04-12T14:44:34.532Z",
   "weekRange": {
-    "start": "2026-04-05",
-    "end": "2026-04-11"
+    "start": "2026-04-12",
+    "end": "2026-04-18"
   },
   "days": [
     {
-      "date": "2026-04-05",
+      "date": "2026-04-12",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -37,33 +37,48 @@
       ]
     },
     {
-      "date": "2026-04-06",
+      "date": "2026-04-13",
       "dayOfWeek": "Monday",
       "sessions": [
         {
+          "name": "Length Swim (50m)",
+          "location": "VAC Pool",
+          "time": "6:30 AM - 8:59 PM"
+        },
+        {
           "name": "Dive Tank",
           "location": "VAC Dive Tank",
-          "time": "6:30 AM - 11:59 AM"
+          "time": "6:30 AM - 3:59 PM"
         },
         {
           "name": "Leisure Lane",
           "location": "VAC Pool",
-          "time": "7:30 AM - 11:59 AM"
+          "time": "7:30 AM - 3:59 PM"
+        },
+        {
+          "name": "Aquafit - Shallow Water ModerateVAC Pool",
+          "location": "",
+          "time": "9:20 AM - 10:15 AM"
         },
         {
           "name": "Tot Pool",
           "location": "VAC Pool",
-          "time": "9:00 AM - 10:59 AM"
+          "time": "2:00 PM - 3:59 PM"
         },
         {
-          "name": "Facility Closure for Citywide Training 12-7:30pm",
+          "name": "Leisure Lane",
           "location": "VAC Pool",
-          "time": "12:00 PM - 7:29 PM"
+          "time": "7:30 PM - 8:59 PM"
+        },
+        {
+          "name": "Dive Tank",
+          "location": "VAC Dive Tank",
+          "time": "8:30 PM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-04-07",
+      "date": "2026-04-14",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -109,7 +124,7 @@
       ]
     },
     {
-      "date": "2026-04-08",
+      "date": "2026-04-15",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -150,7 +165,7 @@
       ]
     },
     {
-      "date": "2026-04-09",
+      "date": "2026-04-16",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -196,7 +211,7 @@
       ]
     },
     {
-      "date": "2026-04-10",
+      "date": "2026-04-17",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -247,7 +262,7 @@
       ]
     },
     {
-      "date": "2026-04-11",
+      "date": "2026-04-18",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
@@ -278,7 +293,7 @@
         {
           "name": "Tot Pool",
           "location": "VAC Pool",
-          "time": "1:00 PM - 2:30 PM"
+          "time": "1:00 PM - 3:59 PM"
         }
       ]
     }
