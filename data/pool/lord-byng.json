@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-12T14:44:34.356Z",
+  "lastUpdated": "2026-04-13T05:18:28.486Z",
   "weekRange": {
     "start": "2026-04-12",
     "end": "2026-04-18"
@@ -67,6 +67,11 @@
           "time": "6:00 AM - 9:30 AM"
         },
         {
+          "name": "Aquafit - Shallow ModerateLord Byng Pool",
+          "location": "",
+          "time": "9:35 AM - 10:25 AM"
+        },
+        {
           "name": "Public Swim",
           "location": "1L Lengths | Lord Byng Pool",
           "time": "10:35 AM - 11:35 AM"
@@ -123,6 +128,11 @@
           "time": "3:00 PM - 7:30 PM"
         },
         {
+          "name": "Aquafit - Shallow ModerateLord Byng Pool",
+          "location": "",
+          "time": "7:35 PM - 8:25 PM"
+        },
+        {
           "name": "Lengths",
           "location": "Lord Byng Pool",
           "time": "8:35 PM - 9:30 PM"
@@ -137,6 +147,11 @@
           "name": "Lengths",
           "location": "Lord Byng Pool",
           "time": "6:00 AM - 9:30 AM"
+        },
+        {
+          "name": "Aquafit - Shallow ModerateLord Byng Pool",
+          "location": "",
+          "time": "9:35 AM - 10:25 AM"
         },
         {
           "name": "Public Swim",
@@ -183,6 +198,11 @@
           "name": "Lengths",
           "location": "Lord Byng Pool",
           "time": "11:15 AM - 1:45 PM"
+        },
+        {
+          "name": "Aquafit - Shallow ModerateLord Byng Pool",
+          "location": "",
+          "time": "2:00 PM - 2:55 PM"
         },
         {
           "name": "Lessons/Swim Club",
