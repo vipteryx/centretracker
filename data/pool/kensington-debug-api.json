@@ -1,14 +1,14 @@
 [
   {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/customerheaderfooter/6?locale=en-US&ui_random=1776662248234",
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/customerheaderfooter/6?locale=en-US&ui_random=1776698378879",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"order_option\":\"ASC\",\"total_page\":1,\"total_records_per_page\":30,\"total_records\":0,\"page_number\":1}},\"body\":{\"online_header_footer\":{\"site_id\":0,\"page_id\":6,\"header\":\"To get the best results for your search, choose the Calendar you want to view and then select the<b> Centre</b>. To view the activity details, hover over, or click on, an activity name in t"
   },
   {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/calendars?locale=en-US&ui_random=1776662248250",
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/calendars?locale=en-US&ui_random=1776698378900",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"order_option\":\"ASC\",\"total_page\":1,\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"calendars\":[{\"calendar_id\":23,\"min_time\":6,\"max_time\":22,\"first_day\":0,\"include_weekends\":true,\"name\":\"**Choose a Calendar\",\"site_id\":60,\"hide_on_internet\":false,\"retired\":false,\"notes\":\"\",\"extra_notes\":\"\"},{\"calendar_id\":3,\"min_time\":9,\"max_time"
   },
   {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/common/logincheck?locale=en-US&options=%5Bobject%20Object%5D&ui_random=1776662248396",
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/common/logincheck?locale=en-US&options=%5Bobject%20Object%5D&ui_random=1776698379143",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0021\",\"response_message\":\"User not login\",\"page_info\":{\"order_by\":\"\",\"order_option\":\"ASC\",\"total_page\":1,\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{}}"
   },
   {
@@ -20,7 +20,11 @@
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"order_option\":\"ASC\",\"total_page\":1,\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"center_events\":[{\"center_id\":56,\"center_name\":\"*Kensington Pool\",\"events\":[{\"title\":\"|Public Swim/ Lessons]\",\"start_time\":\"2026-04-20 15:30:00\",\"end_time\":\"2026-04-20 17:59:00\",\"event_type\":0,\"description\":\"<p style=\\\"margin: 0in 0in 0pt;\\\"><tabl"
   },
   {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/centerdetails?center_ids=37,59,56,36,10,47,45,2&locale=en-US&ui_random=1776662251759",
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/centerdetails?center_ids=37,59,56,36,10,47,45,2&locale=en-US&ui_random=1776698383253",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"order_option\":\"ASC\",\"total_page\":1,\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"center_details\":[{\"id\":37,\"name\":\"*Britannia Pool\",\"address1\":\"1661 Napier Street\",\"address2\":\"\",\"city\":\"Vancouver\",\"state\":\"BC\",\"country\":\"CA\",\"phone\":\"(604) 718-5831\",\"zip_code\":\"V5L 4X4\",\"time_format_pattern\":\"h:mm a\",\"mon_start_time\":\"1899-12"
+  },
+  {
+    "url": "https://data.pendo.io/data/guide.json/24ba34fe-85c9-4896-4c67-285da2afba9d?id=23&jzb=eJx9kEtP3UAMhf9KNBJZQRLCS71SVFXQBZsWlVtgN7Jm3Furk_FoHkG0vf8dD4VU3XQTeZzPPsfnl1ooUeZ4bdVG6ZuPn64-662-OPn5cHP_eL89fVCHCozh4nNFfHHuUJXohP6ec0ibvgdvOgMdhLkDk2lBw_NcPGXC1EndL0JwWTD2Bhx6CzG9Z-_I4y1lvLbT0HrWyUR2TmcOU44FW4vfoLh8-Toi2NlZ69hAJvb1dd5aSsHB0_YpoOxYCB-nsdVBeNaWTZnRZ50pO5yuIocj8gfj8LYwSX1wcSnfuzd_Un9BE_FFQg5nZ-_-xvPn9hkzWMigNmt2taT_5OfA7wrsUAj0-uut2q-Z1lHLM5DXiUs0lXm12qxGm9_NarH5xyAuLxdGMD_I72R2DVh-VkvVs6gFiAJ-WDWlJTdUsXHoh9N-HMZzmZD9qS6Wdndy_K4bdYhsj4jVfv8M20S_pg&v=2.319.2_prod-io&ct=1776698389660",
+    "preview": "{\"guides\":[],\"normalizedUrl\":\"http://anc.ca.apm.activecommunities.com/vancouver/calendars?_pendo_document_title=Drop-in+Calendars+%7C+Vancouver+Recreation&defaultCalendarId=55&displayType=0&locationId=56&no_scroll_top=true&onlineSiteId=0&view=2\",\"lastGuideStepSeen\":{\"isMultiStep\":false,\"state\":\"\"},\"guideWidget\":{\"enabled\":false,\"hidePoweredBy\":false},\"guideCssUrl\":\"https://pendo-static-6232254134419456.storage.googleapis.com/guide.-323232.1762336268299.css\",\"throttling\":{},\"autoOrdering\":[],\"glo"
   }
 ]
