@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-21T15:18:54.736Z",
+  "lastUpdated": "2026-04-22T04:53:29.426Z",
   "weekRange": {
     "start": "2026-04-19",
     "end": "2026-04-25"
@@ -100,11 +100,6 @@
           "name": "Dive Tank",
           "location": "VAC Dive Tank",
           "time": "12:15 PM - 3:29 PM"
-        },
-        {
-          "name": "Tot Pool",
-          "location": "VAC Pool",
-          "time": "1:00 PM - 2:59 PM"
         },
         {
           "name": "Leisure Lane",
