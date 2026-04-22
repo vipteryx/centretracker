@@ -1,14 +1,14 @@
 [
   {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/customerheaderfooter/6?locale=en-US&ui_random=1776833595422",
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/customerheaderfooter/6?locale=en-US&ui_random=1776871699290",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"order_option\":\"ASC\",\"total_page\":1,\"total_records_per_page\":30,\"total_records\":0,\"page_number\":1}},\"body\":{\"online_header_footer\":{\"site_id\":0,\"page_id\":6,\"header\":\"To get the best results for your search, choose the Calendar you want to view and then select the<b> Centre</b>. To view the activity details, hover over, or click on, an activity name in t"
   },
   {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/calendars?locale=en-US&ui_random=1776833595432",
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/calendars?locale=en-US&ui_random=1776871699321",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"order_option\":\"ASC\",\"total_page\":1,\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"calendars\":[{\"calendar_id\":23,\"min_time\":6,\"max_time\":22,\"first_day\":0,\"include_weekends\":true,\"name\":\"**Choose a Calendar\",\"site_id\":60,\"hide_on_internet\":false,\"retired\":false,\"notes\":\"\",\"extra_notes\":\"\"},{\"calendar_id\":3,\"min_time\":9,\"max_time"
   },
   {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/common/logincheck?locale=en-US&options=%5Bobject%20Object%5D&ui_random=1776833595534",
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/common/logincheck?locale=en-US&options=%5Bobject%20Object%5D&ui_random=1776871699570",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0021\",\"response_message\":\"User not login\",\"page_info\":{\"order_by\":\"\",\"order_option\":\"ASC\",\"total_page\":1,\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{}}"
   },
   {
@@ -16,15 +16,11 @@
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"order_option\":\"ASC\",\"total_page\":1,\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"center\":[{\"id\":37,\"name\":\"*Britannia Pool\"},{\"id\":59,\"name\":\"*Hillcrest Aquatic Centre\"},{\"id\":56,\"name\":\"*Kensington Pool\"},{\"id\":36,\"name\":\"*Killarney Pool\"},{\"id\":10,\"name\":\"*Lord Byng Pool\"},{\"id\":47,\"name\":\"*Renfrew Park Pool\"},{\"id\":45,\"nam"
   },
   {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/multicenter/events?locale=en-US",
-    "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"order_option\":\"ASC\",\"total_page\":1,\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"center_events\":[{\"center_id\":36,\"center_name\":\"*Killarney Pool\",\"events\":[{\"title\":\"|Public Swim Leisure Pool  11:30am-9:00pm)\",\"start_time\":\"2026-04-19 11:30:00\",\"end_time\":\"2026-04-19 21:14:00\",\"event_type\":0,\"description\":\"<div>    </div><div>"
-  },
-  {
-    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/centerdetails?center_ids=37,59,56,36,10,47,45,2&locale=en-US&ui_random=1776833598538",
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/centerdetails?center_ids=37,59,56,36,10,47,45,2&locale=en-US&ui_random=1776871703963",
     "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"order_option\":\"ASC\",\"total_page\":1,\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"center_details\":[{\"id\":37,\"name\":\"*Britannia Pool\",\"address1\":\"1661 Napier Street\",\"address2\":\"\",\"city\":\"Vancouver\",\"state\":\"BC\",\"country\":\"CA\",\"phone\":\"(604) 718-5831\",\"zip_code\":\"V5L 4X4\",\"time_format_pattern\":\"h:mm a\",\"mon_start_time\":\"1899-12"
   },
   {
-    "url": "https://data.pendo.io/data/guide.json/24ba34fe-85c9-4896-4c67-285da2afba9d?id=23&jzb=eJx9kF9rFTEQxb_KEug-tbtLaq9y4SLSitQHFXstvoUhmd4OZjMhf1aK3u_eSW1XfPFlmcz-Zs6Z80stlKlwunZqq8yX95-uPpu9efMx3X_f3E2T_qBOFVjLNZSGhOr9qarJC31fSszbcYRgBwsDxHkAW2hBy_NcAxXCPEg9LkJwXTCNFjwGBym_5eAp4A0VvHa7qQ9ssk3svSkcdyVV7B3eQfXl8nlEsIuL3rOFQhzkdb7pHeXo4WH_EFF2LIQ_d7o3UXg2jm2dMRRTqHjcXSWOZxRO9PSyMEt98vpSvrcv_qT-ijbhk4Qczt7d_o3nz-0zFnBQQG3X7FpJ_8nPQzhUOKAQGMy3G3VcM22jjmegYDLXZBvzbLVbjXa_u9Vi949BXJ4uTGB_UDjI7Bqw_GyWmmdRi5AEfLdqSktuaGJaj9OrUU96IxOyP7fF0h7O9TRoExO7M2J1PD4Csgq-zg&v=2.320.2_prod-io&ct=1776833604634",
-    "preview": "{\"guides\":[],\"normalizedUrl\":\"http://anc.ca.apm.activecommunities.com/vancouver/calendars?_pendo_document_title=Drop-in+Calendars+%7C+Vancouver+Recreation&defaultCalendarId=55&displayType=0&locationId=36&no_scroll_top=true&onlineSiteId=0&view=2\",\"lastGuideStepSeen\":{\"isMultiStep\":false,\"state\":\"\"},\"guideWidget\":{\"enabled\":false,\"hidePoweredBy\":false},\"guideCssUrl\":\"https://pendo-static-6232254134419456.storage.googleapis.com/guide.-323232.1762336268299.css\",\"throttling\":{},\"autoOrdering\":[],\"glo"
+    "url": "https://anc.ca.apm.activecommunities.com/vancouver/rest/onlinecalendar/multicenter/events?locale=en-US",
+    "preview": "{\"headers\":{\"sessionRefreshedOn\":null,\"sessionExtendedCount\":0,\"response_code\":\"0000\",\"response_message\":\"Successful\",\"page_info\":{\"order_by\":\"\",\"order_option\":\"ASC\",\"total_page\":1,\"total_records_per_page\":20,\"total_records\":0,\"page_number\":1}},\"body\":{\"center_events\":[{\"center_id\":36,\"center_name\":\"*Killarney Pool\",\"events\":[{\"title\":\"|Public Swim Leisure Pool  11:30am-9:00pm)\",\"start_time\":\"2026-04-19 11:30:00\",\"end_time\":\"2026-04-19 21:14:00\",\"event_type\":0,\"description\":\"<div>    </div><div>"
   }
 ]
