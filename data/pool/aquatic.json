@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-04-26T05:16:11.502Z",
+  "lastUpdated": "2026-04-26T14:51:53.750Z",
   "weekRange": {
-    "start": "2026-04-19",
-    "end": "2026-04-25"
+    "start": "2026-04-26",
+    "end": "2026-05-02"
   },
   "days": [
     {
-      "date": "2026-04-19",
+      "date": "2026-04-26",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "date": "2026-04-20",
+      "date": "2026-04-27",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -54,6 +54,11 @@
           "name": "Leisure Lane",
           "location": "VAC Pool",
           "time": "7:30 AM - 3:59 PM"
+        },
+        {
+          "name": "Aquafit - Shallow Water ModerateVAC Pool",
+          "location": "",
+          "time": "9:20 AM - 10:15 AM"
         },
         {
           "name": "Tot Pool",
@@ -73,7 +78,7 @@
       ]
     },
     {
-      "date": "2026-04-21",
+      "date": "2026-04-28",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -102,6 +107,11 @@
           "time": "12:15 PM - 3:29 PM"
         },
         {
+          "name": "Tot Pool",
+          "location": "VAC Pool",
+          "time": "1:00 PM - 2:59 PM"
+        },
+        {
           "name": "Leisure Lane",
           "location": "VAC Pool",
           "time": "4:00 PM - 8:59 PM"
@@ -114,7 +124,7 @@
       ]
     },
     {
-      "date": "2026-04-22",
+      "date": "2026-04-29",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -155,7 +165,7 @@
       ]
     },
     {
-      "date": "2026-04-23",
+      "date": "2026-04-30",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -201,7 +211,7 @@
       ]
     },
     {
-      "date": "2026-04-24",
+      "date": "2026-05-01",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -252,7 +262,7 @@
       ]
     },
     {
-      "date": "2026-04-25",
+      "date": "2026-05-02",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
