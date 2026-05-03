@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-03T05:34:58.140Z",
+  "lastUpdated": "2026-05-03T14:53:43.522Z",
   "weekRange": {
-    "start": "2026-04-26",
-    "end": "2026-05-02"
+    "start": "2026-05-03",
+    "end": "2026-05-09"
   },
   "days": [
     {
-      "date": "2026-04-26",
+      "date": "2026-05-03",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "date": "2026-04-27",
+      "date": "2026-05-04",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -58,18 +58,13 @@
       ]
     },
     {
-      "date": "2026-04-28",
+      "date": "2026-05-05",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
           "name": "Lengths",
           "location": "Lord Byng Pool",
           "time": "6:00 AM - 9:30 AM"
-        },
-        {
-          "name": "Aquafit - Shallow ModerateLord Byng Pool",
-          "location": "",
-          "time": "9:35 AM - 10:25 AM"
         },
         {
           "name": "Public Swim",
@@ -99,7 +94,7 @@
       ]
     },
     {
-      "date": "2026-04-29",
+      "date": "2026-05-06",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -140,18 +135,13 @@
       ]
     },
     {
-      "date": "2026-04-30",
+      "date": "2026-05-07",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
           "name": "Lengths",
           "location": "Lord Byng Pool",
           "time": "6:00 AM - 9:30 AM"
-        },
-        {
-          "name": "Aquafit - Shallow ModerateLord Byng Pool",
-          "location": "",
-          "time": "9:35 AM - 10:25 AM"
         },
         {
           "name": "Public Swim",
@@ -181,7 +171,7 @@
       ]
     },
     {
-      "date": "2026-05-01",
+      "date": "2026-05-08",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -222,7 +212,7 @@
       ]
     },
     {
-      "date": "2026-05-02",
+      "date": "2026-05-09",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
