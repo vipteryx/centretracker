@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-24T06:06:04.899Z",
+  "lastUpdated": "2026-05-24T15:09:37.096Z",
   "weekRange": {
-    "start": "2026-05-17",
-    "end": "2026-05-23"
+    "start": "2026-05-24",
+    "end": "2026-05-30"
   },
   "days": [
     {
-      "date": "2026-05-17",
+      "date": "2026-05-24",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "date": "2026-05-18",
+      "date": "2026-05-25",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -56,6 +56,16 @@
           "time": "9:30 AM - 8:59 PM"
         },
         {
+          "name": "Aquafit – Shallow ModerateHillcrest Pool",
+          "location": "",
+          "time": "12:05 PM - 1:00 PM"
+        },
+        {
+          "name": "Aquafit - Shallow Moderate",
+          "location": "Hillcrest Pool",
+          "time": "12:05 PM - 12:59 PM"
+        },
+        {
           "name": "Lessons",
           "location": "Hillcrest Pool",
           "time": "4:00 PM - 7:59 PM"
@@ -63,7 +73,7 @@
       ]
     },
     {
-      "date": "2026-05-19",
+      "date": "2026-05-26",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -94,7 +104,7 @@
       ]
     },
     {
-      "date": "2026-05-20",
+      "date": "2026-05-27",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -125,7 +135,7 @@
       ]
     },
     {
-      "date": "2026-05-21",
+      "date": "2026-05-28",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -156,7 +166,7 @@
       ]
     },
     {
-      "date": "2026-05-22",
+      "date": "2026-05-29",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -187,7 +197,7 @@
       ]
     },
     {
-      "date": "2026-05-23",
+      "date": "2026-05-30",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

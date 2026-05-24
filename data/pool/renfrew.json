@@ -1,23 +1,69 @@
 {
-  "lastUpdated": "2026-05-24T06:06:04.797Z",
+  "lastUpdated": "2026-05-24T15:09:37.006Z",
   "weekRange": {
-    "start": "2026-05-17",
-    "end": "2026-05-23"
+    "start": "2026-05-24",
+    "end": "2026-05-30"
   },
   "days": [
     {
-      "date": "2026-05-17",
+      "date": "2026-05-24",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
+          "name": "Lengths Swim",
+          "location": "Renfrew Pool",
+          "time": "9:00 AM - 10:14 AM"
+        },
+        {
+          "name": "Group Lessons",
+          "location": "Renfrew Pool",
+          "time": "10:30 AM - 2:29 PM"
+        },
+        {
           "name": "Public Swim",
           "location": "Renfrew Pool",
-          "time": "9:00 AM - 4:59 PM"
+          "time": "2:30 PM - 4:59 PM"
         }
       ]
     },
     {
-      "date": "2026-05-19",
+      "date": "2026-05-25",
+      "dayOfWeek": "Monday",
+      "sessions": [
+        {
+          "name": "Lengths Swim",
+          "location": "Renfrew Pool",
+          "time": "6:30 AM - 9:59 AM"
+        },
+        {
+          "name": "Group Lessons",
+          "location": "Renfrew Pool",
+          "time": "10:00 AM - 11:29 AM"
+        },
+        {
+          "name": "Lengths Swim",
+          "location": "Renfrew Pool",
+          "time": "12:00 PM - 1:29 PM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "1:30 PM - 3:29 PM"
+        },
+        {
+          "name": "Group Lessons",
+          "location": "Renfrew Pool",
+          "time": "4:00 PM - 7:59 PM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "8:00 PM - 9:29 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-26",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -53,7 +99,7 @@
       ]
     },
     {
-      "date": "2026-05-20",
+      "date": "2026-05-27",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -89,7 +135,7 @@
       ]
     },
     {
-      "date": "2026-05-21",
+      "date": "2026-05-28",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -130,7 +176,7 @@
       ]
     },
     {
-      "date": "2026-05-22",
+      "date": "2026-05-29",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -166,7 +212,7 @@
       ]
     },
     {
-      "date": "2026-05-23",
+      "date": "2026-05-30",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

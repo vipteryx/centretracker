@@ -1,70 +1,75 @@
 {
-  "lastUpdated": "2026-05-24T06:06:05.218Z",
+  "lastUpdated": "2026-05-24T15:09:36.884Z",
   "weekRange": {
-    "start": "2026-05-17",
-    "end": "2026-05-23"
+    "start": "2026-05-24",
+    "end": "2026-05-30"
   },
   "days": [
     {
-      "date": "2026-05-17",
+      "date": "2026-05-24",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
-          "name": "Long Weekend",
-          "location": "Lengths",
-          "time": "10:00 AM - 12:00 PM"
+          "name": "Lessons/Swim Club",
+          "location": "1L Lengths | Lord Byng Pool",
+          "time": "10:00 AM - 2:00 PM"
         },
         {
-          "name": "Long Weekend",
-          "location": "Public Swim",
-          "time": "12:00 PM - 5:00 PM"
+          "name": "Public Swim",
+          "location": "1L Lengths | Lord Byng Pool",
+          "time": "2:00 PM - 5:00 PM"
         }
       ]
     },
     {
-      "date": "2026-05-18",
+      "date": "2026-05-25",
       "dayOfWeek": "Monday",
       "sessions": [
         {
-          "name": "Statutory Holiday",
-          "location": "Lengths",
-          "time": "8:00 AM - 10:00 AM"
+          "name": "Lengths",
+          "location": "Lord Byng Pool",
+          "time": "6:00 AM - 9:00 AM"
         },
         {
-          "name": "Statutory Holiday",
-          "location": "Public Swim",
-          "time": "10:00 AM - 12:00 PM"
+          "name": "School Board",
+          "location": "1L Lord Byng Pool",
+          "time": "9:00 AM - 11:00 AM"
         },
         {
-          "name": "Statutory Holiday",
-          "location": "Lengths",
-          "time": "12:00 PM - 2:00 PM"
+          "name": "Lengths",
+          "location": "Lord Byng Pool",
+          "time": "11:15 AM - 1:00 PM"
         },
         {
-          "name": "Statutory Holiday",
-          "location": "Public Swim",
-          "time": "2:00 PM - 4:00 PM"
+          "name": "School Use",
+          "location": "Lord Byng Pool",
+          "time": "1:00 PM - 3:00 PM"
         },
         {
-          "name": "Statutory Holiday",
-          "location": "Lessons/Swim Club",
-          "time": "4:00 PM - 7:00 PM"
+          "name": "Lessons/Swim Club",
+          "location": "1L Lengths | Lord Byng Pool",
+          "time": "3:00 PM - 8:00 PM"
         },
         {
-          "name": "Statutory Holiday",
-          "location": "Public Swim",
-          "time": "7:00 PM - 8:00 PM"
+          "name": "Lengths",
+          "location": "Lord Byng Pool",
+          "time": "8:00 PM - 9:30 PM"
         }
       ]
     },
     {
-      "date": "2026-05-19",
+      "date": "2026-05-26",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
           "name": "Lengths",
           "location": "Lord Byng Pool",
           "time": "6:00 AM - 9:30 AM"
+        },
+        {
+          "name": "Aquafit - Shallow ModerateLord Byng Pool",
+          "location": "",
+          "time": "9:35 AM - 10:25 AM"
         },
         {
           "name": "Public Swim",
@@ -94,7 +99,7 @@
       ]
     },
     {
-      "date": "2026-05-20",
+      "date": "2026-05-27",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -123,11 +128,6 @@
           "time": "3:00 PM - 7:30 PM"
         },
         {
-          "name": "Aquafit - Shallow ModerateLord Byng Pool",
-          "location": "",
-          "time": "7:35 PM - 8:25 PM"
-        },
-        {
           "name": "Lengths",
           "location": "Lord Byng Pool",
           "time": "8:35 PM - 9:30 PM"
@@ -135,7 +135,7 @@
       ]
     },
     {
-      "date": "2026-05-21",
+      "date": "2026-05-28",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -171,7 +171,7 @@
       ]
     },
     {
-      "date": "2026-05-22",
+      "date": "2026-05-29",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -188,11 +188,6 @@
           "name": "Lengths",
           "location": "Lord Byng Pool",
           "time": "11:15 AM - 1:45 PM"
-        },
-        {
-          "name": "Aquafit - Shallow ModerateLord Byng Pool",
-          "location": "",
-          "time": "2:00 PM - 2:55 PM"
         },
         {
           "name": "Lessons/Swim Club",
@@ -212,7 +207,7 @@
       ]
     },
     {
-      "date": "2026-05-23",
+      "date": "2026-05-30",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
