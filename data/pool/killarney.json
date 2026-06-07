@@ -1,25 +1,8 @@
 {
-  "lastUpdated": "2026-06-07T06:34:44.922Z",
+  "lastUpdated": "2026-06-07T15:26:08.319Z",
   "weekRange": {
-    "start": "2026-05-31",
-    "end": "2026-05-31"
+    "start": null,
+    "end": null
   },
-  "days": [
-    {
-      "date": "2026-05-31",
-      "dayOfWeek": "Sunday",
-      "sessions": [
-        {
-          "name": "Public Swim Leisure Pool 8:00-9:30am)Killarney Pool",
-          "location": "",
-          "time": "8:00 AM - 9:29 AM"
-        },
-        {
-          "name": "Public Swim Leisure Pool 11:30am-9:00pm)Killarney Pool",
-          "location": "",
-          "time": "11:30 AM - 9:14 PM"
-        }
-      ]
-    }
-  ]
+  "days": []
 }
