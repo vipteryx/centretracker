@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-09T06:14:14.118Z",
+  "lastUpdated": "2026-06-09T16:33:32.632Z",
   "weekRange": {
     "start": "2026-06-07",
     "end": "2026-06-13"
@@ -13,11 +13,6 @@
           "name": "Tot Pool Only",
           "location": "Britannia Pool",
           "time": "10:00 AM - 10:59 AM"
-        },
-        {
-          "name": "Lessons and One Lane",
-          "location": "Britannia Pool",
-          "time": "11:00 AM - 1:29 PM"
         },
         {
           "name": "Public Swim with Tot Pool",
