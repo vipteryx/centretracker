@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-09T16:33:31.047Z",
+  "lastUpdated": "2026-06-10T06:36:09.114Z",
   "weekRange": {
     "start": "2026-06-07",
     "end": "2026-06-13"
@@ -228,11 +228,6 @@
           "name": "Leisure Lane",
           "location": "VAC Pool",
           "time": "7:30 AM - 3:59 PM"
-        },
-        {
-          "name": "Aquafit - Shallow Water ModerateVAC Pool",
-          "location": "",
-          "time": "9:20 AM - 10:15 AM"
         },
         {
           "name": "SwimFIT",
