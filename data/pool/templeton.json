@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-14T06:46:31.634Z",
+  "lastUpdated": "2026-06-14T15:50:22.500Z",
   "weekRange": {
-    "start": "2026-06-07",
-    "end": "2026-06-13"
+    "start": "2026-06-14",
+    "end": "2026-06-20"
   },
   "days": [
     {
-      "date": "2026-06-07",
+      "date": "2026-06-14",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -17,7 +17,7 @@
         {
           "name": "Public Swim -- Main TankTempleton Pool",
           "location": "",
-          "time": "2:00 PM - 4:30 PM"
+          "time": "2:30 PM - 4:30 PM"
         },
         {
           "name": "LengthsTempleton Pool",
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "date": "2026-06-08",
+      "date": "2026-06-15",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -73,7 +73,7 @@
       ]
     },
     {
-      "date": "2026-06-09",
+      "date": "2026-06-16",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -119,7 +119,7 @@
       ]
     },
     {
-      "date": "2026-06-10",
+      "date": "2026-06-17",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "date": "2026-06-11",
+      "date": "2026-06-18",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -206,7 +206,7 @@
       ]
     },
     {
-      "date": "2026-06-12",
+      "date": "2026-06-19",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -252,7 +252,7 @@
       ]
     },
     {
-      "date": "2026-06-13",
+      "date": "2026-06-20",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

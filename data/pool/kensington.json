@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-14T06:46:31.619Z",
+  "lastUpdated": "2026-06-14T15:50:23.543Z",
   "weekRange": {
-    "start": "2026-06-07",
-    "end": "2026-06-13"
+    "start": "2026-06-14",
+    "end": "2026-06-20"
   },
   "days": [
     {
-      "date": "2026-06-07",
+      "date": "2026-06-14",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "date": "2026-06-08",
+      "date": "2026-06-15",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "date": "2026-06-09",
+      "date": "2026-06-16",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -74,7 +74,7 @@
       ]
     },
     {
-      "date": "2026-06-10",
+      "date": "2026-06-17",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -95,18 +95,13 @@
       ]
     },
     {
-      "date": "2026-06-11",
+      "date": "2026-06-18",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
           "name": "Public Swim",
           "location": "Kensington Pool",
           "time": "9:00 AM - 2:29 PM"
-        },
-        {
-          "name": "Aquafit - Range of MotionKensington Pool",
-          "location": "",
-          "time": "2:30 PM - 3:30 PM"
         },
         {
           "name": "Public Swim",
@@ -126,7 +121,7 @@
       ]
     },
     {
-      "date": "2026-06-12",
+      "date": "2026-06-19",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -142,7 +137,7 @@
       ]
     },
     {
-      "date": "2026-06-13",
+      "date": "2026-06-20",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
