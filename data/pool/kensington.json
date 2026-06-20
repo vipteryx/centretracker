@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T16:33:34.449Z",
+  "lastUpdated": "2026-06-20T06:26:30.257Z",
   "weekRange": {
     "start": "2026-06-14",
     "end": "2026-06-20"
@@ -13,6 +13,11 @@
           "name": "Sauna and Whirlpool Only",
           "location": "Kensington Pool",
           "time": "9:00 AM - 1:59 PM"
+        },
+        {
+          "name": "Sauna and Whirlpool Only",
+          "location": "Kensington Pool",
+          "time": "9:00 AM - 1:44 PM"
         },
         {
           "name": "Public Swim",
@@ -128,6 +133,11 @@
           "name": "Public Swim",
           "location": "Kensington Pool",
           "time": "10:00 AM - 2:59 PM"
+        },
+        {
+          "name": "Sauna and Whirlpool Only",
+          "location": "Kensington Pool",
+          "time": "3:00 PM - 5:59 PM"
         },
         {
           "name": "Sauna and Whirlpool Only",
