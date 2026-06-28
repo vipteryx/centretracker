@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-06-28T06:23:46.490Z",
+  "lastUpdated": "2026-06-28T15:21:09.083Z",
   "weekRange": {
-    "start": "2026-06-21",
-    "end": "2026-06-27"
+    "start": "2026-06-28",
+    "end": "2026-07-04"
   },
   "days": [
     {
-      "date": "2026-06-21",
+      "date": "2026-06-28",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -15,9 +15,14 @@
           "time": "10:00 AM - 10:59 AM"
         },
         {
-          "name": "Lessons and One Lane",
+          "name": "Lengths with Tot Pool",
           "location": "Britannia Pool",
           "time": "11:00 AM - 1:29 PM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Britannia Pool",
+          "time": "1:30 PM - 5:29 PM"
         },
         {
           "name": "Lengths",
@@ -27,36 +32,21 @@
       ]
     },
     {
-      "date": "2026-06-22",
+      "date": "2026-06-29",
       "dayOfWeek": "Monday",
       "sessions": [
         {
           "name": "Lengths",
           "location": "Britannia Pool",
-          "time": "6:30 AM - 9:59 AM"
+          "time": "6:30 AM - 11:29 AM"
         },
         {
-          "name": "Public Swim",
+          "name": "Public Swim with Tot Pool",
           "location": "Britannia Pool",
-          "time": "10:00 AM - 11:29 AM"
+          "time": "11:30 AM - 3:59 PM"
         },
         {
-          "name": "Lengths",
-          "location": "Britannia Pool",
-          "time": "11:30 AM - 12:59 PM"
-        },
-        {
-          "name": "Public Swim",
-          "location": "Britannia Pool",
-          "time": "1:00 PM - 3:59 PM"
-        },
-        {
-          "name": "Lengths with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "4:00 PM - 6:29 PM"
-        },
-        {
-          "name": "Public Swim",
+          "name": "Public Swim with Tot Pool",
           "location": "Britannia Pool",
           "time": "6:30 PM - 7:59 PM"
         },
@@ -68,7 +58,7 @@
       ]
     },
     {
-      "date": "2026-06-23",
+      "date": "2026-06-30",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -82,14 +72,9 @@
           "time": "10:15 AM - 11:15 AM"
         },
         {
-          "name": "Lengths",
+          "name": "Public Swim with Tot Pool",
           "location": "Britannia Pool",
-          "time": "11:30 AM - 12:59 PM"
-        },
-        {
-          "name": "Public Swim",
-          "location": "Britannia Pool",
-          "time": "1:00 PM - 1:59 PM"
+          "time": "11:30 AM - 1:59 PM"
         },
         {
           "name": "Free Swim",
@@ -97,12 +82,7 @@
           "time": "2:00 PM - 3:59 PM"
         },
         {
-          "name": "Lengths with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "4:00 PM - 6:29 PM"
-        },
-        {
-          "name": "Public Swim",
+          "name": "Public Swim with Tot Pool",
           "location": "Britannia Pool",
           "time": "6:30 PM - 7:59 PM"
         },
@@ -114,77 +94,37 @@
       ]
     },
     {
-      "date": "2026-06-24",
+      "date": "2026-07-01",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
-          "name": "Lengths",
-          "location": "Britannia Pool",
-          "time": "6:30 AM - 9:59 AM"
-        },
-        {
           "name": "Public Swim",
           "location": "Britannia Pool",
-          "time": "10:00 AM - 11:29 AM"
-        },
-        {
-          "name": "Lengths",
-          "location": "Britannia Pool",
-          "time": "11:30 AM - 12:59 PM"
-        },
-        {
-          "name": "Public Swim",
-          "location": "Britannia Pool",
-          "time": "1:00 PM - 3:59 PM"
-        },
-        {
-          "name": "Lengths with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "4:00 PM - 6:29 PM"
-        },
-        {
-          "name": "Public Swim",
-          "location": "Britannia Pool",
-          "time": "6:30 PM - 7:59 PM"
-        },
-        {
-          "name": "Lengths",
-          "location": "Britannia Pool",
-          "time": "8:00 PM - 8:59 PM"
+          "time": "1:00 PM - 4:59 PM"
         }
       ]
     },
     {
-      "date": "2026-06-25",
+      "date": "2026-07-02",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
           "name": "Lengths",
           "location": "Britannia Pool",
-          "time": "6:30 AM - 9:59 AM"
+          "time": "6:30 AM - 11:29 AM"
         },
         {
-          "name": "Public Swim",
+          "name": "Public Swim with Tot Pool",
           "location": "Britannia Pool",
-          "time": "10:00 AM - 11:29 AM"
+          "time": "11:30 AM - 3:59 PM"
         },
         {
-          "name": "Lengths",
-          "location": "Britannia Pool",
-          "time": "11:30 AM - 12:59 PM"
-        },
-        {
-          "name": "Public Swim",
-          "location": "Britannia Pool",
-          "time": "1:00 PM - 3:59 PM"
-        },
-        {
-          "name": "Lengths with Tot Pool",
+          "name": "Lessons and One Lane",
           "location": "Britannia Pool",
           "time": "4:00 PM - 6:29 PM"
         },
         {
-          "name": "Public Swim",
+          "name": "Public Swim with Tot Pool",
           "location": "Britannia Pool",
           "time": "6:30 PM - 7:59 PM"
         },
@@ -196,36 +136,26 @@
       ]
     },
     {
-      "date": "2026-06-26",
+      "date": "2026-07-03",
       "dayOfWeek": "Friday",
       "sessions": [
         {
           "name": "Lengths",
           "location": "Britannia Pool",
-          "time": "6:30 AM - 9:59 AM"
+          "time": "6:30 AM - 11:29 AM"
         },
         {
-          "name": "Public Swim",
+          "name": "Public Swim with Tot Pool",
           "location": "Britannia Pool",
-          "time": "10:00 AM - 11:29 AM"
+          "time": "11:30 AM - 3:59 PM"
         },
         {
-          "name": "Lengths",
-          "location": "Britannia Pool",
-          "time": "11:30 AM - 12:59 PM"
-        },
-        {
-          "name": "Public Swim",
-          "location": "Britannia Pool",
-          "time": "1:00 PM - 3:59 PM"
-        },
-        {
-          "name": "Lengths",
+          "name": "Lessons and One Lane",
           "location": "Britannia Pool",
           "time": "4:00 PM - 5:59 PM"
         },
         {
-          "name": "Free Swim",
+          "name": "Free Youth Swim",
           "location": "Britannia Pool",
           "time": "6:00 PM - 7:59 PM"
         },
@@ -237,16 +167,16 @@
       ]
     },
     {
-      "date": "2026-06-27",
+      "date": "2026-07-04",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
-          "name": "Lengths with Tot Pool",
+          "name": "Lessons and One Lane",
           "location": "Britannia Pool",
           "time": "11:00 AM - 1:29 PM"
         },
         {
-          "name": "Public Swim",
+          "name": "Public Swim with Tot Pool",
           "location": "Britannia Pool",
           "time": "1:30 PM - 5:29 PM"
         },

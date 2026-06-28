@@ -1,23 +1,18 @@
 {
-  "lastUpdated": "2026-06-28T06:23:46.173Z",
+  "lastUpdated": "2026-06-28T15:21:09.092Z",
   "weekRange": {
-    "start": "2026-06-21",
-    "end": "2026-06-27"
+    "start": "2026-06-28",
+    "end": "2026-07-04"
   },
   "days": [
     {
-      "date": "2026-06-21",
+      "date": "2026-06-28",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
           "name": "Length Swim (3 lanes x 25m)",
           "location": "Hillcrest Pool",
           "time": "6:00 AM - 8:29 AM"
-        },
-        {
-          "name": "Lessons",
-          "location": "Hillcrest Pool",
-          "time": "8:30 AM - 11:59 AM"
         },
         {
           "name": "Bulkhead Move - No lanes available",
@@ -32,107 +27,107 @@
       ]
     },
     {
-      "date": "2026-06-22",
+      "date": "2026-06-29",
       "dayOfWeek": "Monday",
       "sessions": [
         {
-          "name": "Bulkhead Move - No lanes available",
+          "name": "Length Swim (50m)",
           "location": "Hillcrest Pool",
-          "time": "9:00 AM - 9:29 AM"
+          "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Public Swim, 3 lanes x 25m",
-          "location": "Hillcrest Pool",
+          "name": "Public Swim",
+          "location": "Hillcrest Leisure Pool",
           "time": "9:30 AM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-06-23",
+      "date": "2026-06-30",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
-          "name": "Length Swim (3 lanes x 25m)",
+          "name": "Dive Tank",
           "location": "Hillcrest Pool",
-          "time": "6:00 AM - 8:59 AM"
+          "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Bulkhead Move - No lanes available",
-          "location": "Hillcrest Pool",
-          "time": "9:00 AM - 9:29 AM"
+          "name": "Widths (25m)Hillcrest Pool",
+          "location": "",
+          "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Public Swim, 3 lanes x 25m",
-          "location": "Hillcrest Pool",
+          "name": "Public Swim",
+          "location": "Hillcrest Leisure Pool",
           "time": "9:30 AM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-06-24",
+      "date": "2026-07-01",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
-          "name": "Bulkhead Move - No lanes available",
+          "name": "Length Swim (50m)",
           "location": "Hillcrest Pool",
-          "time": "9:00 AM - 9:29 AM"
+          "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Public Swim, 3 lanes x 25m",
-          "location": "Hillcrest Pool",
+          "name": "Public Swim",
+          "location": "Hillcrest Leisure Pool",
           "time": "9:30 AM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-06-25",
+      "date": "2026-07-02",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
-          "name": "Length Swim (3 lanes x 25m)",
+          "name": "Dive Tank",
           "location": "Hillcrest Pool",
-          "time": "6:00 AM - 8:59 AM"
+          "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Bulkhead Move - No lanes available",
-          "location": "Hillcrest Pool",
-          "time": "9:00 AM - 9:29 AM"
+          "name": "Widths (25m)Hillcrest Pool",
+          "location": "",
+          "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Public Swim, 3 lanes x 25m",
-          "location": "Hillcrest Pool",
+          "name": "Public Swim",
+          "location": "Hillcrest Leisure Pool",
           "time": "9:30 AM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-06-26",
+      "date": "2026-07-03",
       "dayOfWeek": "Friday",
       "sessions": [
         {
-          "name": "Bulkhead Move - No lanes available",
+          "name": "Length Swim (50m)",
           "location": "Hillcrest Pool",
-          "time": "9:00 AM - 9:29 AM"
+          "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Public Swim, 3 lanes x 25m",
-          "location": "Hillcrest Pool",
+          "name": "Public Swim",
+          "location": "Hillcrest Leisure Pool",
           "time": "9:30 AM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-06-27",
+      "date": "2026-07-04",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
-          "name": "Bulkhead Move - No lanes available",
+          "name": "Length Swim (50m)",
           "location": "Hillcrest Pool",
-          "time": "8:30 AM - 8:59 AM"
+          "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Public Swim, 3 lanes x 25m",
-          "location": "Hillcrest Pool",
+          "name": "Public Swim",
+          "location": "Hillcrest Leisure Pool",
           "time": "9:00 AM - 8:59 PM"
         }
       ]
