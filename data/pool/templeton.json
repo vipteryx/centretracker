@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-28T15:21:08.891Z",
+  "lastUpdated": "2026-06-29T06:54:06.862Z",
   "weekRange": {
     "start": "2026-06-28",
-    "end": "2026-06-30"
+    "end": "2026-07-04"
   },
   "days": [
     {
@@ -32,13 +32,243 @@
       ]
     },
     {
+      "date": "2026-06-29",
+      "dayOfWeek": "Monday",
+      "sessions": [
+        {
+          "name": "LengthsTempleton Pool",
+          "location": "",
+          "time": "6:30 AM - 9:00 AM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "9:00 AM - 11:30 AM"
+        },
+        {
+          "name": "LengthsTempleton Pool",
+          "location": "",
+          "time": "11:30 AM - 1:00 PM"
+        },
+        {
+          "name": "Public Swim - Teach PoolTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 3:00 PM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 3:00 PM"
+        },
+        {
+          "name": "Lessons (1 Lane only)Templeton Pool",
+          "location": "",
+          "time": "3:30 PM - 7:59 PM"
+        },
+        {
+          "name": "Public Swim - Teach PoolTempleton Pool",
+          "location": "",
+          "time": "8:00 PM - 9:30 PM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "8:00 PM - 9:30 PM"
+        }
+      ]
+    },
+    {
       "date": "2026-06-30",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
+          "name": "LengthsTempleton Pool",
+          "location": "",
+          "time": "6:30 AM - 9:00 AM"
+        },
+        {
           "name": "Aquafit - Shallow ModerateTempleton Pool",
           "location": "",
           "time": "9:30 AM - 10:29 AM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "10:30 AM - 11:30 AM"
+        },
+        {
+          "name": "LengthsTempleton Pool",
+          "location": "",
+          "time": "11:30 AM - 1:00 PM"
+        },
+        {
+          "name": "Public Swim - Teach PoolTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 3:00 PM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 3:00 PM"
+        },
+        {
+          "name": "Lessons (1 Lane only)Templeton Pool",
+          "location": "",
+          "time": "3:30 PM - 7:59 PM"
+        },
+        {
+          "name": "Public Swim - Teach PoolTempleton Pool",
+          "location": "",
+          "time": "8:00 PM - 9:30 PM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "8:00 PM - 9:30 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "dayOfWeek": "Wednesday",
+      "sessions": [
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "6:30 AM - 2:00 PM"
+        },
+        {
+          "name": "LengthsTempleton Pool",
+          "location": "",
+          "time": "6:30 AM - 9:00 AM"
+        },
+        {
+          "name": "Public Swim - Teach PoolTempleton Pool",
+          "location": "",
+          "time": "9:00 AM - 2:00 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-02",
+      "dayOfWeek": "Thursday",
+      "sessions": [
+        {
+          "name": "LengthsTempleton Pool",
+          "location": "",
+          "time": "6:30 AM - 9:00 AM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "9:00 AM - 11:30 AM"
+        },
+        {
+          "name": "LengthsTempleton Pool",
+          "location": "",
+          "time": "11:30 AM - 1:00 PM"
+        },
+        {
+          "name": "Public Swim - Teach PoolTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 3:00 PM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 3:00 PM"
+        },
+        {
+          "name": "Lessons (1 Lane only)Templeton Pool",
+          "location": "",
+          "time": "3:30 PM - 7:59 PM"
+        },
+        {
+          "name": "Public Swim - Teach PoolTempleton Pool",
+          "location": "",
+          "time": "8:00 PM - 9:30 PM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "8:00 PM - 9:30 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-03",
+      "dayOfWeek": "Friday",
+      "sessions": [
+        {
+          "name": "LengthsTempleton Pool",
+          "location": "",
+          "time": "6:30 AM - 9:00 AM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "9:00 AM - 11:30 AM"
+        },
+        {
+          "name": "LengthsTempleton Pool",
+          "location": "",
+          "time": "11:30 AM - 1:00 PM"
+        },
+        {
+          "name": "Public Swim - Teach PoolTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 3:00 PM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 3:00 PM"
+        },
+        {
+          "name": "Lessons (1 Lane only)Templeton Pool",
+          "location": "",
+          "time": "3:30 PM - 6:29 PM"
+        },
+        {
+          "name": "Public Swim - Teach PoolTempleton Pool",
+          "location": "",
+          "time": "6:30 PM - 8:00 PM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "6:30 PM - 8:00 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-04",
+      "dayOfWeek": "Saturday",
+      "sessions": [
+        {
+          "name": "Lessons (1 Lane only)Templeton Pool",
+          "location": "",
+          "time": "9:00 AM - 12:59 PM"
+        },
+        {
+          "name": "Public Swim - Teach PoolTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 7:30 PM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "1:00 PM - 4:30 PM"
+        },
+        {
+          "name": "LengthsTempleton Pool",
+          "location": "",
+          "time": "4:30 PM - 5:30 PM"
+        },
+        {
+          "name": "Public Swim -- Main TankTempleton Pool",
+          "location": "",
+          "time": "5:30 PM - 7:30 PM"
         }
       ]
     }
