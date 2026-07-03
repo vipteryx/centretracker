@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02T16:07:04.849Z",
+  "lastUpdated": "2026-07-03T05:58:16.704Z",
   "weekRange": {
     "start": "2026-06-28",
     "end": "2026-07-04"
@@ -90,17 +90,6 @@
           "name": "Lengths",
           "location": "Britannia Pool",
           "time": "8:00 PM - 8:59 PM"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-01",
-      "dayOfWeek": "Wednesday",
-      "sessions": [
-        {
-          "name": "Public Swim",
-          "location": "Britannia Pool",
-          "time": "1:00 PM - 4:59 PM"
         }
       ]
     },
