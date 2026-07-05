@@ -1,28 +1,33 @@
 {
-  "lastUpdated": "2026-07-05T06:10:02.069Z",
+  "lastUpdated": "2026-07-05T15:16:45.610Z",
   "weekRange": {
-    "start": "2026-06-28",
-    "end": "2026-07-04"
+    "start": "2026-07-05",
+    "end": "2026-07-11"
   },
   "days": [
     {
-      "date": "2026-06-28",
+      "date": "2026-07-05",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
           "name": "Lengths",
-          "location": "- Interim Lord Byng Pool",
-          "time": "10:00 AM - 12:00 PM"
+          "location": "Lord Byng Pool",
+          "time": "9:00 AM - 10:00 AM"
+        },
+        {
+          "name": "Lessons/Swim Club",
+          "location": "1L Lengths | Lord Byng Pool",
+          "time": "10:00 AM - 2:00 PM"
         },
         {
           "name": "Public Swim",
-          "location": "1L Lengths | - Interim Lord Byng Pool",
-          "time": "12:00 PM - 5:00 PM"
+          "location": "1L Lengths | Lord Byng Pool",
+          "time": "2:00 PM - 5:00 PM"
         }
       ]
     },
     {
-      "date": "2026-06-29",
+      "date": "2026-07-06",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -53,7 +58,7 @@
       ]
     },
     {
-      "date": "2026-06-30",
+      "date": "2026-07-07",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -89,7 +94,7 @@
       ]
     },
     {
-      "date": "2026-07-01",
+      "date": "2026-07-08",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -120,13 +125,18 @@
       ]
     },
     {
-      "date": "2026-07-02",
+      "date": "2026-07-09",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
           "name": "Lengths",
           "location": "Lord Byng Pool",
           "time": "6:00 AM - 9:00 AM"
+        },
+        {
+          "name": "Aquafit - Shallow ModerateLord Byng Pool",
+          "location": "",
+          "time": "9:05 AM - 9:55 AM"
         },
         {
           "name": "Lessons/Swim Club",
@@ -151,7 +161,7 @@
       ]
     },
     {
-      "date": "2026-07-03",
+      "date": "2026-07-10",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -187,7 +197,7 @@
       ]
     },
     {
-      "date": "2026-07-04",
+      "date": "2026-07-11",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

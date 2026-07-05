@@ -1,33 +1,33 @@
 {
-  "lastUpdated": "2026-07-05T06:10:02.932Z",
+  "lastUpdated": "2026-07-05T15:16:45.523Z",
   "weekRange": {
-    "start": "2026-06-28",
-    "end": "2026-07-04"
+    "start": "2026-07-05",
+    "end": "2026-07-11"
   },
   "days": [
     {
-      "date": "2026-06-28",
+      "date": "2026-07-05",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
-          "name": "Length Swim (3 lanes x 25m)",
+          "name": "Dive Tank",
           "location": "Hillcrest Pool",
-          "time": "6:00 AM - 8:29 AM"
+          "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Bulkhead Move - No lanes available",
-          "location": "Hillcrest Pool",
-          "time": "8:30 AM - 8:59 AM"
+          "name": "Widths (25m)Hillcrest Pool",
+          "location": "",
+          "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Public Swim, 3 lanes x 25m",
-          "location": "Hillcrest Pool",
+          "name": "Public Swim",
+          "location": "Hillcrest Leisure Pool",
           "time": "9:00 AM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-06-29",
+      "date": "2026-07-06",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "date": "2026-06-30",
+      "date": "2026-07-07",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "date": "2026-07-01",
+      "date": "2026-07-08",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -80,7 +80,7 @@
       ]
     },
     {
-      "date": "2026-07-02",
+      "date": "2026-07-09",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -101,7 +101,7 @@
       ]
     },
     {
-      "date": "2026-07-03",
+      "date": "2026-07-10",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -117,7 +117,7 @@
       ]
     },
     {
-      "date": "2026-07-04",
+      "date": "2026-07-11",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
