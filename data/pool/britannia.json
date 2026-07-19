@@ -1,19 +1,14 @@
 {
-  "lastUpdated": "2026-07-19T05:26:55.855Z",
+  "lastUpdated": "2026-07-19T15:00:38.530Z",
   "weekRange": {
-    "start": "2026-07-12",
-    "end": "2026-07-18"
+    "start": "2026-07-19",
+    "end": "2026-07-25"
   },
   "days": [
     {
-      "date": "2026-07-12",
+      "date": "2026-07-19",
       "dayOfWeek": "Sunday",
       "sessions": [
-        {
-          "name": "Tot Pool Only",
-          "location": "Britannia Pool",
-          "time": "10:00 AM - 10:59 AM"
-        },
         {
           "name": "Lessons and One Lane",
           "location": "Britannia Pool",
@@ -32,7 +27,7 @@
       ]
     },
     {
-      "date": "2026-07-13",
+      "date": "2026-07-20",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -63,7 +58,7 @@
       ]
     },
     {
-      "date": "2026-07-14",
+      "date": "2026-07-21",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -104,7 +99,7 @@
       ]
     },
     {
-      "date": "2026-07-15",
+      "date": "2026-07-22",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -140,7 +135,7 @@
       ]
     },
     {
-      "date": "2026-07-16",
+      "date": "2026-07-23",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -171,7 +166,7 @@
       ]
     },
     {
-      "date": "2026-07-17",
+      "date": "2026-07-24",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -190,7 +185,7 @@
           "time": "4:00 PM - 5:59 PM"
         },
         {
-          "name": "Free Youth Swim",
+          "name": "Free Swim",
           "location": "Britannia Pool",
           "time": "6:00 PM - 7:59 PM"
         },
@@ -202,7 +197,7 @@
       ]
     },
     {
-      "date": "2026-07-18",
+      "date": "2026-07-25",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
