@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-07-26T05:36:27.833Z",
+  "lastUpdated": "2026-07-26T15:09:17.779Z",
   "weekRange": {
-    "start": "2026-07-19",
-    "end": "2026-07-25"
+    "start": "2026-07-26",
+    "end": "2026-08-01"
   },
   "days": [
     {
-      "date": "2026-07-19",
+      "date": "2026-07-26",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "date": "2026-07-20",
+      "date": "2026-07-27",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "date": "2026-07-21",
+      "date": "2026-07-28",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -79,7 +79,7 @@
       ]
     },
     {
-      "date": "2026-07-22",
+      "date": "2026-07-29",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -105,18 +105,13 @@
       ]
     },
     {
-      "date": "2026-07-23",
+      "date": "2026-07-30",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
           "name": "Lengths Swim",
           "location": "Renfrew Pool",
           "time": "6:30 AM - 8:30 AM"
-        },
-        {
-          "name": "Aquafit - Shallow ModerateRenfrew Pool",
-          "location": "",
-          "time": "8:45 AM - 9:45 AM"
         },
         {
           "name": "Public Swim",
@@ -136,7 +131,7 @@
       ]
     },
     {
-      "date": "2026-07-24",
+      "date": "2026-07-31",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -162,7 +157,7 @@
       ]
     },
     {
-      "date": "2026-07-25",
+      "date": "2026-08-01",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
