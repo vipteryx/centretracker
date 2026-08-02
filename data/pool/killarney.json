@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-08-02T05:32:00.938Z",
+  "lastUpdated": "2026-08-02T15:06:21.230Z",
   "weekRange": {
-    "start": "2026-07-26",
-    "end": "2026-08-01"
+    "start": "2026-08-02",
+    "end": "2026-08-08"
   },
   "days": [
     {
-      "date": "2026-07-26",
+      "date": "2026-08-02",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "date": "2026-07-27",
+      "date": "2026-08-03",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -51,19 +51,9 @@
           "time": "6:15 AM - 8:59 PM"
         },
         {
-          "name": "Lessons",
-          "location": "Killarney Leisure Pool",
-          "time": "8:30 AM - 12:59 PM"
-        },
-        {
           "name": "Water Slide or Diving Platform",
           "location": "Killarney Pool",
           "time": "1:30 PM - 4:29 PM"
-        },
-        {
-          "name": "Lessons",
-          "location": "Killarney Leisure Pool",
-          "time": "5:00 PM - 6:14 PM"
         },
         {
           "name": "Water Slide or Diving Platform",
@@ -73,7 +63,7 @@
       ]
     },
     {
-      "date": "2026-07-28",
+      "date": "2026-08-04",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -109,7 +99,7 @@
       ]
     },
     {
-      "date": "2026-07-29",
+      "date": "2026-08-05",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -145,7 +135,7 @@
       ]
     },
     {
-      "date": "2026-07-30",
+      "date": "2026-08-06",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -181,7 +171,7 @@
       ]
     },
     {
-      "date": "2026-07-31",
+      "date": "2026-08-07",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -217,7 +207,7 @@
       ]
     },
     {
-      "date": "2026-08-01",
+      "date": "2026-08-08",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

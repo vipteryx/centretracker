@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-08-02T05:32:01.299Z",
+  "lastUpdated": "2026-08-02T15:06:20.037Z",
   "weekRange": {
-    "start": "2026-07-26",
-    "end": "2026-08-01"
+    "start": "2026-08-02",
+    "end": "2026-08-08"
   },
   "days": [
     {
-      "date": "2026-07-26",
+      "date": "2026-08-02",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -27,33 +27,18 @@
       ]
     },
     {
-      "date": "2026-07-27",
+      "date": "2026-08-03",
       "dayOfWeek": "Monday",
       "sessions": [
         {
-          "name": "Lengths Swim",
-          "location": "Renfrew Pool",
-          "time": "6:30 AM - 9:59 AM"
-        },
-        {
           "name": "Public Swim",
           "location": "Renfrew Pool",
-          "time": "10:00 AM - 3:30 PM"
-        },
-        {
-          "name": "Lengths",
-          "location": "Group LessonsRenfrew Pool",
-          "time": "4:00 PM - 8:00 PM"
-        },
-        {
-          "name": "Public Swim",
-          "location": "Renfrew Pool",
-          "time": "8:00 PM - 9:30 PM"
+          "time": "1:00 PM - 5:00 PM"
         }
       ]
     },
     {
-      "date": "2026-07-28",
+      "date": "2026-08-04",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -79,7 +64,7 @@
       ]
     },
     {
-      "date": "2026-07-29",
+      "date": "2026-08-05",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -105,13 +90,18 @@
       ]
     },
     {
-      "date": "2026-07-30",
+      "date": "2026-08-06",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
           "name": "Lengths Swim",
           "location": "Renfrew Pool",
           "time": "6:30 AM - 8:30 AM"
+        },
+        {
+          "name": "Aquafit - Shallow ModerateRenfrew Pool",
+          "location": "",
+          "time": "8:45 AM - 9:45 AM"
         },
         {
           "name": "Public Swim",
@@ -131,7 +121,7 @@
       ]
     },
     {
-      "date": "2026-07-31",
+      "date": "2026-08-07",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -157,9 +147,14 @@
       ]
     },
     {
-      "date": "2026-08-01",
+      "date": "2026-08-08",
       "dayOfWeek": "Saturday",
       "sessions": [
+        {
+          "name": "Aquafit - Shallow ModerateRenfrew Pool",
+          "location": "",
+          "time": "9:15 AM - 10:15 AM"
+        },
         {
           "name": "Lengths",
           "location": "Group LessonsRenfrew Pool",
