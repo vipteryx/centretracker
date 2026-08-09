@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-08-09T03:47:06.173Z",
+  "lastUpdated": "2026-08-09T14:38:58.101Z",
   "weekRange": {
-    "start": "2026-08-02",
-    "end": "2026-08-08"
+    "start": "2026-08-09",
+    "end": "2026-08-15"
   },
   "days": [
     {
-      "date": "2026-08-02",
+      "date": "2026-08-09",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -32,18 +32,33 @@
       ]
     },
     {
-      "date": "2026-08-03",
+      "date": "2026-08-10",
       "dayOfWeek": "Monday",
       "sessions": [
         {
-          "name": "Public Swim",
+          "name": "Lengths",
           "location": "Britannia Pool",
-          "time": "1:00 PM - 4:59 PM"
+          "time": "6:30 AM - 11:29 AM"
+        },
+        {
+          "name": "Public Swim with Tot Pool",
+          "location": "Britannia Pool",
+          "time": "11:30 AM - 3:59 PM"
+        },
+        {
+          "name": "Lessons and One Lane",
+          "location": "Britannia Pool",
+          "time": "4:00 PM - 6:29 PM"
+        },
+        {
+          "name": "Public Swim with Tot Pool",
+          "location": "Britannia Pool",
+          "time": "6:30 PM - 7:59 PM"
         }
       ]
     },
     {
-      "date": "2026-08-04",
+      "date": "2026-08-11",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -79,7 +94,7 @@
       ]
     },
     {
-      "date": "2026-08-05",
+      "date": "2026-08-12",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -115,7 +130,7 @@
       ]
     },
     {
-      "date": "2026-08-06",
+      "date": "2026-08-13",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -146,7 +161,7 @@
       ]
     },
     {
-      "date": "2026-08-07",
+      "date": "2026-08-14",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -165,7 +180,7 @@
           "time": "4:00 PM - 5:59 PM"
         },
         {
-          "name": "Free Swim",
+          "name": "Free Youth Swim",
           "location": "Britannia Pool",
           "time": "6:00 PM - 7:59 PM"
         },
@@ -177,7 +192,7 @@
       ]
     },
     {
-      "date": "2026-08-08",
+      "date": "2026-08-15",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

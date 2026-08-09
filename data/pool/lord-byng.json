@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-08-09T03:46:58.710Z",
+  "lastUpdated": "2026-08-09T14:38:57.027Z",
   "weekRange": {
-    "start": "2026-08-02",
-    "end": "2026-08-08"
+    "start": "2026-08-09",
+    "end": "2026-08-15"
   },
   "days": [
     {
-      "date": "2026-08-02",
+      "date": "2026-08-09",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -27,43 +27,38 @@
       ]
     },
     {
-      "date": "2026-08-03",
+      "date": "2026-08-10",
       "dayOfWeek": "Monday",
       "sessions": [
         {
-          "name": "Statutory Holiday",
-          "location": "Lengths",
-          "time": "8:00 AM - 10:00 AM"
+          "name": "Lengths",
+          "location": "Lord Byng Pool",
+          "time": "6:00 AM - 9:00 AM"
         },
         {
-          "name": "Statutory Holiday",
-          "location": "Public Swim",
-          "time": "10:00 AM - 12:00 PM"
+          "name": "Lessons/Swim Club",
+          "location": "1L Lengths | Lord Byng Pool",
+          "time": "9:00 AM - 1:00 PM"
         },
         {
-          "name": "Statutory Holiday",
-          "location": "Lengths",
-          "time": "12:00 PM - 2:00 PM"
+          "name": "Public Swim",
+          "location": "1L Lengths | Lord Byng Pool",
+          "time": "1:00 PM - 3:30 PM"
         },
         {
-          "name": "Statutory Holiday",
-          "location": "Public Swim",
-          "time": "2:00 PM - 4:00 PM"
+          "name": "Lessons/Swim Club",
+          "location": "1L Lengths | Lord Byng Pool",
+          "time": "3:30 PM - 7:00 PM"
         },
         {
-          "name": "Statutory Holiday",
-          "location": "Lessons/Swim Club",
-          "time": "4:00 PM - 7:00 PM"
-        },
-        {
-          "name": "Statutory Holiday",
-          "location": "Public Swim",
+          "name": "Lengths",
+          "location": "Lord Byng Pool",
           "time": "7:00 PM - 8:00 PM"
         }
       ]
     },
     {
-      "date": "2026-08-04",
+      "date": "2026-08-11",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -99,7 +94,7 @@
       ]
     },
     {
-      "date": "2026-08-05",
+      "date": "2026-08-12",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -130,7 +125,7 @@
       ]
     },
     {
-      "date": "2026-08-06",
+      "date": "2026-08-13",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -166,7 +161,7 @@
       ]
     },
     {
-      "date": "2026-08-07",
+      "date": "2026-08-14",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -202,7 +197,7 @@
       ]
     },
     {
-      "date": "2026-08-08",
+      "date": "2026-08-15",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
