@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-08-16T03:03:55.150Z",
+  "lastUpdated": "2026-08-16T14:27:08.617Z",
   "weekRange": {
-    "start": "2026-08-09",
-    "end": "2026-08-15"
+    "start": "2026-08-16",
+    "end": "2026-08-22"
   },
   "days": [
     {
-      "date": "2026-08-09",
+      "date": "2026-08-16",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -32,47 +32,59 @@
       ]
     },
     {
-      "date": "2026-08-10",
+      "date": "2026-08-17",
       "dayOfWeek": "Monday",
       "sessions": [
         {
-          "name": "Lengths",
+          "name": "Pool Closure",
           "location": "Britannia Pool",
-          "time": "6:30 AM - 11:29 AM"
-        },
-        {
-          "name": "Public Swim with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "11:30 AM - 3:59 PM"
-        },
-        {
-          "name": "Lessons and One Lane",
-          "location": "Britannia Pool",
-          "time": "4:00 PM - 6:29 PM"
-        },
-        {
-          "name": "Public Swim with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "6:30 PM - 7:59 PM"
+          "time": "6:30 AM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-08-11",
+      "date": "2026-08-18",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
-          "name": "Lengths",
+          "name": "Pool Closure",
           "location": "Britannia Pool",
-          "time": "6:30 AM - 9:59 AM"
+          "time": "6:30 AM - 8:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "dayOfWeek": "Wednesday",
+      "sessions": [
+        {
+          "name": "Pool Closure",
+          "location": "Britannia Pool",
+          "time": "6:30 AM - 8:59 PM"
+        },
+        {
+          "name": "FitNationBritannia Pool",
+          "location": "",
+          "time": "10:15 AM - 11:15 AM"
+        },
+        {
+          "name": "FitNationBritannia Pool",
+          "location": "",
+          "time": "8:00 PM - 9:00 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "dayOfWeek": "Thursday",
+      "sessions": [
+        {
+          "name": "Pool Closure",
+          "location": "Britannia Pool",
+          "time": "6:30 AM - 1:59 PM"
         },
         {
           "name": "Public Swim with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "11:30 AM - 1:59 PM"
-        },
-        {
-          "name": "Free Swim",
           "location": "Britannia Pool",
           "time": "2:00 PM - 3:59 PM"
         },
@@ -94,74 +106,7 @@
       ]
     },
     {
-      "date": "2026-08-12",
-      "dayOfWeek": "Wednesday",
-      "sessions": [
-        {
-          "name": "Lengths",
-          "location": "Britannia Pool",
-          "time": "6:30 AM - 9:59 AM"
-        },
-        {
-          "name": "FitNationBritannia Pool",
-          "location": "",
-          "time": "10:15 AM - 11:15 AM"
-        },
-        {
-          "name": "Public Swim with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "11:30 AM - 3:59 PM"
-        },
-        {
-          "name": "Lessons and One Lane",
-          "location": "Britannia Pool",
-          "time": "4:00 PM - 6:29 PM"
-        },
-        {
-          "name": "Public Swim with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "6:30 PM - 7:59 PM"
-        },
-        {
-          "name": "FitNationBritannia Pool",
-          "location": "",
-          "time": "8:00 PM - 9:00 PM"
-        }
-      ]
-    },
-    {
-      "date": "2026-08-13",
-      "dayOfWeek": "Thursday",
-      "sessions": [
-        {
-          "name": "Lengths",
-          "location": "Britannia Pool",
-          "time": "6:30 AM - 11:29 AM"
-        },
-        {
-          "name": "Public Swim with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "11:30 AM - 3:59 PM"
-        },
-        {
-          "name": "Lessons and One Lane",
-          "location": "Britannia Pool",
-          "time": "4:00 PM - 6:29 PM"
-        },
-        {
-          "name": "Public Swim with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "6:30 PM - 7:59 PM"
-        },
-        {
-          "name": "Lengths",
-          "location": "Britannia Pool",
-          "time": "8:00 PM - 8:59 PM"
-        }
-      ]
-    },
-    {
-      "date": "2026-08-14",
+      "date": "2026-08-21",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -180,7 +125,7 @@
           "time": "4:00 PM - 5:59 PM"
         },
         {
-          "name": "Free Youth Swim",
+          "name": "Free Swim",
           "location": "Britannia Pool",
           "time": "6:00 PM - 7:59 PM"
         },
@@ -192,7 +137,7 @@
       ]
     },
     {
-      "date": "2026-08-15",
+      "date": "2026-08-22",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
