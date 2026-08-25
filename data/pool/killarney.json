@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-24T14:47:04.215Z",
+  "lastUpdated": "2026-08-25T03:02:34.220Z",
   "weekRange": {
     "start": "2026-08-23",
     "end": "2026-08-29"
@@ -54,6 +54,11 @@
           "name": "Water Slide or Diving Platform",
           "location": "Killarney Pool",
           "time": "1:30 PM - 4:29 PM"
+        },
+        {
+          "name": "Water Slide or Diving Platform",
+          "location": "Killarney Pool",
+          "time": "7:00 PM - 7:59 PM"
         },
         {
           "name": "Water Slide or Diving Platform",
