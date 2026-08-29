@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-28T14:10:31.184Z",
+  "lastUpdated": "2026-08-29T08:47:41.665Z",
   "weekRange": {
     "start": "2026-08-23",
     "end": "2026-08-29"
@@ -15,19 +15,9 @@
           "time": "10:00 AM - 10:59 AM"
         },
         {
-          "name": "Lessons and One Lane",
-          "location": "Britannia Pool",
-          "time": "11:00 AM - 1:29 PM"
-        },
-        {
           "name": "Public Swim with Tot Pool",
           "location": "Britannia Pool",
           "time": "1:30 PM - 5:29 PM"
-        },
-        {
-          "name": "Lengths",
-          "location": "Britannia Pool",
-          "time": "5:30 PM - 6:59 PM"
         }
       ]
     },
@@ -36,19 +26,9 @@
       "dayOfWeek": "Monday",
       "sessions": [
         {
-          "name": "Lengths",
-          "location": "Britannia Pool",
-          "time": "6:30 AM - 11:29 AM"
-        },
-        {
           "name": "Public Swim with Tot Pool",
           "location": "Britannia Pool",
           "time": "11:30 AM - 3:59 PM"
-        },
-        {
-          "name": "Lessons and One Lane",
-          "location": "Britannia Pool",
-          "time": "4:00 PM - 6:29 PM"
         },
         {
           "name": "Public Swim with Tot Pool",
@@ -77,16 +57,6 @@
           "time": "11:30 AM - 1:59 PM"
         },
         {
-          "name": "Free Swim",
-          "location": "Britannia Pool",
-          "time": "2:00 PM - 3:59 PM"
-        },
-        {
-          "name": "Lengths with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "4:00 PM - 6:29 PM"
-        },
-        {
           "name": "Public Swim",
           "location": "Britannia Pool",
           "time": "6:30 PM - 7:59 PM"
@@ -111,11 +81,6 @@
           "name": "Public Swim",
           "location": "Britannia Pool",
           "time": "11:30 AM - 3:59 PM"
-        },
-        {
-          "name": "Lengths with Tot Pool",
-          "location": "Britannia Pool",
-          "time": "4:00 PM - 6:29 PM"
         },
         {
           "name": "Public Swim",
