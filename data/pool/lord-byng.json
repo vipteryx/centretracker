@@ -1,33 +1,28 @@
 {
-  "lastUpdated": "2026-08-29T17:36:13.274Z",
+  "lastUpdated": "2026-08-30T08:05:33.113Z",
   "weekRange": {
-    "start": "2026-08-23",
-    "end": "2026-08-29"
+    "start": "2026-08-30",
+    "end": "2026-09-05"
   },
   "days": [
     {
-      "date": "2026-08-23",
+      "date": "2026-08-30",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
           "name": "Lengths",
-          "location": "Lord Byng Pool",
-          "time": "9:00 AM - 10:00 AM"
-        },
-        {
-          "name": "Lessons/Swim Club",
-          "location": "1L Lengths | Lord Byng Pool",
-          "time": "10:00 AM - 2:00 PM"
+          "location": "- Interim Lord Byng Pool",
+          "time": "10:00 AM - 12:00 PM"
         },
         {
           "name": "Public Swim",
-          "location": "1L Lengths | Lord Byng Pool",
-          "time": "2:00 PM - 5:00 PM"
+          "location": "1L Lengths | - Interim Lord Byng Pool",
+          "time": "12:00 PM - 5:00 PM"
         }
       ]
     },
     {
-      "date": "2026-08-24",
+      "date": "2026-08-31",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -63,7 +58,7 @@
       ]
     },
     {
-      "date": "2026-08-25",
+      "date": "2026-09-01",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -99,7 +94,7 @@
       ]
     },
     {
-      "date": "2026-08-26",
+      "date": "2026-09-02",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -135,7 +130,7 @@
       ]
     },
     {
-      "date": "2026-08-27",
+      "date": "2026-09-03",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -171,18 +166,43 @@
       ]
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-09-04",
       "dayOfWeek": "Friday",
       "sessions": [
         {
-          "name": "Facility ClosureLord Byng Pool",
+          "name": "Lengths",
+          "location": "- Interim Lord Byng Pool",
+          "time": "6:00 AM - 9:00 AM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "1L Lengths | - Interim Lord Byng Pool",
+          "time": "9:05 AM - 11:30 AM"
+        },
+        {
+          "name": "Lengths",
+          "location": "- Interim Lord Byng Pool",
+          "time": "11:30 AM - 1:45 PM"
+        },
+        {
+          "name": "Aquafit - Shallow ModerateLord Byng Pool",
           "location": "",
-          "time": "6:00 AM - 10:00 PM"
+          "time": "2:00 PM - 2:55 PM"
+        },
+        {
+          "name": "Lessons/Swim Club",
+          "location": "1L Lengths | - Interim Lord Byng Pool",
+          "time": "3:30 PM - 7:00 PM"
+        },
+        {
+          "name": "Lengths",
+          "location": "- Interim Lord Byng Pool",
+          "time": "7:00 PM - 8:00 PM"
         }
       ]
     },
     {
-      "date": "2026-08-29",
+      "date": "2026-09-05",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

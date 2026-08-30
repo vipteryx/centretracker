@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-08-29T17:36:13.120Z",
+  "lastUpdated": "2026-08-30T08:05:32.982Z",
   "weekRange": {
-    "start": "2026-08-23",
-    "end": "2026-08-29"
+    "start": "2026-08-30",
+    "end": "2026-09-05"
   },
   "days": [
     {
-      "date": "2026-08-23",
+      "date": "2026-08-30",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -15,30 +15,30 @@
           "time": "9:00 AM - 10:14 AM"
         },
         {
-          "name": "Lengths",
-          "location": "Group LessonsRenfrew Pool",
-          "time": "10:30 AM - 2:30 PM"
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "10:30 AM - 4:29 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-31",
+      "dayOfWeek": "Monday",
+      "sessions": [
+        {
+          "name": "Lengths Swim",
+          "location": "Renfrew Pool",
+          "time": "6:30 AM - 9:59 AM"
         },
         {
           "name": "Public Swim",
           "location": "Renfrew Pool",
-          "time": "2:30 PM - 4:30 PM"
+          "time": "10:01 AM - 9:30 PM"
         }
       ]
     },
     {
-      "date": "2026-08-24",
-      "dayOfWeek": "Monday",
-      "sessions": [
-        {
-          "name": "Public Swim",
-          "location": "Renfrew Pool",
-          "time": "10:00 AM - 9:29 PM"
-        }
-      ]
-    },
-    {
-      "date": "2026-08-25",
+      "date": "2026-09-01",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "date": "2026-08-26",
+      "date": "2026-09-02",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -70,18 +70,13 @@
       ]
     },
     {
-      "date": "2026-08-27",
+      "date": "2026-09-03",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
           "name": "Lengths Swim",
           "location": "Renfrew Pool",
           "time": "6:30 AM - 9:59 AM"
-        },
-        {
-          "name": "Aquafit - Shallow ModerateRenfrew Pool",
-          "location": "",
-          "time": "8:45 AM - 9:45 AM"
         },
         {
           "name": "Public Swim",
@@ -91,7 +86,7 @@
       ]
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-09-04",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -107,7 +102,7 @@
       ]
     },
     {
-      "date": "2026-08-29",
+      "date": "2026-09-05",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

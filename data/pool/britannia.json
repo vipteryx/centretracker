@@ -1,25 +1,55 @@
 {
-  "lastUpdated": "2026-08-29T17:36:13.620Z",
+  "lastUpdated": "2026-08-30T08:05:33.880Z",
   "weekRange": {
-    "start": "2026-08-23",
-    "end": "2026-08-29"
+    "start": "2026-08-30",
+    "end": "2026-09-05"
   },
   "days": [
     {
-      "date": "2026-08-23",
+      "date": "2026-08-30",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
-          "name": "Tot Pool Only",
+          "name": "Lengths with Tot Pool",
           "location": "Britannia Pool",
-          "time": "10:00 AM - 10:59 AM"
+          "time": "11:00 AM - 1:29 PM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Britannia Pool",
+          "time": "1:30 PM - 5:29 PM"
+        },
+        {
+          "name": "Lengths",
+          "location": "Britannia Pool",
+          "time": "5:30 PM - 6:59 PM"
         }
       ]
     },
     {
-      "date": "2026-08-24",
+      "date": "2026-08-31",
       "dayOfWeek": "Monday",
       "sessions": [
+        {
+          "name": "Lengths",
+          "location": "Britannia Pool",
+          "time": "6:30 AM - 11:29 AM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Britannia Pool",
+          "time": "11:30 AM - 3:59 PM"
+        },
+        {
+          "name": "Lengths with Tot Pool",
+          "location": "Britannia Pool",
+          "time": "4:00 PM - 6:29 PM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Britannia Pool",
+          "time": "6:30 PM - 7:59 PM"
+        },
         {
           "name": "Lengths",
           "location": "Britannia Pool",
@@ -28,7 +58,7 @@
       ]
     },
     {
-      "date": "2026-08-25",
+      "date": "2026-09-01",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -42,6 +72,16 @@
           "time": "11:30 AM - 1:59 PM"
         },
         {
+          "name": "Free Swim",
+          "location": "Britannia Pool",
+          "time": "2:00 PM - 3:59 PM"
+        },
+        {
+          "name": "Lengths with Tot Pool",
+          "location": "Britannia Pool",
+          "time": "4:00 PM - 6:29 PM"
+        },
+        {
           "name": "Public Swim",
           "location": "Britannia Pool",
           "time": "6:30 PM - 7:59 PM"
@@ -54,7 +94,7 @@
       ]
     },
     {
-      "date": "2026-08-26",
+      "date": "2026-09-02",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -68,6 +108,11 @@
           "time": "11:30 AM - 3:59 PM"
         },
         {
+          "name": "Lengths with Tot Pool",
+          "location": "Britannia Pool",
+          "time": "4:00 PM - 6:29 PM"
+        },
+        {
           "name": "Public Swim",
           "location": "Britannia Pool",
           "time": "6:30 PM - 7:59 PM"
@@ -80,7 +125,7 @@
       ]
     },
     {
-      "date": "2026-08-27",
+      "date": "2026-09-03",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -91,17 +136,27 @@
         {
           "name": "Public Swim",
           "location": "Britannia Pool",
-          "time": "11:30 AM - 3:29 PM"
+          "time": "11:30 AM - 3:59 PM"
         },
         {
-          "name": "Pool Closure- Staff Training",
+          "name": "Lengths with Tot Pool",
           "location": "Britannia Pool",
-          "time": "3:30 PM - 8:59 PM"
+          "time": "4:00 PM - 6:29 PM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Britannia Pool",
+          "time": "6:30 PM - 7:59 PM"
+        },
+        {
+          "name": "Lengths",
+          "location": "Britannia Pool",
+          "time": "8:00 PM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-09-04",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -120,6 +175,11 @@
           "time": "4:00 PM - 5:59 PM"
         },
         {
+          "name": "Free Swim",
+          "location": "Britannia Pool",
+          "time": "6:00 PM - 7:59 PM"
+        },
+        {
           "name": "Lengths",
           "location": "Britannia Pool",
           "time": "8:00 PM - 8:59 PM"
@@ -127,7 +187,7 @@
       ]
     },
     {
-      "date": "2026-08-29",
+      "date": "2026-09-05",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

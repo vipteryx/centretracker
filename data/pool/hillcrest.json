@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-08-29T17:36:13.325Z",
+  "lastUpdated": "2026-08-30T08:05:33.626Z",
   "weekRange": {
-    "start": "2026-08-23",
-    "end": "2026-08-29"
+    "start": "2026-08-30",
+    "end": "2026-09-05"
   },
   "days": [
     {
-      "date": "2026-08-23",
+      "date": "2026-08-30",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "date": "2026-08-24",
+      "date": "2026-08-31",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "date": "2026-08-25",
+      "date": "2026-09-01",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -64,23 +64,23 @@
       ]
     },
     {
-      "date": "2026-08-26",
+      "date": "2026-09-02",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
           "name": "Length Swim (50m)",
           "location": "Hillcrest Pool",
-          "time": "6:00 AM - 8:59 PM"
+          "time": "10:00 AM - 1:59 PM"
         },
         {
           "name": "Public Swim",
           "location": "Hillcrest Leisure Pool",
-          "time": "9:30 AM - 8:59 PM"
+          "time": "10:00 AM - 1:59 PM"
         }
       ]
     },
     {
-      "date": "2026-08-27",
+      "date": "2026-09-03",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -92,16 +92,11 @@
           "name": "Widths (25m)Hillcrest Pool",
           "location": "",
           "time": "6:00 AM - 8:59 PM"
-        },
-        {
-          "name": "Public Swim",
-          "location": "Hillcrest Leisure Pool",
-          "time": "9:30 AM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-08-28",
+      "date": "2026-09-04",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -117,7 +112,7 @@
       ]
     },
     {
-      "date": "2026-08-29",
+      "date": "2026-09-05",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
