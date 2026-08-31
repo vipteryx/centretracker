@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-31T08:24:21.642Z",
+  "lastUpdated": "2026-08-31T19:53:37.956Z",
   "weekRange": {
     "start": "2026-08-30",
     "end": "2026-09-05"
@@ -10,13 +10,13 @@
       "dayOfWeek": "Sunday",
       "sessions": [
         {
-          "name": "Dive Tank",
+          "name": "Length Swim (25m)",
           "location": "Hillcrest Pool",
           "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Widths (25m)Hillcrest Pool",
-          "location": "",
+          "name": "Dive Tank",
+          "location": "Hillcrest Pool",
           "time": "6:00 AM - 8:59 PM"
         },
         {
@@ -47,13 +47,13 @@
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
-          "name": "Dive Tank",
+          "name": "Length Swim (25m)",
           "location": "Hillcrest Pool",
           "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Widths (25m)Hillcrest Pool",
-          "location": "",
+          "name": "Dive Tank",
+          "location": "Hillcrest Pool",
           "time": "6:00 AM - 8:59 PM"
         },
         {
@@ -84,13 +84,13 @@
       "dayOfWeek": "Thursday",
       "sessions": [
         {
-          "name": "Dive Tank",
+          "name": "Length Swim (25m)",
           "location": "Hillcrest Pool",
           "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Widths (25m)Hillcrest Pool",
-          "location": "",
+          "name": "Dive Tank",
+          "location": "Hillcrest Pool",
           "time": "6:00 AM - 8:59 PM"
         }
       ]
