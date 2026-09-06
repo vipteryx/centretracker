@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-09-06T06:59:51.934Z",
+  "lastUpdated": "2026-09-06T16:47:41.153Z",
   "weekRange": {
-    "start": "2026-08-30",
-    "end": "2026-09-05"
+    "start": "2026-09-06",
+    "end": "2026-09-12"
   },
   "days": [
     {
-      "date": "2026-08-30",
+      "date": "2026-09-06",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "date": "2026-08-31",
+      "date": "2026-09-07",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -43,16 +43,11 @@
       ]
     },
     {
-      "date": "2026-09-01",
+      "date": "2026-09-08",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
           "name": "Length Swim (25m)",
-          "location": "Hillcrest Pool",
-          "time": "6:00 AM - 8:59 PM"
-        },
-        {
-          "name": "Dive Tank",
           "location": "Hillcrest Pool",
           "time": "6:00 AM - 8:59 PM"
         },
@@ -64,23 +59,23 @@
       ]
     },
     {
-      "date": "2026-09-02",
+      "date": "2026-09-09",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
           "name": "Length Swim (50m)",
           "location": "Hillcrest Pool",
-          "time": "10:00 AM - 1:59 PM"
+          "time": "6:00 AM - 8:59 PM"
         },
         {
           "name": "Public Swim",
           "location": "Hillcrest Leisure Pool",
-          "time": "10:00 AM - 1:59 PM"
+          "time": "9:30 AM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-09-03",
+      "date": "2026-09-10",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -89,14 +84,14 @@
           "time": "6:00 AM - 8:59 PM"
         },
         {
-          "name": "Dive Tank",
-          "location": "Hillcrest Pool",
-          "time": "6:00 AM - 8:59 PM"
+          "name": "Public Swim",
+          "location": "Hillcrest Leisure Pool",
+          "time": "9:30 AM - 8:59 PM"
         }
       ]
     },
     {
-      "date": "2026-09-04",
+      "date": "2026-09-11",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -112,7 +107,7 @@
       ]
     },
     {
-      "date": "2026-09-05",
+      "date": "2026-09-12",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

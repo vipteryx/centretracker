@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-09-06T06:59:51.751Z",
+  "lastUpdated": "2026-09-06T16:47:40.802Z",
   "weekRange": {
-    "start": "2026-08-30",
-    "end": "2026-09-05"
+    "start": "2026-09-06",
+    "end": "2026-09-12"
   },
   "days": [
     {
-      "date": "2026-08-30",
+      "date": "2026-09-06",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -22,98 +22,93 @@
       ]
     },
     {
-      "date": "2026-08-31",
+      "date": "2026-09-07",
       "dayOfWeek": "Monday",
       "sessions": [
         {
-          "name": "Lengths Swim",
-          "location": "Renfrew Pool",
-          "time": "6:30 AM - 9:59 AM"
-        },
-        {
           "name": "Public Swim",
-          "location": "Renfrew Pool",
-          "time": "10:01 AM - 9:30 PM"
+          "location": "LABOUR DAY Renfrew Pool",
+          "time": "1:00 PM - 4:55 PM"
         }
       ]
     },
     {
-      "date": "2026-09-01",
+      "date": "2026-09-08",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
           "name": "Lengths Swim",
           "location": "Renfrew Pool",
-          "time": "6:30 AM - 9:59 AM"
+          "time": "6:30 AM - 1:29 PM"
         },
         {
-          "name": "Public Swim",
-          "location": "Renfrew Pool",
-          "time": "10:01 AM - 9:30 PM"
+          "name": "Weekday Lessons",
+          "location": "1 Lane Available",
+          "time": "4:00 PM - 8:00 PM"
         }
       ]
     },
     {
-      "date": "2026-09-02",
+      "date": "2026-09-09",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
           "name": "Lengths Swim",
           "location": "Renfrew Pool",
-          "time": "6:30 AM - 9:59 AM"
+          "time": "6:30 AM - 1:29 PM"
         },
         {
-          "name": "Public Swim",
-          "location": "Renfrew Pool",
-          "time": "10:01 AM - 9:30 PM"
+          "name": "Weekday Lessons",
+          "location": "1 Lane Available",
+          "time": "4:00 PM - 8:00 PM"
         }
       ]
     },
     {
-      "date": "2026-09-03",
+      "date": "2026-09-10",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
           "name": "Lengths Swim",
           "location": "Renfrew Pool",
-          "time": "6:30 AM - 9:59 AM"
+          "time": "6:30 AM - 1:29 PM"
         },
         {
-          "name": "Public Swim",
-          "location": "Renfrew Pool",
-          "time": "10:01 AM - 9:30 PM"
+          "name": "Aquafit - Shallow ModerateRenfrew Pool",
+          "location": "",
+          "time": "8:45 AM - 9:45 AM"
+        },
+        {
+          "name": "Weekday Lessons",
+          "location": "1 Lane Available",
+          "time": "4:00 PM - 8:00 PM"
         }
       ]
     },
     {
-      "date": "2026-09-04",
+      "date": "2026-09-11",
       "dayOfWeek": "Friday",
       "sessions": [
         {
           "name": "Lengths Swim",
           "location": "Renfrew Pool",
-          "time": "6:30 AM - 9:59 AM"
+          "time": "6:30 AM - 1:29 PM"
         },
         {
-          "name": "Public Swim",
-          "location": "Renfrew Pool",
-          "time": "10:01 AM - 9:30 PM"
+          "name": "Weekday Lessons",
+          "location": "1 Lane Available",
+          "time": "4:00 PM - 8:00 PM"
         }
       ]
     },
     {
-      "date": "2026-09-05",
+      "date": "2026-09-12",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
-          "name": "Lengths Swim",
-          "location": "Renfrew Pool",
-          "time": "9:00 AM - 10:14 AM"
-        },
-        {
-          "name": "Public Swim",
-          "location": "Renfrew Pool",
-          "time": "10:30 AM - 4:29 PM"
+          "name": "Aquafit - Shallow ModerateRenfrew Pool",
+          "location": "",
+          "time": "9:15 AM - 10:15 AM"
         }
       ]
     }
