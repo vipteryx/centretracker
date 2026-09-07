@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-06T16:47:40.802Z",
+  "lastUpdated": "2026-09-07T07:10:14.852Z",
   "weekRange": {
     "start": "2026-09-06",
     "end": "2026-09-12"
@@ -42,9 +42,19 @@
           "time": "6:30 AM - 1:29 PM"
         },
         {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "1:30 PM - 3:59 PM"
+        },
+        {
           "name": "Weekday Lessons",
           "location": "1 Lane Available",
           "time": "4:00 PM - 8:00 PM"
+        },
+        {
+          "name": "Evening Public Swim",
+          "location": "Renfrew Pool",
+          "time": "8:00 PM - 9:29 PM"
         }
       ]
     },
@@ -58,9 +68,19 @@
           "time": "6:30 AM - 1:29 PM"
         },
         {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "1:30 PM - 3:59 PM"
+        },
+        {
           "name": "Weekday Lessons",
           "location": "1 Lane Available",
           "time": "4:00 PM - 8:00 PM"
+        },
+        {
+          "name": "Evening Public Swim",
+          "location": "Renfrew Pool",
+          "time": "8:00 PM - 9:29 PM"
         }
       ]
     },
@@ -79,9 +99,19 @@
           "time": "8:45 AM - 9:45 AM"
         },
         {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "1:30 PM - 3:59 PM"
+        },
+        {
           "name": "Weekday Lessons",
           "location": "1 Lane Available",
           "time": "4:00 PM - 8:00 PM"
+        },
+        {
+          "name": "Evening Public Swim",
+          "location": "Renfrew Pool",
+          "time": "8:00 PM - 9:29 PM"
         }
       ]
     },
@@ -95,9 +125,19 @@
           "time": "6:30 AM - 1:29 PM"
         },
         {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "1:30 PM - 3:59 PM"
+        },
+        {
           "name": "Weekday Lessons",
           "location": "1 Lane Available",
           "time": "4:00 PM - 8:00 PM"
+        },
+        {
+          "name": "Evening Public Swim",
+          "location": "Renfrew Pool",
+          "time": "8:00 PM - 9:29 PM"
         }
       ]
     },
@@ -109,6 +149,16 @@
           "name": "Aquafit - Shallow ModerateRenfrew Pool",
           "location": "",
           "time": "9:15 AM - 10:15 AM"
+        },
+        {
+          "name": "Weekend Lessons",
+          "location": "1 Lane Available",
+          "time": "10:30 AM - 2:29 PM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "2:30 PM - 4:59 PM"
         }
       ]
     }
