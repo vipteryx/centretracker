@@ -1,8 +1,91 @@
 {
-  "lastUpdated": "2026-09-13T07:19:54.912Z",
+  "lastUpdated": "2026-09-13T17:21:18.760Z",
   "weekRange": {
-    "start": null,
-    "end": null
+    "start": "2026-09-13",
+    "end": "2026-09-19"
   },
-  "days": []
+  "days": [
+    {
+      "date": "2026-09-13",
+      "dayOfWeek": "Sunday",
+      "sessions": [
+        {
+          "name": "Pool Closure",
+          "location": "Britannia Pool",
+          "time": "6:30 AM - 8:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-14",
+      "dayOfWeek": "Monday",
+      "sessions": [
+        {
+          "name": "Pool Closure",
+          "location": "Britannia Pool",
+          "time": "6:30 AM - 8:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-15",
+      "dayOfWeek": "Tuesday",
+      "sessions": [
+        {
+          "name": "Pool Closure",
+          "location": "Britannia Pool",
+          "time": "6:30 AM - 8:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-16",
+      "dayOfWeek": "Wednesday",
+      "sessions": [
+        {
+          "name": "Pool Closure",
+          "location": "Britannia Pool",
+          "time": "6:30 AM - 8:59 PM"
+        },
+        {
+          "name": "FitNationBritannia Pool",
+          "location": "",
+          "time": "8:00 PM - 9:00 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-17",
+      "dayOfWeek": "Thursday",
+      "sessions": [
+        {
+          "name": "Pool Closure",
+          "location": "Britannia Pool",
+          "time": "6:30 AM - 8:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-18",
+      "dayOfWeek": "Friday",
+      "sessions": [
+        {
+          "name": "Pool Closure",
+          "location": "Britannia Pool",
+          "time": "6:30 AM - 8:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-19",
+      "dayOfWeek": "Saturday",
+      "sessions": [
+        {
+          "name": "Pool Closure",
+          "location": "Britannia Pool",
+          "time": "6:30 AM - 8:59 PM"
+        }
+      ]
+    }
+  ]
 }
