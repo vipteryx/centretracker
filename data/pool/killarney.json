@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-15T07:28:29.481Z",
+  "lastUpdated": "2026-09-15T18:03:23.788Z",
   "weekRange": {
     "start": "2026-09-13",
     "end": "2026-09-19"
@@ -10,7 +10,7 @@
       "dayOfWeek": "Sunday",
       "sessions": [
         {
-          "name": "Length Swim (1 lanes x 25m)",
+          "name": "Length Swim (2 lanes x 25m)",
           "location": "Killarney Pool",
           "time": "8:00 AM - 8:59 PM"
         },
@@ -41,7 +41,7 @@
       "dayOfWeek": "Monday",
       "sessions": [
         {
-          "name": "Length Swim (1 lanes x 25m)",
+          "name": "Length Swim (2 lanes x 25m)",
           "location": "Killarney Pool",
           "time": "6:15 AM - 8:59 PM"
         },
@@ -72,7 +72,7 @@
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
-          "name": "Length Swim (1 lanes x 25m)",
+          "name": "Length Swim (2 lanes x 25m)",
           "location": "Killarney Pool",
           "time": "6:15 AM - 8:59 PM"
         },
@@ -108,7 +108,7 @@
           "time": "6:15 AM - 8:59 PM"
         },
         {
-          "name": "Length Swim (1 lanes x 25m)",
+          "name": "Length Swim (2 lanes x 25m)",
           "location": "Killarney Pool",
           "time": "6:30 AM - 9:14 PM"
         },
@@ -134,7 +134,7 @@
       "dayOfWeek": "Thursday",
       "sessions": [
         {
-          "name": "Length Swim (1 lanes x 25m)",
+          "name": "Length Swim (2 lanes x 25m)",
           "location": "Killarney Pool",
           "time": "6:15 AM - 8:59 PM"
         },
@@ -170,7 +170,7 @@
           "time": "6:15 AM - 8:59 PM"
         },
         {
-          "name": "Length Swim (1 lanes x 25m)",
+          "name": "Length Swim (2 lanes x 25m)",
           "location": "Killarney Pool",
           "time": "6:30 AM - 9:14 PM"
         },
@@ -196,7 +196,7 @@
       "dayOfWeek": "Saturday",
       "sessions": [
         {
-          "name": "Length Swim (1 lanes x 25m)",
+          "name": "Length Swim (2 lanes x 25m)",
           "location": "Killarney Pool",
           "time": "8:00 AM - 8:59 PM"
         },
