@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-30T08:13:11.064Z",
+  "lastUpdated": "2026-09-30T18:57:41.325Z",
   "weekRange": {
     "start": "2026-09-27",
     "end": "2026-10-03"
@@ -133,14 +133,14 @@
           "time": "6:30 AM - 9:00 AM"
         },
         {
-          "name": "Public Swim - Teach PoolTempleton Pool",
+          "name": "Public Swim -- Main TankTempleton Pool",
           "location": "",
           "time": "9:00 AM - 2:00 PM"
         },
         {
-          "name": "Public Swim -- Main TankTempleton Pool",
+          "name": "Public Swim - Teach PoolTempleton Pool",
           "location": "",
-          "time": "9:00 AM - 2:00 PM"
+          "time": "11:00 AM - 2:00 PM"
         }
       ]
     },
