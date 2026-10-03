@@ -36,6 +36,29 @@ enum PoolStatus {
     case unknown
 }
 
+// MARK: - Vancouver time
+
+/// All "today" / "now" evaluation is pinned to America/Vancouver regardless of device time zone.
+let vancouverTimeZone = TimeZone(identifier: "America/Vancouver")!
+
+private var vancouverCalendar: Calendar {
+    var cal = Calendar(identifier: .gregorian)
+    cal.timeZone = vancouverTimeZone
+    return cal
+}
+
+/// Minutes since midnight in Vancouver.
+func vancouverMinutes(_ date: Date) -> Int {
+    let c = vancouverCalendar.dateComponents([.hour, .minute], from: date)
+    return (c.hour ?? 0) * 60 + (c.minute ?? 0)
+}
+
+/// `yyyy-MM-dd` key for the Vancouver calendar day.
+func vancouverDateKey(_ date: Date) -> String {
+    let c = vancouverCalendar.dateComponents([.year, .month, .day], from: date)
+    return String(format: "%04d-%02d-%02d", c.year ?? 0, c.month ?? 0, c.day ?? 0)
+}
+
 // MARK: - Session extensions
 
 extension Session {
@@ -58,7 +81,7 @@ extension Session {
 
     func isActive(at nowMinutes: Int) -> Bool {
         guard let r = parsedTimeRange else { return false }
-        return nowMinutes >= r.start && nowMinutes <= r.end
+        return nowMinutes >= r.start && nowMinutes < r.end
     }
 
     /// The start-time portion only, rounded for display, e.g. "6:00 AM"
@@ -113,18 +136,13 @@ extension Day {
 
 extension PoolTimes {
     func today(for date: Date = .now) -> Day? {
-        let fmt = DateFormatter()
-        fmt.dateFormat = "yyyy-MM-dd"
-        let key = fmt.string(from: date)
+        let key = vancouverDateKey(date)
         return days.first { $0.date == key }
     }
 
     func status(now: Date = .now) -> PoolStatus {
-        let cal = Calendar.current
-        let nowMinutes = cal.component(.hour, from: now) * 60 + cal.component(.minute, from: now)
-        let fmt = DateFormatter()
-        fmt.dateFormat = "yyyy-MM-dd"
-        let todayKey = fmt.string(from: now)
+        let nowMinutes = vancouverMinutes(now)
+        let todayKey = vancouverDateKey(now)
 
         guard let todayIndex = days.firstIndex(where: { $0.date == todayKey }) else {
             // Today is not in the scraped week — look for the nearest future day with sessions

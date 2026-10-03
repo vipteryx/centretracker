@@ -120,3 +120,7 @@ npm start
 | 2026-03-15 00:25:18  | iOS app: treat sessions with "closed" in the name (e.g. "Renfrew Pool Closed") as non-public so they don't count as open; pool shows as closed with the next real session's opening time instead |
 | 2026-03-15 00:55:26  | iOS app: show end time below start time on session rows in venue schedule view; add endTimeLabel computed property to Session model |
 | 2026-03-15 01:20:20  | iOS app: add venue address and coordinates to Venue model; show address with Directions dropdown (Apple Maps / Google Maps) on venue schedule page |
+| 2026-03-15 19:53:59  | iOS app: sort venue list alphabetically by display name |
+| 2026-09-30 17:32:43  | Add docs/ios-frd.md: Functional Requirements Document for the iOS app (requirements, business rules, data contract, acceptance criteria, open questions) |
+| 2026-09-30 17:37:36  | docs/ios-frd.md v1.1: record decisions to pin iOS time evaluation to America/Vancouver and make session end time exclusive |
+| 2026-09-30 17:43:25  | iOS app: evaluate today/now in America/Vancouver regardless of device time zone; session end time is now exclusive (per FRD v1.1 BR-03/08/09) |

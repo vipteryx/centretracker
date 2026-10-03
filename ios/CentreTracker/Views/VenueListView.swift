@@ -10,7 +10,7 @@ struct VenueListView: View {
         NavigationStack {
             ScrollView {
                 LazyVStack(spacing: 12) {
-                    ForEach(Venue.allCases) { venue in
+                    ForEach(Venue.allCases.sorted { $0.displayName < $1.displayName }) { venue in
                         NavigationLink(value: venue) {
                             VenueCardRow(
                                 venue: venue,

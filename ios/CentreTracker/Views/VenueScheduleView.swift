@@ -12,14 +12,11 @@ struct VenueScheduleView: View {
     }
 
     private var nowMinutes: Int {
-        let c = Calendar.current
-        return c.component(.hour, from: now) * 60 + c.component(.minute, from: now)
+        vancouverMinutes(now)
     }
 
     private var todayKey: String {
-        let fmt = DateFormatter()
-        fmt.dateFormat = "yyyy-MM-dd"
-        return fmt.string(from: now)
+        vancouverDateKey(now)
     }
 
     var body: some View {
