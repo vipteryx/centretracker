@@ -1,38 +1,28 @@
 {
-  "lastUpdated": "2026-10-10T18:20:51.636Z",
+  "lastUpdated": "2026-10-11T08:31:44.273Z",
   "weekRange": {
-    "start": "2026-10-05",
-    "end": "2026-10-10"
+    "start": "2026-10-11",
+    "end": "2026-10-17"
   },
   "days": [
     {
-      "date": "2026-10-05",
-      "dayOfWeek": "Monday",
+      "date": "2026-10-11",
+      "dayOfWeek": "Sunday",
       "sessions": [
         {
           "name": "Sauna and Whirlpool Only",
           "location": "Kensington Pool",
-          "time": "10:00 AM - 10:29 AM"
-        },
-        {
-          "name": "Public Swim/ Lessons]Kensington Pool",
-          "location": "",
-          "time": "10:30 AM - 12:29 PM"
+          "time": "9:00 AM - 1:29 PM"
         },
         {
           "name": "Public Swim",
           "location": "Kensington Pool",
-          "time": "12:30 PM - 3:29 PM"
-        },
-        {
-          "name": "Public Swim/ Lessons]Kensington Pool",
-          "location": "",
-          "time": "3:30 PM - 5:59 PM"
+          "time": "1:30 PM - 3:59 PM"
         }
       ]
     },
     {
-      "date": "2026-10-06",
+      "date": "2026-10-13",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -63,7 +53,7 @@
       ]
     },
     {
-      "date": "2026-10-07",
+      "date": "2026-10-14",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -89,7 +79,7 @@
       ]
     },
     {
-      "date": "2026-10-08",
+      "date": "2026-10-15",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -120,7 +110,7 @@
       ]
     },
     {
-      "date": "2026-10-09",
+      "date": "2026-10-16",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -136,7 +126,7 @@
       ]
     },
     {
-      "date": "2026-10-10",
+      "date": "2026-10-17",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
