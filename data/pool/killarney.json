@@ -1,8 +1,226 @@
 {
-  "lastUpdated": "2026-10-18T07:05:58.080Z",
+  "lastUpdated": "2026-10-18T17:10:29.602Z",
   "weekRange": {
-    "start": null,
-    "end": null
+    "start": "2026-10-18",
+    "end": "2026-10-24"
   },
-  "days": []
+  "days": [
+    {
+      "date": "2026-10-18",
+      "dayOfWeek": "Sunday",
+      "sessions": [
+        {
+          "name": "Length Swim (2 lanes x 25m)",
+          "location": "Killarney Pool",
+          "time": "8:00 AM - 8:59 PM"
+        },
+        {
+          "name": "Public Swim-Leisure Pool",
+          "location": "Killarney Leisure Pool",
+          "time": "8:00 AM - 8:59 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "9:00 AM - 12:59 PM"
+        },
+        {
+          "name": "Water Slide or Diving Platform",
+          "location": "Killarney Pool",
+          "time": "2:30 PM - 4:29 PM"
+        },
+        {
+          "name": "Water Slide or Diving Platform",
+          "location": "Killarney Pool",
+          "time": "6:00 PM - 7:29 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "dayOfWeek": "Monday",
+      "sessions": [
+        {
+          "name": "Length Swim (2 lanes x 25m)",
+          "location": "Killarney Pool",
+          "time": "6:15 AM - 8:59 PM"
+        },
+        {
+          "name": "Public Swim-Leisure Pool",
+          "location": "Killarney Leisure Pool",
+          "time": "6:15 AM - 8:59 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "9:00 AM - 12:59 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "3:00 PM - 7:44 PM"
+        },
+        {
+          "name": "Water Slide or Diving Platform",
+          "location": "Killarney Pool",
+          "time": "7:00 PM - 7:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "dayOfWeek": "Tuesday",
+      "sessions": [
+        {
+          "name": "Length Swim (2 lanes x 25m)",
+          "location": "Killarney Pool",
+          "time": "6:15 AM - 8:59 PM"
+        },
+        {
+          "name": "Public Swim-Leisure Pool",
+          "location": "Killarney Leisure Pool",
+          "time": "6:15 AM - 8:59 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "10:00 AM - 12:29 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "3:30 PM - 7:59 PM"
+        },
+        {
+          "name": "Water Slide or Diving Platform",
+          "location": "Killarney Pool",
+          "time": "7:00 PM - 7:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-21",
+      "dayOfWeek": "Wednesday",
+      "sessions": [
+        {
+          "name": "Public Swim-Leisure Pool",
+          "location": "Killarney Leisure Pool",
+          "time": "6:15 AM - 8:59 PM"
+        },
+        {
+          "name": "Length Swim (2 lanes x 25m)",
+          "location": "Killarney Pool",
+          "time": "6:30 AM - 9:14 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "9:00 AM - 12:59 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "3:00 PM - 7:59 PM"
+        },
+        {
+          "name": "Water Slide or Diving Platform",
+          "location": "Killarney Pool",
+          "time": "7:00 PM - 7:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-22",
+      "dayOfWeek": "Thursday",
+      "sessions": [
+        {
+          "name": "Length Swim (2 lanes x 25m)",
+          "location": "Killarney Pool",
+          "time": "6:15 AM - 8:59 PM"
+        },
+        {
+          "name": "Public Swim-Leisure Pool",
+          "location": "Killarney Leisure Pool",
+          "time": "6:15 AM - 8:59 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "10:00 AM - 12:29 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "3:30 PM - 7:59 PM"
+        },
+        {
+          "name": "Water Slide or Diving Platform",
+          "location": "Killarney Pool",
+          "time": "7:00 PM - 7:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "dayOfWeek": "Friday",
+      "sessions": [
+        {
+          "name": "Public Swim-Leisure Pool",
+          "location": "Killarney Leisure Pool",
+          "time": "6:15 AM - 8:59 PM"
+        },
+        {
+          "name": "Length Swim (2 lanes x 25m)",
+          "location": "Killarney Pool",
+          "time": "6:30 AM - 9:14 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "9:00 AM - 12:59 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "3:30 PM - 7:59 PM"
+        },
+        {
+          "name": "Water Slide or Diving Platform",
+          "location": "Killarney Pool",
+          "time": "6:30 PM - 7:59 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-24",
+      "dayOfWeek": "Saturday",
+      "sessions": [
+        {
+          "name": "Length Swim (2 lanes x 25m)",
+          "location": "Killarney Pool",
+          "time": "8:00 AM - 8:59 PM"
+        },
+        {
+          "name": "Public Swim-Leisure Pool",
+          "location": "Killarney Leisure Pool",
+          "time": "8:00 AM - 8:59 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "9:00 AM - 12:59 PM"
+        },
+        {
+          "name": "Water Slide or Diving Platform",
+          "location": "Killarney Pool",
+          "time": "2:30 PM - 4:29 PM"
+        },
+        {
+          "name": "Water Slide or Diving Platform",
+          "location": "Killarney Pool",
+          "time": "6:30 PM - 7:59 PM"
+        }
+      ]
+    }
+  ]
 }
