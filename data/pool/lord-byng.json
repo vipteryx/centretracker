@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-11-07T18:32:17.144Z",
+  "lastUpdated": "2026-11-08T08:46:01.574Z",
   "weekRange": {
-    "start": "2026-11-01",
-    "end": "2026-11-07"
+    "start": "2026-11-08",
+    "end": "2026-11-14"
   },
   "days": [
     {
-      "date": "2026-11-01",
+      "date": "2026-11-08",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "date": "2026-11-02",
+      "date": "2026-11-09",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "date": "2026-11-03",
+      "date": "2026-11-10",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -67,11 +67,6 @@
           "time": "6:00 AM - 9:30 AM"
         },
         {
-          "name": "Aquafit - Shallow ModerateLord Byng Pool",
-          "location": "",
-          "time": "9:35 AM - 10:25 AM"
-        },
-        {
           "name": "Public Swim",
           "location": "1L Lengths | Lord Byng Pool",
           "time": "10:30 AM - 11:30 AM"
@@ -99,48 +94,43 @@
       ]
     },
     {
-      "date": "2026-11-04",
+      "date": "2026-11-11",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
-          "name": "Lengths",
-          "location": "Lord Byng Pool",
-          "time": "6:00 AM - 9:00 AM"
+          "name": "Statutory Holiday",
+          "location": "Lengths",
+          "time": "8:00 AM - 10:00 AM"
         },
         {
-          "name": "School Board",
-          "location": "1L Lord Byng Pool",
-          "time": "9:00 AM - 11:30 AM"
+          "name": "Statutory Holiday",
+          "location": "Public Swim",
+          "time": "10:00 AM - 12:00 PM"
         },
         {
-          "name": "Lengths",
-          "location": "Lord Byng Pool",
-          "time": "11:30 AM - 1:00 PM"
+          "name": "Statutory Holiday",
+          "location": "Lengths",
+          "time": "12:00 PM - 2:00 PM"
         },
         {
-          "name": "School Board",
-          "location": "1L Lord Byng Pool",
-          "time": "1:00 PM - 3:00 PM"
+          "name": "Statutory Holiday",
+          "location": "Public Swim",
+          "time": "2:00 PM - 4:00 PM"
         },
         {
-          "name": "Lessons/Swim Club",
-          "location": "1L Lengths | Lord Byng Pool",
-          "time": "3:00 PM - 7:30 PM"
+          "name": "Statutory Holiday",
+          "location": "Lessons/Swim Club",
+          "time": "4:00 PM - 7:00 PM"
         },
         {
-          "name": "Aquafit - Shallow ModerateLord Byng Pool",
-          "location": "",
-          "time": "7:35 PM - 8:25 PM"
-        },
-        {
-          "name": "Lengths",
-          "location": "Lord Byng Pool",
-          "time": "8:30 PM - 9:30 PM"
+          "name": "Statutory Holiday",
+          "location": "Public Swim",
+          "time": "7:00 PM - 8:00 PM"
         }
       ]
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-12",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -149,11 +139,6 @@
           "time": "6:00 AM - 9:30 AM"
         },
         {
-          "name": "Aquafit - Shallow ModerateLord Byng Pool",
-          "location": "",
-          "time": "9:35 AM - 10:25 AM"
-        },
-        {
           "name": "Public Swim",
           "location": "1L Lengths | Lord Byng Pool",
           "time": "10:30 AM - 11:30 AM"
@@ -181,7 +166,7 @@
       ]
     },
     {
-      "date": "2026-11-06",
+      "date": "2026-11-13",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -217,7 +202,7 @@
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-14",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
