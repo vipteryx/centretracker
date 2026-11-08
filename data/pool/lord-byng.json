@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-08T08:46:01.574Z",
+  "lastUpdated": "2026-11-08T18:43:19.540Z",
   "weekRange": {
     "start": "2026-11-08",
     "end": "2026-11-14"
@@ -67,6 +67,11 @@
           "time": "6:00 AM - 9:30 AM"
         },
         {
+          "name": "Aquafit - Shallow ModerateLord Byng Pool",
+          "location": "",
+          "time": "9:35 AM - 10:25 AM"
+        },
+        {
           "name": "Public Swim",
           "location": "1L Lengths | Lord Byng Pool",
           "time": "10:30 AM - 11:30 AM"
@@ -126,6 +131,11 @@
           "name": "Statutory Holiday",
           "location": "Public Swim",
           "time": "7:00 PM - 8:00 PM"
+        },
+        {
+          "name": "Aquafit - Shallow ModerateLord Byng Pool",
+          "location": "",
+          "time": "7:35 PM - 8:25 PM"
         }
       ]
     },
