@@ -5,4 +5,4 @@ Milestones
 
 Next steps
 [x] Agree Milestone 1 scope
-[ ] Confirm the next scheduled scrape (GitHub Actions) runs cleanly without the Aquatic Centre (scraper could not be run locally: no Node.js)
+[x] Confirm the scrape (GitHub Actions) runs cleanly without the Aquatic Centre — manual run 43331119523 passed on 2026-11-12

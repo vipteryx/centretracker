@@ -122,3 +122,4 @@ npm start
 | 2026-03-15 01:20:20  | iOS app: add venue address and coordinates to Venue model; show address with Directions dropdown (Apple Maps / Google Maps) on venue schedule page |
 | 2026-03-15 17:42:26  | Web app: bring to parity with iOS app — status pill capsule style; Closes/Opens label below time; filter "closed"-named sessions; time rounding (:X9→next); session rows show end time + location; expanded schedule shows today + future days with day headers; venue address + Google Maps / Apple Maps links in expanded card |
 | 2026-11-12 22:47:22  | Remove Vancouver Aquatic Centre from scraper, web app, iOS app, data and docs (Milestone 1); add FRD.md, todo.txt, study.md, human-todo.md |
+| 2026-11-12 23:49:52  | todo.txt: tick Milestone 1 follow-up — scrape workflow verified without Aquatic Centre |
