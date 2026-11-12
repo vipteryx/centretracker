@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-12T21:22:40.574Z",
+  "lastUpdated": "2026-11-12T23:43:30.825Z",
   "weekRange": {
     "start": "2026-11-08",
     "end": "2026-11-14"
@@ -147,6 +147,11 @@
           "name": "Lengths",
           "location": "Lord Byng Pool",
           "time": "6:00 AM - 9:30 AM"
+        },
+        {
+          "name": "Aquafit - Shallow ModerateLord Byng Pool",
+          "location": "",
+          "time": "9:35 AM - 10:25 AM"
         },
         {
           "name": "Aquafit - Shallow ModerateLord Byng Pool",
