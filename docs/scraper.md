@@ -14,13 +14,12 @@ The scraper visits each Vancouver community centre's ActiveCommunities calendar 
 
 ## Venues
 
-8 community centre pools are monitored, each identified by a numeric `locationId` in the ActiveCommunities URL:
+7 community centre pools are monitored, each identified by a numeric `locationId` in the ActiveCommunities URL:
 
 | Venue | Location ID |
 |---|---|
 | Hillcrest Community Centre | 59 |
 | Britannia Community Centre | 37 |
-| Vancouver Aquatic Centre | 2 |
 | Templeton Community Centre | 45 |
 | Renfrew Community Centre | 47 |
 | Kensington Community Centre | 56 |

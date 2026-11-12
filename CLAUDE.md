@@ -20,7 +20,6 @@ centretracker/
 │   │   ├── hillcrest-debug-api.json  # CI diagnostic artefact
 │   │   ├── hillcrest-debug.html      # CI diagnostic artefact
 │   │   ├── britannia.json
-│   │   ├── aquatic.json
 │   │   ├── templeton.json
 │   │   ├── renfrew.json
 │   │   ├── kensington.json

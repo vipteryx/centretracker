@@ -396,19 +396,6 @@
       <div class="session-info" id="session-templeton"></div>
       <div class="schedule" id="schedule-templeton"></div>
     </div>
-
-    <div class="card" id="card-aquatic">
-      <div class="card-top">
-        <div class="venue-left">
-          <span class="venue-name">Vancouver Aquatic Centre</span>
-          <span class="venue-status unknown" id="status-aquatic">…</span>
-        </div>
-        <div class="venue-time" id="time-aquatic"></div>
-        <span class="chevron">›</span>
-      </div>
-      <div class="session-info" id="session-aquatic"></div>
-      <div class="schedule" id="schedule-aquatic"></div>
-    </div>
   </div>
 
   <footer>Updated twice daily · <span id="now"></span></footer>
@@ -423,7 +410,6 @@
       "lord-byng": { address: "3990 W 14th Ave, Vancouver",          lat: 49.2618, lng: -123.1887 },
       renfrew:     { address: "2929 E 22nd Ave, Vancouver",          lat: 49.2520, lng: -123.0430 },
       templeton:   { address: "700 Templeton Dr, Vancouver",         lat: 49.2804, lng: -123.0490 },
-      aquatic:     { address: "1050 Beach Ave, Vancouver",           lat: 49.2773, lng: -123.1345 },
     };
 
     // Rounds up times ending in :X9 — matches roundMinutes() in PoolTimes.swift
@@ -721,7 +707,7 @@
         now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     }
 
-    const venueKeys = ["britannia", "hillcrest", "kensington", "killarney", "lord-byng", "renfrew", "templeton", "aquatic"];
+    const venueKeys = ["britannia", "hillcrest", "kensington", "killarney", "lord-byng", "renfrew", "templeton"];
 
     for (const key of venueKeys) {
       document.getElementById("card-" + key).addEventListener("click", e => {
@@ -738,7 +724,6 @@
     loadVenue("data/pool/lord-byng.json",  "lord-byng");
     loadVenue("data/pool/renfrew.json",    "renfrew");
     loadVenue("data/pool/templeton.json",  "templeton");
-    loadVenue("data/pool/aquatic.json",    "aquatic");
     renderClock();
     setInterval(renderClock, 30000);
   </script>

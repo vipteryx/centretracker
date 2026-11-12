@@ -8,7 +8,7 @@
 
 ## Overview
 
-A single-page web app that displays the current open/closed status of 8 Vancouver community centre pools and lets users view the full session schedule for today. Data is read directly from the `data/pool/` JSON files committed to the repository.
+A single-page web app that displays the current open/closed status of 7 Vancouver community centre pools and lets users view the full session schedule for today. Data is read directly from the `data/pool/` JSON files committed to the repository.
 
 ---
 
@@ -23,7 +23,6 @@ The page displays one card per venue, sorted alphabetically:
 5. Lord Byng Pool
 6. Renfrew Pool
 7. Templeton Pool
-8. Vancouver Aquatic Centre
 
 Each card is loaded asynchronously via `loadVenue(dataUrl, key)` when the page opens.
 

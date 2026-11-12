@@ -1,0 +1,8 @@
+Last updated: 2026-11-12
+
+Milestones
+[x] Milestone 1: Remove Vancouver Aquatic Centre
+
+Next steps
+[x] Agree Milestone 1 scope
+[ ] Confirm the next scheduled scrape (GitHub Actions) runs cleanly without the Aquatic Centre (scraper could not be run locally: no Node.js)

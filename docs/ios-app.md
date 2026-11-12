@@ -9,7 +9,7 @@
 
 ## Overview
 
-A native SwiftUI companion app that reads pool schedule JSON directly from the GitHub repository and displays the weekly session schedule for each of the 8 monitored community centre pools.
+A native SwiftUI companion app that reads pool schedule JSON directly from the GitHub repository and displays the weekly session schedule for each of the 7 monitored community centre pools.
 
 There is no backend or dedicated API — the app fetches the same JSON files that the web app uses, served via GitHub's raw content CDN.
 
@@ -17,7 +17,7 @@ There is no backend or dedicated API — the app fetches the same JSON files tha
 
 ## Venue Model (`Venue.swift`)
 
-`Venue` is a Swift enum that represents all 8 community centres.
+`Venue` is a Swift enum that represents all 7 community centres.
 
 ```swift
 enum Venue: String, CaseIterable, Identifiable { ... }
@@ -29,7 +29,6 @@ enum Venue: String, CaseIterable, Identifiable { ... }
 |---|---|
 | `hillcrest` | Hillcrest |
 | `britannia` | Britannia |
-| `aquatic` | Vancouver Aquatic Centre |
 | `templeton` | Templeton |
 | `renfrew` | Renfrew |
 | `kensington` | Kensington |
@@ -44,7 +43,7 @@ enum Venue: String, CaseIterable, Identifiable { ... }
 
 ### `displayName`
 
-A computed property that returns the human-readable name shown in the UI (e.g., `"Vancouver Aquatic Centre"`, `"Lord Byng"`).
+A computed property that returns the human-readable name shown in the UI (e.g., `"Hillcrest"`, `"Lord Byng"`).
 
 ### `slug` (private)
 
@@ -53,7 +52,6 @@ Maps enum cases to the hyphenated filename slugs used in data URLs:
 | Case | Slug |
 |---|---|
 | `lordByng` | `"lord-byng"` |
-| `aquatic` | `"aquatic"` |
 | All others | Same as raw value |
 
 ### `activityURL(activity:)`
@@ -143,7 +141,7 @@ struct Session: Codable {
 
 ### `VenueListView`
 
-The root view of the app. Displays a `List` of all 8 venues using `Venue.allCases`. Tapping a venue navigates to `VenueScheduleView` for that venue.
+The root view of the app. Displays a `List` of all 7 venues using `Venue.allCases`. Tapping a venue navigates to `VenueScheduleView` for that venue.
 
 ### `VenueScheduleView`
 
