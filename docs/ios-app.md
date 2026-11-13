@@ -126,6 +126,29 @@ struct Session: Codable {
 
 ---
 
+## Open Status (`PoolTimes.swift`)
+
+Each session has a `kind` (`SessionKind`), from its name, case-insensitive, first match wins:
+
+| Kind | Name contains | Makes venue open |
+|---|---|---|
+| `lengths` | "length" or "one lane" | Yes |
+| `publicSwim` | "public" or "free swim" | Yes |
+| `other` | anything else (lessons, aquafit, dive tank, …) | No |
+
+Sessions with an empty time, or "bulkhead" or "closed" in the name, are not listed at all (`Session.isListed`).
+
+`PoolTimes.status(now:)` returns a `PoolStatus`:
+
+- **`.open([ActiveRun])`** — one run per swimmable kind on now, Lengths first. A run's end merges sessions of that kind that overlap or follow on within a minute (10:59 → 11:00), so "until" is when the current block ends, not the last session of the day.
+- **`.closed(nextLabel:)`** — the earliest swimmable start later today ("8 PM"), else on a later day in the data ("Fri 6:30 AM"), else `nil`.
+- **`.outOfDate`** — today isn't in the data and the data isn't entirely in the future.
+- **`.unknown`** — data not loaded.
+
+Covered by `ios/CentreTrackerTests/PoolStatusTests.swift` (run with `xcodebuild test -scheme CentreTracker`).
+
+---
+
 ## Network Layer (`ScheduleService`)
 
 `ScheduleService` is responsible for fetching and decoding schedule JSON.
@@ -141,7 +164,12 @@ struct Session: Codable {
 
 ### `VenueListView`
 
-The root view of the app. Displays a `List` of all 7 venues using `Venue.allCases`. Tapping a venue navigates to `VenueScheduleView` for that venue.
+The root view of the app. Displays a card for each of the 7 venues using `Venue.allCases`. Tapping a venue navigates to `VenueScheduleView` for that venue.
+
+- **Open:** one line per kind on now, e.g. "● Lengths until 9 PM".
+- **Closed:** a red Closed pill, with the next opening on the right.
+- **Out of date / Unknown / Unavailable:** a pill only.
+- A footer shows when the data was last updated (the oldest venue's scrape time).
 
 ### `VenueScheduleView`
 
@@ -152,6 +180,7 @@ Displays the full weekly pool schedule for a selected venue.
 - Shows an error message if the fetch fails.
 - On success, renders a section per day using the `days` array from `PoolTimes`.
 - Each section header shows the day of the week and date; each row is a `SessionRowView`.
+- The "Updated …" time is the footer of the last section, so it never overlaps rows.
 
 ### `SessionRowView`
 

@@ -15,7 +15,18 @@
 		200000000000000000000005 /* VenueListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000005 /* VenueListView.swift */; };
 		200000000000000000000006 /* VenueScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000006 /* VenueScheduleView.swift */; };
 		200000000000000000000007 /* SessionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000007 /* SessionRowView.swift */; };
+		200000000000000000000008 /* PoolStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000008 /* PoolStatusTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		500000000000000000000004 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAAAAAAAAAAAAAAAAAAAAAAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000222222;
+			remoteInfo = CentreTracker;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		000000000000000000666666 /* CentreTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CentreTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,10 +38,19 @@
 		100000000000000000000005 /* VenueListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListView.swift; sourceTree = "<group>"; };
 		100000000000000000000006 /* VenueScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueScheduleView.swift; sourceTree = "<group>"; };
 		100000000000000000000007 /* SessionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRowView.swift; sourceTree = "<group>"; };
+		000000000000000000999999 /* CentreTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CentreTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		100000000000000000000008 /* PoolStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolStatusTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		000000000000000000444444 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		500000000000000000000003 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -50,10 +70,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		500000000000000000000001 /* CentreTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000008 /* PoolStatusTests.swift */,
+			);
+			path = CentreTrackerTests;
+			sourceTree = "<group>";
+		};
 		BBBBBBBBBBBBBBBBBBBBBBBB = {
 			isa = PBXGroup;
 			children = (
 				DDDDDDDDDDDDDDDDDDDDDDDD /* CentreTracker */,
+				500000000000000000000001 /* CentreTrackerTests */,
 				CCCCCCCCCCCCCCCCCCCCCCCC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				000000000000000000666666 /* CentreTracker.app */,
+				000000000000000000999999 /* CentreTrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,6 +145,23 @@
 			productReference = 000000000000000000666666 /* CentreTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
+		500000000000000000000006 /* CentreTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 500000000000000000000009 /* Build configuration list for PBXNativeTarget "CentreTrackerTests" */;
+			buildPhases = (
+				500000000000000000000002 /* Sources */,
+				500000000000000000000003 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				500000000000000000000005 /* PBXTargetDependency */,
+			);
+			name = CentreTrackerTests;
+			productName = CentreTrackerTests;
+			productReference = 000000000000000000999999 /* CentreTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -127,6 +174,10 @@
 				TargetAttributes = {
 					000000000000000000222222 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					500000000000000000000006 = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = 000000000000000000222222;
 					};
 				};
 			};
@@ -144,6 +195,7 @@
 			projectRoot = "";
 			targets = (
 				000000000000000000222222 /* CentreTracker */,
+				500000000000000000000006 /* CentreTrackerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -174,7 +226,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		500000000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				200000000000000000000008 /* PoolStatusTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		500000000000000000000005 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000222222 /* CentreTracker */;
+			targetProxy = 500000000000000000000004 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		300000000000000000000001 /* Debug */ = {
@@ -354,6 +422,42 @@
 			};
 			name = Release;
 		};
+		500000000000000000000007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.centretracker.appTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CentreTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CentreTracker";
+			};
+			name = Debug;
+		};
+		500000000000000000000008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.centretracker.appTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CentreTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CentreTracker";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -371,6 +475,15 @@
 			buildConfigurations = (
 				300000000000000000000003 /* Debug */,
 				300000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		500000000000000000000009 /* Build configuration list for PBXNativeTarget "CentreTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				500000000000000000000007 /* Debug */,
+				500000000000000000000008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -20,6 +20,12 @@ struct VenueListView: View {
                         }
                         .buttonStyle(.plain)
                     }
+                    if let updated = oldestUpdate {
+                        Text("Updated \(updated.formatted(.relative(presentation: .named)))")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .padding(.top, 4)
+                    }
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 8)
@@ -39,6 +45,11 @@ struct VenueListView: View {
                 now = .now
             }
         }
+    }
+
+    /// Oldest scrape time across loaded venues, so the footer never overstates freshness.
+    private var oldestUpdate: Date? {
+        services.values.compactMap { $0.poolTimes?.lastUpdated }.min()
     }
 
     private func loadAll() async {
@@ -62,26 +73,31 @@ private struct VenueCardRow: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            HStack(alignment: .center, spacing: 12) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(venue.displayName)
-                        .font(.headline)
-                        .foregroundStyle(.primary)
+        HStack(alignment: .center, spacing: 12) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(venue.displayName)
+                    .font(.headline)
+                    .foregroundStyle(.primary)
+                if case .open(let runs) = displayStatus {
+                    ForEach(runs, id: \.kind) { run in
+                        RunLine(run: run)
+                    }
+                } else {
                     statusBadge
                 }
-                Spacer()
-                timeInfo
             }
-            if case .open(_, let sessionName, let sessionTime) = status, !sessionName.isEmpty {
-                Text("\(sessionName) · \(sessionTime)")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
+            Spacer()
+            nextOpening
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    }
+
+    /// Status to draw, or nil while loading / after a failed first load.
+    private var displayStatus: PoolStatus? {
+        guard service.poolTimes != nil else { return nil }
+        return status
     }
 
     @ViewBuilder
@@ -93,9 +109,11 @@ private struct VenueCardRow: View {
         } else {
             switch status {
             case .open:
-                StatusPill(label: "Open", color: .green)
+                EmptyView()
             case .closed:
                 StatusPill(label: "Closed", color: .red)
+            case .outOfDate:
+                StatusPill(label: "Out of date", color: .orange)
             case .unknown:
                 StatusPill(label: "Unknown", color: .secondary)
             }
@@ -103,18 +121,8 @@ private struct VenueCardRow: View {
     }
 
     @ViewBuilder
-    private var timeInfo: some View {
-        switch status {
-        case .open(let closingTime, _, _):
-            VStack(alignment: .trailing, spacing: 2) {
-                Text(closingTime)
-                    .font(.callout.monospacedDigit().weight(.semibold))
-                    .foregroundStyle(.green)
-                Text("Closes")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-            }
-        case .closed(let nextLabel):
+    private var nextOpening: some View {
+        if case .closed(let nextLabel) = displayStatus {
             if let label = nextLabel {
                 VStack(alignment: .trailing, spacing: 2) {
                     Text(label)
@@ -129,8 +137,27 @@ private struct VenueCardRow: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
-        case .unknown:
-            EmptyView()
+        }
+    }
+}
+
+// MARK: - Run line
+
+/// "● Lengths until 9 PM"
+private struct RunLine: View {
+    let run: ActiveRun
+
+    var body: some View {
+        HStack(spacing: 6) {
+            Circle()
+                .fill(Color.green)
+                .frame(width: 8, height: 8)
+            Text(run.kind.label)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.primary)
+            Text("until \(run.untilLabel)")
+                .font(.subheadline.monospacedDigit())
+                .foregroundStyle(.secondary)
         }
     }
 }

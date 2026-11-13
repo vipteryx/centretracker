@@ -101,11 +101,34 @@ function parseMonthDay(str, referenceYear) {
 }
 
 // Assembles the final pool-times output object.
+// Some calendars render the location glued onto the activity name with no
+// separator, e.g. "LengthsTempleton Pool" or "Public Swim/ Lessons]Kensington Pool".
+// When location is empty, split a trailing "<Capitalised Words> Pool" that
+// follows a non-space character back out into `location`, and drop stray
+// square brackets from the name.
+const GLUED_LOCATION = /^(.*\S)([A-Z][a-z]+(?: [A-Z][a-z]+)* Pool)$/;
+
+function cleanSession(session) {
+  let name = session.name || "";
+  let location = session.location || "";
+  if (!location) {
+    const m = name.match(GLUED_LOCATION);
+    if (m) {
+      name = m[1];
+      location = m[2];
+    }
+  }
+  name = normalizeText(name.replace(/[[\]]/g, " "));
+  const cleaned = { ...session, name };
+  if (location) cleaned.location = location;
+  return cleaned;
+}
+
 function buildPoolTimesResult(days, weekRange) {
   return {
     lastUpdated: new Date().toISOString(),
     weekRange,
-    days,
+    days: days.map((d) => ({ ...d, sessions: (d.sessions || []).map(cleanSession) })),
   };
 }
 
@@ -517,6 +540,7 @@ module.exports = {
   URL_LORD_BYNG,
   assertScrapeLooksValid,
   buildPoolTimesResult,
+  cleanSession,
   extractPageSummary,
   extractPoolTimes,
   findSessionArray,

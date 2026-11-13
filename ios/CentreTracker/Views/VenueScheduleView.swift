@@ -87,7 +87,7 @@ struct VenueScheduleView: View {
             // Today section
             Section {
                 if let today = todayDay {
-                    let sessions = today.publicSessions
+                    let sessions = today.listedSessions
                     if sessions.isEmpty {
                         Text("No sessions today")
                             .foregroundStyle(.secondary)
@@ -121,7 +121,7 @@ struct VenueScheduleView: View {
 
             // Remaining days
             ForEach(futureDays) { day in
-                let sessions = day.publicSessions
+                let sessions = day.listedSessions
                 Section {
                     if sessions.isEmpty {
                         Text("Closed")
@@ -137,15 +137,16 @@ struct VenueScheduleView: View {
                         .textCase(nil)
                 }
             }
+
+            // Last updated, as a list footer so it never overlaps rows
+            Section {
+            } footer: {
+                Text("Updated \(poolTimes.lastUpdated.formatted(.relative(presentation: .named)))")
+                    .frame(maxWidth: .infinity)
+            }
         }
         .listStyle(.insetGrouped)
         .refreshable { await service.load() }
-        .safeAreaInset(edge: .bottom) {
-            Text("Updated \(poolTimes.lastUpdated.formatted(.relative(presentation: .named)))")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .padding(.vertical, 8)
-        }
     }
 
     private func openAppleMaps() {

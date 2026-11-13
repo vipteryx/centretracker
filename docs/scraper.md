@@ -113,6 +113,7 @@ This ensures a Cloudflare challenge page is never committed as pool data.
 | `parseMonthDay(str, referenceYear)` | Parses `"Feb 23"` or `"02/23"` to `YYYY-MM-DD` with year-rollover logic. |
 | `parseApiResponseForSessions(jsonBody)` | Entry point for recursive API mining. |
 | `findSessionArray(obj, depth)` | Depth-limited recursion to locate a session array inside a JSON object. |
+| `cleanSession(session)` | Applied to every session in `buildPoolTimesResult`. When `location` is empty, splits a location glued onto the name (`"LengthsTempleton Pool"` → `"Lengths"` + `"Templeton Pool"`) and removes stray `[`/`]` from names. |
 | `normalizeSessions(rawSessions)` | Maps raw API fields to the canonical `{ name, time, location?, status? }` schema. |
 | `groupApiSessionsByDay(rawSessions, referenceYear)` | Groups a flat session list into days sorted by date, adding `dayOfWeek` for each. |
 | `formatTimeValue(raw)` | Converts ISO datetime strings or raw time strings to `"10:00am"` 12-hour format. |

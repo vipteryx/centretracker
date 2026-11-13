@@ -25,25 +25,67 @@ struct Session: Codable, Identifiable {
     let location: String
 }
 
+// MARK: - Session kinds
+
+/// What a session lets you do. Only Lengths and Public swim make a venue open.
+enum SessionKind: CaseIterable {
+    case lengths
+    case publicSwim
+    case other
+
+    /// Classifies by name, case-insensitive, first match wins.
+    init(name: String) {
+        let lower = name.lowercased()
+        if lower.contains("length") || lower.contains("one lane") {
+            self = .lengths
+        } else if lower.contains("public") || lower.contains("free swim") {
+            self = .publicSwim
+        } else {
+            self = .other
+        }
+    }
+
+    var label: String {
+        switch self {
+        case .lengths:    return "Lengths"
+        case .publicSwim: return "Public swim"
+        case .other:      return "Other"
+        }
+    }
+
+    var isSwimmable: Bool { self != .other }
+}
+
 // MARK: - Status type
 
-enum PoolStatus {
-    /// Pool is open; closingTime is end of last public session today
-    case open(closingTime: String, sessionName: String, sessionTime: String)
-    /// Pool is closed; nextLabel is "6:00 AM" (later today) or "Mon 6:00 AM" (future day)
+/// A kind of swimming that is on now, and when its current run of sessions ends.
+struct ActiveRun: Equatable {
+    let kind: SessionKind
+    let endMinutes: Int
+    var untilLabel: String { formatSessionMinutes(endMinutes) }
+}
+
+enum PoolStatus: Equatable {
+    /// Lengths and/or public swim are on now; one run per kind, Lengths first.
+    case open([ActiveRun])
+    /// Nothing swimmable on now; nextLabel is "6 AM" (later today) or "Mon 6 AM" (future day).
     case closed(nextLabel: String?)
-    /// Today is not in the scraped week or data not loaded
+    /// The scraped week no longer covers today.
+    case outOfDate
+    /// Data not loaded.
     case unknown
 }
 
 // MARK: - Session extensions
 
 extension Session {
-    /// Excludes sessions with empty time, "bulkhead" in name, or "closed" in name
-    var isPublic: Bool {
+    /// Shown in the schedule: excludes sessions with empty time, "bulkhead" or "closed" in name.
+    var isListed: Bool {
         let lower = name.lowercased()
         return !time.isEmpty && !lower.contains("bulkhead") && !lower.contains("closed")
     }
+
+    var kind: SessionKind { SessionKind(name: name) }
 
     /// Parses "6:00 AM - 8:00 AM" → (start, end) minutes since midnight.
     /// Returns nil for empty or malformed time strings.
@@ -74,91 +116,91 @@ extension Session {
         guard let minutes = parseSessionTime(raw) else { return raw }
         return formatSessionMinutes(minutes)
     }
-
-    /// Full time range with both ends rounded for display, e.g. "6:00 AM - 8:00 AM"
-    var roundedTime: String {
-        let parts = time.components(separatedBy: " - ")
-        guard parts.count == 2,
-              let start = parseSessionTime(parts[0].trimmingCharacters(in: .whitespaces)),
-              let end = parseSessionTime(parts[1].trimmingCharacters(in: .whitespaces))
-        else { return time }
-        return "\(formatSessionMinutes(start)) - \(formatSessionMinutes(end))"
-    }
 }
 
 // MARK: - Day extensions
 
 extension Day {
-    var publicSessions: [Session] { sessions.filter(\.isPublic) }
+    var listedSessions: [Session] { sessions.filter(\.isListed) }
 
-    func isOpen(at nowMinutes: Int) -> Bool {
-        publicSessions.contains { $0.isActive(at: nowMinutes) }
+    private var swimmableRanges: [(kind: SessionKind, start: Int, end: Int)] {
+        listedSessions.compactMap { s in
+            guard s.kind.isSwimmable, let r = s.parsedTimeRange else { return nil }
+            return (s.kind, r.start, r.end)
+        }
     }
 
-    /// End time of the last public session today, e.g. "8:00 PM"
-    func closingTimeLabel() -> String? {
-        publicSessions
-            .compactMap { $0.parsedTimeRange?.end }
-            .max()
-            .map { formatSessionMinutes($0) }
+    /// For each swimmable kind on now, the end of its current run: sessions of that
+    /// kind that overlap or follow on within a minute (e.g. 10:59 → 11:00) are merged.
+    func activeRuns(at nowMinutes: Int) -> [ActiveRun] {
+        SessionKind.allCases.filter(\.isSwimmable).compactMap { kind in
+            let ranges = swimmableRanges.filter { $0.kind == kind }.sorted { $0.start < $1.start }
+            guard ranges.contains(where: { nowMinutes >= $0.start && nowMinutes <= $0.end }) else { return nil }
+            var end = nowMinutes
+            var extended = true
+            while extended {
+                extended = false
+                for r in ranges where r.start <= end + 1 && r.end > end {
+                    end = r.end
+                    extended = true
+                }
+            }
+            return ActiveRun(kind: kind, endMinutes: end)
+        }
     }
 
-    /// First public session starting strictly after nowMinutes
-    func nextSessionAfter(_ nowMinutes: Int) -> Session? {
-        publicSessions.first { ($0.parsedTimeRange?.start ?? Int.max) > nowMinutes }
+    /// Earliest start of a swimmable session strictly after nowMinutes.
+    func nextSwimmableStart(after nowMinutes: Int) -> Int? {
+        swimmableRanges.map(\.start).filter { $0 > nowMinutes }.min()
     }
 }
 
 // MARK: - PoolTimes extensions
 
+private func dayKey(_ date: Date) -> String {
+    let fmt = DateFormatter()
+    fmt.calendar = Calendar(identifier: .gregorian)
+    fmt.locale = Locale(identifier: "en_US_POSIX")
+    fmt.dateFormat = "yyyy-MM-dd"
+    return fmt.string(from: date)
+}
+
 extension PoolTimes {
     func today(for date: Date = .now) -> Day? {
-        let fmt = DateFormatter()
-        fmt.dateFormat = "yyyy-MM-dd"
-        let key = fmt.string(from: date)
+        let key = dayKey(date)
         return days.first { $0.date == key }
     }
 
     func status(now: Date = .now) -> PoolStatus {
         let cal = Calendar.current
         let nowMinutes = cal.component(.hour, from: now) * 60 + cal.component(.minute, from: now)
-        let fmt = DateFormatter()
-        fmt.dateFormat = "yyyy-MM-dd"
-        let todayKey = fmt.string(from: now)
+        let todayKey = dayKey(now)
 
         guard let todayIndex = days.firstIndex(where: { $0.date == todayKey }) else {
-            // Today is not in the scraped week — look for the nearest future day with sessions
-            for day in days where day.date > todayKey {
-                if let first = day.publicSessions.first {
-                    let abbrev = String(day.dayOfWeek.prefix(3))
-                    return .closed(nextLabel: "\(abbrev) \(first.startTimeLabel)")
-                }
-            }
-            return .closed(nextLabel: nil)
+            // Today isn't in the data. If the whole week is still ahead, point at it;
+            // otherwise the data is stale.
+            guard !days.isEmpty, days.allSatisfy({ $0.date > todayKey }) else { return .outOfDate }
+            return .closed(nextLabel: nextOpening(in: days[...]))
         }
 
         let today = days[todayIndex]
+        let runs = today.activeRuns(at: nowMinutes)
+        if !runs.isEmpty { return .open(runs) }
 
-        if today.isOpen(at: nowMinutes) {
-            let closing = today.closingTimeLabel() ?? ""
-            let currentSession = today.publicSessions.first { $0.isActive(at: nowMinutes) }
-            return .open(closingTime: closing, sessionName: currentSession?.name ?? "", sessionTime: currentSession?.roundedTime ?? "")
+        if let next = today.nextSwimmableStart(after: nowMinutes) {
+            return .closed(nextLabel: formatSessionMinutes(next))
         }
+        return .closed(nextLabel: nextOpening(in: days[(todayIndex + 1)...]))
+    }
 
-        // Check if there's a session later today
-        if let next = today.nextSessionAfter(nowMinutes) {
-            return .closed(nextLabel: next.startTimeLabel)
-        }
-
-        // Search future days in the scraped week
-        for day in days[(todayIndex + 1)...] {
-            if let first = day.publicSessions.first {
-                let abbrev = String(day.dayOfWeek.prefix(3))
-                return .closed(nextLabel: "\(abbrev) \(first.startTimeLabel)")
+    /// "Mon 6 AM" for the first future day with a swimmable session.
+    private func nextOpening(in futureDays: ArraySlice<Day>) -> String? {
+        for day in futureDays {
+            if let start = day.nextSwimmableStart(after: -1) {
+                return "\(day.dayOfWeek.prefix(3)) \(formatSessionMinutes(start))"
             }
         }
-
-        return .closed(nextLabel: nil)
+        return nil
     }
 }
 
@@ -180,7 +222,7 @@ private func parseSessionTime(_ s: String) -> Int? {
     return hours * 60 + minutes
 }
 
-private func formatSessionMinutes(_ totalMinutes: Int) -> String {
+func formatSessionMinutes(_ totalMinutes: Int) -> String {
     let total = roundMinutes(totalMinutes)
     let h = total / 60
     let m = total % 60
