@@ -124,3 +124,5 @@ npm start
 | 2026-11-12 22:47:22  | Remove Vancouver Aquatic Centre from scraper, web app, iOS app, data and docs (Milestone 1); add FRD.md, todo.txt, study.md, human-todo.md |
 | 2026-11-12 23:49:52  | todo.txt: tick Milestone 1 follow-up — scrape workflow verified without Aquatic Centre |
 | 2026-11-13 00:13:32  | Milestone 2 (iOS): pools count as open only during lengths or public swim; list cards show each kind on now and until when the current block ends; "Out of date" state and last-updated footer; schedule footer no longer overlaps rows; first XCTest target (PoolStatusTests). Scraper: cleanSession splits locations glued onto session names; cleaned Templeton, Kensington and Lord Byng data |
+| 2026-11-13 00:36:24  | Milestone 3 (iOS): closed venue cards show "● Closed until <next opening>" with a red dot, matching open cards; removed the Closed pill and right-hand Opens column; todo.txt: ticked push of Milestone 2 |
+| 2026-11-13 01:45:59  | Records: Milestone 4 (venue logos) proposed, built, then dropped at the user's request — no code kept; todo.txt follow-up for Renfrew "1 Lane Available" sessions |

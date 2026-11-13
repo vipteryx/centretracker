@@ -6,6 +6,8 @@
 |---|---|---|---|---|
 | 1 | Remove Vancouver Aquatic Centre | ✅ Done | R1.1–R1.5 | Aquatic Centre no longer appears in the iOS app or web app, the scraper no longer fetches it, and the app builds and runs in the simulator with the remaining 7 venues. |
 | 2 | Accurate open status (iOS) | ✅ Done | R2.1–R2.8 | A pool shows as open only when lengths or public swim is on, each card says what's on and until when, stale data is flagged, session names are clean, and the status logic is covered by unit tests. |
+| 3 | Closed cards match open cards (iOS) | ✅ Done | R3.1–R3.3 | Closed venues show a red dot and "Closed until <time>" in the same style as open venues' lines, with no pill or right-hand Opens column. |
+| 4 | Venue logos on cards (iOS) | Dropped | R4.1–R4.5 | Every venue card shows that centre's logo (or a monogram tile where there is none) on its left, legible in light and dark mode. |
 
 ## Milestone 1: Remove Vancouver Aquatic Centre
 
@@ -56,3 +58,57 @@ From the 2026-11-12 design critique (items 1, 2, 3, 4, 5, 6 and the footer bug i
 **Changes to existing requirements:** none. (`index.html` keeps its current `isPublic` logic until a later milestone, so web and iOS will disagree on "open" in the meantime.)
 
 **Out of scope:** web app parity (later milestone), sorting by distance/status, favourites, dimming past sessions, the schedule row layout (time range, location column), reusing the list's data on the schedule screen, VoiceOver grouping, accent colour.
+
+## Milestone 3: Closed cards match open cards (iOS)
+
+Requested from the device screenshot on 2026-11-12, after Milestone 2 shipped.
+
+**Requirements**
+
+- **R3.1 — Closed line.** A closed venue's card shows one line in the same style as an open venue's run line: a red dot, "Closed" in semibold primary, then "until <next opening>" in secondary, e.g. "● Closed until 8 PM" or "● Closed until Fri 6:30 AM".
+- **R3.2 — No next opening.** If there's no upcoming swimmable session in the data, the line is "● Closed" with nothing after it.
+- **R3.3 — Remove the old closed layout.** The red Closed pill and the right-hand "8 PM / Opens" column are removed. Cards are a single left-aligned column.
+
+**Done when**
+
+- In the simulator, closed venues show "● Closed until …" lines matching the open venues' lines in size, weight and spacing.
+- Unit tests still pass; the build passes.
+- `README.md` changelog row added.
+
+**Changes to existing requirements:** R2.4 said "the pill remains for Closed"; R3.3 replaces that for Closed only. Out of date, Unknown, Unavailable and loading keep their pills unless agreed otherwise.
+
+**Out of scope:** any change to how "open", "closed" or the next opening time are worked out (Milestone 2 logic is unchanged); the schedule screen.
+
+## Milestone 4: Venue logos on cards (iOS)
+
+Requested on 2026-11-12 while Milestone 3 was awaiting its device check. **Dropped** on 2026-11-12 after it was built: the user asked to undo it; no code from it remains.
+
+**Requirements**
+
+- **R4.1 — Logo tile.** Each venue card on the list screen shows a square tile on its left (about 44pt, rounded corners), top-aligned with the venue name. The name and status lines sit to its right.
+- **R4.2 — Logo source.** Where a community centre (or the facility that runs the pool) has its own logo, use it, stored as an image in `Assets.xcassets` and named per venue (`Venue.logoAssetName`). Each logo is found on that centre's or the City of Vancouver's own site, and downloaded only after you approve it.
+- **R4.3 — Fallback monogram.** A venue with no usable logo shows a monogram tile instead: the venue's initials (e.g. "H", "LB") on a tinted rounded square, the same size as a logo tile.
+- **R4.4 — Legible in dark mode.** Logos sit on a light tile background so dark or transparent logos stay visible on the dark card.
+- **R4.5 — Accessibility.** The tile is decorative to VoiceOver (the venue name is already read).
+
+**Done when**
+
+- In the simulator, all 7 cards show a logo or monogram tile, aligned consistently, in light and dark mode.
+- Unit tests and the build pass.
+- `README.md` changelog row added; logo sources recorded in `study.md`.
+
+**Changes to existing requirements:** none.
+
+**Logo sources (user chose "Real logos"; found 2026-11-12, not yet downloaded)**
+
+| Venue | Run by | Proposed file |
+|---|---|---|
+| Hillcrest | Riley Park Hillcrest Community Association | `hillcrestcommunitycentre.com/wp-content/uploads/2023/08/favicon-300x300.png` (square mark) |
+| Britannia | Britannia Community Services Centre Society | `britanniacentre.org/wp-content/uploads/2025/07/cropped-2025-BCC-FavIcon-03-180x180.png` (square mark) |
+| Renfrew | Renfrew Park Community Association | `renfrewcc.com/wp-content/themes/renfrew-park-cc/dist/assets/logo.svg` (mark without text) |
+| Killarney | Killarney Community Centre Society | `killarneycentre.ca/wp-content/uploads/2024/10/cropped-favicon.png` (square mark, 180px) |
+| Kensington | Kensington Community Centre Association | No website or logo found → monogram |
+| Templeton | Vancouver Park Board pool | No logo of its own → monogram |
+| Lord Byng | Vancouver Park Board pool | No logo of its own → monogram |
+
+**Out of scope:** logos on the schedule screen or web app; the app icon.

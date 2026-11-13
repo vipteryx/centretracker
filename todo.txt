@@ -3,11 +3,16 @@ Last updated: 2026-11-12
 Milestones
 [x] Milestone 1: Remove Vancouver Aquatic Centre
 [x] Milestone 2: Accurate open status (iOS)
+[x] Milestone 3: Closed cards match open cards (iOS)
+[x] Milestone 4: Venue logos on cards (iOS) — Dropped (undone at user's request)
 
 Next steps
 [x] Agree Milestone 1 scope
 [x] Confirm the scrape (GitHub Actions) runs cleanly without the Aquatic Centre — manual run 43331119523 passed on 2026-11-12
 [x] Agree Milestone 2 scope
 [ ] Later milestone: web app uses the same session kinds and open rules as iOS (Milestone 2)
-[ ] Push to GitHub so the app picks up the cleaned session names (Milestone 2)
+[x] Push to GitHub so the app picks up the cleaned session names (Milestone 2)
 [ ] After the next scheduled scrape, check Templeton/Kensington/Lord Byng names stay clean (first real run of cleanSession)
+[x] Agree Milestone 3 scope
+[x] Agree Milestone 4 scope and logo source
+[ ] Session kinds: count "1 Lane Available" in the location (Renfrew Weekday Lessons) as Lengths, like "Lessons and One Lane"

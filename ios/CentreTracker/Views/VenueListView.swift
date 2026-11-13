@@ -73,21 +73,20 @@ private struct VenueCardRow: View {
     }
 
     var body: some View {
-        HStack(alignment: .center, spacing: 12) {
-            VStack(alignment: .leading, spacing: 6) {
-                Text(venue.displayName)
-                    .font(.headline)
-                    .foregroundStyle(.primary)
-                if case .open(let runs) = displayStatus {
-                    ForEach(runs, id: \.kind) { run in
-                        RunLine(run: run)
-                    }
-                } else {
-                    statusBadge
+        VStack(alignment: .leading, spacing: 6) {
+            Text(venue.displayName)
+                .font(.headline)
+                .foregroundStyle(.primary)
+            switch displayStatus {
+            case .open(let runs):
+                ForEach(runs, id: \.kind) { run in
+                    StatusLine(color: .green, title: run.kind.label, detail: "until \(run.untilLabel)")
                 }
+            case .closed(let nextLabel):
+                StatusLine(color: .red, title: "Closed", detail: nextLabel.map { "until \($0)" })
+            default:
+                statusBadge
             }
-            Spacer()
-            nextOpening
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -108,10 +107,8 @@ private struct VenueCardRow: View {
             StatusPill(label: "Unavailable", color: .secondary)
         } else {
             switch status {
-            case .open:
+            case .open, .closed:
                 EmptyView()
-            case .closed:
-                StatusPill(label: "Closed", color: .red)
             case .outOfDate:
                 StatusPill(label: "Out of date", color: .orange)
             case .unknown:
@@ -119,45 +116,29 @@ private struct VenueCardRow: View {
             }
         }
     }
-
-    @ViewBuilder
-    private var nextOpening: some View {
-        if case .closed(let nextLabel) = displayStatus {
-            if let label = nextLabel {
-                VStack(alignment: .trailing, spacing: 2) {
-                    Text(label)
-                        .font(.callout.monospacedDigit().weight(.semibold))
-                        .foregroundStyle(.primary)
-                    Text("Opens")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                }
-            } else {
-                Text("No upcoming")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-        }
-    }
 }
 
-// MARK: - Run line
+// MARK: - Status line
 
-/// "● Lengths until 9 PM"
-private struct RunLine: View {
-    let run: ActiveRun
+/// "● Lengths until 9 PM" or "● Closed until 8 PM"
+private struct StatusLine: View {
+    let color: Color
+    let title: String
+    var detail: String?
 
     var body: some View {
         HStack(spacing: 6) {
             Circle()
-                .fill(Color.green)
+                .fill(color)
                 .frame(width: 8, height: 8)
-            Text(run.kind.label)
+            Text(title)
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(.primary)
-            Text("until \(run.untilLabel)")
-                .font(.subheadline.monospacedDigit())
-                .foregroundStyle(.secondary)
+            if let detail {
+                Text(detail)
+                    .font(.subheadline.monospacedDigit())
+                    .foregroundStyle(.secondary)
+            }
         }
     }
 }

@@ -167,7 +167,7 @@ Covered by `ios/CentreTrackerTests/PoolStatusTests.swift` (run with `xcodebuild 
 The root view of the app. Displays a card for each of the 7 venues using `Venue.allCases`. Tapping a venue navigates to `VenueScheduleView` for that venue.
 
 - **Open:** one line per kind on now, e.g. "● Lengths until 9 PM".
-- **Closed:** a red Closed pill, with the next opening on the right.
+- **Closed:** "● Closed until 8 PM" in the same style, with a red dot; just "● Closed" if nothing is coming up.
 - **Out of date / Unknown / Unavailable:** a pill only.
 - A footer shows when the data was last updated (the oldest venue's scrape time).
 
