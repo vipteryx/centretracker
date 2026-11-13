@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-13T09:16:55.751Z",
+  "lastUpdated": "2026-11-13T20:48:41.327Z",
   "weekRange": {
     "start": "2026-11-08",
     "end": "2026-11-14"
@@ -12,12 +12,7 @@
         {
           "name": "Lessons/Swim Club",
           "location": "1L Lengths | Lord Byng Pool",
-          "time": "10:00 AM - 2:00 PM"
-        },
-        {
-          "name": "Public Swim",
-          "location": "1L Lengths | Lord Byng Pool",
-          "time": "2:00 PM - 5:00 PM"
+          "time": "10:00 AM - 11:00 AM"
         }
       ]
     },
