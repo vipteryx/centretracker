@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-14T08:46:42.759Z",
+  "lastUpdated": "2026-11-14T18:59:09.338Z",
   "weekRange": {
     "start": "2026-11-08",
     "end": "2026-11-14"
@@ -146,14 +146,9 @@
       "dayOfWeek": "Saturday",
       "sessions": [
         {
-          "name": "Weekend Lessons",
-          "location": "1 Lane Available",
-          "time": "10:30 AM - 2:29 PM"
-        },
-        {
           "name": "Public Swim",
           "location": "Renfrew Pool",
-          "time": "2:30 PM - 4:59 PM"
+          "time": "9:00 AM - 1:29 PM"
         }
       ]
     }
