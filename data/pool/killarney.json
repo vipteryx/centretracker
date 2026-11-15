@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-11-14T18:59:09.687Z",
+  "lastUpdated": "2026-11-15T08:59:20.415Z",
   "weekRange": {
-    "start": "2026-11-08",
-    "end": "2026-11-14"
+    "start": "2026-11-15",
+    "end": "2026-11-21"
   },
   "days": [
     {
-      "date": "2026-11-08",
+      "date": "2026-11-15",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "date": "2026-11-09",
+      "date": "2026-11-16",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-17",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -99,23 +99,23 @@
       ]
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-18",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
-          "name": "Length Swim (2 lanes x 25m)",
-          "location": "Killarney Pool",
-          "time": "8:00 AM - 8:59 PM"
-        },
-        {
           "name": "Public Swim-Leisure Pool",
           "location": "Killarney Leisure Pool",
-          "time": "8:00 AM - 8:59 PM"
+          "time": "6:15 AM - 8:59 PM"
         },
         {
-          "name": "Water Slide or Diving Platform",
+          "name": "Length Swim (2 lanes x 25m)",
           "location": "Killarney Pool",
-          "time": "2:30 PM - 4:29 PM"
+          "time": "6:30 AM - 9:14 PM"
+        },
+        {
+          "name": "Lessons",
+          "location": "Killarney Leisure Pool",
+          "time": "9:00 AM - 12:59 PM"
         },
         {
           "name": "Lessons",
@@ -130,7 +130,7 @@
       ]
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-19",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -161,7 +161,7 @@
       ]
     },
     {
-      "date": "2026-11-13",
+      "date": "2026-11-20",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -192,7 +192,7 @@
       ]
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-21",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-11-14T18:59:08.885Z",
+  "lastUpdated": "2026-11-15T08:59:20.425Z",
   "weekRange": {
-    "start": "2026-11-08",
-    "end": "2026-11-14"
+    "start": "2026-11-15",
+    "end": "2026-11-21"
   },
   "days": [
     {
-      "date": "2026-11-08",
+      "date": "2026-11-15",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "date": "2026-11-09",
+      "date": "2026-11-16",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-17",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -124,7 +124,7 @@
       ]
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-18",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -133,14 +133,44 @@
           "time": "6:30 AM - 9:00 AM"
         },
         {
+          "name": "Aquafit - Shallow Moderate",
+          "location": "Templeton Pool",
+          "time": "9:30 AM - 10:29 AM"
+        },
+        {
           "name": "Public Swim -- Main Tank",
           "location": "Templeton Pool",
-          "time": "9:00 AM - 11:00 AM"
+          "time": "10:30 AM - 12:00 PM"
+        },
+        {
+          "name": "Lengths",
+          "location": "Templeton Pool",
+          "time": "12:00 PM - 1:00 PM"
+        },
+        {
+          "name": "Public Swim -- Main Tank",
+          "location": "Templeton Pool",
+          "time": "1:00 PM - 4:00 PM"
+        },
+        {
+          "name": "Public Swim - Teach Pool",
+          "location": "Templeton Pool",
+          "time": "1:00 PM - 3:00 PM"
+        },
+        {
+          "name": "Lessons (1 Lane only)",
+          "location": "Templeton Pool",
+          "time": "3:30 PM - 7:59 PM"
+        },
+        {
+          "name": "Public Swim -- Main Tank",
+          "location": "Templeton Pool",
+          "time": "8:00 PM - 9:30 PM"
         }
       ]
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-19",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -181,7 +211,7 @@
       ]
     },
     {
-      "date": "2026-11-13",
+      "date": "2026-11-20",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -227,7 +257,7 @@
       ]
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-21",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

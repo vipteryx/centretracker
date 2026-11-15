@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-11-14T18:59:09.567Z",
+  "lastUpdated": "2026-11-15T08:59:20.097Z",
   "weekRange": {
-    "start": "2026-11-08",
-    "end": "2026-11-14"
+    "start": "2026-11-15",
+    "end": "2026-11-21"
   },
   "days": [
     {
-      "date": "2026-11-08",
+      "date": "2026-11-15",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "date": "2026-11-09",
+      "date": "2026-11-16",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -48,7 +48,7 @@
       ]
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-17",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-18",
       "dayOfWeek": "Wednesday",
       "sessions": [
         {
@@ -80,7 +80,7 @@
       ]
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-19",
       "dayOfWeek": "Thursday",
       "sessions": [
         {
@@ -96,7 +96,7 @@
       ]
     },
     {
-      "date": "2026-11-13",
+      "date": "2026-11-20",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -112,7 +112,7 @@
       ]
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-21",
       "dayOfWeek": "Saturday",
       "sessions": [
         {

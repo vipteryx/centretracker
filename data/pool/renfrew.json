@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-11-14T18:59:09.338Z",
+  "lastUpdated": "2026-11-15T08:59:20.589Z",
   "weekRange": {
-    "start": "2026-11-08",
-    "end": "2026-11-14"
+    "start": "2026-11-15",
+    "end": "2026-11-21"
   },
   "days": [
     {
-      "date": "2026-11-08",
+      "date": "2026-11-15",
       "dayOfWeek": "Sunday",
       "sessions": [
         {
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "date": "2026-11-09",
+      "date": "2026-11-16",
       "dayOfWeek": "Monday",
       "sessions": [
         {
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-17",
       "dayOfWeek": "Tuesday",
       "sessions": [
         {
@@ -79,19 +79,8 @@
       ]
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-18",
       "dayOfWeek": "Wednesday",
-      "sessions": [
-        {
-          "name": "Public Swim",
-          "location": "REMEMBERANCE DAY Renfrew Pool",
-          "time": "1:00 PM - 5:00 PM"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "dayOfWeek": "Thursday",
       "sessions": [
         {
           "name": "Lengths Swim",
@@ -116,7 +105,38 @@
       ]
     },
     {
-      "date": "2026-11-13",
+      "date": "2026-11-19",
+      "dayOfWeek": "Thursday",
+      "sessions": [
+        {
+          "name": "Lengths Swim",
+          "location": "Renfrew Pool",
+          "time": "6:30 AM - 1:29 PM"
+        },
+        {
+          "name": "Aquafit - Shallow Moderate",
+          "location": "Renfrew Pool",
+          "time": "8:45 AM - 9:45 AM"
+        },
+        {
+          "name": "Public Swim",
+          "location": "Renfrew Pool",
+          "time": "1:30 PM - 3:59 PM"
+        },
+        {
+          "name": "Weekday Lessons",
+          "location": "1 Lane Available",
+          "time": "4:00 PM - 8:00 PM"
+        },
+        {
+          "name": "Evening Public Swim",
+          "location": "Renfrew Pool",
+          "time": "8:00 PM - 9:29 PM"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-20",
       "dayOfWeek": "Friday",
       "sessions": [
         {
@@ -142,13 +162,23 @@
       ]
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-21",
       "dayOfWeek": "Saturday",
       "sessions": [
         {
+          "name": "Aquafit - Shallow Moderate",
+          "location": "Renfrew Pool",
+          "time": "9:15 AM - 10:15 AM"
+        },
+        {
+          "name": "Weekend Lessons",
+          "location": "1 Lane Available",
+          "time": "10:30 AM - 2:29 PM"
+        },
+        {
           "name": "Public Swim",
           "location": "Renfrew Pool",
-          "time": "9:00 AM - 1:29 PM"
+          "time": "2:30 PM - 4:59 PM"
         }
       ]
     }
